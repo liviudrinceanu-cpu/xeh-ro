@@ -179,8 +179,8 @@ export default function QuoteRequestPage() {
               ))}
             </div>
             <p className="text-gray-600 text-sm italic mb-4">
-              "Am colaborat cu XEH.ro pentru echiparea completă a restaurantului.
-              Profesionalism, prețuri bune și livrare la timp. Recomand cu încredere!"
+              &ldquo;Am colaborat cu XEH.ro pentru echiparea completă a restaurantului.
+              Profesionalism, prețuri bune și livrare la timp. Recomand cu încredere!&rdquo;
             </p>
             <div className="text-sm">
               <div className="font-semibold text-primary">Andrei M.</div>

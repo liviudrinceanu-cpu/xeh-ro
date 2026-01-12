@@ -65,14 +65,13 @@ export default function AboutPage() {
       <Breadcrumbs items={breadcrumbs} />
 
       {/* Hero Section */}
-      <div className="bg-gradient-to-r from-primary to-primary-800 rounded-2xl p-8 md:p-16 mb-16 text-white text-center">
-        <h1 className="text-4xl md:text-5xl font-bold mb-6">
-          <span className="text-accent">X</span>EH<span className="text-accent">.</span>ro
+      <div className="gradient-primary rounded-2xl p-8 md:p-16 mb-16 text-white text-center">
+        <h1 className="text-4xl md:text-5xl font-bold mb-6 flex justify-center items-center gap-0">
+          <span className="bg-white text-primary px-3 py-1 rounded-l">XEH</span>
+          <span className="bg-secondary text-white px-3 py-1 rounded-r">.ro</span>
         </h1>
         <p className="text-2xl md:text-3xl font-light mb-4">
-          e<span className="text-accent font-semibold">X</span>pert{' '}
-          <span className="text-accent font-semibold">E</span>chipamente{' '}
-          <span className="text-accent font-semibold">H</span>oreca
+          eXpert Echipamente Horeca
         </p>
         <p className="text-lg text-gray-200 max-w-2xl mx-auto">
           Furnizor de echipamente profesionale pentru industria ospitalității din România,
@@ -84,7 +83,7 @@ export default function AboutPage() {
       <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mb-16">
         {stats.map((stat, index) => (
           <div key={index} className="text-center p-6 bg-white rounded-xl shadow-md">
-            <div className="text-4xl md:text-5xl font-bold text-accent mb-2">{stat.value}</div>
+            <div className="text-4xl md:text-5xl font-bold text-primary mb-2">{stat.value}</div>
             <div className="text-gray-600">{stat.label}</div>
           </div>
         ))}
@@ -130,7 +129,7 @@ export default function AboutPage() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
           {values.map((value, index) => (
             <div key={index} className="bg-white rounded-xl shadow-md p-6 text-center">
-              <div className="w-16 h-16 bg-accent/10 rounded-full flex items-center justify-center mx-auto mb-4 text-accent">
+              <div className="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4 text-primary">
                 {value.icon}
               </div>
               <h3 className="text-xl font-semibold text-primary mb-2">{value.title}</h3>
@@ -187,7 +186,7 @@ export default function AboutPage() {
       </div>
 
       {/* CTA Section */}
-      <div className="bg-primary rounded-2xl p-8 md:p-12 text-center text-white">
+      <div className="gradient-primary rounded-2xl p-8 md:p-12 text-center text-white">
         <h2 className="text-2xl md:text-3xl font-bold mb-4">
           Pregătit să colaborăm?
         </h2>

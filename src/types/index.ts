@@ -1,3 +1,15 @@
+export interface Brand {
+  id: string
+  slug: string
+  name: string
+  shortName: string
+  description: string
+  tagline: string
+  logo: string
+  color: string
+  accentColor: string
+}
+
 export interface Category {
   id: string
   slug: string
@@ -5,6 +17,8 @@ export interface Category {
   description: string
   image: string
   productCount: number
+  brandSlug?: string
+  parentSlug?: string
 }
 
 export interface Product {
@@ -15,12 +29,15 @@ export interface Product {
   shortDescription: string
   categorySlug: string
   categoryName: string
+  brandSlug: string
   images: string[]
   specifications: ProductSpecification[]
   features: string[]
+  priceEUR: number
   brand?: string
   model?: string
   sku?: string
+  isNew?: boolean
 }
 
 export interface ProductSpecification {

@@ -84,11 +84,11 @@ export default function ContactPage() {
             rel={info.href.startsWith('http') ? 'noopener noreferrer' : undefined}
             className="bg-white rounded-xl shadow-md p-6 hover:shadow-lg transition-shadow group"
           >
-            <div className="w-12 h-12 bg-accent/10 rounded-lg flex items-center justify-center mb-4 text-accent group-hover:bg-accent group-hover:text-white transition-colors">
+            <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center mb-4 text-primary group-hover:bg-primary group-hover:text-white transition-colors">
               {info.icon}
             </div>
             <h3 className="font-semibold text-primary mb-1">{info.title}</h3>
-            <p className="text-accent font-medium mb-1">{info.value}</p>
+            <p className="text-primary font-medium mb-1">{info.value}</p>
             <p className="text-gray-500 text-sm">{info.description}</p>
           </a>
         ))}
@@ -135,7 +135,7 @@ export default function ContactPage() {
           </div>
 
           {/* Quick Contact */}
-          <div className="bg-primary rounded-2xl p-6 text-white">
+          <div className="gradient-primary rounded-2xl p-6 text-white">
             <h3 className="text-xl font-bold mb-3">Nevoie de Răspuns Rapid?</h3>
             <p className="text-gray-200 mb-4">
               Pentru întrebări urgente sau consultanță imediată, sună-ne direct.

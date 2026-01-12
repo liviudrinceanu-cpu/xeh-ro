@@ -71,7 +71,7 @@ export default function QuoteRequestPage() {
       <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-12">
         {benefits.map((benefit, index) => (
           <div key={index} className="bg-white rounded-xl shadow-sm p-4 text-center">
-            <div className="w-12 h-12 bg-accent/10 rounded-lg flex items-center justify-center mx-auto mb-3 text-accent">
+            <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center mx-auto mb-3 text-primary">
               {benefit.icon}
             </div>
             <h3 className="font-semibold text-primary text-sm mb-1">{benefit.title}</h3>
@@ -103,9 +103,9 @@ export default function QuoteRequestPage() {
             <div className="space-y-3">
               <a
                 href="tel:+40123456789"
-                className="flex items-center gap-3 text-gray-700 hover:text-accent transition-colors"
+                className="flex items-center gap-3 text-gray-700 hover:text-primary transition-colors"
               >
-                <div className="w-10 h-10 bg-accent/10 rounded-lg flex items-center justify-center text-accent">
+                <div className="w-10 h-10 bg-primary/10 rounded-lg flex items-center justify-center text-primary">
                   <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
                   </svg>
@@ -117,9 +117,9 @@ export default function QuoteRequestPage() {
               </a>
               <a
                 href="mailto:oferte@xeh.ro"
-                className="flex items-center gap-3 text-gray-700 hover:text-accent transition-colors"
+                className="flex items-center gap-3 text-gray-700 hover:text-primary transition-colors"
               >
-                <div className="w-10 h-10 bg-accent/10 rounded-lg flex items-center justify-center text-accent">
+                <div className="w-10 h-10 bg-primary/10 rounded-lg flex items-center justify-center text-primary">
                   <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
                   </svg>
@@ -133,35 +133,35 @@ export default function QuoteRequestPage() {
           </div>
 
           {/* Why Choose Us */}
-          <div className="bg-primary rounded-2xl p-6 text-white">
+          <div className="gradient-primary rounded-2xl p-6 text-white">
             <h3 className="text-lg font-bold mb-4">De ce XEH.ro?</h3>
             <ul className="space-y-3">
               <li className="flex items-start gap-3">
-                <svg className="w-5 h-5 text-accent flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <svg className="w-5 h-5 text-primary flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
                 </svg>
                 <span className="text-sm">Peste 15 ani de experiență în domeniu</span>
               </li>
               <li className="flex items-start gap-3">
-                <svg className="w-5 h-5 text-accent flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <svg className="w-5 h-5 text-primary flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
                 </svg>
                 <span className="text-sm">Branduri recunoscute internațional</span>
               </li>
               <li className="flex items-start gap-3">
-                <svg className="w-5 h-5 text-accent flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <svg className="w-5 h-5 text-primary flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
                 </svg>
                 <span className="text-sm">Garanție și service post-vânzare</span>
               </li>
               <li className="flex items-start gap-3">
-                <svg className="w-5 h-5 text-accent flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <svg className="w-5 h-5 text-primary flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
                 </svg>
                 <span className="text-sm">Livrare și montaj în toată România</span>
               </li>
               <li className="flex items-start gap-3">
-                <svg className="w-5 h-5 text-accent flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <svg className="w-5 h-5 text-primary flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
                 </svg>
                 <span className="text-sm">Soluții de finanțare disponibile</span>
@@ -171,7 +171,7 @@ export default function QuoteRequestPage() {
 
           {/* Testimonial */}
           <div className="bg-gray-50 rounded-2xl p-6">
-            <div className="flex items-center gap-1 text-accent mb-3">
+            <div className="flex items-center gap-1 text-primary mb-3">
               {[...Array(5)].map((_, i) => (
                 <svg key={i} className="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
                   <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />

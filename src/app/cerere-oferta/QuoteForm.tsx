@@ -68,19 +68,19 @@ export default function QuoteForm() {
           <h4 className="font-semibold text-primary mb-2">Ce urmează?</h4>
           <ul className="text-left text-sm text-gray-600 space-y-2">
             <li className="flex items-start gap-2">
-              <svg className="w-5 h-5 text-accent flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <svg className="w-5 h-5 text-primary flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
               </svg>
               Vei primi un email de confirmare
             </li>
             <li className="flex items-start gap-2">
-              <svg className="w-5 h-5 text-accent flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <svg className="w-5 h-5 text-primary flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
               </svg>
               Un specialist te va contacta pentru detalii
             </li>
             <li className="flex items-start gap-2">
-              <svg className="w-5 h-5 text-accent flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <svg className="w-5 h-5 text-primary flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
               </svg>
               Vei primi oferta personalizată în maxim 24h
@@ -101,7 +101,7 @@ export default function QuoteForm() {
               message: '',
             })
           }}
-          className="text-accent font-medium hover:underline"
+          className="text-primary font-medium hover:underline"
         >
           Trimite o nouă cerere
         </button>
@@ -274,7 +274,7 @@ export default function QuoteForm() {
 
       <p className="text-sm text-gray-500 text-center">
         Prin trimiterea formularului, ești de acord cu{' '}
-        <a href="#" className="text-accent hover:underline">politica de confidențialitate</a>.
+        <a href="#" className="text-primary hover:underline">politica de confidențialitate</a>.
       </p>
     </form>
   )

@@ -19,28 +19,53 @@
     @apply max-w-7xl mx-auto;
   }
 
+  /* Crimson Elite Gradients */
+  .gradient-primary {
+    background: linear-gradient(135deg, #DC143C 0%, #8B0A1E 100%);
+  }
+
+  .gradient-header {
+    background: linear-gradient(135deg, #0D0D0D 0%, #1A1A1A 100%);
+  }
+
   .btn-primary {
-    @apply bg-primary hover:bg-primary-700 text-white px-6 py-3 rounded-lg font-semibold transition-colors inline-flex items-center gap-2;
+    @apply bg-primary hover:bg-primary-dark text-white px-6 py-3 rounded-lg font-semibold transition-all inline-flex items-center gap-2;
+    box-shadow: 0 4px 15px rgba(220, 20, 60, 0.4);
+  }
+
+  .btn-primary:hover {
+    box-shadow: 0 6px 20px rgba(220, 20, 60, 0.5);
+    transform: translateY(-1px);
   }
 
   .btn-accent {
-    @apply bg-accent hover:bg-accent-600 text-white px-6 py-3 rounded-lg font-semibold transition-colors inline-flex items-center gap-2;
+    @apply bg-primary hover:bg-primary-dark text-white px-6 py-3 rounded-lg font-semibold transition-all inline-flex items-center gap-2;
+    box-shadow: 0 4px 15px rgba(220, 20, 60, 0.4);
+  }
+
+  .btn-accent:hover {
+    box-shadow: 0 6px 20px rgba(220, 20, 60, 0.5);
+    transform: translateY(-1px);
   }
 
   .btn-outline {
-    @apply border-2 border-primary text-primary hover:bg-primary hover:text-white px-6 py-3 rounded-lg font-semibold transition-colors inline-flex items-center gap-2;
+    @apply border-2 border-primary text-primary hover:bg-primary hover:text-white px-6 py-3 rounded-lg font-semibold transition-all inline-flex items-center gap-2;
+  }
+
+  .btn-outline:hover {
+    box-shadow: 0 4px 15px rgba(220, 20, 60, 0.3);
   }
 
   .section-title {
-    @apply text-3xl md:text-4xl font-bold text-primary mb-4;
+    @apply text-3xl md:text-4xl font-bold text-secondary mb-4;
   }
 
   .section-subtitle {
-    @apply text-lg text-gray-600 max-w-2xl;
+    @apply text-lg text-text-muted max-w-2xl;
   }
 
   .card {
-    @apply bg-white rounded-xl shadow-md hover:shadow-xl transition-shadow overflow-hidden;
+    @apply bg-card rounded-xl shadow-md hover:shadow-xl transition-shadow overflow-hidden;
   }
 
   .input-field {

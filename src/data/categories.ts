@@ -106,3 +106,13 @@ export function getCategoryBySlug(slug: string): Category | undefined {
 export function getAllCategories(): Category[] {
   return categories
 }
+
+export function getRootCategories(): Category[] {
+  return categories.filter((cat) => !cat.parentSlug)
+}
+
+export function getRootCategoriesByBrand(brandSlug: string): Category[] {
+  // Returns root categories that have products from this brand
+  // For now, return all root categories as both brands have products in all categories
+  return categories.filter((cat) => !cat.parentSlug)
+}

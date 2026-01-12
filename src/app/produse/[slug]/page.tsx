@@ -2,8 +2,11 @@ import { Metadata } from 'next'
 import Link from 'next/link'
 import { notFound } from 'next/navigation'
 import Breadcrumbs from '@/components/Breadcrumbs'
+import ProductCard from '@/components/ProductCard'
+import ProductImage from './ProductImage'
 import { getProductBySlug, getAllProducts, getProductsByCategory } from '@/data/products'
 import { getCategoryBySlug } from '@/data/categories'
+import { getBrandBySlug } from '@/data/brands'
 
 interface Props {
   params: { slug: string }
@@ -44,6 +47,8 @@ export default function ProductPage({ params }: Props) {
     notFound()
   }
 
+  const brand = getBrandBySlug(product.brandSlug)
+  const brandColor = brand?.color || '#DC143C'
   const category = getCategoryBySlug(product.categorySlug)
   const relatedProducts = getProductsByCategory(product.categorySlug)
     .filter((p) => p.slug !== product.slug)
@@ -63,15 +68,16 @@ export default function ProductPage({ params }: Props) {
     image: product.images[0] || '',
     brand: {
       '@type': 'Brand',
-      name: product.brand || 'XEH Pro',
+      name: brand?.name || product.brand || 'XEH Pro',
     },
     sku: product.sku,
     mpn: product.model,
     category: product.categoryName,
     offers: {
       '@type': 'Offer',
+      price: product.priceEUR,
+      priceCurrency: 'EUR',
       availability: 'https://schema.org/InStock',
-      priceCurrency: 'RON',
       seller: {
         '@type': 'Organization',
         name: 'XEH.ro - eXpert Echipamente Horeca',
@@ -94,18 +100,27 @@ export default function ProductPage({ params }: Props) {
           {/* Product Image */}
           <div className="space-y-4">
             <div className="aspect-square bg-gray-100 rounded-2xl overflow-hidden relative">
-              {product.brand && (
-                <div className="absolute top-4 left-4 z-10">
-                  <span className="bg-accent text-white text-sm font-semibold px-3 py-1 rounded-lg">
-                    {product.brand}
+              {/* Brand Badge */}
+              <div className="absolute top-4 left-4 z-10">
+                <Link
+                  href={`/branduri/${product.brandSlug}`}
+                  className="text-white text-sm font-semibold px-4 py-2 rounded-lg transition-opacity hover:opacity-90"
+                  style={{ backgroundColor: brandColor }}
+                >
+                  {brand?.shortName || product.brand}
+                </Link>
+              </div>
+
+              {/* New Badge */}
+              {product.isNew && (
+                <div className="absolute top-4 right-4 z-10">
+                  <span className="bg-green-500 text-white text-sm font-semibold px-3 py-1 rounded-lg">
+                    NOU
                   </span>
                 </div>
               )}
-              <div className="absolute inset-0 flex items-center justify-center text-gray-400">
-                <svg className="w-24 h-24" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1} d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
-                </svg>
-              </div>
+
+              <ProductImage src={product.images[0]} alt={product.name} />
             </div>
           </div>
 
@@ -113,7 +128,8 @@ export default function ProductPage({ params }: Props) {
           <div>
             <Link
               href={`/categorii/${product.categorySlug}`}
-              className="text-accent font-medium hover:underline"
+              className="font-medium hover:underline"
+              style={{ color: brandColor }}
             >
               {product.categoryName}
             </Link>
@@ -128,6 +144,16 @@ export default function ProductPage({ params }: Props) {
               </div>
             )}
 
+            {/* Price Section */}
+            <div className="bg-gray-50 rounded-xl p-6 mb-6">
+              <div className="flex items-baseline gap-2">
+                <span className="text-4xl font-bold" style={{ color: brandColor }}>
+                  {product.priceEUR.toLocaleString('ro-RO')} EUR
+                </span>
+              </div>
+              <span className="text-sm text-gray-500">(fără TVA)</span>
+            </div>
+
             <p className="text-gray-600 text-lg leading-relaxed mb-8">
               {product.description}
             </p>
@@ -136,7 +162,8 @@ export default function ProductPage({ params }: Props) {
             <div className="flex flex-col sm:flex-row gap-4 mb-8">
               <Link
                 href={`/cerere-oferta?produs=${product.slug}`}
-                className="btn-accent text-lg px-8 py-4 justify-center"
+                className="flex-1 text-center text-white text-lg px-8 py-4 rounded-lg font-semibold transition-opacity hover:opacity-90 inline-flex items-center justify-center gap-2"
+                style={{ backgroundColor: brandColor }}
               >
                 <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
@@ -145,7 +172,8 @@ export default function ProductPage({ params }: Props) {
               </Link>
               <a
                 href="tel:+40123456789"
-                className="btn-outline text-lg px-8 py-4 justify-center"
+                className="flex-1 text-center border-2 text-lg px-8 py-4 rounded-lg font-semibold transition-colors hover:bg-gray-50 inline-flex items-center justify-center gap-2"
+                style={{ borderColor: brandColor, color: brandColor }}
               >
                 <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
@@ -161,7 +189,7 @@ export default function ProductPage({ params }: Props) {
                 <ul className="space-y-2">
                   {product.features.slice(0, 5).map((feature, index) => (
                     <li key={index} className="flex items-start gap-3 text-gray-600">
-                      <svg className="w-5 h-5 text-accent flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <svg className="w-5 h-5 flex-shrink-0 mt-0.5" style={{ color: brandColor }} fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
                       </svg>
                       {feature}
@@ -173,24 +201,35 @@ export default function ProductPage({ params }: Props) {
           </div>
         </div>
 
-        {/* Specifications & Features */}
+        {/* Specifications Table & Features */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-16">
-          {/* Specifications */}
+          {/* Specifications Table */}
           {product.specifications.length > 0 && (
-            <div className="bg-white rounded-2xl shadow-md p-6">
-              <h2 className="text-2xl font-bold text-primary mb-6">Specificații Tehnice</h2>
-              <div className="space-y-3">
-                {product.specifications.map((spec, index) => (
-                  <div
-                    key={index}
-                    className={`flex justify-between py-3 ${
-                      index !== product.specifications.length - 1 ? 'border-b border-gray-100' : ''
-                    }`}
-                  >
-                    <span className="text-gray-600">{spec.label}</span>
-                    <span className="font-medium text-primary">{spec.value}</span>
-                  </div>
-                ))}
+            <div className="bg-white rounded-2xl shadow-md overflow-hidden">
+              <div
+                className="px-6 py-4 text-white"
+                style={{ backgroundColor: brandColor }}
+              >
+                <h2 className="text-xl font-bold">Specificații Tehnice</h2>
+              </div>
+              <div className="p-6">
+                <table className="w-full">
+                  <tbody>
+                    {product.specifications.map((spec, index) => (
+                      <tr
+                        key={index}
+                        className={index % 2 === 0 ? 'bg-gray-50' : 'bg-white'}
+                      >
+                        <td className="py-3 px-4 text-gray-600 font-medium">
+                          {spec.label}
+                        </td>
+                        <td className="py-3 px-4 text-primary font-semibold text-right">
+                          {spec.value}
+                        </td>
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
               </div>
             </div>
           )}
@@ -202,7 +241,7 @@ export default function ProductPage({ params }: Props) {
               <ul className="space-y-3">
                 {product.features.map((feature, index) => (
                   <li key={index} className="flex items-start gap-3 text-gray-600">
-                    <svg className="w-5 h-5 text-accent flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <svg className="w-5 h-5 flex-shrink-0 mt-0.5" style={{ color: brandColor }} fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
                     </svg>
                     {feature}
@@ -219,57 +258,29 @@ export default function ProductPage({ params }: Props) {
             <h2 className="text-2xl font-bold text-primary mb-6">Produse Similare</h2>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
               {relatedProducts.map((relatedProduct) => (
-                <div key={relatedProduct.slug} className="card">
-                  <div className="aspect-square bg-gray-100 relative">
-                    {relatedProduct.brand && (
-                      <div className="absolute top-3 left-3">
-                        <span className="bg-accent text-white text-xs font-semibold px-2 py-1 rounded">
-                          {relatedProduct.brand}
-                        </span>
-                      </div>
-                    )}
-                  </div>
-                  <div className="p-4">
-                    <h3 className="font-semibold text-primary mb-2 line-clamp-2">
-                      <Link
-                        href={`/produse/${relatedProduct.slug}`}
-                        className="hover:text-accent transition-colors"
-                      >
-                        {relatedProduct.name}
-                      </Link>
-                    </h3>
-                    <p className="text-gray-600 text-sm line-clamp-2 mb-4">
-                      {relatedProduct.shortDescription}
-                    </p>
-                    <Link
-                      href={`/produse/${relatedProduct.slug}`}
-                      className="text-accent font-medium text-sm hover:underline inline-flex items-center gap-1"
-                    >
-                      Vezi detalii
-                      <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                      </svg>
-                    </Link>
-                  </div>
-                </div>
+                <ProductCard key={relatedProduct.slug} product={relatedProduct} />
               ))}
             </div>
           </div>
         )}
 
         {/* CTA Section */}
-        <div className="bg-primary rounded-2xl p-8 md:p-12 text-center text-white">
+        <div
+          className="rounded-2xl p-8 md:p-12 text-center text-white"
+          style={{ backgroundColor: brandColor }}
+        >
           <h2 className="text-2xl md:text-3xl font-bold mb-4">
             Interesat de {product.name}?
           </h2>
-          <p className="text-gray-200 mb-8 max-w-2xl mx-auto">
+          <p className="text-gray-100 mb-8 max-w-2xl mx-auto">
             Contactează-ne pentru o ofertă personalizată, informații despre disponibilitate
             sau pentru orice întrebări tehnice.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link
               href={`/cerere-oferta?produs=${product.slug}`}
-              className="bg-accent hover:bg-accent-600 text-white px-8 py-4 rounded-lg font-semibold transition-colors inline-flex items-center justify-center gap-2"
+              className="bg-white hover:bg-gray-100 px-8 py-4 rounded-lg font-semibold transition-colors inline-flex items-center justify-center gap-2"
+              style={{ color: brandColor }}
             >
               <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
@@ -278,7 +289,7 @@ export default function ProductPage({ params }: Props) {
             </Link>
             <a
               href="tel:+40123456789"
-              className="bg-white text-primary hover:bg-gray-100 px-8 py-4 rounded-lg font-semibold transition-colors inline-flex items-center justify-center gap-2"
+              className="border-2 border-white text-white hover:bg-white/10 px-8 py-4 rounded-lg font-semibold transition-colors inline-flex items-center justify-center gap-2"
             >
               <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />

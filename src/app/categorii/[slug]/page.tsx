@@ -83,7 +83,7 @@ export default function CategoryPage({ params }: Props) {
         <Breadcrumbs items={breadcrumbs} />
 
         {/* Category Header */}
-        <div className="bg-gradient-to-r from-primary to-primary-800 rounded-2xl p-8 md:p-12 mb-10 text-white">
+        <div className="gradient-primary rounded-2xl p-8 md:p-12 mb-10 text-white">
           <h1 className="text-3xl md:text-4xl font-bold mb-4">{category.name}</h1>
           <p className="text-lg text-gray-200 max-w-2xl">{category.description}</p>
           <div className="mt-4 flex items-center gap-4 text-sm">
@@ -101,7 +101,7 @@ export default function CategoryPage({ params }: Props) {
                 <div className="aspect-square bg-gray-100 relative overflow-hidden">
                   {product.brand && (
                     <div className="absolute top-3 left-3 z-10">
-                      <span className="bg-accent text-white text-xs font-semibold px-2 py-1 rounded">
+                      <span className="bg-primary text-white text-xs font-semibold px-2 py-1 rounded">
                         {product.brand}
                       </span>
                     </div>
@@ -112,7 +112,7 @@ export default function CategoryPage({ params }: Props) {
                   <h3 className="font-semibold text-primary mb-2 line-clamp-2">
                     <Link
                       href={`/produse/${product.slug}`}
-                      className="hover:text-accent transition-colors"
+                      className="hover:text-primary-light transition-colors"
                     >
                       {product.name}
                     </Link>
@@ -126,13 +126,13 @@ export default function CategoryPage({ params }: Props) {
                   <div className="flex gap-2">
                     <Link
                       href={`/produse/${product.slug}`}
-                      className="flex-1 text-center bg-primary hover:bg-primary-700 text-white px-3 py-2 rounded-lg text-sm font-medium transition-colors"
+                      className="flex-1 text-center bg-primary hover:bg-primary-dark text-white px-3 py-2 rounded-lg text-sm font-medium transition-colors"
                     >
                       Detalii
                     </Link>
                     <Link
                       href={`/cerere-oferta?produs=${product.slug}`}
-                      className="flex-1 text-center bg-accent hover:bg-accent-600 text-white px-3 py-2 rounded-lg text-sm font-medium transition-colors"
+                      className="flex-1 text-center bg-primary hover:bg-primary-600 text-white px-3 py-2 rounded-lg text-sm font-medium transition-colors"
                     >
                       Cere Ofertă
                     </Link>

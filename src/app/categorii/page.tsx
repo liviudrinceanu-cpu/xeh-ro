@@ -34,17 +34,17 @@ export default function CategoriesPage() {
             href={`/categorii/${category.slug}`}
             className="card group hover:-translate-y-1 transition-all duration-300"
           >
-            <div className="aspect-video bg-gradient-to-br from-primary-100 to-primary-200 relative overflow-hidden">
+            <div className="aspect-video bg-gradient-to-br from-gray-100 to-gray-200 relative overflow-hidden">
               <div className="absolute inset-0 bg-gradient-to-t from-primary/90 via-primary/40 to-transparent flex flex-col justify-end p-6">
                 <h2 className="text-white font-bold text-xl mb-1">{category.name}</h2>
-                <span className="text-accent font-medium text-sm">{category.productCount} produse</span>
+                <span className="text-white/80 font-medium text-sm">{category.productCount} produse</span>
               </div>
             </div>
             <div className="p-5">
               <p className="text-gray-600 text-sm leading-relaxed mb-4">
                 {category.description}
               </p>
-              <span className="text-accent font-semibold text-sm group-hover:translate-x-2 transition-transform inline-flex items-center gap-2">
+              <span className="text-primary font-semibold text-sm group-hover:translate-x-2 transition-transform inline-flex items-center gap-2">
                 Explorează categoria
                 <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
@@ -56,7 +56,7 @@ export default function CategoriesPage() {
       </div>
 
       {/* Info Section */}
-      <div className="mt-16 bg-primary-50 rounded-2xl p-8 md:p-12">
+      <div className="mt-16 bg-gray-50 rounded-2xl p-8 md:p-12">
         <div className="max-w-3xl mx-auto text-center">
           <h2 className="text-2xl md:text-3xl font-bold text-primary mb-4">
             Nu găsești ce cauți?

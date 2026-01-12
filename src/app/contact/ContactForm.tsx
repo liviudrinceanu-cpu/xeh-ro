@@ -44,7 +44,7 @@ export default function ContactForm() {
         </p>
         <button
           onClick={() => setSubmitted(false)}
-          className="text-accent font-medium hover:underline"
+          className="text-primary font-medium hover:underline"
         >
           Trimite alt mesaj
         </button>
@@ -160,7 +160,7 @@ export default function ContactForm() {
 
       <p className="text-sm text-gray-500 text-center">
         Prin trimiterea formularului, ești de acord cu{' '}
-        <a href="#" className="text-accent hover:underline">politica de confidențialitate</a>.
+        <a href="#" className="text-primary hover:underline">politica de confidențialitate</a>.
       </p>
     </form>
   )

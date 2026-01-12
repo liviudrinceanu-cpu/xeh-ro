@@ -8,7 +8,11 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "test": "vitest"
+    "test": "vitest",
+    "scrape": "node scripts/scraper.js",
+    "download-images": "node scripts/download-images.js",
+    "import-products": "node scripts/import-products.js",
+    "scrape:all": "bash scripts/run-all.sh"
   },
   "dependencies": {
     "next": "14.2.15",
@@ -20,6 +24,7 @@
     "@types/react": "^18.3.3",
     "@types/react-dom": "^18.3.0",
     "autoprefixer": "^10.4.19",
+    "cheerio": "^1.1.2",
     "eslint": "^8.57.0",
     "eslint-config-next": "14.2.15",
     "postcss": "^8.4.39",

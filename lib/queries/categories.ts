@@ -165,80 +165,54 @@ export async function getCategoryBreadcrumb(path: string): Promise<Category[]> {
 export async function getProductCountByCategory(brandSlug?: string): Promise<Record<string, number>> {
   const supabase = await createClient()
 
-  // If brandSlug is provided, we need to filter products by brand via categories
+  // Get categories (optionally filtered by brand)
+  let categoriesQuery = supabase
+    .from('categories')
+    .select('id, path')
+
   if (brandSlug) {
-    // First get the brand
     const brand = await getBrandBySlug(brandSlug)
     if (!brand) return {}
-
-    // Get all categories for this brand
-    const { data: brandCategories, error: catError } = await supabase
-      .from('categories')
-      .select('id, path')
-      .eq('brand_id', brand.id)
-
-    if (catError) {
-      console.error('Error fetching brand categories:', catError)
-      return {}
-    }
-
-    const categoryIds = new Set(brandCategories?.map(c => c.id) || [])
-
-    // Get product counts only for these categories
-    const { data, error } = await supabase
-      .from('product_categories')
-      .select('category_id')
-      .in('category_id', Array.from(categoryIds))
-
-    if (error) {
-      console.error('Error fetching product counts:', error)
-      return {}
-    }
-
-    // Count products per category
-    const counts: Record<string, number> = {}
-    for (const item of data || []) {
-      counts[item.category_id] = (counts[item.category_id] || 0) + 1
-    }
-
-    // Also add hierarchical counting - parent categories should include children's products
-    // Build a map of category paths to IDs
-    const categoryPathMap = new Map<string, string>()
-    for (const cat of brandCategories || []) {
-      categoryPathMap.set(cat.path, cat.id)
-    }
-
-    // For each category, sum up products from all its descendants
-    const hierarchicalCounts: Record<string, number> = {}
-    for (const cat of brandCategories || []) {
-      let totalCount = counts[cat.id] || 0
-
-      // Find all child categories (categories whose path starts with this one)
-      for (const otherCat of brandCategories || []) {
-        if (otherCat.path !== cat.path && otherCat.path.startsWith(cat.path + '/')) {
-          totalCount += counts[otherCat.id] || 0
-        }
-      }
-
-      hierarchicalCounts[cat.id] = totalCount
-    }
-
-    return hierarchicalCounts
+    categoriesQuery = categoriesQuery.eq('brand_id', brand.id)
   }
 
-  // Default behavior (no brand filter)
-  const { data, error } = await supabase
-    .from('product_categories')
-    .select('category_id')
+  const { data: categories, error: catError } = await categoriesQuery
 
-  if (error) {
-    console.error('Error fetching product counts:', error)
+  if (catError || !categories) {
+    console.error('Error fetching categories:', catError)
     return {}
   }
 
+  // For each category, count products where the category path starts with this category's path
+  // This matches how getProducts() fetches products (using LIKE 'path%')
   const counts: Record<string, number> = {}
-  for (const item of data || []) {
-    counts[item.category_id] = (counts[item.category_id] || 0) + 1
+
+  // Get all product_categories with their category paths
+  const { data: productCategories, error: pcError } = await supabase
+    .from('product_categories')
+    .select('product_id, category:categories!inner(id, path)')
+
+  if (pcError) {
+    console.error('Error fetching product categories:', pcError)
+    return {}
+  }
+
+  // For each category, count unique products that belong to it or any descendant
+  for (const cat of categories) {
+    const productIdsInCategory = new Set<string>()
+
+    for (const pc of productCategories || []) {
+      // The category relation returns an object (not array) due to !inner join
+      const pcCategory = pc.category as unknown as { id: string; path: string } | null
+      if (!pcCategory) continue
+
+      // Check if product's category path starts with this category's path
+      if (pcCategory.path === cat.path || pcCategory.path.startsWith(cat.path + '/')) {
+        productIdsInCategory.add(pc.product_id)
+      }
+    }
+
+    counts[cat.id] = productIdsInCategory.size
   }
 
   return counts

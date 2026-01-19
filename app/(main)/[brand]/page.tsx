@@ -13,10 +13,6 @@ interface BrandPageProps {
   }>
 }
 
-export async function generateStaticParams() {
-  return [{ brand: 'rm' }, { brand: 'redfox' }]
-}
-
 export async function generateMetadata({ params }: BrandPageProps) {
   const { brand: brandSlug } = await params
   const brand = await getBrandBySlug(brandSlug)

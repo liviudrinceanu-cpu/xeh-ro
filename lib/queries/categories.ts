@@ -207,7 +207,8 @@ export async function getProductCountByCategory(brandSlug?: string): Promise<Rec
       if (!pcCategory) continue
 
       // Check if product's category path starts with this category's path
-      if (pcCategory.path === cat.path || pcCategory.path.startsWith(cat.path + '/')) {
+      // Use startsWith without trailing slash to match both exact and descendants
+      if (pcCategory.path.startsWith(cat.path)) {
         productIdsInCategory.add(pc.product_id)
       }
     }

@@ -188,27 +188,49 @@ export async function getProductCountByCategory(brandSlug?: string): Promise<Rec
   const counts: Record<string, number> = {}
 
   // Get all product_categories with their category paths
-  const { data: productCategories, error: pcError } = await supabase
-    .from('product_categories')
-    .select('product_id, category:categories!inner(id, path)')
+  // Supabase has a default limit of 1000, so we need to paginate
+  const allProductCategories: Array<{ product_id: string; category: { id: string; path: string } }> = []
+  const pageSize = 1000
+  let page = 0
+  let hasMore = true
 
-  if (pcError) {
-    console.error('Error fetching product categories:', pcError)
-    return {}
+  while (hasMore) {
+    const { data: chunk, error: pcError } = await supabase
+      .from('product_categories')
+      .select('product_id, category:categories!inner(id, path)')
+      .range(page * pageSize, (page + 1) * pageSize - 1)
+
+    if (pcError) {
+      console.error('Error fetching product categories:', pcError)
+      return {}
+    }
+
+    if (chunk && chunk.length > 0) {
+      // Cast the chunk data properly
+      for (const item of chunk) {
+        const cat = item.category as unknown as { id: string; path: string }
+        if (cat) {
+          allProductCategories.push({
+            product_id: item.product_id,
+            category: cat
+          })
+        }
+      }
+      page++
+      hasMore = chunk.length === pageSize
+    } else {
+      hasMore = false
+    }
   }
 
   // For each category, count unique products that belong to it or any descendant
   for (const cat of categories) {
     const productIdsInCategory = new Set<string>()
 
-    for (const pc of productCategories || []) {
-      // The category relation returns an object (not array) due to !inner join
-      const pcCategory = pc.category as unknown as { id: string; path: string } | null
-      if (!pcCategory) continue
-
+    for (const pc of allProductCategories) {
       // Check if product's category path starts with this category's path
       // Use startsWith without trailing slash to match both exact and descendants
-      if (pcCategory.path.startsWith(cat.path)) {
+      if (pc.category.path.startsWith(cat.path)) {
         productIdsInCategory.add(pc.product_id)
       }
     }

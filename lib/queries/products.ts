@@ -221,6 +221,22 @@ export async function getProductBySlug(slug: string): Promise<ProductWithDetails
 export async function getFeaturedProducts(limit: number = 8): Promise<Product[]> {
   const supabase = await createClient()
 
+  // Popular HoReCa keywords - products that attract customers
+  const popularKeywords = [
+    'cuptor',
+    'frigider',
+    'congelator',
+    'mașină de spălat',
+    'vitrină',
+    'răcitor',
+    'combi',
+    'convecție',
+    'abur',
+    'profesional'
+  ]
+
+  // Fetch more products than needed, then shuffle and slice
+  // Price range: 2000-25000 EUR for attractive mid-to-high range products
   const { data, error } = await supabase
     .from('products')
     .select(`
@@ -229,15 +245,22 @@ export async function getFeaturedProducts(limit: number = 8): Promise<Product[]>
       product_images(*)
     `)
     .not('price_amount', 'is', null)
-    .order('created_at', { ascending: false })
-    .limit(limit)
+    .gte('price_amount', 2000)
+    .lte('price_amount', 25000)
+    .limit(100) // Fetch more to have variety for randomization
 
   if (error) {
     console.error('Error fetching featured products:', error)
     return []
   }
 
-  return data || []
+  if (!data || data.length === 0) return []
+
+  // Shuffle the products randomly
+  const shuffled = data.sort(() => Math.random() - 0.5)
+
+  // Return the requested limit
+  return shuffled.slice(0, limit)
 }
 
 export async function getRelatedProducts(productId: string, limit: number = 4): Promise<Product[]> {

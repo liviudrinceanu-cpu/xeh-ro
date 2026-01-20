@@ -8,7 +8,8 @@ import { FAQJsonLd } from '@/components/seo/JsonLd'
 import { getBrands, getTopLevelCategories, getProductCountByCategory } from '@/lib/queries/categories'
 import { getFeaturedProducts } from '@/lib/queries/products'
 
-export const revalidate = 3600 // Revalidate every hour
+// Dynamic rendering to randomize featured products on each visit
+export const dynamic = 'force-dynamic'
 
 // FAQ data for SEO
 const homeFaqs = [

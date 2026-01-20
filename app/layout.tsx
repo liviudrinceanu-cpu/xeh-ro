@@ -71,6 +71,13 @@ export default function RootLayout({
         <script src="https://analytics.ahrefs.com/analytics.js" data-key="tmC7XUKsny09MLNS7hdRcQ" async></script>
       </head>
       <body className="font-sans antialiased bg-background min-h-screen">
+        {/* Skip link for accessibility */}
+        <a
+          href="#main-content"
+          className="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-50 focus:px-4 focus:py-2 focus:bg-crimson focus:text-white focus:rounded-lg focus:outline-none"
+        >
+          Salt la conținut
+        </a>
         <OrganizationJsonLd />
         <LocalBusinessJsonLd />
         <WebSiteJsonLd />

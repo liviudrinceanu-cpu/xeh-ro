@@ -38,7 +38,7 @@ Cuptoarele cu convecție folosesc ventilatoare pentru a circula aerul cald unifo
 - Coacerea pâinii
 - Gratinare
 
-**Recomandare:** [RM Gastro Convection Ovens](/rm/konvektomaty) - gama completă de cuptoare cu convecție.
+**Recomandare:** [RM Gastro Convection Ovens](/rm/cuptoare-cu-convectie) - gama completă de cuptoare cu convecție.
 
 ### 2. Combi Steamere
 Combi steamerele combină gătirea cu aburi și cu aer cald. Avantaje:
@@ -217,7 +217,7 @@ Cuptorul clasic (static) încălzește prin radiație directă de la rezistențe
 
 Pentru majoritatea restaurantelor, **cuptorul cu convecție** este alegerea potrivită datorită versatilității și eficienței.
 
-Explorează [gama noastră de cuptoare cu convecție](/rm/konvektomaty).
+Explorează [gama noastră de cuptoare cu convecție](/rm/cuptoare-cu-convectie).
     `,
     faqs: [
       {
@@ -266,7 +266,7 @@ Mașinile de spălat vase industriale oferă:
 
 ## Recomandări
 
-Vezi [programul nostru de spălare](/rm/myci-program) pentru opțiuni complete.
+Vezi [programul nostru de spălare](/rm/masini-de-spalat-vase) pentru opțiuni complete.
     `,
     faqs: [
       {
@@ -309,7 +309,7 @@ Esențiale pentru:
 - Prevenirea dezvoltării bacteriilor
 - Cook & Chill
 
-Explorează [gama de răcitoare rapide](/rm/sokery).
+Explorează [gama de răcitoare rapide](/rm/racitoare-rapide).
 
 ### Vitrine Frigorifice
 - Pentru expunere deserturi
@@ -318,7 +318,7 @@ Explorează [gama de răcitoare rapide](/rm/sokery).
 
 ## Alegerea Potrivită
 
-Vezi [sistemele noastre de răcire](/rm/chlazeni) pentru soluții complete.
+Vezi [sistemele noastre de răcire](/rm/sistem-de-racire) pentru soluții complete.
     `,
     faqs: [
       {

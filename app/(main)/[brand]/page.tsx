@@ -22,6 +22,20 @@ export async function generateMetadata({ params }: BrandPageProps) {
   return {
     title: `${brand.name} - Echipamente Profesionale`,
     description: `Explorează gama completă de echipamente ${brand.name}. Produse profesionale pentru bucătăria ta HoReCa.`,
+    alternates: {
+      canonical: `https://xeh.ro/${brandSlug}`,
+    },
+    openGraph: {
+      title: `${brand.name} - Echipamente Profesionale | XEH.ro`,
+      description: `Explorează gama completă de echipamente ${brand.name}. Produse profesionale pentru bucătăria ta HoReCa.`,
+      url: `https://xeh.ro/${brandSlug}`,
+      type: 'website',
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title: `${brand.name} - Echipamente Profesionale`,
+      description: `Explorează gama completă de echipamente ${brand.name}.`,
+    },
   }
 }
 

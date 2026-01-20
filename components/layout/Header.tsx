@@ -71,6 +71,7 @@ export default function Header() {
             <button
               onClick={() => setSearchOpen(true)}
               className="sm:hidden p-2 text-gray-600 hover:text-crimson"
+              aria-label="Deschide căutarea"
             >
               <Search className="w-5 h-5" />
             </button>
@@ -171,6 +172,8 @@ export default function Header() {
             <button
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
               className="md:hidden p-2 text-gray-600 hover:text-crimson"
+              aria-label={mobileMenuOpen ? 'Închide meniul' : 'Deschide meniul'}
+              aria-expanded={mobileMenuOpen}
             >
               {mobileMenuOpen ? (
                 <X className="w-6 h-6" />
@@ -345,6 +348,7 @@ function SearchModal({ onClose }: { onClose: () => void }) {
             <button
               onClick={onClose}
               className="p-1 text-gray-400 hover:text-gray-600"
+              aria-label="Închide căutarea"
             >
               <X className="w-5 h-5" />
             </button>

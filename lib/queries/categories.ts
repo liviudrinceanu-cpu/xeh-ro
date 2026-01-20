@@ -1,6 +1,36 @@
 import { createClient } from '@/lib/supabase/server'
 import type { Category, Brand } from '@/types/database'
 
+// Explicit field selection for all category queries (bypasses Supabase schema cache)
+// Note: product_count is NOT a real column - it's computed separately
+const CATEGORY_SELECT_FIELDS = `
+  id,
+  brand_id,
+  parent_id,
+  name,
+  name_ro,
+  slug,
+  slug_ro,
+  path,
+  path_ro,
+  depth,
+  created_at,
+  updated_at,
+  brand:brands(*)
+`
+
+// Helper to normalize category data (brand comes as array from Supabase, convert to single object)
+function normalizeCategory(cat: Record<string, unknown>): Category {
+  return {
+    ...cat,
+    brand: Array.isArray(cat.brand) ? cat.brand[0] : cat.brand,
+  } as Category
+}
+
+function normalizeCategories(cats: Record<string, unknown>[]): Category[] {
+  return cats.map(normalizeCategory)
+}
+
 export async function getBrands(): Promise<Brand[]> {
   const supabase = await createClient()
 
@@ -39,10 +69,7 @@ export async function getCategories(brandSlug?: string): Promise<Category[]> {
 
   let query = supabase
     .from('categories')
-    .select(`
-      *,
-      brand:brands(*)
-    `)
+    .select(CATEGORY_SELECT_FIELDS)
     .order('depth')
     .order('name')
 
@@ -60,7 +87,7 @@ export async function getCategories(brandSlug?: string): Promise<Category[]> {
     return []
   }
 
-  return data || []
+  return normalizeCategories(data || [])
 }
 
 export async function getCategoryByPath(path: string): Promise<Category | null> {
@@ -69,10 +96,7 @@ export async function getCategoryByPath(path: string): Promise<Category | null> 
   // First try to find by original path
   let { data, error } = await supabase
     .from('categories')
-    .select(`
-      *,
-      brand:brands(*)
-    `)
+    .select(CATEGORY_SELECT_FIELDS)
     .eq('path', path)
     .single()
 
@@ -80,10 +104,7 @@ export async function getCategoryByPath(path: string): Promise<Category | null> 
   if (error || !data) {
     const result = await supabase
       .from('categories')
-      .select(`
-        *,
-        brand:brands(*)
-      `)
+      .select(CATEGORY_SELECT_FIELDS)
       .eq('path_ro', path)
       .single()
 
@@ -101,16 +122,15 @@ export async function getCategoryByPath(path: string): Promise<Category | null> 
 
     const result = await supabase
       .from('categories')
-      .select(`
-        *,
-        brand:brands(*)
-      `)
+      .select(CATEGORY_SELECT_FIELDS)
       .eq('slug_ro', lastSlug)
       .single()
 
     if (result.data) {
       // Verify the brand matches
-      const brand = result.data.brand as { slug: string } | null
+      // Note: brand comes as array from explicit field selection, so get first element
+      const brandData = result.data.brand
+      const brand = (Array.isArray(brandData) ? brandData[0] : brandData) as { slug: string } | null
       if (brand?.slug === brandSlug) {
         data = result.data
         error = null
@@ -126,7 +146,7 @@ export async function getCategoryByPath(path: string): Promise<Category | null> 
     return null
   }
 
-  return data
+  return data ? normalizeCategory(data as Record<string, unknown>) : null
 }
 
 export async function getTopLevelCategories(brandSlug?: string): Promise<Category[]> {
@@ -134,10 +154,7 @@ export async function getTopLevelCategories(brandSlug?: string): Promise<Categor
 
   let query = supabase
     .from('categories')
-    .select(`
-      *,
-      brand:brands(*)
-    `)
+    .select(CATEGORY_SELECT_FIELDS)
     .eq('depth', 1)
     .order('name')
 
@@ -155,7 +172,7 @@ export async function getTopLevelCategories(brandSlug?: string): Promise<Categor
     return []
   }
 
-  return data || []
+  return normalizeCategories((data || []) as Record<string, unknown>[])
 }
 
 export async function getCategoryChildren(parentId: string): Promise<Category[]> {
@@ -163,10 +180,7 @@ export async function getCategoryChildren(parentId: string): Promise<Category[]>
 
   const { data, error } = await supabase
     .from('categories')
-    .select(`
-      *,
-      brand:brands(*)
-    `)
+    .select(CATEGORY_SELECT_FIELDS)
     .eq('parent_id', parentId)
     .order('name')
 
@@ -175,7 +189,7 @@ export async function getCategoryChildren(parentId: string): Promise<Category[]>
     return []
   }
 
-  return data || []
+  return normalizeCategories((data || []) as Record<string, unknown>[])
 }
 
 export async function getCategoryBreadcrumb(path: string): Promise<Category[]> {
@@ -193,10 +207,7 @@ export async function getCategoryBreadcrumb(path: string): Promise<Category[]> {
 
   const { data, error } = await supabase
     .from('categories')
-    .select(`
-      *,
-      brand:brands(*)
-    `)
+    .select(CATEGORY_SELECT_FIELDS)
     .in('path', breadcrumbPaths)
     .order('depth')
 
@@ -205,7 +216,7 @@ export async function getCategoryBreadcrumb(path: string): Promise<Category[]> {
     return []
   }
 
-  return data || []
+  return normalizeCategories((data || []) as Record<string, unknown>[])
 }
 
 export async function getProductCountByCategory(brandSlug?: string): Promise<Record<string, number>> {

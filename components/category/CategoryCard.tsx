@@ -52,7 +52,24 @@ interface CategoryCardProps {
 
 export default function CategoryCard({ category, productCount, className }: CategoryCardProps) {
   const brandSlug = category.brand?.slug || 'rm'
-  const categoryUrl = getCategoryUrl(brandSlug, category.path, category.path_ro)
+
+  // Build URL using path_ro for SEO-friendly Romanian hierarchical links
+  // path_ro contains full Romanian path like /Group/rm/sistem-de-racire/frigidere
+  // We strip /Group/brand prefix to get clean URL like /rm/sistem-de-racire/frigidere
+  let categoryUrl: string
+  if (category.path_ro) {
+    // Use Romanian path (hierarchical SEO-friendly URL)
+    const cleanPath = category.path_ro.replace(/^\/Group\/[^/]+/, '')
+    categoryUrl = `/${brandSlug}${cleanPath}`
+  } else if (category.slug_ro) {
+    // Fallback to slug_ro for flat URL
+    categoryUrl = `/${brandSlug}/${category.slug_ro}`
+  } else {
+    // Final fallback to original path
+    const cleanPath = category.path.replace(/^\/Group\/[^/]+/, '')
+    categoryUrl = `/${brandSlug}${cleanPath}`
+  }
+
   const Icon = getCategoryIcon(category.name)
   const displayName = getCategoryName(category.name, category.name_ro)
 

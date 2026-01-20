@@ -22,6 +22,13 @@ export const metadata: Metadata = {
   creator: 'XEH.ro',
   publisher: 'XEH.ro',
   metadataBase: new URL('https://xeh.ro'),
+  icons: {
+    icon: [
+      { url: '/icon.svg', type: 'image/svg+xml' },
+      { url: '/icon', type: 'image/png', sizes: '32x32' },
+    ],
+    apple: '/apple-icon',
+  },
   verification: {
     google: process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION,
   },

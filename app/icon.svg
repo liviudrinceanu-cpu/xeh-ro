@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+  <!-- Crimson background for left part (XEH) -->
+  <path d="M40 0 H340 V512 H40 A40 40 0 0 1 0 472 V40 A40 40 0 0 1 40 0" fill="#DC143C"/>
+  <!-- Dark background for right part (.ro) -->
+  <path d="M340 0 H472 A40 40 0 0 1 512 40 V472 A40 40 0 0 1 472 512 H340 V0" fill="#374151"/>
+  <!-- XEH text - bold, clear -->
+  <text x="170" y="330" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-weight="900" font-size="180" fill="white">XEH</text>
+  <!-- .ro text -->
+  <text x="426" y="320" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-weight="700" font-size="100" fill="white">.ro</text>
+</svg>

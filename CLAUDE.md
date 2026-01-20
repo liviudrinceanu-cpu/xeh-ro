@@ -1,7 +1,7 @@
 # XEH.ro - Context Proiect
 
 > **IMPORTANT:** Acest fișier este citit automat de Claude Code. Actualizează-l după fiecare decizie majoră.
-> **Ultima actualizare:** 2026-01-20 (dimineața)
+> **Ultima actualizare:** 2026-01-20 (seara)
 
 ---
 
@@ -13,6 +13,7 @@
 **SEO BASIC: ✅ COMPLET IMPLEMENTAT**
 **SEO ADVANCED: ✅ BLOG + LANDING PAGES DEPLOYED**
 **SEO EXPERT: ✅ OG IMAGES + ARTICLE SCHEMA + COMPLETE**
+**SEO URLs ROMÂNĂ: ✅ CATEGORII + SUBCATEGORII CU SLUGURI RO**
 **GOOGLE SEARCH CONSOLE: ✅ VERIFICAT ȘI SITEMAP TRIMIS**
 **QUOTE CART: ✅ COMPLET IMPLEMENTAT**
 **AHREFS ANALYTICS: ✅ INTEGRAT**
@@ -63,6 +64,26 @@
 - `app/api/search/route.ts:29` - search include title_ro
 - Pattern telefon: `(\+40|0)[0-9]{9}`
 - Pattern nume: `[a-zA-ZăâîșțĂÂÎȘȚ\s\-]+`
+
+### ✅ SEO URLs ROMÂNĂ - COMPLET!
+
+| # | Task | Status | Detalii |
+|---|------|--------|---------|
+| 1 | URL-uri categorii în română | ✅ LIVE | `/rm/sistem-de-racire` nu `/rm/chlazeni` |
+| 2 | URL-uri subcategorii ierarhice | ✅ LIVE | `/rm/sistem-de-racire/frigidere-si-congelatoare` |
+| 3 | Selecție explicită câmpuri Supabase | ✅ LIVE | Bypass cache schema pentru path_ro |
+| 4 | Normalizare date categorii | ✅ LIVE | Handler pentru relația brand |
+
+**Detalii tehnice:**
+- `lib/queries/categories.ts` - CATEGORY_SELECT_FIELDS cu toate câmpurile explicit
+- `components/category/CategoryCard.tsx` - Folosește path_ro pentru URL ierarhic
+- Problema: Supabase schema cache nu returna `path_ro` cu `SELECT *`
+- Soluție: Selecție explicită a tuturor câmpurilor inclusiv `path_ro`, `slug_ro`
+
+**Exemple URL-uri:**
+- Înainte: `/rm/sokery`, `/rm/konvektomaty`, `/rm/chlazeni`
+- Acum: `/rm/racitoare-rapide`, `/rm/cuptoare-cu-convectie`, `/rm/sistem-de-racire`
+- Subcategorii: `/rm/sistem-de-racire/frigidere-si-congelatoare`
 
 ---
 
@@ -132,6 +153,7 @@
 | Quote Cart | ✅ Live |
 | Formular Ofertă (validare) | ✅ Live |
 | **Traduceri Română** | ✅ Live |
+| **URL-uri SEO Română** | ✅ Live |
 
 ### ✅ SEO Basic
 | Feature | Status |
@@ -226,6 +248,14 @@ app/api/search/route.ts                     # Search cu title_ro + title_en
 app/(main)/catalog/page.tsx                 # Catalog cu default sort price_desc
 ```
 
+### Category System (URL-uri SEO Română)
+```
+lib/queries/categories.ts                   # CATEGORY_SELECT_FIELDS explicit pentru path_ro
+components/category/CategoryCard.tsx        # URL-uri ierarhice cu path_ro
+app/(main)/[brand]/page.tsx                 # Pagină brand cu categorii
+app/(main)/[brand]/[...slug]/page.tsx       # Pagină categorie cu subcategorii
+```
+
 ### Form Validation
 ```
 components/forms/QuoteForm.tsx              # Validare: nume pattern RO, telefon +40/07
@@ -271,6 +301,7 @@ git push
 - SEO Basic: ✅ Complet (sitemap, meta, JSON-LD)
 - SEO Advanced: ✅ 100% COMPLET (Blog + Landing Pages)
 - SEO Expert: ✅ OG Images + ArticleJsonLd + Twitter Cards
+- SEO URLs RO: ✅ Categorii + subcategorii cu sluguri românești
 - Quote Cart: ✅ COMPLET (coș cu multiple produse, prețuri, email)
 - Expert Fixes: ✅ Sorting (scump→ieftin) + Search RO + Validare
 - Ahrefs Analytics: ✅ Integrat
@@ -278,6 +309,7 @@ git push
 - Site: https://xeh.ro
 
 🔧 EXPERT LEVEL IMPLEMENTAT:
+- URL-uri categorii în română (/rm/sistem-de-racire, /rm/cuptoare-cu-convectie)
 - Produse sortate de la scumpe la ieftine (default)
 - Căutare funcționează în română și engleză
 - Validare formulare cu pattern-uri RO
@@ -301,4 +333,4 @@ Cu ce pot să te ajut?
 
 ---
 
-*Ultima actualizare: 2026-01-20 (dimineața) | Site: https://xeh.ro | EXPERT LEVEL COMPLET 🚀*
+*Ultima actualizare: 2026-01-20 (seara) | Site: https://xeh.ro | SEO URLs ROMÂNĂ COMPLET 🚀*

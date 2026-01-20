@@ -1,6 +1,7 @@
 'use client'
 
-import { useEffect } from 'react'
+import { useEffect, useState } from 'react'
+import { createPortal } from 'react-dom'
 import Link from 'next/link'
 import Image from 'next/image'
 import { X, Minus, Plus, Trash2, ShoppingBag, ArrowRight } from 'lucide-react'
@@ -18,6 +19,13 @@ export default function CartDrawer() {
     removeItem,
     updateQuantity,
   } = useQuoteCart()
+
+  // Track if component is mounted (for SSR safety with createPortal)
+  const [mounted, setMounted] = useState(false)
+
+  useEffect(() => {
+    setMounted(true)
+  }, [])
 
   // Prevent body scroll when drawer is open
   useEffect(() => {
@@ -40,9 +48,12 @@ export default function CartDrawer() {
     return () => window.removeEventListener('keydown', handleEscape)
   }, [closeCart])
 
-  if (!isOpen) return null
+  // Don't render anything on server or if not open
+  if (!mounted || !isOpen) return null
 
-  return (
+  // Use createPortal to render drawer at document body level
+  // This bypasses the header's backdrop-filter stacking context
+  return createPortal(
     <>
       {/* Backdrop */}
       <div
@@ -223,6 +234,7 @@ export default function CartDrawer() {
           </div>
         )}
       </div>
-    </>
+    </>,
+    document.body
   )
 }

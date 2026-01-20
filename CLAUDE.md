@@ -1,7 +1,7 @@
 # XEH.ro - Context Proiect
 
 > **IMPORTANT:** Acest fișier este citit automat de Claude Code. Actualizează-l după fiecare decizie majoră.
-> **Ultima actualizare:** 2026-01-20 (noaptea)
+> **Ultima actualizare:** 2026-01-20 (dimineața)
 
 ---
 
@@ -16,6 +16,7 @@
 **GOOGLE SEARCH CONSOLE: ✅ VERIFICAT ȘI SITEMAP TRIMIS**
 **QUOTE CART: ✅ COMPLET IMPLEMENTAT**
 **AHREFS ANALYTICS: ✅ INTEGRAT**
+**EXPERT LEVEL FIXES: ✅ SORTING + SEARCH + VALIDATION**
 
 ### ✅ QUOTE CART (Coș Cerere Ofertă) - COMPLET!
 
@@ -47,6 +48,21 @@
 | 4 | Canonical URLs complete | ✅ LIVE | Toate paginile |
 | 5 | BreadcrumbJsonLd complet | ✅ LIVE | Blog, contact, oferte |
 | 6 | Organization sameAs | ✅ LIVE | Facebook, Instagram, LinkedIn |
+
+### ✅ EXPERT LEVEL FIXES - COMPLET!
+
+| # | Task | Status | Detalii |
+|---|------|--------|---------|
+| 1 | Product sorting | ✅ LIVE | Default: price_desc (scump → ieftin) |
+| 2 | Romanian search | ✅ LIVE | Căutare în title_ro + title_en |
+| 3 | Form validation | ✅ LIVE | Pattern-uri pentru nume, telefon RO |
+| 4 | Phone required | ✅ LIVE | Telefon obligatoriu în formulare |
+
+**Detalii tehnice:**
+- `lib/queries/products.ts:75` - default sort = 'price_desc'
+- `app/api/search/route.ts:29` - search include title_ro
+- Pattern telefon: `(\+40|0)[0-9]{9}`
+- Pattern nume: `[a-zA-ZăâîșțĂÂÎȘȚ\s\-]+`
 
 ---
 
@@ -111,10 +127,10 @@
 | Homepage | ✅ Live |
 | Navigare Categorii (6 nivele) | ✅ Live |
 | Pagini Produs | ✅ Live |
-| Catalog cu filtre | ✅ Live |
-| Search | ✅ Live |
+| Catalog cu filtre (sort: scump→ieftin) | ✅ Live |
+| Search (RO + EN) | ✅ Live |
 | Quote Cart | ✅ Live |
-| Formular Ofertă | ✅ Live |
+| Formular Ofertă (validare) | ✅ Live |
 | **Traduceri Română** | ✅ Live |
 
 ### ✅ SEO Basic
@@ -198,9 +214,22 @@ components/providers/QuoteCartProvider.tsx  # Context + localStorage persistence
 components/cart/CartButton.tsx              # Buton header cu badge count
 components/cart/CartDrawer.tsx              # Drawer lateral (folosește createPortal)
 components/product/AddToCartButton.tsx      # Buton "+" pe produse (icon + full)
-components/forms/QuoteForm.tsx              # Formular cu tabel produse + prețuri
+components/forms/QuoteForm.tsx              # Formular cu tabel produse + validare
 app/api/quote/route.ts                      # API pentru multiple produse
 lib/email.ts                                # Email templates cu tabel produse
+```
+
+### Product Queries & Search
+```
+lib/queries/products.ts                     # Sorting default: price_desc, search RO+EN
+app/api/search/route.ts                     # Search cu title_ro + title_en
+app/(main)/catalog/page.tsx                 # Catalog cu default sort price_desc
+```
+
+### Form Validation
+```
+components/forms/QuoteForm.tsx              # Validare: nume pattern RO, telefon +40/07
+components/forms/ContactForm.tsx            # Validare: nume, telefon obligatoriu
 ```
 
 ### Core Components
@@ -240,17 +269,18 @@ git push
 - Status: LIVE și funcțional
 - Traduceri: ✅ Complete (~2,600 produse, ~400 categorii)
 - SEO Basic: ✅ Complet (sitemap, meta, JSON-LD)
-- SEO Advanced: ✅ 100% COMPLET
+- SEO Advanced: ✅ 100% COMPLET (Blog + Landing Pages)
+- SEO Expert: ✅ OG Images + ArticleJsonLd + Twitter Cards
 - Quote Cart: ✅ COMPLET (coș cu multiple produse, prețuri, email)
+- Expert Fixes: ✅ Sorting (scump→ieftin) + Search RO + Validare
 - Ahrefs Analytics: ✅ Integrat
 - Google Search Console: ✅ Configurat și sitemap trimis
 - Site: https://xeh.ro
 
-🛒 QUOTE CART - FUNCȚIONAL!
-- Adaugă produse cu buton "+"
-- Drawer lateral cu listă produse
-- Formular cu tabel prețuri
-- Email cu toate produsele
+🔧 EXPERT LEVEL IMPLEMENTAT:
+- Produse sortate de la scumpe la ieftine (default)
+- Căutare funcționează în română și engleză
+- Validare formulare cu pattern-uri RO
 
 Cu ce pot să te ajut?
 ```
@@ -271,4 +301,4 @@ Cu ce pot să te ajut?
 
 ---
 
-*Ultima actualizare: 2026-01-20 (noaptea) | Site: https://xeh.ro | SEO EXPERT LEVEL 100% COMPLET 🚀*
+*Ultima actualizare: 2026-01-20 (dimineața) | Site: https://xeh.ro | EXPERT LEVEL COMPLET 🚀*

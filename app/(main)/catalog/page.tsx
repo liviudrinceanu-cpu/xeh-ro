@@ -127,15 +127,18 @@ export default async function CatalogPage({ searchParams }: CatalogPageProps) {
               <div className="mb-6">
                 <h3 className="font-semibold text-gray-600 mb-3">Categorii RM</h3>
                 <div className="space-y-1 max-h-48 overflow-y-auto">
-                  {rmCategories.slice(0, 10).map((cat) => (
-                    <Link
-                      key={cat.id}
-                      href={`/rm${cat.path.replace('/Group/rm', '')}`}
-                      className="block px-3 py-1.5 rounded-lg text-sm text-gray-600 hover:bg-gray-100 transition-colors truncate"
-                    >
-                      {getCategoryName(cat.name, cat.name_ro)}
-                    </Link>
-                  ))}
+                  {rmCategories.slice(0, 10).map((cat) => {
+                    const pathToUse = cat.path_ro || cat.path
+                    return (
+                      <Link
+                        key={cat.id}
+                        href={`/rm${pathToUse.replace('/Group/rm', '')}`}
+                        className="block px-3 py-1.5 rounded-lg text-sm text-gray-600 hover:bg-gray-100 transition-colors truncate"
+                      >
+                        {getCategoryName(cat.name, cat.name_ro)}
+                      </Link>
+                    )
+                  })}
                 </div>
               </div>
 
@@ -143,15 +146,18 @@ export default async function CatalogPage({ searchParams }: CatalogPageProps) {
               <div>
                 <h3 className="font-semibold text-gray-600 mb-3">Categorii REDFOX</h3>
                 <div className="space-y-1 max-h-48 overflow-y-auto">
-                  {redfoxCategories.slice(0, 10).map((cat) => (
-                    <Link
-                      key={cat.id}
-                      href={`/redfox${cat.path.replace('/Group/redfox', '')}`}
-                      className="block px-3 py-1.5 rounded-lg text-sm text-gray-600 hover:bg-gray-100 transition-colors truncate"
-                    >
-                      {getCategoryName(cat.name, cat.name_ro)}
-                    </Link>
-                  ))}
+                  {redfoxCategories.slice(0, 10).map((cat) => {
+                    const pathToUse = cat.path_ro || cat.path
+                    return (
+                      <Link
+                        key={cat.id}
+                        href={`/redfox${pathToUse.replace('/Group/redfox', '')}`}
+                        className="block px-3 py-1.5 rounded-lg text-sm text-gray-600 hover:bg-gray-100 transition-colors truncate"
+                      >
+                        {getCategoryName(cat.name, cat.name_ro)}
+                      </Link>
+                    )
+                  })}
                 </div>
               </div>
             </div>

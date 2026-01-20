@@ -148,7 +148,8 @@ async function ProductPage({ brandSlug, productSlug }: { brandSlug: string; prod
     { label: brandName, href: `/${brandSlug}` },
   ]
   if (primaryCategory) {
-    breadcrumbItems.push({ label: primaryCategory.name, href: `/${brandSlug}${primaryCategory.path.replace(`/Group/${brandSlug}`, '')}` })
+    const catPathToUse = primaryCategory.path_ro || primaryCategory.path
+    breadcrumbItems.push({ label: primaryCategory.name, href: `/${brandSlug}${catPathToUse.replace(`/Group/${brandSlug}`, '')}` })
   }
   breadcrumbItems.push({ label: product.model })
 
@@ -361,10 +362,13 @@ async function CategoryPage({ brandSlug, categoryPath, page }: { brandSlug: stri
   const subcategories = await getCategoryChildren(category?.id || '')
 
   // Build breadcrumb
-  const breadcrumbItems = breadcrumb.map((cat, index) => ({
-    label: getCategoryName(cat.name, cat.name_ro),
-    href: index < breadcrumb.length - 1 ? `/${brandSlug}${cat.path.replace(`/Group/${brandSlug}`, '')}` : undefined,
-  }))
+  const breadcrumbItems = breadcrumb.map((cat, index) => {
+    const pathToUse = cat.path_ro || cat.path
+    return {
+      label: getCategoryName(cat.name, cat.name_ro),
+      href: index < breadcrumb.length - 1 ? `/${brandSlug}${pathToUse.replace(`/Group/${brandSlug}`, '')}` : undefined,
+    }
+  })
 
   const lastBreadcrumb = breadcrumb[breadcrumb.length - 1]
   const pageTitle = category

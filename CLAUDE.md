@@ -1,7 +1,7 @@
 # XEH.ro - Context Proiect
 
 > **IMPORTANT:** Acest fișier este citit automat de Claude Code. Actualizează-l după fiecare decizie majoră.
-> **Ultima actualizare:** 2026-01-20 (noapte) - AUDIT COMPLET + SECURITY FIXES
+> **Ultima actualizare:** 2026-01-20 (seara târziu) - FAVICON + PRODUSE RANDOM + EMAIL SECRETARIAT
 
 ---
 
@@ -20,6 +20,50 @@
 **EXPERT LEVEL FIXES: ✅ SORTING + SEARCH + VALIDATION**
 **SECURITY AUDIT: ✅ NEXT.JS UPDATED + HEADERS ADDED**
 **ACCESSIBILITY: ✅ SKIP LINK + ARIA-LABELS ADDED**
+**FAVICON: ✅ XEH.ro ICON IMPLEMENTAT**
+**HOMEPAGE DYNAMIC: ✅ PRODUSE RANDOMIZATE 2000-25000 EUR**
+**PARTNER NOTIFICATIONS: ✅ EMAIL LA SECRETARIAT CU LINK APROBARE**
+
+---
+
+### 🆕 MODIFICĂRI RECENTE (2026-01-20 seara târziu)
+
+#### 1. Favicon XEH.ro
+| Fișier | Descriere |
+|--------|-----------|
+| `app/icon.tsx` | Favicon 32x32 PNG generat dinamic |
+| `app/apple-icon.tsx` | Apple touch icon 180x180 PNG |
+| `app/icon.svg` | SVG fallback pentru browsere moderne |
+| `app/layout.tsx` | Metadata icons configurată |
+
+**Design:** XEH pe fundal crimson (#DC143C) + .ro pe fundal gri (#374151)
+
+#### 2. Produse Recomandate Homepage
+| Fișier | Modificare |
+|--------|-----------|
+| `lib/queries/products.ts` | getFeaturedProducts filtrează 2000-25000 EUR + randomizare |
+| `app/(main)/page.tsx` | `export const dynamic = 'force-dynamic'` pentru refresh random |
+
+**Comportament:**
+- Produse cu prețuri între 2000-25000 EUR
+- Se randomizează la fiecare page refresh
+- Atrage clienți cu echipamente mid-to-high range
+
+#### 3. Email Notificare Partener Nou
+| Fișier | Modificare |
+|--------|-----------|
+| `lib/email.ts` | `sendPartnerRegistrationNotification` trimite la secretariat@infinitrade-romania.ro |
+| `app/api/auth/register/route.ts` | Trimite toate datele + ID partener pentru link direct |
+
+**Email conține:**
+- Toate datele personale (nume, email, telefon)
+- Toate datele companiei (denumire, CUI, Nr. Reg. Com.)
+- Adresa completă (stradă, oraș, județ, cod poștal)
+- **Buton verde "Aprobă Partenerul"** cu link direct: `https://xeh.ro/admin/partners/{id}`
+
+**Destinatar:** secretariat@infinitrade-romania.ro
+
+---
 
 ### 🔒 SECURITY FIXES (2026-01-20 noapte)
 
@@ -40,6 +84,8 @@
 |---|------|----------|------|
 | 1 | Rate Limiting | MEDIUM | Recomandare: Upstash Redis pentru producție |
 | 2 | CSP Headers | LOW | Content Security Policy pentru XSS extra protection |
+
+---
 
 ### ✅ QUOTE CART (Coș Cerere Ofertă) - COMPLET!
 
@@ -143,6 +189,7 @@
 - **GitHub:** github.com/liviudrinceanu-cpu/xeh-ro.git
 - **Vercel:** xeh-ro (team: xpertlivius-projects)
 - **Telefon contact:** 0724256250
+- **Email secretariat:** secretariat@infinitrade-romania.ro
 
 ---
 
@@ -150,7 +197,7 @@
 
 | Tehnologie | Rol | Status |
 |------------|-----|--------|
-| Next.js 14 | Frontend (App Router) | ✅ Activ |
+| Next.js 14.2.35 | Frontend (App Router) | ✅ Activ |
 | TypeScript | Type safety | ✅ Activ |
 | Tailwind CSS | Styling (Apple + Crimson) | ✅ Activ |
 | Supabase | Database + Auth | ✅ Configurat |
@@ -167,7 +214,7 @@
 ### ✅ Site Public (https://xeh.ro)
 | Feature | Status |
 |---------|--------|
-| Homepage | ✅ Live |
+| Homepage (produse random 2000-25000 EUR) | ✅ Live |
 | Navigare Categorii (6 nivele) | ✅ Live |
 | Pagini Produs | ✅ Live |
 | Catalog cu filtre (sort: scump→ieftin) | ✅ Live |
@@ -176,6 +223,7 @@
 | Formular Ofertă (validare) | ✅ Live |
 | **Traduceri Română** | ✅ Live |
 | **URL-uri SEO Română** | ✅ Live |
+| **Favicon XEH.ro** | ✅ Live |
 
 ### ✅ SEO Basic
 | Feature | Status |
@@ -220,6 +268,7 @@
 | Cotațiile Mele | ✅ Complet |
 | Favorites | ✅ Complet |
 | Lista Prețuri | ✅ Complet |
+| **Notificare email la secretariat** | ✅ Complet |
 
 ### ✅ Panou Admin
 | Feature | Status |
@@ -227,12 +276,27 @@
 | Dashboard | ✅ Complet |
 | Gestiune Parteneri | ✅ Complet |
 | Gestiune Cotații | ✅ Complet |
+| **Link direct aprobare din email** | ✅ Complet |
 
 ---
 
 ## 4. FIȘIERE CHEIE
 
-### SEO & Content (NOI)
+### Favicon
+```
+app/icon.tsx                              # Favicon 32x32 dinamic
+app/apple-icon.tsx                        # Apple touch icon 180x180
+app/icon.svg                              # SVG fallback
+```
+
+### Email Notifications
+```
+lib/email.ts                              # sendPartnerRegistrationNotification → secretariat
+app/api/auth/register/route.ts            # Trimite toate datele + link aprobare
+app/api/admin/partners/notify/route.ts    # Notificare aprobare/respingere
+```
+
+### SEO & Content
 ```
 app/(main)/blog/page.tsx                              # Blog listing
 app/(main)/blog/[slug]/page.tsx                       # Blog articles (6)
@@ -247,8 +311,8 @@ lib/seo/categoryDescriptions.ts                       # Descrieri SEO pentru 20+
 ```
 app/sitemap.ts                    # Sitemap dinamic (~3,000 URLs)
 app/robots.ts                     # robots.txt
-app/layout.tsx                    # Metadata globală
-app/(main)/page.tsx               # Homepage cu FAQ section
+app/layout.tsx                    # Metadata globală + icons
+app/(main)/page.tsx               # Homepage dinamic cu produse random
 app/api/og/route.tsx              # Dynamic OG image generator (@vercel/og)
 ```
 
@@ -260,12 +324,11 @@ components/cart/CartDrawer.tsx              # Drawer lateral (folosește createP
 components/product/AddToCartButton.tsx      # Buton "+" pe produse (icon + full)
 components/forms/QuoteForm.tsx              # Formular cu tabel produse + validare
 app/api/quote/route.ts                      # API pentru multiple produse
-lib/email.ts                                # Email templates cu tabel produse
 ```
 
 ### Product Queries & Search
 ```
-lib/queries/products.ts                     # Sorting default: price_desc, search RO+EN
+lib/queries/products.ts                     # getFeaturedProducts: 2000-25000 EUR + random
 app/api/search/route.ts                     # Search cu title_ro + title_en
 app/(main)/catalog/page.tsx                 # Catalog cu default sort price_desc
 ```
@@ -305,13 +368,27 @@ npm run build
 vercel --prod --yes
 
 # Git commit
-git add . && git commit -m "Add blog and SEO landing pages"
+git add . && git commit -m "Message"
 git push
 ```
 
 ---
 
-## 6. INSTRUCȚIUNI PENTRU CLAUDE
+## 6. LINKURI IMPORTANTE
+
+| Link | Descriere |
+|------|-----------|
+| https://xeh.ro | Site public |
+| https://xeh.ro/login | Login parteneri/admin |
+| https://xeh.ro/register | Înregistrare partener nou |
+| https://xeh.ro/admin/partners | Panou admin - gestiune parteneri |
+| https://xeh.ro/admin/quotes | Panou admin - gestiune cotații |
+| https://xeh.ro/catalog | Catalog produse |
+| https://xeh.ro/blog | Blog SEO |
+
+---
+
+## 7. INSTRUCȚIUNI PENTRU CLAUDE
 
 ### La Început de Sesiune Nouă (OBLIGATORIU)
 ```
@@ -320,28 +397,24 @@ git push
 📊 STARE PROIECT XEH.ro:
 - Status: LIVE și funcțional
 - Traduceri: ✅ Complete (~2,600 produse, ~400 categorii)
-- SEO Basic: ✅ Complet (sitemap, meta, JSON-LD)
-- SEO Advanced: ✅ 100% COMPLET (Blog + Landing Pages)
-- SEO Expert: ✅ OG Images + ArticleJsonLd + Twitter Cards
-- SEO URLs RO: ✅ Categorii + subcategorii cu sluguri românești
+- SEO: ✅ Complet (sitemap, meta, JSON-LD, blog, landing pages)
 - Quote Cart: ✅ COMPLET (coș cu multiple produse, prețuri, email)
-- Expert Fixes: ✅ Sorting (scump→ieftin) + Search RO + Validare
-- Ahrefs Analytics: ✅ Integrat
-- Google Search Console: ✅ Configurat și sitemap trimis
+- Favicon: ✅ XEH.ro icon implementat
+- Homepage: ✅ Produse randomizate 2000-25000 EUR la fiecare refresh
+- Partner Notifications: ✅ Email la secretariat cu link aprobare direct
 - Site: https://xeh.ro
 
-🔧 EXPERT LEVEL IMPLEMENTAT:
-- URL-uri categorii în română (/rm/sistem-de-racire, /rm/cuptoare-cu-convectie)
-- Produse sortate de la scumpe la ieftine (default)
-- Căutare funcționează în română și engleză
-- Validare formulare cu pattern-uri RO
+🔧 CONFIGURAȚII IMPORTANTE:
+- Email notificări parteneri noi: secretariat@infinitrade-romania.ro
+- Produse recomandate homepage: 2000-25000 EUR, randomizate
+- Next.js: 14.2.35 (security patched)
 
 Cu ce pot să te ajut?
 ```
 
 ---
 
-## 7. COMPETITORI ANALIZAȚI (PENTRU SEO)
+## 8. COMPETITORI ANALIZAȚI (PENTRU SEO)
 
 | Competitor | Caracteristici SEO |
 |------------|-------------------|
@@ -355,4 +428,4 @@ Cu ce pot să te ajut?
 
 ---
 
-*Ultima actualizare: 2026-01-20 (seara) | Site: https://xeh.ro | SEO URLs ROMÂNĂ COMPLET 🚀*
+*Ultima actualizare: 2026-01-20 (seara târziu) | Site: https://xeh.ro | FAVICON + PRODUSE RANDOM + EMAIL SECRETARIAT 🚀*

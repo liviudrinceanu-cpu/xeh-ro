@@ -2,7 +2,7 @@ import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
 import { AuthProvider } from '@/components/providers/AuthProvider'
 import { QuoteCartProvider } from '@/components/providers/QuoteCartProvider'
-import { OrganizationJsonLd } from '@/components/seo/JsonLd'
+import { OrganizationJsonLd, LocalBusinessJsonLd, WebSiteJsonLd } from '@/components/seo/JsonLd'
 import './globals.css'
 
 const inter = Inter({
@@ -51,8 +51,17 @@ export default function RootLayout({
 }) {
   return (
     <html lang="ro" className={inter.variable}>
+      <head>
+        {/* Preconnect to external domains for faster loading */}
+        <link rel="preconnect" href="https://res.cloudinary.com" />
+        <link rel="dns-prefetch" href="https://res.cloudinary.com" />
+        <link rel="preconnect" href="https://fllfgcuwjpnnrcijqzul.supabase.co" />
+        <link rel="dns-prefetch" href="https://fllfgcuwjpnnrcijqzul.supabase.co" />
+      </head>
       <body className="font-sans antialiased bg-background min-h-screen">
         <OrganizationJsonLd />
+        <LocalBusinessJsonLd />
+        <WebSiteJsonLd />
         <AuthProvider>
           <QuoteCartProvider>
             {children}

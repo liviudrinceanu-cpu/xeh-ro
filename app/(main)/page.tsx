@@ -4,10 +4,35 @@ import Hero from '@/components/home/Hero'
 import BrandCard from '@/components/brand/BrandCard'
 import CategoryCard from '@/components/category/CategoryCard'
 import ProductCard from '@/components/product/ProductCard'
+import { FAQJsonLd } from '@/components/seo/JsonLd'
 import { getBrands, getTopLevelCategories, getProductCountByCategory } from '@/lib/queries/categories'
 import { getFeaturedProducts } from '@/lib/queries/products'
 
 export const revalidate = 3600 // Revalidate every hour
+
+// FAQ data for SEO
+const homeFaqs = [
+  {
+    question: 'Ce echipamente HoReCa profesionale oferă XEH.ro?',
+    answer: 'XEH.ro oferă o gamă completă de echipamente profesionale pentru industria HoReCa: cuptoare cu convecție, răcitoare rapide, mașini de spălat vase industriale, echipamente de refrigerare, linii de gătit și multe altele. Distribuim brandurile premium RM Gastro și REDFOX.',
+  },
+  {
+    question: 'Care este diferența dintre RM Gastro și REDFOX?',
+    answer: 'RM Gastro este linia premium, destinată restaurantelor și hotelurilor de lux care necesită performanță maximă. REDFOX este linia economică, oferind un raport calitate-preț excelent pentru fast-food, bistrouri și afaceri care caută echipamente fiabile la prețuri competitive.',
+  },
+  {
+    question: 'Cum pot solicita o ofertă pentru echipamente profesionale?',
+    answer: 'Puteți solicita o ofertă adăugând produsele dorite în coșul de cerere ofertă și completând formularul. Veți primi o ofertă personalizată în cel mai scurt timp. Alternativ, ne puteți contacta telefonic la 0724 256 250.',
+  },
+  {
+    question: 'Livrați echipamente HoReCa în toată România?',
+    answer: 'Da, livrăm în toată România. Pentru comenzi mari sau echipamente voluminoase, oferim transport specializat și instalare la cerere.',
+  },
+  {
+    question: 'Oferiți garanție pentru echipamentele profesionale?',
+    answer: 'Toate echipamentele comercializate beneficiază de garanția producătorului. RM Gastro și REDFOX oferă garanție standard și suport tehnic extins pentru toate produsele.',
+  },
+]
 
 export default async function HomePage() {
   const [brands, rmCategories, redfoxCategories, featuredProducts, rmProductCounts, redfoxProductCounts] = await Promise.all([
@@ -31,6 +56,9 @@ export default async function HomePage() {
 
   return (
     <>
+      {/* FAQ Schema for SEO */}
+      <FAQJsonLd faqs={homeFaqs} />
+
       {/* Hero */}
       <Hero />
 
@@ -112,6 +140,39 @@ export default async function HomePage() {
           {featuredProducts.map((product) => (
             <ProductCard key={product.id} product={product} />
           ))}
+        </div>
+      </section>
+
+      {/* FAQ Section */}
+      <section className="py-16 md:py-20 bg-white">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl md:text-4xl font-bold text-gray-600 mb-3">
+              Întrebări Frecvente
+            </h2>
+            <p className="text-gray-500">
+              Tot ce trebuie să știi despre echipamentele HoReCa profesionale
+            </p>
+          </div>
+
+          <div className="space-y-4">
+            {homeFaqs.map((faq, index) => (
+              <details
+                key={index}
+                className="group bg-gray-50 rounded-2xl overflow-hidden"
+              >
+                <summary className="flex items-center justify-between cursor-pointer p-6 font-semibold text-gray-600 hover:text-crimson transition-colors">
+                  {faq.question}
+                  <span className="ml-4 flex-shrink-0 text-crimson group-open:rotate-180 transition-transform">
+                    <ArrowRight className="w-5 h-5 rotate-90" />
+                  </span>
+                </summary>
+                <div className="px-6 pb-6 text-gray-500">
+                  {faq.answer}
+                </div>
+              </details>
+            ))}
+          </div>
         </div>
       </section>
 

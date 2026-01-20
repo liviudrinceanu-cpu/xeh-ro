@@ -18,8 +18,10 @@ export async function GET(request: NextRequest) {
     .select(`
       id,
       sap_code,
+      slug_ro,
       model,
       title_en,
+      title_ro,
       price_amount,
       price_currency,
       stock_status,
@@ -50,8 +52,9 @@ export async function GET(request: NextRequest) {
   const transformedProducts = (products || []).map(p => ({
     id: p.id,
     sapCode: p.sap_code,
+    slugRo: p.slug_ro,
     model: p.model,
-    title: p.title_en,
+    title: p.title_ro || p.title_en,
     price: p.price_amount,
     currency: p.price_currency,
     stockStatus: p.stock_status,

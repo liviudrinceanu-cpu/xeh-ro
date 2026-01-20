@@ -264,6 +264,7 @@ type SearchResult = {
   products: {
     id: string
     sapCode: string
+    slugRo: string | null
     model: string
     title: string
     price: number | null
@@ -387,7 +388,7 @@ function SearchModal({ onClose }: { onClose: () => void }) {
                     {results.products.map((product) => (
                       <Link
                         key={product.id}
-                        href={`/${product.brand.slug}/produs/${product.sapCode}`}
+                        href={`/${product.brand.slug}/produs/${product.slugRo || product.sapCode}`}
                         onClick={onClose}
                         className="flex items-center gap-3 px-3 py-2 hover:bg-gray-50 rounded-lg transition-colors"
                       >

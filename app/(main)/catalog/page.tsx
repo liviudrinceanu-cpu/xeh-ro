@@ -17,7 +17,7 @@ export const metadata: Metadata = {
     description: 'Peste 2600 echipamente profesionale HoReCa de la RM Gastro și REDFOX.',
     url: 'https://xeh.ro/catalog',
     images: [{
-      url: 'https://xeh.ro/og-catalog.jpg',
+      url: 'https://xeh.ro/api/og?title=Catalog Echipamente HoReCa&subtitle=Peste 2600 produse profesionale de la RM Gastro și REDFOX&type=category',
       width: 1200,
       height: 630,
       alt: 'Catalog Echipamente HoReCa - XEH.ro',
@@ -27,7 +27,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: 'Catalog Echipamente HoReCa | XEH.ro',
     description: 'Peste 2600 echipamente profesionale HoReCa.',
-    images: ['https://xeh.ro/og-catalog.jpg'],
+    images: ['https://xeh.ro/api/og?title=Catalog Echipamente HoReCa&type=category'],
   },
   alternates: {
     canonical: 'https://xeh.ro/catalog',

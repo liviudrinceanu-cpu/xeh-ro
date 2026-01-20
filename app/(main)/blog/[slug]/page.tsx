@@ -410,7 +410,7 @@ export async function generateMetadata({ params }: BlogArticlePageProps): Promis
       publishedTime: article.date,
       authors: [article.author],
       images: [{
-        url: 'https://xeh.ro/og-blog.jpg',
+        url: `https://xeh.ro/api/og?title=${encodeURIComponent(article.title)}&subtitle=${encodeURIComponent(article.excerpt.slice(0, 100))}&type=blog`,
         width: 1200,
         height: 630,
         alt: article.title,
@@ -420,7 +420,7 @@ export async function generateMetadata({ params }: BlogArticlePageProps): Promis
       card: 'summary_large_image',
       title: article.title,
       description: article.excerpt,
-      images: ['https://xeh.ro/og-blog.jpg'],
+      images: [`https://xeh.ro/api/og?title=${encodeURIComponent(article.title)}&type=blog`],
     },
     alternates: {
       canonical: `https://xeh.ro/blog/${slug}`,

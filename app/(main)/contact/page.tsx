@@ -1,6 +1,7 @@
 import { Phone, Mail, MapPin, Clock } from 'lucide-react'
 import Breadcrumb from '@/components/ui/Breadcrumb'
 import ContactForm from '@/components/forms/ContactForm'
+import { BreadcrumbJsonLd } from '@/components/seo/JsonLd'
 import type { Metadata } from 'next'
 
 export const metadata: Metadata = {
@@ -12,7 +13,7 @@ export const metadata: Metadata = {
     description: 'Contactează-ne pentru informații despre echipamente HoReCa profesionale. Răspundem în maxim 24 de ore.',
     url: 'https://xeh.ro/contact',
     images: [{
-      url: 'https://xeh.ro/og-contact.jpg',
+      url: 'https://xeh.ro/api/og?title=Contactează-ne&subtitle=Suntem aici să te ajutăm cu echipamente HoReCa profesionale',
       width: 1200,
       height: 630,
       alt: 'Contact XEH.ro - Echipamente HoReCa Profesionale',
@@ -22,7 +23,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: 'Contact | XEH.ro - eXpert Echipamente Horeca',
     description: 'Contactează-ne pentru informații despre echipamente HoReCa profesionale.',
-    images: ['https://xeh.ro/og-contact.jpg'],
+    images: ['https://xeh.ro/api/og?title=Contactează-ne'],
   },
   alternates: {
     canonical: 'https://xeh.ro/contact',
@@ -32,6 +33,14 @@ export const metadata: Metadata = {
 export default function ContactPage() {
   return (
     <div className="min-h-screen bg-gray-50">
+      {/* Schema.org */}
+      <BreadcrumbJsonLd
+        items={[
+          { name: 'Acasă', url: 'https://xeh.ro' },
+          { name: 'Contact' },
+        ]}
+      />
+
       {/* Header */}
       <div className="bg-white border-b border-gray-200">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">

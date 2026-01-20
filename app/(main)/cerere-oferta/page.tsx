@@ -1,6 +1,7 @@
 import { Suspense } from 'react'
 import Breadcrumb from '@/components/ui/Breadcrumb'
 import QuoteForm from '@/components/forms/QuoteForm'
+import { BreadcrumbJsonLd } from '@/components/seo/JsonLd'
 import { getProductBySapCode } from '@/lib/queries/products'
 import type { Metadata } from 'next'
 
@@ -13,7 +14,7 @@ export const metadata: Metadata = {
     description: 'Solicită o ofertă personalizată pentru echipamente HoReCa profesionale. Răspundem în maxim 24 de ore.',
     url: 'https://xeh.ro/cerere-oferta',
     images: [{
-      url: 'https://xeh.ro/og-quote.jpg',
+      url: 'https://xeh.ro/api/og?title=Cere Ofertă Personalizată&subtitle=Echipamente HoReCa profesionale la prețuri competitive',
       width: 1200,
       height: 630,
       alt: 'Cerere Ofertă XEH.ro - Echipamente HoReCa',
@@ -23,7 +24,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: 'Cere Ofertă | XEH.ro - Echipamente HoReCa Profesionale',
     description: 'Solicită o ofertă personalizată pentru echipamente HoReCa profesionale.',
-    images: ['https://xeh.ro/og-quote.jpg'],
+    images: ['https://xeh.ro/api/og?title=Cere Ofertă Personalizată'],
   },
   alternates: {
     canonical: 'https://xeh.ro/cerere-oferta',
@@ -47,6 +48,14 @@ export default async function QuotePage({ searchParams }: QuotePageProps) {
 
   return (
     <div className="min-h-screen bg-gray-50">
+      {/* Schema.org */}
+      <BreadcrumbJsonLd
+        items={[
+          { name: 'Acasă', url: 'https://xeh.ro' },
+          { name: 'Cerere Ofertă' },
+        ]}
+      />
+
       {/* Header */}
       <div className="bg-white border-b border-gray-200">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">

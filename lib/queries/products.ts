@@ -165,6 +165,59 @@ export async function getProductBySapCode(sapCode: string): Promise<ProductWithD
   return data as ProductWithDetails
 }
 
+export async function getProductBySlug(slug: string): Promise<ProductWithDetails | null> {
+  const supabase = await createClient()
+
+  // First try to find by slug_ro (SEO-friendly URL)
+  let { data, error } = await supabase
+    .from('products')
+    .select(`
+      *,
+      brand:brands(*),
+      product_images(*),
+      product_specifications(*),
+      product_features(*),
+      product_documents(*),
+      product_categories(*, category:categories(*)),
+      product_accessories(*),
+      product_icons(*)
+    `)
+    .eq('slug_ro', slug)
+    .single()
+
+  // If not found by slug_ro, try sap_code (for backward compatibility)
+  if (error || !data) {
+    // Extract SAP code from slug (format: something-SAPCODE or just SAPCODE)
+    const sapCode = slug.includes('-') ? slug.split('-').pop() : slug
+
+    const result = await supabase
+      .from('products')
+      .select(`
+        *,
+        brand:brands(*),
+        product_images(*),
+        product_specifications(*),
+        product_features(*),
+        product_documents(*),
+        product_categories(*, category:categories(*)),
+        product_accessories(*),
+        product_icons(*)
+      `)
+      .eq('sap_code', sapCode)
+      .single()
+
+    data = result.data
+    error = result.error
+  }
+
+  if (error) {
+    console.error('Error fetching product:', error)
+    return null
+  }
+
+  return data as ProductWithDetails
+}
+
 export async function getFeaturedProducts(limit: number = 8): Promise<Product[]> {
   const supabase = await createClient()
 

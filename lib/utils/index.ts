@@ -133,12 +133,21 @@ export function getBaseUrl(): string {
   return SITE_URL
 }
 
-export function getProductUrl(brandSlug: string, model: string, sapCode: string): string {
+export function getProductUrl(brandSlug: string, slugRo: string | null, model: string, sapCode: string): string {
+  // Use slug_ro if available, otherwise fallback to model-sapCode
+  if (slugRo) {
+    return `/${brandSlug}/produs/${slugRo}`
+  }
   return `/${brandSlug}/produs/${slugify(model)}-${sapCode}`
 }
 
-export function getCategoryUrl(brandSlug: string, categoryPath: string): string {
-  // Remove the /Group/brand prefix from the path
+export function getCategoryUrl(brandSlug: string, categoryPath: string, pathRo?: string | null): string {
+  // Use Romanian path if available
+  if (pathRo) {
+    const cleanPath = pathRo.replace(/^\/Group\/[^/]+/, '')
+    return `/${brandSlug}${cleanPath}`
+  }
+  // Fallback to original path
   const cleanPath = categoryPath.replace(/^\/Group\/[^/]+/, '')
   return `/${brandSlug}${cleanPath}`
 }

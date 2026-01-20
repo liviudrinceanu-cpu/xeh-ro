@@ -112,13 +112,15 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   // Fetch all categories
   const { data: categories } = await supabase
     .from('categories')
-    .select('path, updated_at, brand:brands(slug)')
+    .select('path, path_ro, updated_at, brand:brands(slug)')
     .order('depth')
 
   const categoryPages: MetadataRoute.Sitemap = (categories || []).map((cat) => {
     const brand = cat.brand as unknown as { slug: string } | null
     const brandSlug = brand?.slug || 'rm'
-    const categoryPath = cat.path.replace(`/Group/${brandSlug}`, '')
+    // Use path_ro (Romanian SEO-friendly path) if available, otherwise fallback to original path
+    const pathToUse = cat.path_ro || cat.path
+    const categoryPath = pathToUse.replace(`/Group/${brandSlug}`, '')
     return {
       url: `${baseUrl}/${brandSlug}${categoryPath}`,
       lastModified: cat.updated_at ? new Date(cat.updated_at) : new Date(),
@@ -136,7 +138,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   while (hasMore) {
     const { data: products } = await supabase
       .from('products')
-      .select('sap_code, updated_at, brand:brands(slug)')
+      .select('sap_code, slug_ro, updated_at, brand:brands(slug)')
       .range(page * pageSize, (page + 1) * pageSize - 1)
       .order('created_at', { ascending: false })
 
@@ -144,8 +146,10 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       for (const product of products) {
         const brand = product.brand as unknown as { slug: string } | null
         const brandSlug = brand?.slug || 'rm'
+        // Use slug_ro (SEO-friendly Romanian slug) if available, otherwise fallback to sap_code
+        const productSlug = product.slug_ro || product.sap_code
         productPages.push({
-          url: `${baseUrl}/${brandSlug}/produs/${product.sap_code}`,
+          url: `${baseUrl}/${brandSlug}/produs/${productSlug}`,
           lastModified: product.updated_at ? new Date(product.updated_at) : new Date(),
           changeFrequency: 'weekly' as const,
           priority: 0.6,

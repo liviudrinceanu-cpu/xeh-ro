@@ -52,7 +52,7 @@ interface CategoryCardProps {
 
 export default function CategoryCard({ category, productCount, className }: CategoryCardProps) {
   const brandSlug = category.brand?.slug || 'rm'
-  const categoryUrl = getCategoryUrl(brandSlug, category.path)
+  const categoryUrl = getCategoryUrl(brandSlug, category.path, category.path_ro)
   const Icon = getCategoryIcon(category.name)
   const displayName = getCategoryName(category.name, category.name_ro)
 

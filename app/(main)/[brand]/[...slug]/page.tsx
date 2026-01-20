@@ -15,7 +15,7 @@ import FavoriteButton from '@/components/product/FavoriteButton'
 import AddToCartButton from '@/components/product/AddToCartButton'
 import { ProductJsonLd, BreadcrumbJsonLd, CategoryJsonLd } from '@/components/seo/JsonLd'
 import { getBrandBySlug, getCategoryByPath, getCategoryChildren, getCategoryBreadcrumb, getProductCountByCategory } from '@/lib/queries/categories'
-import { getProducts, getProductBySapCode, getRelatedProducts } from '@/lib/queries/products'
+import { getProducts, getProductBySlug, getRelatedProducts } from '@/lib/queries/products'
 import { formatPrice, getStockStatusLabel, getStockStatusColor, extractProductTitle, getCategoryName, getBaseUrl } from '@/lib/utils'
 import { getCategoryDescription, getCategoryKeywords, getCategorySeoData } from '@/lib/seo/categoryDescriptions'
 
@@ -36,13 +36,16 @@ export async function generateMetadata({ params }: DynamicPageProps): Promise<Me
 
   // Product page
   if (slug[0] === 'produs' && slug[1]) {
-    const product = await getProductBySapCode(slug[1])
+    const product = await getProductBySlug(slug[1])
     if (!product) return {}
 
     const title = extractProductTitle(product.title_en, product.title_ro, product.model)
     const brandName = product.brand?.name || brandSlug.toUpperCase()
     const description = `${title} - ${brandName}. Cod: ${product.sap_code}. ${product.price_amount ? `Preț: ${formatPrice(product.price_amount, product.price_currency)}` : 'Preț la cerere'}. Echipamente HoReCa profesionale de la XEH.ro.`
     const image = product.product_images?.find(img => img.is_primary)?.cloudinary_url || product.product_images?.[0]?.cloudinary_url
+
+    // Use SEO-friendly slug_ro if available
+    const productSlugForUrl = product.slug_ro || product.sap_code
 
     return {
       title: `${title} | ${brandName}`,
@@ -51,7 +54,7 @@ export async function generateMetadata({ params }: DynamicPageProps): Promise<Me
       openGraph: {
         title: `${title} | ${brandName}`,
         description,
-        url: `${baseUrl}/${brandSlug}/produs/${product.sap_code}`,
+        url: `${baseUrl}/${brandSlug}/produs/${productSlugForUrl}`,
         siteName: 'XEH.ro',
         locale: 'ro_RO',
         type: 'website',
@@ -64,7 +67,7 @@ export async function generateMetadata({ params }: DynamicPageProps): Promise<Me
         images: image ? [image] : undefined,
       },
       alternates: {
-        canonical: `${baseUrl}/${brandSlug}/produs/${product.sap_code}`,
+        canonical: `${baseUrl}/${brandSlug}/produs/${productSlugForUrl}`,
       },
     }
   }
@@ -112,9 +115,9 @@ export default async function DynamicPage({ params, searchParams }: DynamicPageP
   const brand = await getBrandBySlug(brandSlug)
   if (!brand) notFound()
 
-  // Check if this is a product page (/brand/produs/sap-code)
+  // Check if this is a product page (/brand/produs/slug-or-sap-code)
   if (slug[0] === 'produs' && slug[1]) {
-    return <ProductPage brandSlug={brandSlug} sapCode={slug[1]} />
+    return <ProductPage brandSlug={brandSlug} productSlug={slug[1]} />
   }
 
   // Otherwise, treat as category page
@@ -127,8 +130,8 @@ export default async function DynamicPage({ params, searchParams }: DynamicPageP
 // PRODUCT PAGE
 // ============================================================
 
-async function ProductPage({ brandSlug, sapCode }: { brandSlug: string; sapCode: string }) {
-  const product = await getProductBySapCode(sapCode)
+async function ProductPage({ brandSlug, productSlug }: { brandSlug: string; productSlug: string }) {
+  const product = await getProductBySlug(productSlug)
 
   if (!product) {
     notFound()
@@ -150,7 +153,9 @@ async function ProductPage({ brandSlug, sapCode }: { brandSlug: string; sapCode:
   breadcrumbItems.push({ label: product.model })
 
   const baseUrl = getBaseUrl()
-  const productUrl = `${baseUrl}/${brandSlug}/produs/${product.sap_code}`
+  // Use SEO-friendly slug_ro if available, otherwise fallback to sap_code
+  const productSlugForUrl = product.slug_ro || product.sap_code
+  const productUrl = `${baseUrl}/${brandSlug}/produs/${productSlugForUrl}`
   const productImage = product.product_images?.find(img => img.is_primary)?.cloudinary_url || product.product_images?.[0]?.cloudinary_url || null
 
   // Map stock status to schema.org availability
@@ -234,7 +239,7 @@ async function ProductPage({ brandSlug, sapCode }: { brandSlug: string; sapCode:
                     {product.product_features.slice(0, 5).map((feature) => (
                       <li key={feature.id} className="flex items-start gap-2 text-sm text-gray-600">
                         <span className="text-crimson font-bold">✓</span>
-                        {feature.label}: {feature.value}
+                        {feature.label_ro || feature.label}: {feature.value_ro || feature.value}
                       </li>
                     ))}
                   </ul>

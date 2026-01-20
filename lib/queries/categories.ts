@@ -66,7 +66,8 @@ export async function getCategories(brandSlug?: string): Promise<Category[]> {
 export async function getCategoryByPath(path: string): Promise<Category | null> {
   const supabase = await createClient()
 
-  const { data, error } = await supabase
+  // First try to find by original path
+  let { data, error } = await supabase
     .from('categories')
     .select(`
       *,
@@ -75,8 +76,26 @@ export async function getCategoryByPath(path: string): Promise<Category | null> 
     .eq('path', path)
     .single()
 
+  // If not found, try by path_ro (Romanian SEO-friendly path)
+  if (error || !data) {
+    const result = await supabase
+      .from('categories')
+      .select(`
+        *,
+        brand:brands(*)
+      `)
+      .eq('path_ro', path)
+      .single()
+
+    data = result.data
+    error = result.error
+  }
+
   if (error) {
-    console.error('Error fetching category:', error)
+    // Only log if not a "not found" error
+    if (error.code !== 'PGRST116') {
+      console.error('Error fetching category:', error)
+    }
     return null
   }
 

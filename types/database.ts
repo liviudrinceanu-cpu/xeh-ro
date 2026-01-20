@@ -20,7 +20,9 @@ export type Category = {
   name: string
   name_ro: string | null
   slug: string
+  slug_ro: string | null
   path: string
+  path_ro: string | null
   depth: number
   product_count?: number
   created_at: string
@@ -37,6 +39,7 @@ export type Product = {
   id: string
   sap_code: string
   model: string
+  slug_ro: string | null
   brand_id: string
   title_en: string | null
   title_ro: string | null
@@ -75,7 +78,9 @@ export type ProductSpecification = {
   product_id: string
   spec_key: string
   label: string
+  label_ro: string | null
   value: string
+  value_ro: string | null
   unit: string | null
   sort_order: number
 }
@@ -84,7 +89,9 @@ export type ProductFeature = {
   id: string
   product_id: string
   label: string
+  label_ro: string | null
   value: string
+  value_ro: string | null
   sort_order: number
 }
 

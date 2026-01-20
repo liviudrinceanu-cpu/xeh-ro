@@ -16,7 +16,8 @@ interface ProductCardProps {
 
 export default function ProductCard({ product, className, initialFavorite = false }: ProductCardProps) {
   const brandSlug = product.brand?.slug || 'rm'
-  const productUrl = `/${brandSlug}/produs/${product.sap_code}`
+  // Use SEO-friendly slug_ro if available, otherwise fallback to SAP code
+  const productUrl = `/${brandSlug}/produs/${product.slug_ro || product.sap_code}`
 
   const primaryImage = product.product_images?.find(img => img.is_primary) || product.product_images?.[0]
   const imageUrl = primaryImage?.cloudinary_url || primaryImage?.original_url

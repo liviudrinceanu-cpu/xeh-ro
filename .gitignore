@@ -37,3 +37,16 @@ yarn-error.log*
 next-env.d.ts
 
 /src/generated/prisma
+
+# Local tool configs
+.playwright-mcp/
+
+# Vercel env
+.env.vercel
+
+# Generated/downloaded files
+files.zip
+files/
+
+# Scraper project (separate repo)
+xeh-scraper/

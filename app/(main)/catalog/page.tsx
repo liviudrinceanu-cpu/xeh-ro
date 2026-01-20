@@ -128,11 +128,12 @@ export default async function CatalogPage({ searchParams }: CatalogPageProps) {
                 <h3 className="font-semibold text-gray-600 mb-3">Categorii RM</h3>
                 <div className="space-y-1 max-h-48 overflow-y-auto">
                   {rmCategories.slice(0, 10).map((cat) => {
-                    const pathToUse = cat.path_ro || cat.path
+                    // Use slug_ro for SEO-friendly URL, fallback to slug
+                    const slugToUse = cat.slug_ro || cat.slug
                     return (
                       <Link
                         key={cat.id}
-                        href={`/rm${pathToUse.replace('/Group/rm', '')}`}
+                        href={`/rm/${slugToUse}`}
                         className="block px-3 py-1.5 rounded-lg text-sm text-gray-600 hover:bg-gray-100 transition-colors truncate"
                       >
                         {getCategoryName(cat.name, cat.name_ro)}
@@ -147,11 +148,12 @@ export default async function CatalogPage({ searchParams }: CatalogPageProps) {
                 <h3 className="font-semibold text-gray-600 mb-3">Categorii REDFOX</h3>
                 <div className="space-y-1 max-h-48 overflow-y-auto">
                   {redfoxCategories.slice(0, 10).map((cat) => {
-                    const pathToUse = cat.path_ro || cat.path
+                    // Use slug_ro for SEO-friendly URL, fallback to slug
+                    const slugToUse = cat.slug_ro || cat.slug
                     return (
                       <Link
                         key={cat.id}
-                        href={`/redfox${pathToUse.replace('/Group/redfox', '')}`}
+                        href={`/redfox/${slugToUse}`}
                         className="block px-3 py-1.5 rounded-lg text-sm text-gray-600 hover:bg-gray-100 transition-colors truncate"
                       >
                         {getCategoryName(cat.name, cat.name_ro)}

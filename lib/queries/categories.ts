@@ -91,6 +91,33 @@ export async function getCategoryByPath(path: string): Promise<Category | null> 
     error = result.error
   }
 
+  // If still not found, try by slug_ro for top-level categories
+  // URL like /rm/racitoare-rapide gives path /Group/rm/racitoare-rapide
+  // We need to extract the slug and search by slug_ro
+  if (error || !data) {
+    const pathParts = path.split('/')
+    const lastSlug = pathParts[pathParts.length - 1]
+    const brandSlug = pathParts[2] // /Group/[brand]/[slug]
+
+    const result = await supabase
+      .from('categories')
+      .select(`
+        *,
+        brand:brands(*)
+      `)
+      .eq('slug_ro', lastSlug)
+      .single()
+
+    if (result.data) {
+      // Verify the brand matches
+      const brand = result.data.brand as { slug: string } | null
+      if (brand?.slug === brandSlug) {
+        data = result.data
+        error = null
+      }
+    }
+  }
+
   if (error) {
     // Only log if not a "not found" error
     if (error.code !== 'PGRST116') {

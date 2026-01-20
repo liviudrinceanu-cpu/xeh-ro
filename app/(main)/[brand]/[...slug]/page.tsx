@@ -1,6 +1,7 @@
 import { notFound } from 'next/navigation'
 import Link from 'next/link'
 import { ArrowRight, ExternalLink, Share2 } from 'lucide-react'
+import type { Metadata } from 'next'
 import Breadcrumb from '@/components/ui/Breadcrumb'
 import Badge from '@/components/ui/Badge'
 import Button from '@/components/ui/Button'
@@ -12,9 +13,10 @@ import ProductDocs from '@/components/product/ProductDocs'
 import CategoryCard from '@/components/category/CategoryCard'
 import FavoriteButton from '@/components/product/FavoriteButton'
 import AddToCartButton from '@/components/product/AddToCartButton'
+import { ProductJsonLd, BreadcrumbJsonLd, CategoryJsonLd } from '@/components/seo/JsonLd'
 import { getBrandBySlug, getCategoryByPath, getCategoryChildren, getCategoryBreadcrumb, getProductCountByCategory } from '@/lib/queries/categories'
 import { getProducts, getProductBySapCode, getRelatedProducts } from '@/lib/queries/products'
-import { formatPrice, getStockStatusLabel, getStockStatusColor, extractProductTitle, getCategoryName } from '@/lib/utils'
+import { formatPrice, getStockStatusLabel, getStockStatusColor, extractProductTitle, getCategoryName, getBaseUrl } from '@/lib/utils'
 
 interface DynamicPageProps {
   params: Promise<{
@@ -24,6 +26,77 @@ interface DynamicPageProps {
   searchParams: Promise<{
     page?: string
   }>
+}
+
+// Generate dynamic metadata for SEO
+export async function generateMetadata({ params }: DynamicPageProps): Promise<Metadata> {
+  const { brand: brandSlug, slug } = await params
+  const baseUrl = getBaseUrl()
+
+  // Product page
+  if (slug[0] === 'produs' && slug[1]) {
+    const product = await getProductBySapCode(slug[1])
+    if (!product) return {}
+
+    const title = extractProductTitle(product.title_en, product.title_ro, product.model)
+    const brandName = product.brand?.name || brandSlug.toUpperCase()
+    const description = `${title} - ${brandName}. Cod: ${product.sap_code}. ${product.price_amount ? `Preț: ${formatPrice(product.price_amount, product.price_currency)}` : 'Preț la cerere'}. Echipamente HoReCa profesionale de la XEH.ro.`
+    const image = product.product_images?.find(img => img.is_primary)?.cloudinary_url || product.product_images?.[0]?.cloudinary_url
+
+    return {
+      title: `${title} | ${brandName}`,
+      description,
+      keywords: [title, brandName, product.model, product.sap_code, 'echipamente horeca', 'bucatarie profesionala'].filter(Boolean),
+      openGraph: {
+        title: `${title} | ${brandName}`,
+        description,
+        url: `${baseUrl}/${brandSlug}/produs/${product.sap_code}`,
+        siteName: 'XEH.ro',
+        locale: 'ro_RO',
+        type: 'website',
+        images: image ? [{ url: image, width: 800, height: 600, alt: title }] : undefined,
+      },
+      twitter: {
+        card: 'summary_large_image',
+        title: `${title} | ${brandName}`,
+        description,
+        images: image ? [image] : undefined,
+      },
+      alternates: {
+        canonical: `${baseUrl}/${brandSlug}/produs/${product.sap_code}`,
+      },
+    }
+  }
+
+  // Category page
+  const categoryPath = `/Group/${brandSlug}/${slug.join('/')}`
+  const category = await getCategoryByPath(categoryPath)
+  const brand = await getBrandBySlug(brandSlug)
+
+  if (category) {
+    const categoryName = getCategoryName(category.name, category.name_ro)
+    const brandName = brand?.name || brandSlug.toUpperCase()
+    const description = `${categoryName} - echipamente profesionale ${brandName}. Descoperă gama completă de produse HoReCa pentru restaurante și hoteluri.`
+
+    return {
+      title: `${categoryName} | ${brandName}`,
+      description,
+      keywords: [categoryName, brandName, 'echipamente horeca', 'bucatarie profesionala', 'restaurant', 'hotel'],
+      openGraph: {
+        title: `${categoryName} | ${brandName}`,
+        description,
+        url: `${baseUrl}/${brandSlug}${categoryPath.replace(`/Group/${brandSlug}`, '')}`,
+        siteName: 'XEH.ro',
+        locale: 'ro_RO',
+        type: 'website',
+      },
+      alternates: {
+        canonical: `${baseUrl}/${brandSlug}${categoryPath.replace(`/Group/${brandSlug}`, '')}`,
+      },
+    }
+  }
+
+  return {}
 }
 
 export default async function DynamicPage({ params, searchParams }: DynamicPageProps) {
@@ -70,8 +143,40 @@ async function ProductPage({ brandSlug, sapCode }: { brandSlug: string; sapCode:
   }
   breadcrumbItems.push({ label: product.model })
 
+  const baseUrl = getBaseUrl()
+  const productUrl = `${baseUrl}/${brandSlug}/produs/${product.sap_code}`
+  const productImage = product.product_images?.find(img => img.is_primary)?.cloudinary_url || product.product_images?.[0]?.cloudinary_url || null
+
+  // Map stock status to schema.org availability
+  const getSchemaAvailability = (status: string): 'InStock' | 'OutOfStock' | 'PreOrder' => {
+    if (status === 'in_stock') return 'InStock'
+    if (status === 'out_of_stock') return 'OutOfStock'
+    return 'PreOrder'
+  }
+
   return (
     <div className="min-h-screen bg-gray-50">
+      {/* Schema.org JSON-LD */}
+      <ProductJsonLd
+        product={{
+          name: title,
+          sku: product.sap_code,
+          model: product.model,
+          brand: brandName,
+          price: product.price_amount,
+          currency: product.price_currency || 'EUR',
+          image: productImage,
+          url: productUrl,
+          availability: getSchemaAvailability(product.stock_status),
+        }}
+      />
+      <BreadcrumbJsonLd
+        items={breadcrumbItems.map((item, index) => ({
+          name: item.label,
+          url: item.href ? `${baseUrl}${item.href}` : undefined,
+        }))}
+      />
+
       {/* Breadcrumb Header */}
       <div className="bg-white border-b border-gray-200">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
@@ -256,8 +361,26 @@ async function CategoryPage({ brandSlug, categoryPath, page }: { brandSlug: stri
       ? getCategoryName(lastBreadcrumb.name, lastBreadcrumb.name_ro)
       : 'Categorie'
 
+  const baseUrl = getBaseUrl()
+  const categoryUrl = `${baseUrl}/${brandSlug}${categoryPath.replace(`/Group/${brandSlug}`, '')}`
+
   return (
     <div className="min-h-screen bg-gray-50">
+      {/* Schema.org JSON-LD */}
+      <CategoryJsonLd
+        category={{
+          name: pageTitle,
+          url: categoryUrl,
+          productCount: count,
+        }}
+      />
+      <BreadcrumbJsonLd
+        items={breadcrumbItems.map((item) => ({
+          name: item.label,
+          url: item.href ? `${baseUrl}${item.href}` : undefined,
+        }))}
+      />
+
       {/* Header */}
       <div className="bg-white border-b border-gray-200">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">

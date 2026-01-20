@@ -123,6 +123,16 @@ export function getCategoryName(name: string, nameRo: string | null): string {
 // URL Utilities
 // ============================================================
 
+const SITE_URL = 'https://xeh.ro'
+
+export function getBaseUrl(): string {
+  const envUrl = process.env.NEXT_PUBLIC_SITE_URL
+  if (envUrl && envUrl.startsWith('https://')) {
+    return envUrl.replace(/\/$/, '') // Remove trailing slash
+  }
+  return SITE_URL
+}
+
 export function getProductUrl(brandSlug: string, model: string, sapCode: string): string {
   return `/${brandSlug}/produs/${slugify(model)}-${sapCode}`
 }

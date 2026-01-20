@@ -2,6 +2,7 @@ import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
 import { AuthProvider } from '@/components/providers/AuthProvider'
 import { QuoteCartProvider } from '@/components/providers/QuoteCartProvider'
+import { OrganizationJsonLd } from '@/components/seo/JsonLd'
 import './globals.css'
 
 const inter = Inter({
@@ -48,6 +49,7 @@ export default function RootLayout({
   return (
     <html lang="ro" className={inter.variable}>
       <body className="font-sans antialiased bg-background min-h-screen">
+        <OrganizationJsonLd />
         <AuthProvider>
           <QuoteCartProvider>
             {children}

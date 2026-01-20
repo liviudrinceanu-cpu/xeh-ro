@@ -17,6 +17,7 @@ import { ProductJsonLd, BreadcrumbJsonLd, CategoryJsonLd } from '@/components/se
 import { getBrandBySlug, getCategoryByPath, getCategoryChildren, getCategoryBreadcrumb, getProductCountByCategory } from '@/lib/queries/categories'
 import { getProducts, getProductBySapCode, getRelatedProducts } from '@/lib/queries/products'
 import { formatPrice, getStockStatusLabel, getStockStatusColor, extractProductTitle, getCategoryName, getBaseUrl } from '@/lib/utils'
+import { getCategoryDescription, getCategoryKeywords, getCategorySeoData } from '@/lib/seo/categoryDescriptions'
 
 interface DynamicPageProps {
   params: Promise<{
@@ -76,14 +77,19 @@ export async function generateMetadata({ params }: DynamicPageProps): Promise<Me
   if (category) {
     const categoryName = getCategoryName(category.name, category.name_ro)
     const brandName = brand?.name || brandSlug.toUpperCase()
-    const description = `${categoryName} - echipamente profesionale ${brandName}. Descoperă gama completă de produse HoReCa pentru restaurante și hoteluri.`
+
+    // Get SEO-optimized description and keywords
+    const seoData = getCategorySeoData(categoryPath)
+    const seoTitle = seoData?.title || categoryName
+    const description = getCategoryDescription(categoryPath, categoryName, brandName)
+    const keywords = getCategoryKeywords(categoryPath, categoryName, brandName)
 
     return {
-      title: `${categoryName} | ${brandName}`,
+      title: `${seoTitle} | ${brandName}`,
       description,
-      keywords: [categoryName, brandName, 'echipamente horeca', 'bucatarie profesionala', 'restaurant', 'hotel'],
+      keywords,
       openGraph: {
-        title: `${categoryName} | ${brandName}`,
+        title: `${seoTitle} | ${brandName}`,
         description,
         url: `${baseUrl}/${brandSlug}${categoryPath.replace(`/Group/${brandSlug}`, '')}`,
         siteName: 'XEH.ro',
@@ -334,11 +340,12 @@ async function ProductPage({ brandSlug, sapCode }: { brandSlug: string; sapCode:
 // ============================================================
 
 async function CategoryPage({ brandSlug, categoryPath, page }: { brandSlug: string; categoryPath: string; page: number }) {
-  const [category, children, breadcrumb, productCounts] = await Promise.all([
+  const [category, children, breadcrumb, productCounts, brand] = await Promise.all([
     getCategoryByPath(categoryPath),
     getCategoryChildren('').then(() => []), // We'll get children differently
     getCategoryBreadcrumb(categoryPath),
     getProductCountByCategory(brandSlug),
+    getBrandBySlug(brandSlug),
   ])
 
   // If no category found, try to find products in this path
@@ -360,6 +367,10 @@ async function CategoryPage({ brandSlug, categoryPath, page }: { brandSlug: stri
     : lastBreadcrumb
       ? getCategoryName(lastBreadcrumb.name, lastBreadcrumb.name_ro)
       : 'Categorie'
+
+  const brandName = brand?.name || brandSlug.toUpperCase()
+  const seoDescription = getCategoryDescription(categoryPath, pageTitle, brandName)
+  const seoData = getCategorySeoData(categoryPath)
 
   const baseUrl = getBaseUrl()
   const categoryUrl = `${baseUrl}/${brandSlug}${categoryPath.replace(`/Group/${brandSlug}`, '')}`
@@ -386,11 +397,17 @@ async function CategoryPage({ brandSlug, categoryPath, page }: { brandSlug: stri
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
           <Breadcrumb items={breadcrumbItems} />
           <h1 className="text-3xl font-bold text-gray-600 mt-4">
-            {pageTitle}
+            {seoData?.title || pageTitle}
           </h1>
           <p className="text-gray-500 mt-2">
             {count} produse
           </p>
+          {/* SEO Description */}
+          {seoDescription && (
+            <p className="text-gray-600 mt-4 max-w-3xl leading-relaxed">
+              {seoDescription}
+            </p>
+          )}
         </div>
       </div>
 

@@ -1,58 +1,52 @@
 # XEH.ro - Context Proiect
 
 > **IMPORTANT:** Acest fișier este citit automat de Claude Code. Actualizează-l după fiecare decizie majoră.
-> **Ultima actualizare:** 2026-01-20 (seara)
+> **Ultima actualizare:** 2026-01-21 (dimineața)
 
 ---
 
 ## 🚨 CONTINUARE SESIUNE - CITEȘTE ASTA ÎNTÂI!
 
-### STATUS ACTUAL (2026-01-20 seara)
+### STATUS ACTUAL (2026-01-21)
 
 **TRADUCERI: ✅ COMPLETE ȘI DEPLOYED**
-**SEO: ✅ COMPLET IMPLEMENTAT**
+**SEO BASIC: ✅ COMPLET IMPLEMENTAT**
+**SEO ADVANCED: ✅ BLOG + LANDING PAGES DEPLOYED**
 **GOOGLE SEARCH CONSOLE: ✅ VERIFICAT ȘI SITEMAP TRIMIS**
 
----
+### ✅ ULTRA SEO OPTIMIZATION - 100% COMPLET!
 
-### 🎉 PROIECT COMPLET!
-
-Toate task-urile majore sunt finalizate:
-- Site live și funcțional: https://xeh.ro
-- ~2,600 produse cu traduceri în română
-- ~400 categorii cu traduceri în română
-- SEO complet (sitemap, meta tags, JSON-LD)
-- Google Search Console configurat, sitemap trimis (~3,000 URLs)
-
-**Indexarea Google va dura câteva zile/săptămâni.**
-
-Monitorizează progresul în: https://search.google.com/search-console (Coverage/Pages)
+| # | Task | Status | Detalii |
+|---|------|--------|---------|
+| 1 | Blog structure + articole SEO | ✅ LIVE | 6 articole optimizate |
+| 2 | Landing pages keywords valoroase | ✅ LIVE | 3 landing pages |
+| 3 | Descrieri SEO categorii | ✅ LIVE | 20+ categorii cu descrieri unice |
 
 ---
 
-### ✅ CE S-A FĂCUT AZI (2026-01-20):
+### 🎉 PAGINI NOI LIVE!
 
-1. **Traduceri complete și deployed:**
-   - 2,597 produse traduse (title_ro)
-   - 386 categorii traduse (name_ro)
-   - Site afișează totul în română
+#### Blog (6 articole SEO):
+- https://xeh.ro/blog
+- https://xeh.ro/blog/top-10-cuptoare-profesionale-restaurante-2026
+- https://xeh.ro/blog/ghid-complet-echipamente-horeca-restaurant
+- https://xeh.ro/blog/cuptor-convectie-vs-cuptor-clasic-diferente
+- https://xeh.ro/blog/masini-spalat-vase-industriale-ghid-alegere
+- https://xeh.ro/blog/echipamente-refrigerare-profesionala-tipuri
+- https://xeh.ro/blog/rm-gastro-vs-redfox-comparatie-branduri
 
-2. **88 fișiere committed în git:**
-   - Toate componentele, API routes, portal, admin
-   - Commit: `7651eb7`
+#### Landing Pages Keywords:
+- https://xeh.ro/cuptoare-profesionale
+- https://xeh.ro/frigidere-industriale
+- https://xeh.ro/masini-spalat-vase-profesionale
 
-3. **SEO optimization complet:**
-   - Sitemap dinamic cu ~3,000 URL-uri
-   - robots.txt actualizat (disallow /api, /admin, /portal, auth pages)
-   - Meta descriptions dinamice per produs și categorie
-   - Schema.org JSON-LD (Organization, Product, BreadcrumbList, CollectionPage)
-   - Open Graph tags complete
-   - Canonical URLs
-   - Commit: `f537de4`
-
-4. **Pregătit pentru Google Search Console:**
-   - Suport pentru `NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION` env variable
-   - Deployed și gata pentru verificare
+**Fiecare landing page include:**
+- Hero section optimizat SEO
+- Tipuri de echipamente cu descrieri
+- Produse recomandate din DB (dinamic)
+- FAQ section cu Schema.org FAQJsonLd
+- CTA sections
+- Meta tags complete + canonical URL
 
 ---
 
@@ -82,7 +76,7 @@ Monitorizează progresul în: https://search.google.com/search-console (Coverage
 
 ---
 
-## 3. STATUS FEATURES - COMPLET
+## 3. STATUS FEATURES
 
 ### ✅ Site Public (https://xeh.ro)
 | Feature | Status |
@@ -96,7 +90,7 @@ Monitorizează progresul în: https://search.google.com/search-console (Coverage
 | Formular Ofertă | ✅ Live |
 | **Traduceri Română** | ✅ Live |
 
-### ✅ SEO (NOU - 2026-01-20)
+### ✅ SEO Basic
 | Feature | Status |
 |---------|--------|
 | Sitemap XML dinamic (~3,000 URLs) | ✅ Live |
@@ -104,9 +98,22 @@ Monitorizează progresul în: https://search.google.com/search-console (Coverage
 | Meta descriptions dinamice | ✅ Live |
 | Schema.org Product JSON-LD | ✅ Live |
 | Schema.org Organization JSON-LD | ✅ Live |
+| Schema.org LocalBusiness JSON-LD | ✅ Live |
+| Schema.org WebSite JSON-LD | ✅ Live |
 | Schema.org BreadcrumbList JSON-LD | ✅ Live |
 | Open Graph tags | ✅ Live |
 | Canonical URLs | ✅ Live |
+| Google Search Console | ✅ Configurat |
+
+### ✅ SEO Advanced (COMPLET 2026-01-21)
+| Feature | Status |
+|---------|--------|
+| Blog cu 6 articole SEO | ✅ LIVE |
+| Landing page /cuptoare-profesionale | ✅ LIVE |
+| Landing page /frigidere-industriale | ✅ LIVE |
+| Landing page /masini-spalat-vase-profesionale | ✅ LIVE |
+| FAQ sections cu FAQJsonLd | ✅ LIVE |
+| Descrieri SEO categorii (20+ categorii) | ✅ LIVE |
 
 ### ✅ Portal B2B Parteneri
 | Feature | Status |
@@ -124,117 +131,94 @@ Monitorizează progresul în: https://search.google.com/search-console (Coverage
 | Gestiune Parteneri | ✅ Complet |
 | Gestiune Cotații | ✅ Complet |
 
-### ✅ Google Search Console
-| Feature | Status |
-|---------|--------|
-| Verificare proprietate | ✅ Complet |
-| Sitemap submitted | ✅ ~3,000 URLs |
-| Fișier verificare | `public/googlec0ad5029219ba2ec.html` |
-
 ---
 
-## 4. FIȘIERE SEO CHEIE
+## 4. FIȘIERE CHEIE
 
+### SEO & Content (NOI)
+```
+app/(main)/blog/page.tsx                              # Blog listing
+app/(main)/blog/[slug]/page.tsx                       # Blog articles (6)
+app/(main)/cuptoare-profesionale/page.tsx             # Landing cuptoare
+app/(main)/frigidere-industriale/page.tsx             # Landing frigidere
+app/(main)/masini-spalat-vase-profesionale/page.tsx   # Landing mașini spălat
+components/seo/JsonLd.tsx                              # FAQJsonLd, LocalBusinessJsonLd, etc.
+lib/seo/categoryDescriptions.ts                       # Descrieri SEO pentru 20+ categorii
+```
+
+### SEO Existing
 ```
 app/sitemap.ts                    # Sitemap dinamic (~3,000 URLs)
 app/robots.ts                     # robots.txt
-app/layout.tsx                    # Metadata globală + google verification
-app/(main)/[brand]/[...slug]/page.tsx  # generateMetadata + JSON-LD
-components/seo/JsonLd.tsx         # Componente Schema.org
-lib/utils/index.ts                # getBaseUrl() utility
+app/layout.tsx                    # Metadata globală
+app/(main)/page.tsx               # Homepage cu FAQ section
+```
+
+### Core Components
+```
+components/providers/QuoteCartProvider.tsx  # Quote Cart context
+components/cart/                            # Cart components
+components/product/ProductCard.tsx          # Card produs
 ```
 
 ---
 
-## 5. VERIFICĂRI LIVE
-
-### Sitemap: https://xeh.ro/sitemap.xml
-- ~3,000 URL-uri (6 statice + categorii + produse)
-
-### robots.txt: https://xeh.ro/robots.txt
-```
-User-Agent: *
-Allow: /
-Disallow: /api/
-Disallow: /admin/
-Disallow: /portal/
-Disallow: /login
-Disallow: /register
-Disallow: /forgot-password
-Disallow: /reset-password
-Sitemap: https://xeh.ro/sitemap.xml
-```
-
-### Exemplu pagină produs cu SEO:
-https://xeh.ro/rm/produs/00004498
-- Title: "Kit test duritate totală | REDFOX | XEH.ro"
-- Meta description: dinamică cu preț și cod
-- JSON-LD: Product, BreadcrumbList, Organization
-
----
-
-## 6. COMENZI UTILE
+## 5. COMENZI UTILE
 
 ```bash
 # Development
 npm run dev
 
-# Build local
+# Build local (VERIFICĂ ERORI!)
 npm run build
 
 # Deploy Vercel Production
 vercel --prod --yes
 
-# Verificare traduceri
-npx tsx scripts/check-translations.ts
-npx tsx scripts/check-category-translations.ts
+# Git commit
+git add . && git commit -m "Add blog and SEO landing pages"
+git push
 ```
 
 ---
 
-## 7. ENVIRONMENT VARIABLES NECESARE
-
-### În Vercel (Settings > Environment Variables):
-```
-NEXT_PUBLIC_SUPABASE_URL=...
-NEXT_PUBLIC_SUPABASE_ANON_KEY=...
-SUPABASE_SERVICE_ROLE_KEY=...
-RESEND_API_KEY=...
-NEXT_PUBLIC_SITE_URL=https://xeh.ro
-NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION=<DE ADĂUGAT>
-```
-
----
-
-## 8. ROADMAP
-
-1. ~~Phase 1-6~~ ✅ Complete
-2. ~~Phase 7 - Traduceri~~ ✅ COMPLET
-3. ~~Phase 8 - SEO~~ ✅ COMPLET
-4. ~~Phase 9 - Google Indexing~~ ✅ COMPLET (Search Console configurat)
-5. **Phase 10 - Marketing & Launch** 🚀 Ready!
-
----
-
-## 9. INSTRUCȚIUNI PENTRU CLAUDE
+## 6. INSTRUCȚIUNI PENTRU CLAUDE
 
 ### La Început de Sesiune Nouă (OBLIGATORIU)
 ```
-✅ CLAUDE.md încărcat | Ultima actualizare: 2026-01-20 (seara)
+✅ CLAUDE.md încărcat | Ultima actualizare: 2026-01-21
 
 📊 STARE PROIECT XEH.ro:
 - Status: LIVE și funcțional
-- Traduceri: ✅ Complete și deployed
-- SEO: ✅ Complet implementat
-- Google Search Console: ✅ Configurat, sitemap trimis
+- Traduceri: ✅ Complete (~2,600 produse, ~400 categorii)
+- SEO Basic: ✅ Complet (sitemap, meta, JSON-LD)
+- SEO Advanced: ✅ 100% COMPLET
+- Google Search Console: ✅ Configurat și sitemap trimis
 - Site: https://xeh.ro
 
-🎉 TOATE TASK-URILE TEHNICE SUNT COMPLETE!
+🎉 ULTRA SEO OPTIMIZATION - 100% COMPLET!
 
-Proiectul este ready pentru marketing și launch.
-Cu ce pot să te ajut?
+✅ Blog: 6 articole SEO cu FAQ Schema.org
+✅ Landing Pages: /cuptoare-profesionale, /frigidere-industriale, /masini-spalat-vase-profesionale
+✅ Descrieri SEO: 20+ categorii cu descrieri unice și meta tags optimizate
+
+Proiectul este complet optimizat pentru SEO. Cu ce pot să te ajut?
 ```
 
 ---
 
-*Ultima actualizare: 2026-01-20 seara | Site: https://xeh.ro | COMPLET - READY FOR LAUNCH 🚀*
+## 7. COMPETITORI ANALIZAȚI (PENTRU SEO)
+
+| Competitor | Caracteristici SEO |
+|------------|-------------------|
+| BELFIX | Blog cu articole "Top 10...", ghiduri |
+| TOPK | Landing pages keywords |
+| HorecaMag | Content marketing |
+| HENDI | Descrieri extinse categorii |
+| HRFS | Comparații produse |
+
+**Strategia noastră:** Blog + Landing pages + FAQ Schema.org
+
+---
+
+*Ultima actualizare: 2026-01-21 | Site: https://xeh.ro | ULTRA SEO OPTIMIZATION 100% COMPLET 🚀*

@@ -72,14 +72,11 @@ const nextConfig = {
         destination: '/catalog',
         permanent: true,
       },
-      {
-        source: '/cuptoare-profesionale',
-        destination: '/catalog?search=cuptor',
-        permanent: true,
-      },
+      // Note: /cuptoare-profesionale, /frigidere-industriale, /masini-spalat-vase-profesionale
+      // now have dedicated landing pages - no redirects needed
       {
         source: '/frigidere-profesionale',
-        destination: '/catalog?search=frigider',
+        destination: '/frigidere-industriale',
         permanent: true,
       },
     ]

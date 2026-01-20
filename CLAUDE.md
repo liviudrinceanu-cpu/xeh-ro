@@ -1,7 +1,7 @@
 # XEH.ro - Context Proiect
 
 > **IMPORTANT:** Acest fișier este citit automat de Claude Code. Actualizează-l după fiecare decizie majoră.
-> **Ultima actualizare:** 2026-01-20 (seara)
+> **Ultima actualizare:** 2026-01-20 (noapte) - AUDIT COMPLET + SECURITY FIXES
 
 ---
 
@@ -18,6 +18,28 @@
 **QUOTE CART: ✅ COMPLET IMPLEMENTAT**
 **AHREFS ANALYTICS: ✅ INTEGRAT**
 **EXPERT LEVEL FIXES: ✅ SORTING + SEARCH + VALIDATION**
+**SECURITY AUDIT: ✅ NEXT.JS UPDATED + HEADERS ADDED**
+**ACCESSIBILITY: ✅ SKIP LINK + ARIA-LABELS ADDED**
+
+### 🔒 SECURITY FIXES (2026-01-20 noapte)
+
+| # | Fix | Status | Detalii |
+|---|-----|--------|---------|
+| 1 | Next.js 14.2.35 | ✅ DONE | Fixed 9 CVEs including critical DoS |
+| 2 | Security Headers | ✅ DONE | X-Frame-Options, HSTS, X-XSS-Protection, Permissions-Policy |
+| 3 | Console.log removed | ✅ DONE | Removed 40+ statements from /api/quote |
+| 4 | Skip link a11y | ✅ DONE | "Salt la conținut" pentru keyboard navigation |
+| 5 | Aria-labels | ✅ DONE | Mobile menu, search buttons |
+| 6 | Blog links fixed | ✅ DONE | Old Czech paths → Romanian SEO paths |
+| 7 | Brand canonical URLs | ✅ DONE | /rm și /redfox au canonical + OG |
+| 8 | Search titles RO | ✅ DONE | Rezultate căutare afișează title_ro |
+
+### ⚠️ PENDING (nu sunt critice)
+
+| # | Task | Priority | Note |
+|---|------|----------|------|
+| 1 | Rate Limiting | MEDIUM | Recomandare: Upstash Redis pentru producție |
+| 2 | CSP Headers | LOW | Content Security Policy pentru XSS extra protection |
 
 ### ✅ QUOTE CART (Coș Cerere Ofertă) - COMPLET!
 

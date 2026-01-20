@@ -2,42 +2,81 @@ import type { Config } from 'tailwindcss'
 
 const config: Config = {
   content: [
-    './src/pages/**/*.{js,ts,jsx,tsx,mdx}',
-    './src/components/**/*.{js,ts,jsx,tsx,mdx}',
-    './src/app/**/*.{js,ts,jsx,tsx,mdx}',
+    './app/**/*.{js,ts,jsx,tsx,mdx}',
+    './components/**/*.{js,ts,jsx,tsx,mdx}',
+    './lib/**/*.{js,ts,jsx,tsx,mdx}',
   ],
   theme: {
     extend: {
       colors: {
-        primary: {
-          50: '#fce8ec',
-          100: '#f8c5ce',
-          200: '#f29dab',
-          300: '#eb7488',
-          400: '#e6566e',
-          500: '#DC143C',
-          600: '#E8354F',
-          700: '#DC143C',
-          800: '#B01030',
-          900: '#8B0A1E',
+        // Apple-inspired neutrals
+        gray: {
+          50: '#FAFAFA',
+          100: '#F5F5F7',
+          200: '#E8E8ED',
+          300: '#D2D2D7',
+          400: '#86868B',
+          500: '#6E6E73',
+          600: '#1D1D1F',
+        },
+        // Crimson accents
+        crimson: {
           DEFAULT: '#DC143C',
           light: '#E8354F',
           dark: '#B01030',
+          bg: '#FEF2F4',
         },
-        secondary: {
-          DEFAULT: '#0D0D0D',
-          light: '#1A1A1A',
-        },
+        // Semantic colors
         background: '#FAFAFA',
-        card: '#FFFFFF',
-        text: {
-          DEFAULT: '#0D0D0D',
-          muted: '#666666',
-        },
-        'product-bg': '#1A1A1A',
+        surface: '#FFFFFF',
+        // Brand colors
+        rm: '#1D1D1F',
+        redfox: '#DC143C',
       },
       fontFamily: {
-        sans: ['Inter', 'system-ui', 'sans-serif'],
+        sans: ['Inter', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'Roboto', 'sans-serif'],
+      },
+      fontSize: {
+        '2xs': ['0.625rem', { lineHeight: '0.875rem' }],
+      },
+      spacing: {
+        '18': '4.5rem',
+        '88': '22rem',
+        '128': '32rem',
+      },
+      borderRadius: {
+        'xl': '12px',
+        '2xl': '16px',
+        '3xl': '20px',
+        '4xl': '24px',
+      },
+      boxShadow: {
+        'sm': '0 1px 3px rgba(0,0,0,0.08)',
+        'md': '0 4px 12px rgba(0,0,0,0.08)',
+        'lg': '0 12px 40px rgba(0,0,0,0.12)',
+        'crimson': '0 4px 14px rgba(220,20,60,0.25)',
+      },
+      animation: {
+        'fade-in': 'fadeIn 0.3s ease-out',
+        'slide-up': 'slideUp 0.3s ease-out',
+        'slide-down': 'slideDown 0.3s ease-out',
+      },
+      keyframes: {
+        fadeIn: {
+          '0%': { opacity: '0' },
+          '100%': { opacity: '1' },
+        },
+        slideUp: {
+          '0%': { opacity: '0', transform: 'translateY(10px)' },
+          '100%': { opacity: '1', transform: 'translateY(0)' },
+        },
+        slideDown: {
+          '0%': { opacity: '0', transform: 'translateY(-10px)' },
+          '100%': { opacity: '1', transform: 'translateY(0)' },
+        },
+      },
+      transitionDuration: {
+        '250': '250ms',
       },
     },
   },

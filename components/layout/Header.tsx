@@ -5,8 +5,10 @@ import Image from 'next/image'
 import { useState, useEffect, useCallback } from 'react'
 import { useRouter } from 'next/navigation'
 import { Search, Menu, X, Loader2, Package, FolderOpen, User, LogOut, LayoutDashboard, ChevronDown, Shield } from 'lucide-react'
-import { cn } from '@/lib/utils'
+import { cn, getCategoryName } from '@/lib/utils'
 import { useAuth } from '@/components/providers/AuthProvider'
+import CartButton from '@/components/cart/CartButton'
+import CartDrawer from '@/components/cart/CartDrawer'
 
 const navigation = [
   { name: 'Branduri', href: '/#branduri' },
@@ -154,6 +156,9 @@ export default function Header() {
               </>
             )}
 
+            {/* Cart Button */}
+            <CartButton className="hidden sm:flex" />
+
             {/* CTA Button */}
             <Link
               href="/cerere-oferta"
@@ -248,6 +253,9 @@ export default function Header() {
       {searchOpen && (
         <SearchModal onClose={() => setSearchOpen(false)} />
       )}
+
+      {/* Cart Drawer */}
+      <CartDrawer />
     </header>
   )
 }
@@ -267,6 +275,7 @@ type SearchResult = {
   categories: {
     id: string
     name: string
+    name_ro: string | null
     slug: string
     path: string
     productCount: number
@@ -359,7 +368,7 @@ function SearchModal({ onClose }: { onClose: () => void }) {
                       >
                         <FolderOpen className="w-5 h-5 text-gray-400" />
                         <div className="flex-1 min-w-0">
-                          <p className="font-medium text-gray-900 truncate">{cat.name}</p>
+                          <p className="font-medium text-gray-900 truncate">{getCategoryName(cat.name, cat.name_ro)}</p>
                           <p className="text-sm text-gray-500">
                             {cat.brand.name} • {cat.productCount} produse
                           </p>

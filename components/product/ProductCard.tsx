@@ -5,6 +5,7 @@ import Image from 'next/image'
 import { cn, formatPriceShort, getOptimizedImageUrl, extractProductTitle } from '@/lib/utils'
 import Badge from '@/components/ui/Badge'
 import FavoriteButton from '@/components/product/FavoriteButton'
+import AddToCartButton from '@/components/product/AddToCartButton'
 import type { Product } from '@/types/database'
 
 interface ProductCardProps {
@@ -57,13 +58,29 @@ export default function ProductCard({ product, className, initialFavorite = fals
           )}
         </div>
 
-        {/* Favorite button - top right */}
-        <FavoriteButton
-          productId={product.id}
-          size="sm"
-          className="absolute top-3 right-3"
-          initialFavorite={initialFavorite}
-        />
+        {/* Action buttons - top right */}
+        <div className="absolute top-3 right-3 flex flex-col gap-2">
+          <FavoriteButton
+            productId={product.id}
+            size="sm"
+            initialFavorite={initialFavorite}
+          />
+          <AddToCartButton
+            product={{
+              productId: product.id,
+              sapCode: product.sap_code,
+              title: title,
+              model: product.model,
+              brand: brandName,
+              brandSlug: brandSlug,
+              imageUrl: imageUrl || null,
+              priceAmount: product.price_amount,
+              priceCurrency: product.price_currency || 'EUR',
+            }}
+            variant="icon"
+            size="sm"
+          />
+        </div>
       </div>
 
       {/* Info */}

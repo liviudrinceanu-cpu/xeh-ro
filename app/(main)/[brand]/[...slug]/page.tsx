@@ -11,19 +11,24 @@ import ProductSpecs from '@/components/product/ProductSpecs'
 import ProductDocs from '@/components/product/ProductDocs'
 import CategoryCard from '@/components/category/CategoryCard'
 import FavoriteButton from '@/components/product/FavoriteButton'
+import AddToCartButton from '@/components/product/AddToCartButton'
 import { getBrandBySlug, getCategoryByPath, getCategoryChildren, getCategoryBreadcrumb, getProductCountByCategory } from '@/lib/queries/categories'
 import { getProducts, getProductBySapCode, getRelatedProducts } from '@/lib/queries/products'
-import { formatPrice, getStockStatusLabel, getStockStatusColor, extractProductTitle } from '@/lib/utils'
+import { formatPrice, getStockStatusLabel, getStockStatusColor, extractProductTitle, getCategoryName } from '@/lib/utils'
 
 interface DynamicPageProps {
   params: Promise<{
     brand: string
     slug: string[]
   }>
+  searchParams: Promise<{
+    page?: string
+  }>
 }
 
-export default async function DynamicPage({ params }: DynamicPageProps) {
+export default async function DynamicPage({ params, searchParams }: DynamicPageProps) {
   const { brand: brandSlug, slug } = await params
+  const queryParams = await searchParams
 
   const brand = await getBrandBySlug(brandSlug)
   if (!brand) notFound()
@@ -35,7 +40,8 @@ export default async function DynamicPage({ params }: DynamicPageProps) {
 
   // Otherwise, treat as category page
   const categoryPath = `/Group/${brandSlug}/${slug.join('/')}`
-  return <CategoryPage brandSlug={brandSlug} categoryPath={categoryPath} />
+  const page = parseInt(queryParams.page || '1')
+  return <CategoryPage brandSlug={brandSlug} categoryPath={categoryPath} page={page} />
 }
 
 // ============================================================
@@ -136,14 +142,33 @@ async function ProductPage({ brandSlug, sapCode }: { brandSlug: string; sapCode:
               </div>
 
               {/* Actions */}
-              <div className="flex gap-3">
-                <Button href={`/cerere-oferta?produs=${product.sap_code}`} size="lg" className="flex-1">
-                  Cere Oferta
+              <div className="flex flex-col gap-3">
+                <div className="flex gap-3">
+                  <AddToCartButton
+                    product={{
+                      productId: product.id,
+                      sapCode: product.sap_code,
+                      title: title,
+                      model: product.model,
+                      brand: brandName,
+                      brandSlug: brandSlug,
+                      imageUrl: product.product_images?.find(img => img.is_primary)?.cloudinary_url ||
+                               product.product_images?.[0]?.cloudinary_url || null,
+                      priceAmount: product.price_amount,
+                      priceCurrency: product.price_currency || 'EUR',
+                    }}
+                    variant="full"
+                    size="lg"
+                    className="flex-1"
+                  />
+                  <Button variant="outline" size="lg">
+                    <Share2 className="w-5 h-5" />
+                  </Button>
+                  <FavoriteButton productId={product.id} size="lg" />
+                </div>
+                <Button href={`/cerere-oferta?produs=${product.sap_code}`} variant="outline" size="lg" className="w-full">
+                  Trimite Cerere Direct
                 </Button>
-                <Button variant="outline" size="lg">
-                  <Share2 className="w-5 h-5" />
-                </Button>
-                <FavoriteButton productId={product.id} size="lg" />
               </div>
 
               {/* Source Link */}
@@ -203,7 +228,7 @@ async function ProductPage({ brandSlug, sapCode }: { brandSlug: string; sapCode:
 // CATEGORY PAGE
 // ============================================================
 
-async function CategoryPage({ brandSlug, categoryPath }: { brandSlug: string; categoryPath: string }) {
+async function CategoryPage({ brandSlug, categoryPath, page }: { brandSlug: string; categoryPath: string; page: number }) {
   const [category, children, breadcrumb, productCounts] = await Promise.all([
     getCategoryByPath(categoryPath),
     getCategoryChildren('').then(() => []), // We'll get children differently
@@ -212,19 +237,24 @@ async function CategoryPage({ brandSlug, categoryPath }: { brandSlug: string; ca
   ])
 
   // If no category found, try to find products in this path
-  const productsData = await getProducts({ categoryPath, pageSize: 24 })
-  const { data: products, count } = productsData
+  const productsData = await getProducts({ categoryPath, page, pageSize: 24 })
+  const { data: products, count, totalPages } = productsData
 
   // Get subcategories for this path
   const subcategories = await getCategoryChildren(category?.id || '')
 
   // Build breadcrumb
   const breadcrumbItems = breadcrumb.map((cat, index) => ({
-    label: cat.name,
+    label: getCategoryName(cat.name, cat.name_ro),
     href: index < breadcrumb.length - 1 ? `/${brandSlug}${cat.path.replace(`/Group/${brandSlug}`, '')}` : undefined,
   }))
 
-  const pageTitle = category?.name || breadcrumb[breadcrumb.length - 1]?.name || 'Categorie'
+  const lastBreadcrumb = breadcrumb[breadcrumb.length - 1]
+  const pageTitle = category
+    ? getCategoryName(category.name, category.name_ro)
+    : lastBreadcrumb
+      ? getCategoryName(lastBreadcrumb.name, lastBreadcrumb.name_ro)
+      : 'Categorie'
 
   return (
     <div className="min-h-screen bg-gray-50">
@@ -262,6 +292,33 @@ async function CategoryPage({ brandSlug, categoryPath }: { brandSlug: string; ca
 
         {/* Products */}
         <ProductGrid products={products} />
+
+        {/* Pagination */}
+        {totalPages > 1 && (
+          <div className="mt-8 flex justify-center gap-2">
+            {Array.from({ length: Math.min(totalPages, 10) }, (_, i) => i + 1).map((pageNum) => {
+              const basePath = `/${brandSlug}${categoryPath.replace(`/Group/${brandSlug}`, '')}`
+              const href = pageNum === 1 ? basePath : `${basePath}?page=${pageNum}`
+
+              return (
+                <Link
+                  key={pageNum}
+                  href={href}
+                  className={`w-10 h-10 flex items-center justify-center rounded-lg text-sm font-medium transition-colors ${
+                    pageNum === page
+                      ? 'bg-crimson text-white'
+                      : 'bg-white hover:bg-gray-100 text-gray-600'
+                  }`}
+                >
+                  {pageNum}
+                </Link>
+              )
+            })}
+            {totalPages > 10 && (
+              <span className="w-10 h-10 flex items-center justify-center text-gray-400">...</span>
+            )}
+          </div>
+        )}
       </div>
     </div>
   )

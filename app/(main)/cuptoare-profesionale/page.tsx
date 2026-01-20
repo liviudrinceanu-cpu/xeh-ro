@@ -22,6 +22,18 @@ export const metadata: Metadata = {
     title: 'Cuptoare Profesionale HoReCa | XEH.ro',
     description: 'Gamă completă de cuptoare profesionale pentru restaurante. Cuptor convecție, pizza, combi steamer.',
     url: 'https://xeh.ro/cuptoare-profesionale',
+    images: [{
+      url: 'https://xeh.ro/og-cuptoare.jpg',
+      width: 1200,
+      height: 630,
+      alt: 'Cuptoare Profesionale pentru Restaurante - XEH.ro',
+    }],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Cuptoare Profesionale HoReCa | XEH.ro',
+    description: 'Gamă completă de cuptoare profesionale pentru restaurante. Cuptor convecție, pizza, combi steamer.',
+    images: ['https://xeh.ro/og-cuptoare.jpg'],
   },
   alternates: {
     canonical: 'https://xeh.ro/cuptoare-profesionale',

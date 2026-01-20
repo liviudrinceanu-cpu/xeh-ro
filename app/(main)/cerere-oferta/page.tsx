@@ -2,10 +2,32 @@ import { Suspense } from 'react'
 import Breadcrumb from '@/components/ui/Breadcrumb'
 import QuoteForm from '@/components/forms/QuoteForm'
 import { getProductBySapCode } from '@/lib/queries/products'
+import type { Metadata } from 'next'
 
-export const metadata = {
-  title: 'Cere Ofertă',
-  description: 'Solicită o ofertă personalizată pentru echipamente HoReCa. Răspundem în maxim 24 de ore.',
+export const metadata: Metadata = {
+  title: 'Cere Ofertă | XEH.ro - Echipamente HoReCa Profesionale',
+  description: 'Solicită o ofertă personalizată pentru echipamente HoReCa profesionale. Cuptoare, frigidere, mașini de spălat vase. Răspundem în maxim 24 de ore cu prețuri competitive.',
+  keywords: ['cerere oferta horeca', 'pret echipamente restaurant', 'oferta cuptor profesional', 'pret frigider industrial'],
+  openGraph: {
+    title: 'Cere Ofertă | XEH.ro - Echipamente HoReCa Profesionale',
+    description: 'Solicită o ofertă personalizată pentru echipamente HoReCa profesionale. Răspundem în maxim 24 de ore.',
+    url: 'https://xeh.ro/cerere-oferta',
+    images: [{
+      url: 'https://xeh.ro/og-quote.jpg',
+      width: 1200,
+      height: 630,
+      alt: 'Cerere Ofertă XEH.ro - Echipamente HoReCa',
+    }],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Cere Ofertă | XEH.ro - Echipamente HoReCa Profesionale',
+    description: 'Solicită o ofertă personalizată pentru echipamente HoReCa profesionale.',
+    images: ['https://xeh.ro/og-quote.jpg'],
+  },
+  alternates: {
+    canonical: 'https://xeh.ro/cerere-oferta',
+  },
 }
 
 interface QuotePageProps {

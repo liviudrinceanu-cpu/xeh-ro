@@ -91,7 +91,11 @@ export function OrganizationJsonLd() {
       areaServed: 'RO',
       availableLanguage: ['Romanian', 'English'],
     },
-    sameAs: [],
+    sameAs: [
+      'https://www.facebook.com/xeh.ro',
+      'https://www.instagram.com/xeh.ro',
+      'https://www.linkedin.com/company/xeh-ro',
+    ],
   }
 
   return (
@@ -240,6 +244,58 @@ export function CategoryJsonLd({ category }: CategoryJsonLdProps) {
     description: category.description || `${category.name} - echipamente profesionale HoReCa`,
     url: category.url,
     numberOfItems: category.productCount,
+  }
+
+  return (
+    <script
+      type="application/ld+json"
+      dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+    />
+  )
+}
+
+interface ArticleJsonLdProps {
+  article: {
+    title: string
+    description: string
+    url: string
+    image?: string
+    datePublished: string
+    dateModified?: string
+    author: string
+    keywords?: string[]
+  }
+}
+
+export function ArticleJsonLd({ article }: ArticleJsonLdProps) {
+  const jsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'Article',
+    headline: article.title,
+    description: article.description,
+    url: article.url,
+    image: article.image || 'https://xeh.ro/og-image.jpg',
+    datePublished: article.datePublished,
+    dateModified: article.dateModified || article.datePublished,
+    author: {
+      '@type': 'Organization',
+      name: article.author,
+      url: 'https://xeh.ro',
+    },
+    publisher: {
+      '@type': 'Organization',
+      name: 'XEH.ro - eXpert Echipamente Horeca',
+      url: 'https://xeh.ro',
+      logo: {
+        '@type': 'ImageObject',
+        url: 'https://xeh.ro/logo.png',
+      },
+    },
+    mainEntityOfPage: {
+      '@type': 'WebPage',
+      '@id': article.url,
+    },
+    ...(article.keywords && { keywords: article.keywords.join(', ') }),
   }
 
   return (

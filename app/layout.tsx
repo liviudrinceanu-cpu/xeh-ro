@@ -32,11 +32,21 @@ export const metadata: Metadata = {
     siteName: 'XEH.ro',
     title: 'XEH.ro - eXpert Echipamente Horeca',
     description: 'Distribuitor autorizat de echipamente profesionale HoReCa. Branduri premium RM Gastro și REDFOX.',
+    images: [{
+      url: 'https://xeh.ro/og-default.jpg',
+      width: 1200,
+      height: 630,
+      alt: 'XEH.ro - eXpert Echipamente Horeca',
+    }],
   },
   twitter: {
     card: 'summary_large_image',
     title: 'XEH.ro - eXpert Echipamente Horeca',
     description: 'Distribuitor autorizat de echipamente profesionale HoReCa.',
+    images: ['https://xeh.ro/og-default.jpg'],
+  },
+  alternates: {
+    canonical: 'https://xeh.ro',
   },
   robots: {
     index: true,

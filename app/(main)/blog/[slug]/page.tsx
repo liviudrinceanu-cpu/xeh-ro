@@ -3,7 +3,7 @@ import { notFound } from 'next/navigation'
 import { ArrowLeft, Calendar, Clock, User, Share2 } from 'lucide-react'
 import Breadcrumb from '@/components/ui/Breadcrumb'
 import type { Metadata } from 'next'
-import { FAQJsonLd, BreadcrumbJsonLd } from '@/components/seo/JsonLd'
+import { FAQJsonLd, BreadcrumbJsonLd, ArticleJsonLd } from '@/components/seo/JsonLd'
 
 // Article content database
 const articlesContent: Record<string, {
@@ -409,6 +409,18 @@ export async function generateMetadata({ params }: BlogArticlePageProps): Promis
       type: 'article',
       publishedTime: article.date,
       authors: [article.author],
+      images: [{
+        url: 'https://xeh.ro/og-blog.jpg',
+        width: 1200,
+        height: 630,
+        alt: article.title,
+      }],
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title: article.title,
+      description: article.excerpt,
+      images: ['https://xeh.ro/og-blog.jpg'],
     },
     alternates: {
       canonical: `https://xeh.ro/blog/${slug}`,
@@ -432,6 +444,16 @@ export default async function BlogArticlePage({ params }: BlogArticlePageProps) 
   return (
     <div className="min-h-screen bg-gray-50">
       {/* Schema.org */}
+      <ArticleJsonLd
+        article={{
+          title: article.title,
+          description: article.excerpt,
+          url: `https://xeh.ro/blog/${slug}`,
+          datePublished: article.date,
+          author: article.author,
+          keywords: article.keywords,
+        }}
+      />
       {article.faqs && <FAQJsonLd faqs={article.faqs} />}
       <BreadcrumbJsonLd
         items={breadcrumbItems.map((item) => ({

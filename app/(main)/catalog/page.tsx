@@ -6,9 +6,32 @@ import { getBrands, getTopLevelCategories } from '@/lib/queries/categories'
 import CatalogFilters from '@/components/catalog/CatalogFilters'
 import { getCategoryName } from '@/lib/utils'
 
-export const metadata = {
-  title: 'Catalog Produse',
-  description: 'Explorează catalogul complet de echipamente HoReCa profesionale. Branduri RM Gastro și REDFOX.',
+import type { Metadata } from 'next'
+
+export const metadata: Metadata = {
+  title: 'Catalog Echipamente HoReCa Profesionale | XEH.ro',
+  description: 'Explorează catalogul complet de echipamente HoReCa profesionale. Peste 2600 produse de la brandurile RM Gastro și REDFOX. Cuptoare, frigidere, mașini spălat vase.',
+  keywords: ['catalog echipamente horeca', 'echipamente profesionale restaurant', 'catalog RM Gastro', 'catalog REDFOX'],
+  openGraph: {
+    title: 'Catalog Echipamente HoReCa Profesionale | XEH.ro',
+    description: 'Peste 2600 echipamente profesionale HoReCa de la RM Gastro și REDFOX.',
+    url: 'https://xeh.ro/catalog',
+    images: [{
+      url: 'https://xeh.ro/og-catalog.jpg',
+      width: 1200,
+      height: 630,
+      alt: 'Catalog Echipamente HoReCa - XEH.ro',
+    }],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Catalog Echipamente HoReCa | XEH.ro',
+    description: 'Peste 2600 echipamente profesionale HoReCa.',
+    images: ['https://xeh.ro/og-catalog.jpg'],
+  },
+  alternates: {
+    canonical: 'https://xeh.ro/catalog',
+  },
 }
 
 interface CatalogPageProps {

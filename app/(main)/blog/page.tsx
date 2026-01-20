@@ -2,6 +2,7 @@ import Link from 'next/link'
 import Image from 'next/image'
 import { ArrowRight, Calendar, Clock, User } from 'lucide-react'
 import Breadcrumb from '@/components/ui/Breadcrumb'
+import { FAQJsonLd, BreadcrumbJsonLd } from '@/components/seo/JsonLd'
 import type { Metadata } from 'next'
 
 export const metadata: Metadata = {
@@ -11,8 +12,39 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'Blog | Ghiduri Echipamente HoReCa | XEH.ro',
     description: 'Ghiduri complete și sfaturi pentru alegerea echipamentelor profesionale HoReCa.',
+    url: 'https://xeh.ro/blog',
+    images: [{
+      url: 'https://xeh.ro/og-blog.jpg',
+      width: 1200,
+      height: 630,
+      alt: 'Blog XEH.ro - Ghiduri Echipamente HoReCa',
+    }],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Blog | Ghiduri Echipamente HoReCa | XEH.ro',
+    description: 'Ghiduri complete și sfaturi pentru alegerea echipamentelor profesionale HoReCa.',
+    images: ['https://xeh.ro/og-blog.jpg'],
+  },
+  alternates: {
+    canonical: 'https://xeh.ro/blog',
   },
 }
+
+const blogFaqs = [
+  {
+    question: 'Ce echipamente HoReCa sunt cele mai importante pentru un restaurant?',
+    answer: 'Echipamentele esențiale includ: cuptor profesional, frigider/congelator, mașină de spălat vase, aragazuri/plite, și mese de lucru inox. Prioritizarea depinde de tipul de meniu și volumul de producție.',
+  },
+  {
+    question: 'Care este diferența dintre RM Gastro și REDFOX?',
+    answer: 'RM Gastro este linia premium cu performanță maximă și garanție extinsă, ideală pentru restaurante fine dining. REDFOX oferă raport excelent calitate-preț, perfect pentru fast-food și bistrouri.',
+  },
+  {
+    question: 'Cum pot obține o ofertă pentru echipamente HoReCa?',
+    answer: 'Poți solicita o ofertă personalizată direct pe site-ul nostru la secțiunea Cerere Ofertă sau ne poți contacta telefonic la +40 724 256 250. Răspundem în maxim 24 de ore.',
+  },
+]
 
 // Blog articles data
 const articles = [
@@ -81,6 +113,15 @@ const articles = [
 export default function BlogPage() {
   return (
     <div className="min-h-screen bg-gray-50">
+      {/* Schema.org */}
+      <FAQJsonLd faqs={blogFaqs} />
+      <BreadcrumbJsonLd
+        items={[
+          { name: 'Acasă', url: 'https://xeh.ro' },
+          { name: 'Blog' },
+        ]}
+      />
+
       {/* Header */}
       <div className="bg-white border-b border-gray-200">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">

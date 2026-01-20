@@ -1,10 +1,32 @@
 import { Phone, Mail, MapPin, Clock } from 'lucide-react'
 import Breadcrumb from '@/components/ui/Breadcrumb'
 import ContactForm from '@/components/forms/ContactForm'
+import type { Metadata } from 'next'
 
-export const metadata = {
-  title: 'Contact',
-  description: 'Contactează-ne pentru informații despre echipamente HoReCa profesionale. Suntem aici să te ajutăm.',
+export const metadata: Metadata = {
+  title: 'Contact | XEH.ro - eXpert Echipamente Horeca',
+  description: 'Contactează-ne pentru informații despre echipamente HoReCa profesionale. Telefon: +40 724 256 250, Email: contact@xeh.ro. Răspundem în maxim 24 de ore.',
+  keywords: ['contact xeh', 'echipamente horeca contact', 'telefon echipamente restaurant'],
+  openGraph: {
+    title: 'Contact | XEH.ro - eXpert Echipamente Horeca',
+    description: 'Contactează-ne pentru informații despre echipamente HoReCa profesionale. Răspundem în maxim 24 de ore.',
+    url: 'https://xeh.ro/contact',
+    images: [{
+      url: 'https://xeh.ro/og-contact.jpg',
+      width: 1200,
+      height: 630,
+      alt: 'Contact XEH.ro - Echipamente HoReCa Profesionale',
+    }],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Contact | XEH.ro - eXpert Echipamente Horeca',
+    description: 'Contactează-ne pentru informații despre echipamente HoReCa profesionale.',
+    images: ['https://xeh.ro/og-contact.jpg'],
+  },
+  alternates: {
+    canonical: 'https://xeh.ro/contact',
+  },
 }
 
 export default function ContactPage() {

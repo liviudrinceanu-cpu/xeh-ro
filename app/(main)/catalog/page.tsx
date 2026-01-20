@@ -50,7 +50,7 @@ interface CatalogPageProps {
 export default async function CatalogPage({ searchParams }: CatalogPageProps) {
   const params = await searchParams
   const page = parseInt(params.page || '1')
-  const sort = (params.sort as SortOption) || 'newest'
+  const sort = (params.sort as SortOption) || 'price_desc'
   const stockFilter = (params.stock as StockFilter) || 'all'
   const priceMin = params.priceMin ? parseInt(params.priceMin) : undefined
   const priceMax = params.priceMax ? parseInt(params.priceMax) : undefined

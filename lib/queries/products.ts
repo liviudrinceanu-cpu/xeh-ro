@@ -53,9 +53,9 @@ export async function getProducts(options?: {
     }
   }
 
-  // Search
+  // Search (includes Romanian titles)
   if (options?.search) {
-    query = query.or(`title_en.ilike.%${options.search}%,model.ilike.%${options.search}%,sap_code.ilike.%${options.search}%`)
+    query = query.or(`title_en.ilike.%${options.search}%,title_ro.ilike.%${options.search}%,model.ilike.%${options.search}%,sap_code.ilike.%${options.search}%`)
   }
 
   // Filter by stock status
@@ -71,8 +71,8 @@ export async function getProducts(options?: {
     query = query.lte('price_amount', options.priceMax)
   }
 
-  // Sorting
-  const sort = options?.sort || 'newest'
+  // Sorting (default: price high to low)
+  const sort = options?.sort || 'price_desc'
   switch (sort) {
     case 'price_asc':
       query = query.order('price_amount', { ascending: true, nullsFirst: false })

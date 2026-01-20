@@ -80,6 +80,10 @@ export default function ContactForm() {
             id="name"
             name="name"
             required
+            minLength={2}
+            maxLength={100}
+            pattern="[a-zA-ZăâîșțĂÂÎȘȚ\s\-]+"
+            title="Introduceți un nume valid (minim 2 caractere, doar litere)"
             className="w-full px-4 py-3 border border-gray-200 rounded-xl focus:ring-2 focus:ring-crimson focus:border-transparent outline-none transition-all"
             placeholder="Numele tău"
           />
@@ -103,12 +107,15 @@ export default function ContactForm() {
       <div className="grid md:grid-cols-2 gap-6">
         <div>
           <label htmlFor="phone" className="block text-sm font-medium text-gray-600 mb-2">
-            Telefon
+            Telefon *
           </label>
           <input
             type="tel"
             id="phone"
             name="phone"
+            required
+            pattern="(\+40|0)[0-9]{9}"
+            title="Introduceți un număr de telefon valid (ex: 0724256250 sau +40724256250)"
             className="w-full px-4 py-3 border border-gray-200 rounded-xl focus:ring-2 focus:ring-crimson focus:border-transparent outline-none transition-all"
             placeholder="07XX XXX XXX"
           />

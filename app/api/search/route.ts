@@ -26,7 +26,7 @@ export async function GET(request: NextRequest) {
       brand:brands(name, slug),
       product_images(cloudinary_url, is_primary)
     `)
-    .or(`title_en.ilike.%${query}%,model.ilike.%${query}%,sap_code.ilike.%${query}%`)
+    .or(`title_en.ilike.%${query}%,title_ro.ilike.%${query}%,model.ilike.%${query}%,sap_code.ilike.%${query}%`)
     .order('price_amount', { ascending: false, nullsFirst: false })
     .limit(limit)
 

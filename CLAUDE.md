@@ -1,18 +1,31 @@
 # XEH.ro - Context Proiect
 
 > **IMPORTANT:** Acest fișier este citit automat de Claude Code. Actualizează-l după fiecare decizie majoră.
-> **Ultima actualizare:** 2026-01-21 (dimineața)
+> **Ultima actualizare:** 2026-01-20 (seara)
 
 ---
 
 ## 🚨 CONTINUARE SESIUNE - CITEȘTE ASTA ÎNTÂI!
 
-### STATUS ACTUAL (2026-01-21)
+### STATUS ACTUAL (2026-01-20)
 
 **TRADUCERI: ✅ COMPLETE ȘI DEPLOYED**
 **SEO BASIC: ✅ COMPLET IMPLEMENTAT**
 **SEO ADVANCED: ✅ BLOG + LANDING PAGES DEPLOYED**
 **GOOGLE SEARCH CONSOLE: ✅ VERIFICAT ȘI SITEMAP TRIMIS**
+**QUOTE CART: ✅ COMPLET IMPLEMENTAT**
+**AHREFS ANALYTICS: ✅ INTEGRAT**
+
+### ✅ QUOTE CART (Coș Cerere Ofertă) - COMPLET!
+
+| # | Component | Status | Detalii |
+|---|-----------|--------|---------|
+| 1 | QuoteCartProvider | ✅ LIVE | Context + localStorage persistence |
+| 2 | AddToCartButton | ✅ LIVE | Icon + full variants |
+| 3 | CartButton | ✅ LIVE | Badge count în header |
+| 4 | CartDrawer | ✅ LIVE | Drawer lateral cu createPortal |
+| 5 | QuoteForm | ✅ LIVE | Tabel produse + prețuri |
+| 6 | API + Email | ✅ LIVE | Multiple produse, tabel în email |
 
 ### ✅ ULTRA SEO OPTIMIZATION - 100% COMPLET!
 
@@ -21,6 +34,7 @@
 | 1 | Blog structure + articole SEO | ✅ LIVE | 6 articole optimizate |
 | 2 | Landing pages keywords valoroase | ✅ LIVE | 3 landing pages |
 | 3 | Descrieri SEO categorii | ✅ LIVE | 20+ categorii cu descrieri unice |
+| 4 | Ahrefs Analytics | ✅ LIVE | Tracking integrat |
 
 ---
 
@@ -73,6 +87,7 @@
 | Resend | Email notifications | ✅ Configurat |
 | Vercel | Hosting | ✅ Deployed |
 | Anthropic Claude API | Traduceri AI | ✅ Utilizat |
+| Ahrefs Analytics | SEO tracking | ✅ Integrat |
 
 ---
 
@@ -154,11 +169,21 @@ app/layout.tsx                    # Metadata globală
 app/(main)/page.tsx               # Homepage cu FAQ section
 ```
 
+### Quote Cart System
+```
+components/providers/QuoteCartProvider.tsx  # Context + localStorage persistence
+components/cart/CartButton.tsx              # Buton header cu badge count
+components/cart/CartDrawer.tsx              # Drawer lateral (folosește createPortal)
+components/product/AddToCartButton.tsx      # Buton "+" pe produse (icon + full)
+components/forms/QuoteForm.tsx              # Formular cu tabel produse + prețuri
+app/api/quote/route.ts                      # API pentru multiple produse
+lib/email.ts                                # Email templates cu tabel produse
+```
+
 ### Core Components
 ```
-components/providers/QuoteCartProvider.tsx  # Quote Cart context
-components/cart/                            # Cart components
-components/product/ProductCard.tsx          # Card produs
+components/product/ProductCard.tsx          # Card produs cu AddToCartButton
+components/layout/Header.tsx                # Header cu CartButton + CartDrawer
 ```
 
 ---
@@ -186,23 +211,25 @@ git push
 
 ### La Început de Sesiune Nouă (OBLIGATORIU)
 ```
-✅ CLAUDE.md încărcat | Ultima actualizare: 2026-01-21
+✅ CLAUDE.md încărcat | Ultima actualizare: 2026-01-20
 
 📊 STARE PROIECT XEH.ro:
 - Status: LIVE și funcțional
 - Traduceri: ✅ Complete (~2,600 produse, ~400 categorii)
 - SEO Basic: ✅ Complet (sitemap, meta, JSON-LD)
 - SEO Advanced: ✅ 100% COMPLET
+- Quote Cart: ✅ COMPLET (coș cu multiple produse, prețuri, email)
+- Ahrefs Analytics: ✅ Integrat
 - Google Search Console: ✅ Configurat și sitemap trimis
 - Site: https://xeh.ro
 
-🎉 ULTRA SEO OPTIMIZATION - 100% COMPLET!
+🛒 QUOTE CART - FUNCȚIONAL!
+- Adaugă produse cu buton "+"
+- Drawer lateral cu listă produse
+- Formular cu tabel prețuri
+- Email cu toate produsele
 
-✅ Blog: 6 articole SEO cu FAQ Schema.org
-✅ Landing Pages: /cuptoare-profesionale, /frigidere-industriale, /masini-spalat-vase-profesionale
-✅ Descrieri SEO: 20+ categorii cu descrieri unice și meta tags optimizate
-
-Proiectul este complet optimizat pentru SEO. Cu ce pot să te ajut?
+Cu ce pot să te ajut?
 ```
 
 ---
@@ -221,4 +248,4 @@ Proiectul este complet optimizat pentru SEO. Cu ce pot să te ajut?
 
 ---
 
-*Ultima actualizare: 2026-01-21 | Site: https://xeh.ro | ULTRA SEO OPTIMIZATION 100% COMPLET 🚀*
+*Ultima actualizare: 2026-01-20 | Site: https://xeh.ro | Quote Cart + SEO 100% COMPLET 🚀*

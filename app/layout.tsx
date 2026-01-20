@@ -22,6 +22,9 @@ export const metadata: Metadata = {
   creator: 'XEH.ro',
   publisher: 'XEH.ro',
   metadataBase: new URL('https://xeh.ro'),
+  verification: {
+    google: process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION,
+  },
   openGraph: {
     type: 'website',
     locale: 'ro_RO',

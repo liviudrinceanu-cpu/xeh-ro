@@ -120,12 +120,18 @@ export async function POST(request: NextRequest) {
     }
 
     // Create partner record (pending approval)
-    const { error: partnerError } = await supabaseAdmin
+    const { data: partnerData, error: partnerError } = await supabaseAdmin
       .from('partners')
       .insert({
         user_id: authData.user.id,
         is_approved: false,
+        company_name: company_name,
+        cui: company_cui,
+        reg_com: company_reg_com || null,
+        address: [address_street, address_city, address_county, address_postal_code].filter(Boolean).join(', ') || null,
       })
+      .select('id')
+      .single()
 
     if (partnerError) {
       console.error('Partner error:', partnerError)
@@ -138,9 +144,10 @@ export async function POST(request: NextRequest) {
       )
     }
 
-    // Send notification email to admin
+    // Send notification email to secretariat with all details
     try {
       await sendPartnerRegistrationNotification({
+        partnerId: partnerData.id,
         firstName: first_name,
         lastName: last_name,
         email,
@@ -148,6 +155,10 @@ export async function POST(request: NextRequest) {
         companyName: company_name,
         companyCui: company_cui,
         companyRegCom: company_reg_com,
+        addressStreet: address_street,
+        addressCity: address_city,
+        addressCounty: address_county,
+        addressPostalCode: address_postal_code,
       })
     } catch (emailError) {
       // Log error but don't fail registration

@@ -348,6 +348,7 @@ export async function sendContactNotification(data: ContactEmailData) {
 
 // Partner Registration Email Data
 interface PartnerRegistrationEmailData {
+  partnerId: string
   firstName: string
   lastName: string
   email: string
@@ -355,12 +356,39 @@ interface PartnerRegistrationEmailData {
   companyName: string
   companyCui: string
   companyRegCom?: string
+  addressStreet?: string
+  addressCity?: string
+  addressCounty?: string
+  addressPostalCode?: string
 }
 
-export async function sendPartnerRegistrationNotification(data: PartnerRegistrationEmailData) {
-  const { firstName, lastName, email, phone, companyName, companyCui, companyRegCom } = data
+// Email către secretariat pentru notificare partener nou
+const SECRETARIAT_EMAIL = 'secretariat@infinitrade-romania.ro'
 
-  // Email către admin
+export async function sendPartnerRegistrationNotification(data: PartnerRegistrationEmailData) {
+  const {
+    partnerId,
+    firstName,
+    lastName,
+    email,
+    phone,
+    companyName,
+    companyCui,
+    companyRegCom,
+    addressStreet,
+    addressCity,
+    addressCounty,
+    addressPostalCode
+  } = data
+
+  // Construiește adresa completă
+  const addressParts = [addressStreet, addressCity, addressCounty, addressPostalCode].filter(Boolean)
+  const fullAddress = addressParts.length > 0 ? addressParts.join(', ') : null
+
+  // Link direct la pagina de aprobare
+  const approvalLink = `https://xeh.ro/admin/partners/${partnerId}`
+
+  // Email către secretariat
   const adminEmailContent = `
     <div style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; max-width: 600px; margin: 0 auto;">
       <div style="background: linear-gradient(135deg, #1D1D1F 0%, #DC143C 100%); padding: 30px; text-align: center;">
@@ -369,13 +397,13 @@ export async function sendPartnerRegistrationNotification(data: PartnerRegistrat
       </div>
 
       <div style="padding: 30px; background: #f9f9f9;">
-        <h2 style="color: #1D1D1F; margin: 0 0 20px 0; font-size: 18px;">Detalii Partener</h2>
+        <h2 style="color: #1D1D1F; margin: 0 0 20px 0; font-size: 18px;">Detalii Complete Partener</h2>
 
         <div style="background: white; padding: 20px; border-radius: 12px; margin-bottom: 20px;">
           <h3 style="color: #666; margin: 0 0 10px 0; font-size: 14px; text-transform: uppercase;">Date Personale</h3>
           <table style="width: 100%; border-collapse: collapse;">
             <tr>
-              <td style="padding: 8px 0; color: #666; width: 120px;">Nume:</td>
+              <td style="padding: 8px 0; color: #666; width: 140px;">Nume complet:</td>
               <td style="padding: 8px 0; color: #1D1D1F; font-weight: 500;">${firstName} ${lastName}</td>
             </tr>
             <tr>
@@ -387,22 +415,22 @@ export async function sendPartnerRegistrationNotification(data: PartnerRegistrat
             <tr>
               <td style="padding: 8px 0; color: #666;">Telefon:</td>
               <td style="padding: 8px 0;">
-                <a href="tel:${phone}" style="color: #DC143C; text-decoration: none;">${phone}</a>
+                <a href="tel:${phone}" style="color: #DC143C; text-decoration: none; font-weight: 500;">${phone}</a>
               </td>
             </tr>
           </table>
         </div>
 
-        <div style="background: white; padding: 20px; border-radius: 12px;">
+        <div style="background: white; padding: 20px; border-radius: 12px; margin-bottom: 20px;">
           <h3 style="color: #666; margin: 0 0 10px 0; font-size: 14px; text-transform: uppercase;">Date Companie</h3>
           <table style="width: 100%; border-collapse: collapse;">
             <tr>
-              <td style="padding: 8px 0; color: #666; width: 120px;">Companie:</td>
+              <td style="padding: 8px 0; color: #666; width: 140px;">Denumire:</td>
               <td style="padding: 8px 0; color: #1D1D1F; font-weight: 500;">${companyName}</td>
             </tr>
             <tr>
               <td style="padding: 8px 0; color: #666;">CUI:</td>
-              <td style="padding: 8px 0; color: #1D1D1F;">${companyCui}</td>
+              <td style="padding: 8px 0; color: #1D1D1F; font-weight: 500;">${companyCui}</td>
             </tr>
             ${companyRegCom ? `
             <tr>
@@ -412,17 +440,64 @@ export async function sendPartnerRegistrationNotification(data: PartnerRegistrat
             ` : ''}
           </table>
         </div>
+
+        ${fullAddress ? `
+        <div style="background: white; padding: 20px; border-radius: 12px; margin-bottom: 20px;">
+          <h3 style="color: #666; margin: 0 0 10px 0; font-size: 14px; text-transform: uppercase;">Adresa</h3>
+          <table style="width: 100%; border-collapse: collapse;">
+            ${addressStreet ? `
+            <tr>
+              <td style="padding: 8px 0; color: #666; width: 140px;">Stradă:</td>
+              <td style="padding: 8px 0; color: #1D1D1F;">${addressStreet}</td>
+            </tr>
+            ` : ''}
+            ${addressCity ? `
+            <tr>
+              <td style="padding: 8px 0; color: #666;">Oraș:</td>
+              <td style="padding: 8px 0; color: #1D1D1F;">${addressCity}</td>
+            </tr>
+            ` : ''}
+            ${addressCounty ? `
+            <tr>
+              <td style="padding: 8px 0; color: #666;">Județ:</td>
+              <td style="padding: 8px 0; color: #1D1D1F;">${addressCounty}</td>
+            </tr>
+            ` : ''}
+            ${addressPostalCode ? `
+            <tr>
+              <td style="padding: 8px 0; color: #666;">Cod Poștal:</td>
+              <td style="padding: 8px 0; color: #1D1D1F;">${addressPostalCode}</td>
+            </tr>
+            ` : ''}
+          </table>
+        </div>
+        ` : ''}
+
+        <div style="background: #fff3cd; padding: 15px 20px; border-radius: 12px; border-left: 4px solid #ffc107;">
+          <p style="margin: 0; color: #856404; font-size: 14px;">
+            <strong>Acțiune necesară:</strong> Accesează link-ul de mai jos pentru a aproba sau respinge această cerere de parteneriat.
+          </p>
+        </div>
       </div>
 
-      <div style="padding: 20px 30px; background: #1D1D1F; text-align: center;">
-        <a href="https://xeh.ro/admin/partners"
-           style="display: inline-block; padding: 12px 30px; background: #DC143C; color: white; text-decoration: none; border-radius: 8px; font-weight: 500;">
-          Gestionează Parteneri
+      <div style="padding: 25px 30px; background: #1D1D1F; text-align: center;">
+        <p style="color: rgba(255,255,255,0.7); margin: 0 0 15px 0; font-size: 14px;">
+          Click pe butonul de mai jos pentru a te autentifica și aproba partenerul:
+        </p>
+        <a href="${approvalLink}"
+           style="display: inline-block; padding: 14px 40px; background: #22c55e; color: white; text-decoration: none; border-radius: 10px; font-weight: 600; font-size: 16px;">
+          Aprobă Partenerul
         </a>
+        <p style="color: rgba(255,255,255,0.5); margin: 15px 0 0 0; font-size: 12px;">
+          Vei fi redirecționat la pagina de login dacă nu ești autentificat.
+        </p>
       </div>
 
       <div style="padding: 20px; text-align: center; color: #999; font-size: 12px;">
-        <p>XEH.ro - eXpert Echipamente Horeca</p>
+        <p style="margin: 0;">XEH.ro - eXpert Echipamente Horeca</p>
+        <p style="margin: 5px 0 0 0;">
+          <a href="${approvalLink}" style="color: #666; text-decoration: underline;">${approvalLink}</a>
+        </p>
       </div>
     </div>
   `
@@ -434,10 +509,11 @@ export async function sendPartnerRegistrationNotification(data: PartnerRegistrat
       return { success: false, error: 'Email service not configured' }
     }
 
+    // Trimite email la secretariat
     await resend.emails.send({
       from: FROM_EMAIL,
-      to: ADMIN_EMAIL,
-      subject: `[Partener Nou] ${companyName} - ${firstName} ${lastName}`,
+      to: SECRETARIAT_EMAIL,
+      subject: `[Partener Nou - Aprobare Necesară] ${companyName} - ${firstName} ${lastName}`,
       html: adminEmailContent,
     })
 

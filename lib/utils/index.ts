@@ -105,6 +105,28 @@ export function truncate(text: string, length: number): string {
   return text.slice(0, length).trim() + '...'
 }
 
+// SEO title truncation - keeps total title under 60 chars
+// Accounts for " | XEH.ro" suffix (10 chars) added by template
+export function truncateSeoTitle(title: string, brand: string, maxTotal: number = 60): string {
+  const suffix = ` | ${brand}`
+  const templateSuffix = ' | XEH.ro' // 10 chars added by layout template
+  const maxTitleLength = maxTotal - suffix.length - templateSuffix.length
+
+  if (title.length <= maxTitleLength) {
+    return `${title}${suffix}`
+  }
+
+  // Truncate title and add ellipsis
+  const truncatedTitle = title.slice(0, maxTitleLength - 3).trim() + '...'
+  return `${truncatedTitle}${suffix}`
+}
+
+// SEO description truncation - keeps under 160 chars
+export function truncateSeoDescription(description: string, maxLength: number = 155): string {
+  if (description.length <= maxLength) return description
+  return description.slice(0, maxLength - 3).trim() + '...'
+}
+
 export function extractProductTitle(titleEn: string | null, titleRo: string | null, model: string): string {
   if (titleRo) return titleRo
   if (titleEn) {
@@ -123,7 +145,7 @@ export function getCategoryName(name: string, nameRo: string | null): string {
 // URL Utilities
 // ============================================================
 
-const SITE_URL = 'https://xeh.ro'
+const SITE_URL = 'https://www.xeh.ro'
 
 export function getBaseUrl(): string {
   const envUrl = process.env.NEXT_PUBLIC_SITE_URL

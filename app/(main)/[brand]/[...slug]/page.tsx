@@ -16,7 +16,7 @@ import AddToCartButton from '@/components/product/AddToCartButton'
 import { ProductJsonLd, BreadcrumbJsonLd, CategoryJsonLd } from '@/components/seo/JsonLd'
 import { getBrandBySlug, getCategoryByPath, getCategoryChildren, getCategoryBreadcrumb, getProductCountByCategory } from '@/lib/queries/categories'
 import { getProducts, getProductBySlug, getRelatedProducts } from '@/lib/queries/products'
-import { formatPrice, getStockStatusLabel, getStockStatusColor, extractProductTitle, getCategoryName, getBaseUrl } from '@/lib/utils'
+import { formatPrice, getStockStatusLabel, getStockStatusColor, extractProductTitle, getCategoryName, getBaseUrl, truncateSeoTitle, truncateSeoDescription } from '@/lib/utils'
 import { getCategoryDescription, getCategoryKeywords, getCategorySeoData } from '@/lib/seo/categoryDescriptions'
 
 interface DynamicPageProps {
@@ -41,19 +41,23 @@ export async function generateMetadata({ params }: DynamicPageProps): Promise<Me
 
     const title = extractProductTitle(product.title_en, product.title_ro, product.model)
     const brandName = product.brand?.name || brandSlug.toUpperCase()
-    const description = `${title} - ${brandName}. Cod: ${product.sap_code}. ${product.price_amount ? `Preț: ${formatPrice(product.price_amount, product.price_currency)}` : 'Preț la cerere'}. Echipamente HoReCa profesionale de la XEH.ro.`
+    const fullDescription = `${title} - ${brandName}. Cod: ${product.sap_code}. ${product.price_amount ? `Preț: ${formatPrice(product.price_amount, product.price_currency)}` : 'Preț la cerere'}. Echipamente HoReCa profesionale de la XEH.ro.`
     const image = product.product_images?.find(img => img.is_primary)?.cloudinary_url || product.product_images?.[0]?.cloudinary_url
 
     // Use SEO-friendly slug_ro if available
     const productSlugForUrl = product.slug_ro || product.sap_code
 
+    // Truncate title and description for SEO compliance
+    const seoTitle = truncateSeoTitle(title, brandName)
+    const seoDescription = truncateSeoDescription(fullDescription)
+
     return {
-      title: `${title} | ${brandName}`,
-      description,
+      title: seoTitle,
+      description: seoDescription,
       keywords: [title, brandName, product.model, product.sap_code, 'echipamente horeca', 'bucatarie profesionala'].filter(Boolean),
       openGraph: {
-        title: `${title} | ${brandName}`,
-        description,
+        title: seoTitle,
+        description: seoDescription,
         url: `${baseUrl}/${brandSlug}/produs/${productSlugForUrl}`,
         siteName: 'XEH.ro',
         locale: 'ro_RO',
@@ -62,8 +66,8 @@ export async function generateMetadata({ params }: DynamicPageProps): Promise<Me
       },
       twitter: {
         card: 'summary_large_image',
-        title: `${title} | ${brandName}`,
-        description,
+        title: seoTitle,
+        description: seoDescription,
         images: image ? [image] : undefined,
       },
       alternates: {
@@ -83,17 +87,21 @@ export async function generateMetadata({ params }: DynamicPageProps): Promise<Me
 
     // Get SEO-optimized description and keywords
     const seoData = getCategorySeoData(categoryPath)
-    const seoTitle = seoData?.title || categoryName
-    const description = getCategoryDescription(categoryPath, categoryName, brandName)
+    const categoryTitle = seoData?.title || categoryName
+    const fullDescription = getCategoryDescription(categoryPath, categoryName, brandName)
     const keywords = getCategoryKeywords(categoryPath, categoryName, brandName)
 
+    // Truncate title and description for SEO compliance
+    const seoTitle = truncateSeoTitle(categoryTitle, brandName)
+    const seoDescription = truncateSeoDescription(fullDescription)
+
     return {
-      title: `${seoTitle} | ${brandName}`,
-      description,
+      title: seoTitle,
+      description: seoDescription,
       keywords,
       openGraph: {
-        title: `${seoTitle} | ${brandName}`,
-        description,
+        title: seoTitle,
+        description: seoDescription,
         url: `${baseUrl}/${brandSlug}${categoryPath.replace(`/Group/${brandSlug}`, '')}`,
         siteName: 'XEH.ro',
         locale: 'ro_RO',

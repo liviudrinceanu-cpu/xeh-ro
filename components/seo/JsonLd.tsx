@@ -78,9 +78,15 @@ export function OrganizationJsonLd() {
   const jsonLd = {
     '@context': 'https://schema.org',
     '@type': 'Organization',
+    '@id': 'https://www.xeh.ro/#organization',
     name: 'XEH.ro - eXpert Echipamente Horeca',
-    url: 'https://xeh.ro',
-    logo: 'https://xeh.ro/logo.png',
+    url: 'https://www.xeh.ro',
+    logo: {
+      '@type': 'ImageObject',
+      url: 'https://www.xeh.ro/logo.png',
+      width: 200,
+      height: 60,
+    },
     description: 'Distribuitor autorizat de echipamente profesionale HoReCa. Branduri premium RM Gastro și REDFOX pentru restaurante, hoteluri și cafenele.',
     contactPoint: {
       '@type': 'ContactPoint',
@@ -108,10 +114,10 @@ export function LocalBusinessJsonLd() {
   const jsonLd = {
     '@context': 'https://schema.org',
     '@type': 'LocalBusiness',
-    '@id': 'https://xeh.ro/#localbusiness',
+    '@id': 'https://www.xeh.ro/#localbusiness',
     name: 'XEH.ro - eXpert Echipamente Horeca',
-    image: 'https://xeh.ro/logo.png',
-    url: 'https://xeh.ro',
+    image: 'https://www.xeh.ro/logo.png',
+    url: 'https://www.xeh.ro',
     telephone: '+40724256250',
     email: 'contact@xeh.ro',
     description: 'Distribuitor autorizat de echipamente profesionale HoReCa în România. Cuptoare profesionale, frigidere industriale, mașini de spălat vase și echipamente complete pentru restaurante și hoteluri.',
@@ -138,24 +144,6 @@ export function LocalBusinessJsonLd() {
     areaServed: {
       '@type': 'Country',
       name: 'România',
-    },
-    hasOfferCatalog: {
-      '@type': 'OfferCatalog',
-      name: 'Echipamente HoReCa Profesionale',
-      itemListElement: [
-        {
-          '@type': 'OfferCatalog',
-          name: 'Cuptoare Profesionale',
-        },
-        {
-          '@type': 'OfferCatalog',
-          name: 'Echipamente Refrigerare',
-        },
-        {
-          '@type': 'OfferCatalog',
-          name: 'Mașini de Spălat Vase',
-        },
-      ],
     },
   }
 
@@ -200,13 +188,17 @@ interface WebSiteJsonLdProps {
   searchUrl?: string
 }
 
-export function WebSiteJsonLd({ searchUrl = 'https://xeh.ro/catalog?search={search_term_string}' }: WebSiteJsonLdProps) {
+export function WebSiteJsonLd({ searchUrl = 'https://www.xeh.ro/catalog?search={search_term_string}' }: WebSiteJsonLdProps) {
   const jsonLd = {
     '@context': 'https://schema.org',
     '@type': 'WebSite',
+    '@id': 'https://www.xeh.ro/#website',
     name: 'XEH.ro - eXpert Echipamente Horeca',
-    url: 'https://xeh.ro',
+    url: 'https://www.xeh.ro',
     description: 'Distribuitor autorizat echipamente profesionale HoReCa în România',
+    publisher: {
+      '@id': 'https://www.xeh.ro/#organization',
+    },
     potentialAction: {
       '@type': 'SearchAction',
       target: {
@@ -241,7 +233,18 @@ export function CategoryJsonLd({ category }: CategoryJsonLdProps) {
     name: category.name,
     description: category.description || `${category.name} - echipamente profesionale HoReCa`,
     url: category.url,
-    numberOfItems: category.productCount,
+    isPartOf: {
+      '@id': 'https://www.xeh.ro/#website',
+    },
+    about: {
+      '@type': 'Thing',
+      name: category.name,
+    },
+    mainEntity: {
+      '@type': 'ItemList',
+      numberOfItems: category.productCount,
+      itemListElement: [],
+    },
   }
 
   return (
@@ -272,22 +275,19 @@ export function ArticleJsonLd({ article }: ArticleJsonLdProps) {
     headline: article.title,
     description: article.description,
     url: article.url,
-    image: article.image || 'https://xeh.ro/og-image.jpg',
+    image: article.image || 'https://www.xeh.ro/og-image.jpg',
     datePublished: article.datePublished,
     dateModified: article.dateModified || article.datePublished,
     author: {
       '@type': 'Organization',
       name: article.author,
-      url: 'https://xeh.ro',
+      url: 'https://www.xeh.ro',
     },
     publisher: {
-      '@type': 'Organization',
-      name: 'XEH.ro - eXpert Echipamente Horeca',
-      url: 'https://xeh.ro',
-      logo: {
-        '@type': 'ImageObject',
-        url: 'https://xeh.ro/logo.png',
-      },
+      '@id': 'https://www.xeh.ro/#organization',
+    },
+    isPartOf: {
+      '@id': 'https://www.xeh.ro/#website',
     },
     mainEntityOfPage: {
       '@type': 'WebPage',

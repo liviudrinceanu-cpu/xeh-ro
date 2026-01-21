@@ -1,3 +1,4 @@
+import type { Metadata } from 'next'
 import Link from 'next/link'
 import { ArrowRight } from 'lucide-react'
 import Hero from '@/components/home/Hero'
@@ -11,6 +12,34 @@ import { getFeaturedProducts } from '@/lib/queries/products'
 // ISR with 1-hour revalidation for featured products randomization
 // Products are fetched fresh every hour while still benefiting from caching
 export const revalidate = 3600
+
+export const metadata: Metadata = {
+  title: 'XEH.ro - eXpert Echipamente Horeca | Distribuitor RM Gastro & REDFOX',
+  description: 'Distribuitor autorizat de echipamente profesionale HoReCa. Cuptoare cu convecție, mașini de spălat vase, echipamente de refrigerare. Branduri premium RM Gastro și REDFOX.',
+  openGraph: {
+    title: 'XEH.ro - eXpert Echipamente Horeca',
+    description: 'Distribuitor autorizat de echipamente profesionale HoReCa. Branduri premium RM Gastro și REDFOX pentru restaurante, hoteluri și cafenele.',
+    url: 'https://www.xeh.ro',
+    siteName: 'XEH.ro',
+    images: [{
+      url: 'https://www.xeh.ro/api/og?title=XEH.ro - eXpert Echipamente Horeca&subtitle=Distribuitor autorizat echipamente profesionale HoReCa',
+      width: 1200,
+      height: 630,
+      alt: 'XEH.ro - eXpert Echipamente Horeca',
+    }],
+    locale: 'ro_RO',
+    type: 'website',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'XEH.ro - eXpert Echipamente Horeca',
+    description: 'Distribuitor autorizat de echipamente profesionale HoReCa.',
+    images: ['https://www.xeh.ro/api/og?title=XEH.ro - eXpert Echipamente Horeca&subtitle=Distribuitor autorizat echipamente profesionale HoReCa'],
+  },
+  alternates: {
+    canonical: 'https://www.xeh.ro',
+  },
+}
 
 // FAQ data for SEO
 const homeFaqs = [

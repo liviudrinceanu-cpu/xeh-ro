@@ -22,7 +22,7 @@ export const metadata: Metadata = {
   authors: [{ name: 'XEH.ro' }],
   creator: 'XEH.ro',
   publisher: 'XEH.ro',
-  metadataBase: new URL('https://xeh.ro'),
+  metadataBase: new URL('https://www.xeh.ro'),
   icons: {
     icon: [
       { url: '/icon.svg', type: 'image/svg+xml' },
@@ -36,12 +36,12 @@ export const metadata: Metadata = {
   openGraph: {
     type: 'website',
     locale: 'ro_RO',
-    url: 'https://xeh.ro',
+    url: 'https://www.xeh.ro',
     siteName: 'XEH.ro',
     title: 'XEH.ro - eXpert Echipamente Horeca',
     description: 'Distribuitor autorizat de echipamente profesionale HoReCa. Branduri premium RM Gastro și REDFOX.',
     images: [{
-      url: 'https://xeh.ro/api/og?title=XEH.ro - eXpert Echipamente Horeca&subtitle=Distribuitor autorizat echipamente profesionale HoReCa',
+      url: 'https://www.xeh.ro/api/og?title=XEH.ro - eXpert Echipamente Horeca&subtitle=Distribuitor autorizat echipamente profesionale HoReCa',
       width: 1200,
       height: 630,
       alt: 'XEH.ro - eXpert Echipamente Horeca',
@@ -51,10 +51,10 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: 'XEH.ro - eXpert Echipamente Horeca',
     description: 'Distribuitor autorizat de echipamente profesionale HoReCa.',
-    images: ['https://xeh.ro/api/og?title=XEH.ro - eXpert Echipamente Horeca'],
+    images: ['https://www.xeh.ro/api/og?title=XEH.ro - eXpert Echipamente Horeca'],
   },
   alternates: {
-    canonical: 'https://xeh.ro',
+    canonical: 'https://www.xeh.ro',
   },
   robots: {
     index: true,

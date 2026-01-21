@@ -19,22 +19,31 @@ export async function generateMetadata({ params }: BrandPageProps) {
 
   if (!brand) return {}
 
+  const baseUrl = 'https://www.xeh.ro'
+  const title = `${brand.name} - Echipamente Profesionale`
+  const description = `Explorează gama completă de echipamente ${brand.name}. Produse profesionale pentru bucătăria ta HoReCa.`
+  const ogImageUrl = `${baseUrl}/api/og?title=${encodeURIComponent(brand.name)}&subtitle=${encodeURIComponent('Echipamente profesionale HoReCa')}&type=category`
+
   return {
-    title: `${brand.name} - Echipamente Profesionale`,
-    description: `Explorează gama completă de echipamente ${brand.name}. Produse profesionale pentru bucătăria ta HoReCa.`,
+    title,
+    description,
     alternates: {
-      canonical: `https://xeh.ro/${brandSlug}`,
+      canonical: `${baseUrl}/${brandSlug}`,
     },
     openGraph: {
-      title: `${brand.name} - Echipamente Profesionale | XEH.ro`,
-      description: `Explorează gama completă de echipamente ${brand.name}. Produse profesionale pentru bucătăria ta HoReCa.`,
-      url: `https://xeh.ro/${brandSlug}`,
+      title: `${title} | XEH.ro`,
+      description,
+      url: `${baseUrl}/${brandSlug}`,
+      siteName: 'XEH.ro',
+      locale: 'ro_RO',
       type: 'website',
+      images: [{ url: ogImageUrl, width: 1200, height: 630, alt: brand.name }],
     },
     twitter: {
       card: 'summary_large_image',
-      title: `${brand.name} - Echipamente Profesionale`,
-      description: `Explorează gama completă de echipamente ${brand.name}.`,
+      title,
+      description,
+      images: [ogImageUrl],
     },
   }
 }

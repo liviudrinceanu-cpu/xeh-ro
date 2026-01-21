@@ -148,9 +148,15 @@ export function getCategoryName(name: string, nameRo: string | null): string {
 const SITE_URL = 'https://www.xeh.ro'
 
 export function getBaseUrl(): string {
+  // Always return www version for consistent URLs (SEO best practice)
   const envUrl = process.env.NEXT_PUBLIC_SITE_URL
   if (envUrl && envUrl.startsWith('https://')) {
-    return envUrl.replace(/\/$/, '') // Remove trailing slash
+    // Ensure www is always present
+    const url = envUrl.replace(/\/$/, '') // Remove trailing slash
+    if (url === 'https://xeh.ro') {
+      return 'https://www.xeh.ro'
+    }
+    return url
   }
   return SITE_URL
 }

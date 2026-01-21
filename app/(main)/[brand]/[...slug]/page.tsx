@@ -1,6 +1,6 @@
 import { notFound } from 'next/navigation'
 import Link from 'next/link'
-import { ArrowRight, ExternalLink, Share2 } from 'lucide-react'
+import { ArrowRight, ExternalLink } from 'lucide-react'
 import type { Metadata } from 'next'
 import Breadcrumb from '@/components/ui/Breadcrumb'
 import Badge from '@/components/ui/Badge'
@@ -13,6 +13,7 @@ import ProductDocs from '@/components/product/ProductDocs'
 import CategoryCard from '@/components/category/CategoryCard'
 import FavoriteButton from '@/components/product/FavoriteButton'
 import AddToCartButton from '@/components/product/AddToCartButton'
+import ShareButton from '@/components/product/ShareButton'
 import { ProductJsonLd, BreadcrumbJsonLd, CategoryJsonLd } from '@/components/seo/JsonLd'
 import { getBrandBySlug, getCategoryByPath, getCategoryChildren, getCategoryBreadcrumb, getProductCountByCategory } from '@/lib/queries/categories'
 import { getProducts, getProductBySlug, getRelatedProducts } from '@/lib/queries/products'
@@ -41,7 +42,9 @@ export async function generateMetadata({ params }: DynamicPageProps): Promise<Me
 
     const title = extractProductTitle(product.title_en, product.title_ro, product.model)
     const brandName = product.brand?.name || brandSlug.toUpperCase()
-    const fullDescription = `${title} - ${brandName}. Cod: ${product.sap_code}. ${product.price_amount ? `Preț: ${formatPrice(product.price_amount, product.price_currency)}` : 'Preț la cerere'}. Echipamente HoReCa profesionale de la XEH.ro.`
+    const priceText = product.price_amount ? `Preț: ${formatPrice(product.price_amount, product.price_currency)} fără TVA` : 'Preț la cerere'
+    // Build a longer, more descriptive meta description (target: 120-155 chars)
+    const fullDescription = `${title} - ${brandName}. Model: ${product.model}. Cod: ${product.sap_code}. ${priceText}. Echipament profesional pentru restaurante și bucătării comerciale. Livrare în toată România de la XEH.ro.`
     const image = product.product_images?.find(img => img.is_primary)?.cloudinary_url || product.product_images?.[0]?.cloudinary_url
 
     // Use SEO-friendly slug_ro if available
@@ -95,6 +98,9 @@ export async function generateMetadata({ params }: DynamicPageProps): Promise<Me
     const seoTitle = truncateSeoTitle(categoryTitle, brandName)
     const seoDescription = truncateSeoDescription(fullDescription)
 
+    // Generate OG image URL for category
+    const ogImageUrl = `${baseUrl}/api/og?title=${encodeURIComponent(categoryTitle)}&subtitle=${encodeURIComponent(`${brandName} - Echipamente profesionale HoReCa`)}&type=category`
+
     return {
       title: seoTitle,
       description: seoDescription,
@@ -106,6 +112,13 @@ export async function generateMetadata({ params }: DynamicPageProps): Promise<Me
         siteName: 'XEH.ro',
         locale: 'ro_RO',
         type: 'website',
+        images: [{ url: ogImageUrl, width: 1200, height: 630, alt: categoryTitle }],
+      },
+      twitter: {
+        card: 'summary_large_image',
+        title: seoTitle,
+        description: seoDescription,
+        images: [ogImageUrl],
       },
       alternates: {
         canonical: `${baseUrl}/${brandSlug}${categoryPath.replace(`/Group/${brandSlug}`, '')}`,
@@ -286,9 +299,7 @@ async function ProductPage({ brandSlug, productSlug }: { brandSlug: string; prod
                     size="lg"
                     className="flex-1"
                   />
-                  <Button variant="outline" size="lg">
-                    <Share2 className="w-5 h-5" />
-                  </Button>
+                  <ShareButton title={title} size="lg" />
                   <FavoriteButton productId={product.id} size="lg" />
                 </div>
                 <Button href={`/cerere-oferta?produs=${product.sap_code}`} variant="outline" size="lg" className="w-full">

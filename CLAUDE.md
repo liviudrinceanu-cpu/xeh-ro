@@ -1,7 +1,7 @@
 # XEH.ro - Context Proiect
 
 > **IMPORTANT:** Acest fișier este citit automat de Claude Code. Actualizează-l după fiecare decizie majoră.
-> **Ultima actualizare:** 2026-01-21 - AHREFS AUDIT FIX (~22,000 erori rezolvate)
+> **Ultima actualizare:** 2026-01-21 - AHREFS AUDIT FIX WAVE 2 + SHARE BUTTON
 
 ---
 
@@ -17,7 +17,7 @@
 **GOOGLE SEARCH CONSOLE: ✅ VERIFICAT ȘI SITEMAP TRIMIS**
 **QUOTE CART: ✅ COMPLET IMPLEMENTAT**
 **AHREFS ANALYTICS: ✅ OPTIMIZAT (afterInteractive)**
-**AHREFS AUDIT FIX: ✅ ~22,000 ERORI REZOLVATE**
+**AHREFS AUDIT FIX: ✅ ~30,000 ERORI REZOLVATE (2 WAVE-URI)**
 **EXPERT LEVEL FIXES: ✅ SORTING + SEARCH + VALIDATION**
 **SECURITY AUDIT: ✅ XSS FIX + HEADERS**
 **ACCESSIBILITY: ✅ DIALOG ARIA + SKIP LINK**
@@ -27,10 +27,45 @@
 **PARTNER NOTIFICATIONS: ✅ EMAIL LA SECRETARIAT CU LINK APROBARE**
 **SUPABASE RLS: ✅ INFINITE RECURSION FIX + USER_FAVORITES TABLE**
 **PAGINI LEGALE: ✅ /termeni, /confidentialitate, /cookies**
+**SHARE BUTTON: ✅ WEB SHARE API + CLIPBOARD FALLBACK**
 
 ---
 
-### 🆕 AHREFS AUDIT FIX (2026-01-21 - după-amiază)
+### 🆕 AHREFS AUDIT FIX WAVE 2 + SHARE BUTTON (2026-01-21 - seara)
+
+#### Share Button Fix
+| Fișier | Descriere |
+|--------|-----------|
+| `components/product/ShareButton.tsx` | **NOU** - Web Share API (mobil) + Copy to clipboard (desktop) |
+| `app/(main)/[brand]/[...slug]/page.tsx` | Integrat ShareButton în pagina de produs |
+
+**Funcționalitate:**
+- **Mobil:** Deschide meniul nativ de share (WhatsApp, Messenger, etc.)
+- **Desktop:** Copiază link-ul în clipboard + afișează ✓ verde 2 secunde
+
+#### Ahrefs Audit Wave 2 - Erori Rezolvate (~8,000 additional)
+
+| Problemă | Număr Erori | Fix Aplicat |
+|----------|-------------|-------------|
+| Sitemap URLs fără www | 3,041 | `.env.local` + `getBaseUrl()` forțează `www.xeh.ro` |
+| OG image lipsă categorii | 5,192 | `og:image` + `twitter:image` cu `/api/og?type=category` |
+| Meta description prea scurtă | ~200 | Template extins cu model + text mai lung |
+| Imagine broken (PDF în next/image) | 1 | Filtru `isValidImageUrl()` în ProductGallery |
+| Brand pages canonical fără www | 2 | URL-uri corectate la `www.xeh.ro` |
+
+#### Fișiere Modificate Wave 2
+```
+.env.local                                    # NEXT_PUBLIC_SITE_URL → www.xeh.ro
+lib/utils/index.ts                            # getBaseUrl() forțează www chiar dacă env e fără
+app/(main)/[brand]/page.tsx                   # canonical + og:image pentru branduri
+app/(main)/[brand]/[...slug]/page.tsx         # og:image categorii + meta desc extinsă + ShareButton
+components/product/ProductGallery.tsx         # isValidImageUrl() - exclude PDFs din imagini
+components/product/ShareButton.tsx            # NOU - component share funcțional
+```
+
+---
+
+### 🆕 AHREFS AUDIT FIX WAVE 1 (2026-01-21 - după-amiază)
 
 **Commit:** `948e2de` - Fix all Ahrefs SEO audit errors
 
@@ -460,6 +495,13 @@ components/forms/QuoteForm.tsx              # Formular cu tabel produse + valida
 app/api/quote/route.ts                      # API pentru multiple produse
 ```
 
+### Share Button (NOU 2026-01-21)
+```
+components/product/ShareButton.tsx          # Web Share API + clipboard fallback
+```
+**Folosire:** `<ShareButton title={title} size="lg" />`
+**Comportament:** Mobil = meniu nativ share, Desktop = copy to clipboard cu feedback vizual
+
 ### Product Queries & Search
 ```
 lib/queries/products.ts                     # getFeaturedProducts: 2000-25000 EUR + random
@@ -529,20 +571,22 @@ git push
 
 ### La Început de Sesiune Nouă (OBLIGATORIU)
 ```
-✅ CLAUDE.md încărcat | Ultima actualizare: 2026-01-21
+✅ CLAUDE.md încărcat | Ultima actualizare: 2026-01-21 seara
 
 📊 STARE PROIECT XEH.ro:
 - Status: LIVE și funcțional
 - Traduceri: ✅ Complete (~2,600 produse, ~400 categorii)
 - SEO: ✅ Complet (sitemap, meta, JSON-LD, blog, landing pages)
-- Ahrefs Audit: ✅ ~22,000 erori rezolvate (www URLs, titluri, descrieri)
+- Ahrefs Audit: ✅ ~30,000 erori rezolvate (2 wave-uri)
 - Quote Cart: ✅ COMPLET (coș cu multiple produse, prețuri, email)
+- Share Button: ✅ Web Share API + clipboard fallback
 - Pagini Legale: ✅ /termeni, /confidentialitate, /cookies
 - Favicon: ✅ XEH.ro icon implementat
 - Site: https://www.xeh.ro (IMPORTANT: folosește www!)
 
 🔧 CONFIGURAȚII IMPORTANTE:
 - Domeniu: www.xeh.ro (cu www - pentru SEO)
+- NEXT_PUBLIC_SITE_URL: https://www.xeh.ro (OBLIGATORIU cu www!)
 - Email notificări parteneri noi: secretariat@infinitrade-romania.ro
 - Titluri max 60 chars (truncateSeoTitle în lib/utils)
 - Descrieri max 155 chars (truncateSeoDescription în lib/utils)
@@ -567,4 +611,4 @@ Cu ce pot să te ajut?
 
 ---
 
-*Ultima actualizare: 2026-01-21 | Site: https://www.xeh.ro | AHREFS AUDIT FIX: ~22,000 erori rezolvate 🚀*
+*Ultima actualizare: 2026-01-21 seara | Site: https://www.xeh.ro | AHREFS AUDIT: ~30,000 erori rezolvate + ShareButton*

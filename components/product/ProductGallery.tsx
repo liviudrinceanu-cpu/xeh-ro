@@ -11,11 +11,27 @@ interface ProductGalleryProps {
   productTitle: string
 }
 
+// Filter out non-image URLs (PDFs, etc.) that might have been stored by mistake
+function isValidImageUrl(url: string | null): boolean {
+  if (!url) return false
+  const lowercaseUrl = url.toLowerCase()
+  // Exclude PDFs and other non-image files
+  if (lowercaseUrl.endsWith('.pdf') || lowercaseUrl.includes('.pdf?') || lowercaseUrl.includes('/pdf/')) {
+    return false
+  }
+  return true
+}
+
 export default function ProductGallery({ images, productTitle }: ProductGalleryProps) {
   const [activeIndex, setActiveIndex] = useState(0)
   const [isZoomed, setIsZoomed] = useState(false)
 
-  const sortedImages = [...images].sort((a, b) => {
+  // Filter out invalid image URLs (like PDFs) and then sort
+  const validImages = images.filter(img =>
+    isValidImageUrl(img.cloudinary_url) || isValidImageUrl(img.original_url)
+  )
+
+  const sortedImages = [...validImages].sort((a, b) => {
     if (a.is_primary) return -1
     if (b.is_primary) return 1
     return a.sort_order - b.sort_order

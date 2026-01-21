@@ -410,8 +410,36 @@ CREATE TRIGGER update_discount_rules_updated_at BEFORE UPDATE ON partner_discoun
 CREATE TRIGGER update_quotes_updated_at BEFORE UPDATE ON quote_requests FOR EACH ROW EXECUTE FUNCTION update_updated_at();
 
 -- ============================================================
--- 14. ROW LEVEL SECURITY (RLS) POLICIES
+-- 14. USER FAVORITES TABLE
 -- ============================================================
+
+CREATE TABLE user_favorites (
+    id UUID PRIMARY KEY DEFAULT uuid_generate_v4(),
+    user_id UUID NOT NULL REFERENCES auth.users(id) ON DELETE CASCADE,
+    product_id UUID NOT NULL REFERENCES products(id) ON DELETE CASCADE,
+    created_at TIMESTAMPTZ NOT NULL DEFAULT NOW(),
+
+    -- Prevent duplicate favorites
+    UNIQUE(user_id, product_id)
+);
+
+CREATE INDEX idx_user_favorites_user ON user_favorites(user_id);
+CREATE INDEX idx_user_favorites_product ON user_favorites(product_id);
+
+-- ============================================================
+-- 15. ROW LEVEL SECURITY (RLS) POLICIES
+-- ============================================================
+
+-- Helper function to check admin status (SECURITY DEFINER avoids recursion)
+CREATE OR REPLACE FUNCTION is_admin()
+RETURNS BOOLEAN AS $$
+BEGIN
+    RETURN EXISTS (
+        SELECT 1 FROM user_profiles
+        WHERE id = auth.uid() AND role = 'admin'
+    );
+END;
+$$ LANGUAGE plpgsql SECURITY DEFINER STABLE;
 
 -- Enable RLS
 ALTER TABLE categories ENABLE ROW LEVEL SECURITY;
@@ -423,67 +451,62 @@ ALTER TABLE partners ENABLE ROW LEVEL SECURITY;
 ALTER TABLE partner_discount_rules ENABLE ROW LEVEL SECURITY;
 ALTER TABLE quote_requests ENABLE ROW LEVEL SECURITY;
 ALTER TABLE quote_items ENABLE ROW LEVEL SECURITY;
+ALTER TABLE user_favorites ENABLE ROW LEVEL SECURITY;
 
 -- Categories: Public read, admin write
 CREATE POLICY "Categories are viewable by everyone" ON categories FOR SELECT USING (is_active = true);
-CREATE POLICY "Admins can manage categories" ON categories FOR ALL USING (
-    EXISTS (SELECT 1 FROM user_profiles WHERE id = auth.uid() AND role = 'admin')
-);
+CREATE POLICY "Admins can manage categories" ON categories FOR ALL USING (is_admin());
 
 -- Products: Public read, admin write
 CREATE POLICY "Products are viewable by everyone" ON products FOR SELECT USING (is_active = true);
-CREATE POLICY "Admins can manage products" ON products FOR ALL USING (
-    EXISTS (SELECT 1 FROM user_profiles WHERE id = auth.uid() AND role = 'admin')
-);
+CREATE POLICY "Admins can manage products" ON products FOR ALL USING (is_admin());
 
 -- Product Images: Public read
 CREATE POLICY "Product images are viewable by everyone" ON product_images FOR SELECT USING (true);
-CREATE POLICY "Admins can manage product images" ON product_images FOR ALL USING (
-    EXISTS (SELECT 1 FROM user_profiles WHERE id = auth.uid() AND role = 'admin')
-);
+CREATE POLICY "Admins can manage product images" ON product_images FOR ALL USING (is_admin());
 
 -- Product Documents: Public read
 CREATE POLICY "Product documents are viewable by everyone" ON product_documents FOR SELECT USING (true);
-CREATE POLICY "Admins can manage product documents" ON product_documents FOR ALL USING (
-    EXISTS (SELECT 1 FROM user_profiles WHERE id = auth.uid() AND role = 'admin')
-);
+CREATE POLICY "Admins can manage product documents" ON product_documents FOR ALL USING (is_admin());
 
--- User Profiles: Users can read/update their own
+-- User Profiles: Users can read/update their own, admins can see all
 CREATE POLICY "Users can view their own profile" ON user_profiles FOR SELECT USING (auth.uid() = id);
 CREATE POLICY "Users can update their own profile" ON user_profiles FOR UPDATE USING (auth.uid() = id);
-CREATE POLICY "Admins can view all profiles" ON user_profiles FOR SELECT USING (
-    EXISTS (SELECT 1 FROM user_profiles WHERE id = auth.uid() AND role = 'admin')
-);
+CREATE POLICY "Admins can view all profiles" ON user_profiles FOR SELECT USING (is_admin());
+CREATE POLICY "Admins can update all profiles" ON user_profiles FOR UPDATE USING (is_admin());
 
 -- Partners: Users see their own, admins see all
 CREATE POLICY "Partners can view their own data" ON partners FOR SELECT USING (user_id = auth.uid());
-CREATE POLICY "Admins can manage partners" ON partners FOR ALL USING (
-    EXISTS (SELECT 1 FROM user_profiles WHERE id = auth.uid() AND role = 'admin')
-);
+CREATE POLICY "Admins can manage partners" ON partners FOR ALL USING (is_admin());
 
 -- Discount Rules: Partners see their own
 CREATE POLICY "Partners can view their discounts" ON partner_discount_rules FOR SELECT USING (
     EXISTS (SELECT 1 FROM partners WHERE id = partner_id AND user_id = auth.uid())
 );
-CREATE POLICY "Admins can manage discounts" ON partner_discount_rules FOR ALL USING (
-    EXISTS (SELECT 1 FROM user_profiles WHERE id = auth.uid() AND role = 'admin')
-);
+CREATE POLICY "Admins can manage discounts" ON partner_discount_rules FOR ALL USING (is_admin());
 
 -- Quotes: Users see their own, admins see all
 CREATE POLICY "Users can view their own quotes" ON quote_requests FOR SELECT USING (user_id = auth.uid());
 CREATE POLICY "Anyone can create quotes" ON quote_requests FOR INSERT WITH CHECK (true);
-CREATE POLICY "Admins can manage all quotes" ON quote_requests FOR ALL USING (
-    EXISTS (SELECT 1 FROM user_profiles WHERE id = auth.uid() AND role = 'admin')
-);
+CREATE POLICY "Admins can manage all quotes" ON quote_requests FOR ALL USING (is_admin());
 
 -- Quote Items: Follow quote permissions
 CREATE POLICY "Quote items follow quote permissions" ON quote_items FOR SELECT USING (
-    EXISTS (SELECT 1 FROM quote_requests WHERE id = quote_id AND (user_id = auth.uid() OR 
-        EXISTS (SELECT 1 FROM user_profiles WHERE id = auth.uid() AND role = 'admin')))
+    EXISTS (SELECT 1 FROM quote_requests WHERE id = quote_id AND (user_id = auth.uid() OR is_admin()))
 );
+CREATE POLICY "Anyone can create quote items" ON quote_items FOR INSERT WITH CHECK (true);
+
+-- User Favorites: Users can manage their own
+CREATE POLICY "Users can view their own favorites" ON user_favorites FOR SELECT USING (auth.uid() = user_id);
+CREATE POLICY "Users can add favorites" ON user_favorites FOR INSERT WITH CHECK (auth.uid() = user_id);
+CREATE POLICY "Users can remove their own favorites" ON user_favorites FOR DELETE USING (auth.uid() = user_id);
+CREATE POLICY "Admins can view all favorites" ON user_favorites FOR SELECT USING (is_admin());
+
+-- Grant permissions
+GRANT SELECT, INSERT, DELETE ON user_favorites TO authenticated;
 
 -- ============================================================
--- 15. HELPER FUNCTIONS
+-- 16. HELPER FUNCTIONS
 -- ============================================================
 
 -- Generate quote number

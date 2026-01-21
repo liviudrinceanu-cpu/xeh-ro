@@ -24,6 +24,7 @@
 **FAVICON: ✅ XEH.ro ICON IMPLEMENTAT**
 **HOMEPAGE ISR: ✅ revalidate=3600 (1 oră cache)**
 **PARTNER NOTIFICATIONS: ✅ EMAIL LA SECRETARIAT CU LINK APROBARE**
+**SUPABASE RLS: ✅ INFINITE RECURSION FIX + USER_FAVORITES TABLE**
 
 ---
 
@@ -52,6 +53,23 @@
 |-----|--------|---------|
 | Cart Dialog ARIA | `components/cart/CartDrawer.tsx` | `role="dialog"`, `aria-modal`, `aria-labelledby` |
 
+#### Supabase RLS Fixes (2026-01-21)
+| Fix | Fișier | Detalii |
+|-----|--------|---------|
+| Infinite Recursion | `docs/migration-fix-rls.sql` | `is_admin()` SECURITY DEFINER function |
+| Missing Table | `docs/schema.sql` | Added `user_favorites` table |
+| RLS Policies | `docs/schema.sql` | All admin policies use `is_admin()` |
+
+**Problema:** Politica "Admins can view all profiles" pe `user_profiles` crea recursiune infinită - încerca să verifice rol admin din tabel în timp ce verifica accesul la același tabel.
+
+**Soluția:** Funcție `is_admin()` cu `SECURITY DEFINER` care rulează cu privilegii elevate, evitând recursiunea.
+
+**IMPORTANT:** Pentru a aplica fix-ul pe baza de date existentă, rulează:
+```bash
+# În Supabase SQL Editor, rulează conținutul:
+docs/migration-fix-rls.sql
+```
+
 **Fișiere modificate:**
 - `app/(main)/page.tsx` - ISR cu revalidate=3600
 - `app/layout.tsx` - Script component pentru Ahrefs
@@ -62,6 +80,8 @@
 - `components/seo/JsonLd.tsx` - Server component + schema fix
 - `components/cart/CartDrawer.tsx` - ARIA attributes
 - `lib/email.ts` - XSS escaping
+- `docs/schema.sql` - user_favorites + is_admin() + fixed RLS policies
+- `docs/migration-fix-rls.sql` - Migration SQL pentru fix-uri RLS
 
 ---
 

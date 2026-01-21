@@ -1,7 +1,7 @@
 # XEH.ro - Context Proiect
 
 > **IMPORTANT:** Acest fișier este citit automat de Claude Code. Actualizează-l după fiecare decizie majoră.
-> **Ultima actualizare:** 2026-01-21 - AUDIT COMPLET SEO + PERFORMANCE + SECURITY
+> **Ultima actualizare:** 2026-01-21 - AHREFS AUDIT FIX (~22,000 erori rezolvate)
 
 ---
 
@@ -17,6 +17,7 @@
 **GOOGLE SEARCH CONSOLE: ✅ VERIFICAT ȘI SITEMAP TRIMIS**
 **QUOTE CART: ✅ COMPLET IMPLEMENTAT**
 **AHREFS ANALYTICS: ✅ OPTIMIZAT (afterInteractive)**
+**AHREFS AUDIT FIX: ✅ ~22,000 ERORI REZOLVATE**
 **EXPERT LEVEL FIXES: ✅ SORTING + SEARCH + VALIDATION**
 **SECURITY AUDIT: ✅ XSS FIX + HEADERS**
 **ACCESSIBILITY: ✅ DIALOG ARIA + SKIP LINK**
@@ -25,10 +26,59 @@
 **HOMEPAGE ISR: ✅ revalidate=3600 (1 oră cache)**
 **PARTNER NOTIFICATIONS: ✅ EMAIL LA SECRETARIAT CU LINK APROBARE**
 **SUPABASE RLS: ✅ INFINITE RECURSION FIX + USER_FAVORITES TABLE**
+**PAGINI LEGALE: ✅ /termeni, /confidentialitate, /cookies**
 
 ---
 
-### 🆕 AUDIT COMPLET (2026-01-21)
+### 🆕 AHREFS AUDIT FIX (2026-01-21 - după-amiază)
+
+**Commit:** `948e2de` - Fix all Ahrefs SEO audit errors
+
+#### Erori Rezolvate (~22,000 total)
+
+| Problemă | Număr Erori | Fix Aplicat |
+|----------|-------------|-------------|
+| Sitemap URLs fără www | 3,041 | `SITE_URL = 'https://www.xeh.ro'` în `lib/utils/index.ts` |
+| Canonical redirect | 8,851 | `metadataBase` actualizat în `app/layout.tsx` |
+| Schema.org validation | 13,115 | URLs www + @id references în `components/seo/JsonLd.tsx` |
+| Titluri prea lungi | 1,523 | `truncateSeoTitle()` - max 60 chars |
+| Descrieri prea lungi | 4,574 | `truncateSeoDescription()` - max 155 chars |
+| H1 lipsă pagini legale | 3 | Create `/termeni`, `/confidentialitate`, `/cookies` |
+| og:image lipsă homepage | 11 | Metadata explicită în `app/(main)/page.tsx` |
+
+#### Fișiere Modificate
+```
+lib/utils/index.ts                        # SITE_URL → www.xeh.ro + truncateSeoTitle/Description
+app/layout.tsx                            # metadataBase → www.xeh.ro
+app/(main)/page.tsx                       # Metadata explicită cu og:image
+app/(main)/[brand]/[...slug]/page.tsx     # Truncare titluri/descrieri
+components/seo/JsonLd.tsx                 # URLs www + @id references + schema fixes
+```
+
+#### Fișiere Create (Pagini Legale)
+```
+app/(main)/termeni/page.tsx               # Termeni și Condiții cu H1
+app/(main)/confidentialitate/page.tsx     # Politica de Confidențialitate cu H1
+app/(main)/cookies/page.tsx               # Politica de Cookies cu H1
+```
+
+#### Funcții SEO Noi (`lib/utils/index.ts`)
+```typescript
+// Truncare titlu SEO - max 60 chars total (incluzând " | BRAND | XEH.ro")
+truncateSeoTitle(title: string, brand: string, maxTotal?: number): string
+
+// Truncare descriere SEO - max 155 chars
+truncateSeoDescription(description: string, maxLength?: number): string
+```
+
+#### URLs Verificate
+- ✅ Sitemap: toate URL-urile folosesc `www.xeh.ro`
+- ✅ Canonical: toate paginile au canonical corect
+- ✅ Pagini legale: https://www.xeh.ro/termeni, /confidentialitate, /cookies
+
+---
+
+### 🆕 AUDIT COMPLET (2026-01-21 - dimineață)
 
 #### Performance Fixes
 | Fix | Fișier | Detalii |
@@ -237,18 +287,23 @@ docs/migration-fix-rls.sql
 ### 🎉 PAGINI NOI LIVE!
 
 #### Blog (6 articole SEO):
-- https://xeh.ro/blog
-- https://xeh.ro/blog/top-10-cuptoare-profesionale-restaurante-2026
-- https://xeh.ro/blog/ghid-complet-echipamente-horeca-restaurant
-- https://xeh.ro/blog/cuptor-convectie-vs-cuptor-clasic-diferente
-- https://xeh.ro/blog/masini-spalat-vase-industriale-ghid-alegere
-- https://xeh.ro/blog/echipamente-refrigerare-profesionala-tipuri
-- https://xeh.ro/blog/rm-gastro-vs-redfox-comparatie-branduri
+- https://www.xeh.ro/blog
+- https://www.xeh.ro/blog/top-10-cuptoare-profesionale-restaurante-2026
+- https://www.xeh.ro/blog/ghid-complet-echipamente-horeca-restaurant
+- https://www.xeh.ro/blog/cuptor-convectie-vs-cuptor-clasic-diferente
+- https://www.xeh.ro/blog/masini-spalat-vase-industriale-ghid-alegere
+- https://www.xeh.ro/blog/echipamente-refrigerare-profesionala-tipuri
+- https://www.xeh.ro/blog/rm-gastro-vs-redfox-comparatie-branduri
 
 #### Landing Pages Keywords:
-- https://xeh.ro/cuptoare-profesionale
-- https://xeh.ro/frigidere-industriale
-- https://xeh.ro/masini-spalat-vase-profesionale
+- https://www.xeh.ro/cuptoare-profesionale
+- https://www.xeh.ro/frigidere-industriale
+- https://www.xeh.ro/masini-spalat-vase-profesionale
+
+#### Pagini Legale (cu H1):
+- https://www.xeh.ro/termeni
+- https://www.xeh.ro/confidentialitate
+- https://www.xeh.ro/cookies
 
 **Fiecare landing page include:**
 - Hero section optimizat SEO
@@ -264,7 +319,7 @@ docs/migration-fix-rls.sql
 
 - **Nume:** XEH.ro (eXpert Echipamente Horeca)
 - **Tip:** Platformă B2B e-commerce echipamente profesionale HORECA
-- **Domeniu live:** https://xeh.ro
+- **Domeniu live:** https://www.xeh.ro (IMPORTANT: folosește www!)
 - **GitHub:** github.com/liviudrinceanu-cpu/xeh-ro.git
 - **Vercel:** xeh-ro (team: xpertlivius-projects)
 - **Telefon contact:** 0724256250
@@ -457,13 +512,16 @@ git push
 
 | Link | Descriere |
 |------|-----------|
-| https://xeh.ro | Site public |
-| https://xeh.ro/login | Login parteneri/admin |
-| https://xeh.ro/register | Înregistrare partener nou |
-| https://xeh.ro/admin/partners | Panou admin - gestiune parteneri |
-| https://xeh.ro/admin/quotes | Panou admin - gestiune cotații |
-| https://xeh.ro/catalog | Catalog produse |
-| https://xeh.ro/blog | Blog SEO |
+| https://www.xeh.ro | Site public |
+| https://www.xeh.ro/login | Login parteneri/admin |
+| https://www.xeh.ro/register | Înregistrare partener nou |
+| https://www.xeh.ro/admin/partners | Panou admin - gestiune parteneri |
+| https://www.xeh.ro/admin/quotes | Panou admin - gestiune cotații |
+| https://www.xeh.ro/catalog | Catalog produse |
+| https://www.xeh.ro/blog | Blog SEO |
+| https://www.xeh.ro/termeni | Termeni și Condiții |
+| https://www.xeh.ro/confidentialitate | Politica Confidențialitate |
+| https://www.xeh.ro/cookies | Politica Cookies |
 
 ---
 
@@ -471,21 +529,23 @@ git push
 
 ### La Început de Sesiune Nouă (OBLIGATORIU)
 ```
-✅ CLAUDE.md încărcat | Ultima actualizare: 2026-01-20
+✅ CLAUDE.md încărcat | Ultima actualizare: 2026-01-21
 
 📊 STARE PROIECT XEH.ro:
 - Status: LIVE și funcțional
 - Traduceri: ✅ Complete (~2,600 produse, ~400 categorii)
 - SEO: ✅ Complet (sitemap, meta, JSON-LD, blog, landing pages)
+- Ahrefs Audit: ✅ ~22,000 erori rezolvate (www URLs, titluri, descrieri)
 - Quote Cart: ✅ COMPLET (coș cu multiple produse, prețuri, email)
+- Pagini Legale: ✅ /termeni, /confidentialitate, /cookies
 - Favicon: ✅ XEH.ro icon implementat
-- Homepage: ✅ Produse randomizate 2000-25000 EUR la fiecare refresh
-- Partner Notifications: ✅ Email la secretariat cu link aprobare direct
-- Site: https://xeh.ro
+- Site: https://www.xeh.ro (IMPORTANT: folosește www!)
 
 🔧 CONFIGURAȚII IMPORTANTE:
+- Domeniu: www.xeh.ro (cu www - pentru SEO)
 - Email notificări parteneri noi: secretariat@infinitrade-romania.ro
-- Produse recomandate homepage: 2000-25000 EUR, randomizate
+- Titluri max 60 chars (truncateSeoTitle în lib/utils)
+- Descrieri max 155 chars (truncateSeoDescription în lib/utils)
 - Next.js: 14.2.35 (security patched)
 
 Cu ce pot să te ajut?
@@ -507,4 +567,4 @@ Cu ce pot să te ajut?
 
 ---
 
-*Ultima actualizare: 2026-01-21 | Site: https://xeh.ro | AUDIT COMPLET: SEO 97% + PERFORMANCE + SECURITY 🚀*
+*Ultima actualizare: 2026-01-21 | Site: https://www.xeh.ro | AHREFS AUDIT FIX: ~22,000 erori rezolvate 🚀*

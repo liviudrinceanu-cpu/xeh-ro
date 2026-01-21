@@ -1,5 +1,16 @@
 import { Resend } from 'resend'
 
+// HTML escape function to prevent XSS in email templates
+function escapeHtml(text: string | undefined | null): string {
+  if (!text) return ''
+  return text
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;')
+    .replace(/'/g, '&#039;')
+}
+
 // Lazy initialization to avoid build errors
 let resendClient: Resend | null = null
 
@@ -40,7 +51,11 @@ interface QuoteEmailData {
 }
 
 export async function sendQuoteNotification(data: QuoteEmailData) {
-  const { quoteNumber, contactName, contactEmail, contactPhone, contactCompany, contactMessage, products } = data
+  const { quoteNumber, contactEmail, contactPhone, contactCompany, contactMessage, products } = data
+  // Escape user-provided content to prevent XSS
+  const contactName = escapeHtml(data.contactName)
+  const safeCompany = escapeHtml(contactCompany)
+  const safeMessage = escapeHtml(contactMessage)
 
   // Calculate totals
   const hasProducts = products && products.length > 0
@@ -162,20 +177,20 @@ export async function sendQuoteNotification(data: QuoteEmailData) {
               <a href="tel:${contactPhone}" style="color: #DC143C; text-decoration: none;">${contactPhone}</a>
             </td>
           </tr>
-          ${contactCompany ? `
+          ${safeCompany ? `
           <tr>
             <td style="padding: 10px 0; color: #666;">Companie:</td>
-            <td style="padding: 10px 0; color: #1D1D1F;">${contactCompany}</td>
+            <td style="padding: 10px 0; color: #1D1D1F;">${safeCompany}</td>
           </tr>
           ` : ''}
         </table>
 
         ${productsTableAdmin}
 
-        ${contactMessage ? `
+        ${safeMessage ? `
         <div style="margin-top: 25px;">
           <h3 style="color: #1D1D1F; margin: 0 0 10px 0; font-size: 16px;">Mesaj</h3>
-          <p style="color: #444; line-height: 1.6; margin: 0; padding: 15px; background: white; border-radius: 8px; border: 1px solid #e5e5e5;">${contactMessage}</p>
+          <p style="color: #444; line-height: 1.6; margin: 0; padding: 15px; background: white; border-radius: 8px; border: 1px solid #e5e5e5;">${safeMessage}</p>
         </div>
         ` : ''}
       </div>
@@ -275,7 +290,12 @@ interface ContactEmailData {
 }
 
 export async function sendContactNotification(data: ContactEmailData) {
-  const { name, email, phone, company, subject, message } = data
+  const { email, phone } = data
+  // Escape user-provided content to prevent XSS
+  const name = escapeHtml(data.name)
+  const company = escapeHtml(data.company)
+  const subject = escapeHtml(data.subject)
+  const message = escapeHtml(data.message)
 
   const emailContent = `
     <div style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; max-width: 600px; margin: 0 auto;">
@@ -366,20 +386,17 @@ interface PartnerRegistrationEmailData {
 const SECRETARIAT_EMAIL = 'secretariat@infinitrade-romania.ro'
 
 export async function sendPartnerRegistrationNotification(data: PartnerRegistrationEmailData) {
-  const {
-    partnerId,
-    firstName,
-    lastName,
-    email,
-    phone,
-    companyName,
-    companyCui,
-    companyRegCom,
-    addressStreet,
-    addressCity,
-    addressCounty,
-    addressPostalCode
-  } = data
+  const { partnerId, email, phone } = data
+  // Escape user-provided content to prevent XSS
+  const firstName = escapeHtml(data.firstName)
+  const lastName = escapeHtml(data.lastName)
+  const companyName = escapeHtml(data.companyName)
+  const companyCui = escapeHtml(data.companyCui)
+  const companyRegCom = escapeHtml(data.companyRegCom)
+  const addressStreet = escapeHtml(data.addressStreet)
+  const addressCity = escapeHtml(data.addressCity)
+  const addressCounty = escapeHtml(data.addressCounty)
+  const addressPostalCode = escapeHtml(data.addressPostalCode)
 
   // Construiește adresa completă
   const addressParts = [addressStreet, addressCity, addressCounty, addressPostalCode].filter(Boolean)
@@ -532,7 +549,10 @@ interface PartnerApprovedEmailData {
 }
 
 export async function sendPartnerApprovedNotification(data: PartnerApprovedEmailData) {
-  const { firstName, email, companyName } = data
+  const { email } = data
+  // Escape user-provided content to prevent XSS
+  const firstName = escapeHtml(data.firstName)
+  const companyName = escapeHtml(data.companyName)
 
   const emailContent = `
     <div style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; max-width: 600px; margin: 0 auto;">

@@ -1,9 +1,10 @@
 'use client'
 
 import { useEffect, useState } from 'react'
+import Image from 'next/image'
 import { useAuth } from '@/components/providers/AuthProvider'
 import { createClient } from '@/lib/supabase/client'
-import { Tag, Search, Filter, Package, Download, ChevronDown, ChevronUp } from 'lucide-react'
+import { Tag, Search, Package } from 'lucide-react'
 import type { PartnerDiscountRule } from '@/types/database'
 
 type ProductData = {
@@ -321,12 +322,14 @@ export default function PriceListPage() {
                   <tr key={product.id} className="hover:bg-gray-50">
                     <td className="px-6 py-4">
                       <div className="flex items-center gap-3">
-                        <div className="w-12 h-12 bg-gray-100 rounded-lg flex items-center justify-center flex-shrink-0 overflow-hidden">
+                        <div className="w-12 h-12 bg-gray-100 rounded-lg flex items-center justify-center flex-shrink-0 overflow-hidden relative">
                           {product.product_images?.find(i => i.is_primary)?.cloudinary_url ? (
-                            <img
+                            <Image
                               src={product.product_images.find(i => i.is_primary)?.cloudinary_url || product.product_images[0]?.cloudinary_url || ''}
                               alt=""
-                              className="w-full h-full object-contain"
+                              fill
+                              sizes="48px"
+                              className="object-contain"
                             />
                           ) : (
                             <Package className="w-6 h-6 text-gray-400" />

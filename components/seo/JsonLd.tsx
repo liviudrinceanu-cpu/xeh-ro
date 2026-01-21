@@ -1,5 +1,3 @@
-'use client'
-
 interface ProductJsonLdProps {
   product: {
     name: string
@@ -64,7 +62,7 @@ export function BreadcrumbJsonLd({ items }: BreadcrumbJsonLdProps) {
       '@type': 'ListItem',
       position: index + 1,
       name: item.name,
-      ...(item.url && { item: item.url, '@id': item.url }),
+      ...(item.url && { item: item.url }),
     })),
   }
 

@@ -59,10 +59,14 @@ export default function CartDrawer() {
       <div
         className="fixed inset-0 bg-black/50 z-50 transition-opacity"
         onClick={closeCart}
+        aria-hidden="true"
       />
 
       {/* Drawer */}
       <div
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="cart-drawer-title"
         className={cn(
           'fixed top-0 right-0 h-full w-full max-w-md bg-white z-50 shadow-2xl',
           'flex flex-col',
@@ -75,7 +79,7 @@ export default function CartDrawer() {
           <div className="flex items-center gap-3">
             <ShoppingBag className="w-6 h-6 text-crimson" />
             <div>
-              <h2 className="text-lg font-semibold text-gray-600">Cerere Ofertă</h2>
+              <h2 id="cart-drawer-title" className="text-lg font-semibold text-gray-600">Cerere Ofertă</h2>
               <p className="text-sm text-gray-500">{itemCount} produs(e)</p>
             </div>
           </div>

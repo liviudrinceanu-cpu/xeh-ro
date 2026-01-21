@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from 'react'
 import Link from 'next/link'
+import Image from 'next/image'
 import { useAuth } from '@/components/providers/AuthProvider'
 import { createClient } from '@/lib/supabase/client'
 import { Heart, Trash2, ShoppingCart, Package } from 'lucide-react'
@@ -181,10 +182,12 @@ export default function FavoritesPage() {
                   className="block aspect-square bg-gray-50 relative overflow-hidden"
                 >
                   {imageUrl ? (
-                    <img
+                    <Image
                       src={imageUrl}
                       alt={product.title_ro || product.model}
-                      className="w-full h-full object-contain p-4 group-hover:scale-105 transition-transform duration-300"
+                      fill
+                      sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                      className="object-contain p-4 group-hover:scale-105 transition-transform duration-300"
                     />
                   ) : (
                     <div className="w-full h-full flex items-center justify-center">

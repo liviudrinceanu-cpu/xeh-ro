@@ -1,5 +1,6 @@
 import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
+import Script from 'next/script'
 import { AuthProvider } from '@/components/providers/AuthProvider'
 import { QuoteCartProvider } from '@/components/providers/QuoteCartProvider'
 import { OrganizationJsonLd, LocalBusinessJsonLd, WebSiteJsonLd } from '@/components/seo/JsonLd'
@@ -74,8 +75,6 @@ export default function RootLayout({
         <link rel="dns-prefetch" href="https://res.cloudinary.com" />
         <link rel="preconnect" href="https://fllfgcuwjpnnrcijqzul.supabase.co" />
         <link rel="dns-prefetch" href="https://fllfgcuwjpnnrcijqzul.supabase.co" />
-        {/* Ahrefs Analytics */}
-        <script src="https://analytics.ahrefs.com/analytics.js" data-key="tmC7XUKsny09MLNS7hdRcQ" async></script>
       </head>
       <body className="font-sans antialiased bg-background min-h-screen">
         {/* Skip link for accessibility */}
@@ -93,6 +92,12 @@ export default function RootLayout({
             {children}
           </QuoteCartProvider>
         </AuthProvider>
+        {/* Ahrefs Analytics - loaded after page becomes interactive for better performance */}
+        <Script
+          src="https://analytics.ahrefs.com/analytics.js"
+          data-key="tmC7XUKsny09MLNS7hdRcQ"
+          strategy="afterInteractive"
+        />
       </body>
     </html>
   )

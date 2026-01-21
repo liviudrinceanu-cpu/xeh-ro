@@ -3,6 +3,7 @@
 import { useEffect, useState } from 'react'
 import { useParams, useRouter } from 'next/navigation'
 import Link from 'next/link'
+import Image from 'next/image'
 import { useAuth } from '@/components/providers/AuthProvider'
 import { createClient } from '@/lib/supabase/client'
 import { ArrowLeft, FileText, Package, Clock, CheckCircle, XCircle, Mail, Phone } from 'lucide-react'
@@ -227,12 +228,14 @@ export default function QuoteDetailPage() {
           <div className="divide-y divide-gray-100">
             {quote.quote_items.map((item) => (
               <div key={item.id} className="p-4 sm:p-6 flex items-start gap-4">
-                <div className="w-16 h-16 bg-gray-100 rounded-xl flex items-center justify-center flex-shrink-0 overflow-hidden">
+                <div className="w-16 h-16 bg-gray-100 rounded-xl flex items-center justify-center flex-shrink-0 overflow-hidden relative">
                   {item.product?.product_images?.[0]?.cloudinary_url ? (
-                    <img
+                    <Image
                       src={item.product.product_images[0].cloudinary_url}
                       alt={item.product_name}
-                      className="w-full h-full object-cover"
+                      fill
+                      sizes="64px"
+                      className="object-cover"
                     />
                   ) : (
                     <Package className="w-8 h-8 text-gray-400" />

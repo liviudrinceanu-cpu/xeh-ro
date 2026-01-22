@@ -11,9 +11,9 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'Contact | XEH.ro - eXpert Echipamente Horeca',
     description: 'Contactează-ne pentru informații despre echipamente HoReCa profesionale. Răspundem în maxim 24 de ore.',
-    url: 'https://xeh.ro/contact',
+    url: 'https://www.xeh.ro/contact',
     images: [{
-      url: 'https://xeh.ro/api/og?title=Contactează-ne&subtitle=Suntem aici să te ajutăm cu echipamente HoReCa profesionale',
+      url: 'https://www.xeh.ro/api/og?title=Contactează-ne&subtitle=Suntem aici să te ajutăm cu echipamente HoReCa profesionale',
       width: 1200,
       height: 630,
       alt: 'Contact XEH.ro - Echipamente HoReCa Profesionale',
@@ -23,10 +23,10 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: 'Contact | XEH.ro - eXpert Echipamente Horeca',
     description: 'Contactează-ne pentru informații despre echipamente HoReCa profesionale.',
-    images: ['https://xeh.ro/api/og?title=Contactează-ne'],
+    images: ['https://www.xeh.ro/api/og?title=Contactează-ne'],
   },
   alternates: {
-    canonical: 'https://xeh.ro/contact',
+    canonical: 'https://www.xeh.ro/contact',
   },
 }
 
@@ -36,7 +36,7 @@ export default function ContactPage() {
       {/* Schema.org */}
       <BreadcrumbJsonLd
         items={[
-          { name: 'Acasă', url: 'https://xeh.ro' },
+          { name: 'Acasă', url: 'https://www.xeh.ro' },
           { name: 'Contact' },
         ]}
       />

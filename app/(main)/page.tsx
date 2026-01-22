@@ -14,8 +14,8 @@ import { getFeaturedProducts } from '@/lib/queries/products'
 export const revalidate = 3600
 
 export const metadata: Metadata = {
-  title: 'XEH.ro - eXpert Echipamente Horeca | Distribuitor RM Gastro & REDFOX',
-  description: 'Distribuitor autorizat de echipamente profesionale HoReCa. Cuptoare cu convecție, mașini de spălat vase, echipamente de refrigerare. Branduri premium RM Gastro și REDFOX.',
+  title: 'eXpert Echipamente Horeca | Distribuitor RM Gastro & REDFOX',
+  description: 'Distribuitor autorizat echipamente HoReCa. Cuptoare, mașini spălat vase, refrigerare. Branduri premium RM Gastro și REDFOX.',
   openGraph: {
     title: 'XEH.ro - eXpert Echipamente Horeca',
     description: 'Distribuitor autorizat de echipamente profesionale HoReCa. Branduri premium RM Gastro și REDFOX pentru restaurante, hoteluri și cafenele.',

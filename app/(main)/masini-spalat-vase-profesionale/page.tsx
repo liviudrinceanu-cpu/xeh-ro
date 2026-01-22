@@ -20,9 +20,9 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'Mașini de Spălat Vase Profesionale pentru Restaurante | XEH.ro',
     description: 'Gamă completă de mașini de spălat vase industriale pentru HoReCa. Front-loading, hood-type, tunnel.',
-    url: 'https://xeh.ro/masini-spalat-vase-profesionale',
+    url: 'https://www.xeh.ro/masini-spalat-vase-profesionale',
     images: [{
-      url: 'https://xeh.ro/api/og?title=Mașini de Spălat Vase Profesionale&subtitle=Echipamente industriale de spălare pentru restaurante&type=category',
+      url: 'https://www.xeh.ro/api/og?title=Mașini de Spălat Vase Profesionale&subtitle=Echipamente industriale de spălare pentru restaurante&type=category',
       width: 1200,
       height: 630,
       alt: 'Mașini de Spălat Vase Profesionale - XEH.ro',
@@ -32,10 +32,10 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: 'Mașini de Spălat Vase Profesionale | XEH.ro',
     description: 'Gamă completă de mașini de spălat vase industriale pentru HoReCa.',
-    images: ['https://xeh.ro/api/og?title=Mașini de Spălat Vase Profesionale&type=category'],
+    images: ['https://www.xeh.ro/api/og?title=Mașini de Spălat Vase Profesionale&type=category'],
   },
   alternates: {
-    canonical: 'https://xeh.ro/masini-spalat-vase-profesionale',
+    canonical: 'https://www.xeh.ro/masini-spalat-vase-profesionale',
   },
 }
 

@@ -12,9 +12,9 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'Blog | Ghiduri Echipamente HoReCa | XEH.ro',
     description: 'Ghiduri complete și sfaturi pentru alegerea echipamentelor profesionale HoReCa.',
-    url: 'https://xeh.ro/blog',
+    url: 'https://www.xeh.ro/blog',
     images: [{
-      url: 'https://xeh.ro/api/og?title=Blog - Ghiduri Echipamente HoReCa&subtitle=Articole și sfaturi pentru alegerea echipamentelor profesionale&type=blog',
+      url: 'https://www.xeh.ro/api/og?title=Blog - Ghiduri Echipamente HoReCa&subtitle=Articole și sfaturi pentru alegerea echipamentelor profesionale&type=blog',
       width: 1200,
       height: 630,
       alt: 'Blog XEH.ro - Ghiduri Echipamente HoReCa',
@@ -24,10 +24,10 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: 'Blog | Ghiduri Echipamente HoReCa | XEH.ro',
     description: 'Ghiduri complete și sfaturi pentru alegerea echipamentelor profesionale HoReCa.',
-    images: ['https://xeh.ro/api/og?title=Blog - Ghiduri Echipamente HoReCa&type=blog'],
+    images: ['https://www.xeh.ro/api/og?title=Blog - Ghiduri Echipamente HoReCa&type=blog'],
   },
   alternates: {
-    canonical: 'https://xeh.ro/blog',
+    canonical: 'https://www.xeh.ro/blog',
   },
 }
 
@@ -117,7 +117,7 @@ export default function BlogPage() {
       <FAQJsonLd faqs={blogFaqs} />
       <BreadcrumbJsonLd
         items={[
-          { name: 'Acasă', url: 'https://xeh.ro' },
+          { name: 'Acasă', url: 'https://www.xeh.ro' },
           { name: 'Blog' },
         ]}
       />

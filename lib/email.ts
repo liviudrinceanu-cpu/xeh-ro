@@ -97,7 +97,7 @@ export async function sendQuoteNotification(data: QuoteEmailData) {
           ${products.map(p => `
             <tr>
               <td style="padding: 12px; border-bottom: 1px solid #f3f4f6;">
-                <a href="https://xeh.ro/${p.brandSlug}/produs/${p.sku}" style="color: #DC143C; text-decoration: none; font-weight: 500;">${p.name}</a>
+                <a href="https://www.xeh.ro/${p.brandSlug}/produs/${p.sku}" style="color: #DC143C; text-decoration: none; font-weight: 500;">${p.name}</a>
                 <br><span style="color: #666; font-size: 12px;">${p.brand} | ${p.model} | ${p.sku}</span>
               </td>
               <td style="padding: 12px; text-align: center; border-bottom: 1px solid #f3f4f6; font-weight: 500;">${p.quantity}</td>
@@ -127,7 +127,7 @@ export async function sendQuoteNotification(data: QuoteEmailData) {
         ${products.map(p => `
           <tr>
             <td style="padding: 12px; border-bottom: 1px solid #f3f4f6;">
-              <a href="https://xeh.ro/${p.brandSlug}/produs/${p.sku}" style="color: #DC143C; text-decoration: none; font-weight: 500;">${p.name}</a>
+              <a href="https://www.xeh.ro/${p.brandSlug}/produs/${p.sku}" style="color: #DC143C; text-decoration: none; font-weight: 500;">${p.name}</a>
               <br><span style="color: #666; font-size: 12px;">Cod: ${p.sku} | Cantitate: ${p.quantity}</span>
             </td>
             <td style="padding: 12px; text-align: right; border-bottom: 1px solid #f3f4f6; white-space: nowrap;">
@@ -581,7 +581,7 @@ export async function sendPartnerApprovedNotification(data: PartnerApprovedEmail
         </ul>
 
         <div style="margin: 30px 0; text-align: center;">
-          <a href="https://xeh.ro/login"
+          <a href="https://www.xeh.ro/login"
              style="display: inline-block; padding: 14px 35px; background: #DC143C; color: white; text-decoration: none; border-radius: 10px; font-weight: 500; font-size: 16px;">
             Accesează Portalul
           </a>

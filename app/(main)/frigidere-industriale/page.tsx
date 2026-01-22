@@ -21,9 +21,9 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'Frigidere Industriale & Refrigerare Profesională | XEH.ro',
     description: 'Echipamente de refrigerare profesionale pentru bucătării comerciale. Frigidere, congelatoare, vitrine, blast chiller.',
-    url: 'https://xeh.ro/frigidere-industriale',
+    url: 'https://www.xeh.ro/frigidere-industriale',
     images: [{
-      url: 'https://xeh.ro/api/og?title=Frigidere Industriale&subtitle=Echipamente de refrigerare profesionale pentru HoReCa&type=category',
+      url: 'https://www.xeh.ro/api/og?title=Frigidere Industriale&subtitle=Echipamente de refrigerare profesionale pentru HoReCa&type=category',
       width: 1200,
       height: 630,
       alt: 'Frigidere Industriale pentru Restaurante - XEH.ro',
@@ -33,10 +33,10 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: 'Frigidere Industriale & Refrigerare Profesională | XEH.ro',
     description: 'Echipamente de refrigerare profesionale pentru bucătării comerciale.',
-    images: ['https://xeh.ro/api/og?title=Frigidere Industriale&type=category'],
+    images: ['https://www.xeh.ro/api/og?title=Frigidere Industriale&type=category'],
   },
   alternates: {
-    canonical: 'https://xeh.ro/frigidere-industriale',
+    canonical: 'https://www.xeh.ro/frigidere-industriale',
   },
 }
 

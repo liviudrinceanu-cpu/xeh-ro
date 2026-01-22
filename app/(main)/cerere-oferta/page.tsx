@@ -12,9 +12,9 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'Cere Ofertă | XEH.ro - Echipamente HoReCa Profesionale',
     description: 'Solicită o ofertă personalizată pentru echipamente HoReCa profesionale. Răspundem în maxim 24 de ore.',
-    url: 'https://xeh.ro/cerere-oferta',
+    url: 'https://www.xeh.ro/cerere-oferta',
     images: [{
-      url: 'https://xeh.ro/api/og?title=Cere Ofertă Personalizată&subtitle=Echipamente HoReCa profesionale la prețuri competitive',
+      url: 'https://www.xeh.ro/api/og?title=Cere Ofertă Personalizată&subtitle=Echipamente HoReCa profesionale la prețuri competitive',
       width: 1200,
       height: 630,
       alt: 'Cerere Ofertă XEH.ro - Echipamente HoReCa',
@@ -24,10 +24,10 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: 'Cere Ofertă | XEH.ro - Echipamente HoReCa Profesionale',
     description: 'Solicită o ofertă personalizată pentru echipamente HoReCa profesionale.',
-    images: ['https://xeh.ro/api/og?title=Cere Ofertă Personalizată'],
+    images: ['https://www.xeh.ro/api/og?title=Cere Ofertă Personalizată'],
   },
   alternates: {
-    canonical: 'https://xeh.ro/cerere-oferta',
+    canonical: 'https://www.xeh.ro/cerere-oferta',
   },
 }
 
@@ -51,7 +51,7 @@ export default async function QuotePage({ searchParams }: QuotePageProps) {
       {/* Schema.org */}
       <BreadcrumbJsonLd
         items={[
-          { name: 'Acasă', url: 'https://xeh.ro' },
+          { name: 'Acasă', url: 'https://www.xeh.ro' },
           { name: 'Cerere Ofertă' },
         ]}
       />

@@ -45,7 +45,9 @@ export async function generateMetadata({ params }: DynamicPageProps): Promise<Me
     const priceText = product.price_amount ? `Preț: ${formatPrice(product.price_amount, product.price_currency)} fără TVA` : 'Preț la cerere'
     // Build a longer, more descriptive meta description (target: 120-155 chars)
     const fullDescription = `${title} - ${brandName}. Model: ${product.model}. Cod: ${product.sap_code}. ${priceText}. Echipament profesional pentru restaurante și bucătării comerciale. Livrare în toată România de la XEH.ro.`
-    const image = product.product_images?.find(img => img.is_primary)?.cloudinary_url || product.product_images?.[0]?.cloudinary_url
+    const productImage = product.product_images?.find(img => img.is_primary)?.cloudinary_url || product.product_images?.[0]?.cloudinary_url
+    // Generate dynamic OG image as fallback if no product image exists
+    const ogImageUrl = productImage || `${baseUrl}/api/og?title=${encodeURIComponent(title)}&subtitle=${encodeURIComponent(`${brandName} - Cod: ${product.sap_code}`)}&type=product`
 
     // Use SEO-friendly slug_ro if available
     const productSlugForUrl = product.slug_ro || product.sap_code
@@ -65,13 +67,13 @@ export async function generateMetadata({ params }: DynamicPageProps): Promise<Me
         siteName: 'XEH.ro',
         locale: 'ro_RO',
         type: 'website',
-        images: image ? [{ url: image, width: 800, height: 600, alt: title }] : undefined,
+        images: [{ url: ogImageUrl, width: 1200, height: 630, alt: title }],
       },
       twitter: {
         card: 'summary_large_image',
         title: seoTitle,
         description: seoDescription,
-        images: image ? [image] : undefined,
+        images: [ogImageUrl],
       },
       alternates: {
         canonical: `${baseUrl}/${brandSlug}/produs/${productSlugForUrl}`,

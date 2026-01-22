@@ -21,7 +21,7 @@ export async function generateMetadata({ params }: BrandPageProps) {
 
   const baseUrl = 'https://www.xeh.ro'
   const title = `${brand.name} - Echipamente Profesionale`
-  const description = `Explorează gama completă de echipamente ${brand.name}. Produse profesionale pentru bucătăria ta HoReCa.`
+  const description = `Explorează gama completă de echipamente ${brand.name}. Produse profesionale pentru restaurante, hoteluri și bucătării comerciale. Cuptoare, frigidere, mașini spălat vase.`
   const ogImageUrl = `${baseUrl}/api/og?title=${encodeURIComponent(brand.name)}&subtitle=${encodeURIComponent('Echipamente profesionale HoReCa')}&type=category`
 
   return {

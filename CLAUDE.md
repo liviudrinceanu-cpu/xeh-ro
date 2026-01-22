@@ -1,13 +1,13 @@
 # XEH.ro - Context Proiect
 
 > **IMPORTANT:** Acest fișier este citit automat de Claude Code. Actualizează-l după fiecare decizie majoră.
-> **Ultima actualizare:** 2026-01-21 - AHREFS AUDIT FIX WAVE 2 + SHARE BUTTON
+> **Ultima actualizare:** 2026-01-22 - AHREFS AUDIT FIX WAVE 3
 
 ---
 
 ## 🚨 CONTINUARE SESIUNE - CITEȘTE ASTA ÎNTÂI!
 
-### STATUS ACTUAL (2026-01-21)
+### STATUS ACTUAL (2026-01-22)
 
 **TRADUCERI: ✅ COMPLETE ȘI DEPLOYED**
 **SEO BASIC: ✅ COMPLET IMPLEMENTAT**
@@ -17,7 +17,7 @@
 **GOOGLE SEARCH CONSOLE: ✅ VERIFICAT ȘI SITEMAP TRIMIS**
 **QUOTE CART: ✅ COMPLET IMPLEMENTAT**
 **AHREFS ANALYTICS: ✅ OPTIMIZAT (afterInteractive)**
-**AHREFS AUDIT FIX: ✅ ~30,000 ERORI REZOLVATE (2 WAVE-URI)**
+**AHREFS AUDIT FIX: ✅ ~31,000 ERORI REZOLVATE (3 WAVE-URI)**
 **EXPERT LEVEL FIXES: ✅ SORTING + SEARCH + VALIDATION**
 **SECURITY AUDIT: ✅ XSS FIX + HEADERS**
 **ACCESSIBILITY: ✅ DIALOG ARIA + SKIP LINK**
@@ -28,6 +28,42 @@
 **SUPABASE RLS: ✅ INFINITE RECURSION FIX + USER_FAVORITES TABLE**
 **PAGINI LEGALE: ✅ /termeni, /confidentialitate, /cookies**
 **SHARE BUTTON: ✅ WEB SHARE API + CLIPBOARD FALLBACK**
+
+---
+
+### 🆕 AHREFS AUDIT FIX WAVE 3 (2026-01-22 - dimineață)
+
+#### Erori Rezolvate (~1,300 additional)
+
+| Problemă | Număr Erori | Fix Aplicat |
+|----------|-------------|-------------|
+| Canonical points to redirect | 1,137 | Toate URL-urile hardcodate actualizate la `www.xeh.ro` |
+| OG:image lipsă produse | 165 | Fallback dinamic `/api/og?type=product` când lipsește imaginea |
+| Homepage title prea lung | 1 | Title scurtat la ~50 chars |
+| Homepage meta desc prea lungă | 1 | Description scurtată la ~120 chars |
+| Brand pages meta desc prea scurtă | 2 | Description extinsă la ~160 chars |
+
+#### Fișiere Modificate Wave 3
+```
+app/(main)/page.tsx                         # Title + description mai scurte
+app/(main)/[brand]/page.tsx                 # Description extinsă pentru SEO
+app/(main)/[brand]/[...slug]/page.tsx       # OG:image fallback dinamic
+app/(main)/contact/page.tsx                 # URLs www.xeh.ro
+app/(main)/cerere-oferta/page.tsx           # URLs www.xeh.ro
+app/(main)/catalog/page.tsx                 # URLs www.xeh.ro
+app/(main)/blog/page.tsx                    # URLs www.xeh.ro
+app/(main)/cuptoare-profesionale/page.tsx   # URLs www.xeh.ro
+app/(main)/frigidere-industriale/page.tsx   # URLs www.xeh.ro
+app/(main)/masini-spalat-vase-profesionale/page.tsx  # URLs www.xeh.ro
+lib/email.ts                                # URLs www.xeh.ro în email templates
+```
+
+#### Modificări Cheie
+- **Toate paginile:** URL-uri canonical, OG, Twitter schimbate de la `https://xeh.ro` la `https://www.xeh.ro`
+- **Produse fără imagini:** Acum au OG:image dinamic generat via `/api/og`
+- **Homepage:** Title: `eXpert Echipamente Horeca | Distribuitor RM Gastro & REDFOX`
+- **Homepage:** Description: `Distribuitor autorizat echipamente HoReCa. Cuptoare, mașini spălat vase, refrigerare.`
+- **Brand pages:** Description extinsă cu "restaurante, hoteluri și bucătării comerciale"
 
 ---
 

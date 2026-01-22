@@ -205,11 +205,24 @@ export async function getCategoryBreadcrumb(path: string): Promise<Category[]> {
     breadcrumbPaths.push(currentPath)
   }
 
-  const { data, error } = await supabase
+  // First try to find by original path
+  let { data, error } = await supabase
     .from('categories')
     .select(CATEGORY_SELECT_FIELDS)
     .in('path', breadcrumbPaths)
     .order('depth')
+
+  // If no results (or fewer than expected), try by path_ro (Romanian SEO-friendly path)
+  if (!data || data.length === 0) {
+    const result = await supabase
+      .from('categories')
+      .select(CATEGORY_SELECT_FIELDS)
+      .in('path_ro', breadcrumbPaths)
+      .order('depth')
+
+    data = result.data
+    error = result.error
+  }
 
   if (error) {
     console.error('Error fetching breadcrumb:', error)

@@ -43,13 +43,41 @@ export async function getProducts(options?: {
 
   // Filter by category
   if (options?.categoryPath) {
-    const { data: productIds } = await supabase
-      .from('product_categories')
-      .select('product_id, category:categories!inner(path)')
-      .like('category.path', `${options.categoryPath}%`)
+    // First, find the category by path or path_ro (Romanian SEO-friendly path)
+    // The categoryPath might be in Romanian (path_ro) format from URL
+    let { data: category } = await supabase
+      .from('categories')
+      .select('id, path')
+      .eq('path', options.categoryPath)
+      .single()
 
-    if (productIds && productIds.length > 0) {
-      query = query.in('id', productIds.map(p => p.product_id))
+    // If not found by path, try path_ro
+    if (!category) {
+      const result = await supabase
+        .from('categories')
+        .select('id, path')
+        .eq('path_ro', options.categoryPath)
+        .single()
+      category = result.data
+    }
+
+    if (category) {
+      // Use the original path (not path_ro) to find products
+      // This ensures we match against the actual category paths in product_categories
+      const { data: productIds } = await supabase
+        .from('product_categories')
+        .select('product_id, category:categories!inner(path)')
+        .like('category.path', `${category.path}%`)
+
+      if (productIds && productIds.length > 0) {
+        query = query.in('id', productIds.map(p => p.product_id))
+      } else {
+        // No products found - return empty result
+        return { data: [], count: 0, page, pageSize, totalPages: 0 }
+      }
+    } else {
+      // Category not found - return empty result
+      return { data: [], count: 0, page, pageSize, totalPages: 0 }
     }
   }
 

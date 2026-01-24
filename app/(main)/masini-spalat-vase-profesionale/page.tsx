@@ -106,7 +106,7 @@ async function getDishwasherProducts() {
       brand:brands(name, slug),
       images:product_images(url, alt, is_primary)
     `)
-    .or('title_en.ilike.%dishwasher%,title_en.ilike.%glasswasher%,title_en.ilike.%washing%')
+    .or('title_en.ilike.%dishwasher%,title_en.ilike.%glasswasher%,title_en.ilike.%washing%,title_ro.ilike.%mașină spălat%,title_ro.ilike.%spălare%,title_ro.ilike.%vase%,title_ro.ilike.%pahare%')
     .limit(8)
     .order('price_amount', { ascending: true, nullsFirst: false })
 

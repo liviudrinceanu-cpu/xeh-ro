@@ -107,7 +107,7 @@ async function getOvenProducts() {
       brand:brands(name, slug),
       images:product_images(url, alt, is_primary)
     `)
-    .or('title_en.ilike.%oven%,title_en.ilike.%convection%,title_en.ilike.%steamer%,title_en.ilike.%pizza%')
+    .or('title_en.ilike.%oven%,title_en.ilike.%convection%,title_en.ilike.%steamer%,title_en.ilike.%pizza%,title_ro.ilike.%cuptor%,title_ro.ilike.%convecție%,title_ro.ilike.%abur%,title_ro.ilike.%pizza%')
     .limit(8)
     .order('price_amount', { ascending: true, nullsFirst: false })
 

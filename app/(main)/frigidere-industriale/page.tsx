@@ -107,7 +107,7 @@ async function getRefrigerationProducts() {
       brand:brands(name, slug),
       images:product_images(url, alt, is_primary)
     `)
-    .or('title_en.ilike.%refrigerat%,title_en.ilike.%freezer%,title_en.ilike.%chiller%,title_en.ilike.%cold%,title_en.ilike.%cooling%')
+    .or('title_en.ilike.%refrigerat%,title_en.ilike.%freezer%,title_en.ilike.%chiller%,title_en.ilike.%cold%,title_en.ilike.%cooling%,title_ro.ilike.%frigider%,title_ro.ilike.%congelator%,title_ro.ilike.%răcire%,title_ro.ilike.%refrigerare%,title_ro.ilike.%vitrină%')
     .limit(8)
     .order('price_amount', { ascending: true, nullsFirst: false })
 

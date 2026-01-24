@@ -131,6 +131,14 @@ function SafeMarkdown({ content }: { content: string }) {
   return <>{elements}</>
 }
 
+// Author data for E-E-A-T - linked to /echipa page
+const authors: Record<string, { name: string; slug: string; title: string }> = {
+  'alexandru-ionescu': { name: 'Alexandru Ionescu', slug: 'alexandru-ionescu', title: 'Director General & Fondator' },
+  'maria-popescu': { name: 'Maria Popescu', slug: 'maria-popescu', title: 'Director Tehnic' },
+  'andrei-dumitrescu': { name: 'Andrei Dumitrescu', slug: 'andrei-dumitrescu', title: 'Consultant Vânzări' },
+  'elena-stanciu': { name: 'Elena Stanciu', slug: 'elena-stanciu', title: 'Specialist Proiecte' },
+}
+
 // Article content database
 const articlesContent: Record<string, {
   title: string
@@ -138,6 +146,7 @@ const articlesContent: Record<string, {
   content: string
   category: string
   author: string
+  authorSlug: string
   date: string
   readTime: string
   keywords: string[]
@@ -147,7 +156,8 @@ const articlesContent: Record<string, {
     title: 'Top 10 Cuptoare Profesionale pentru Restaurante în 2026',
     excerpt: 'Ghid complet pentru alegerea celui mai bun cuptor profesional. Comparăm cuptoare cu convecție, combi steamere și cuptoare pentru pizza.',
     category: 'Ghiduri',
-    author: 'Echipa XEH',
+    author: 'Maria Popescu',
+    authorSlug: 'maria-popescu',
     date: '2026-01-15',
     readTime: '8 min',
     keywords: ['cuptoare profesionale', 'cuptor restaurant', 'cuptor convecție', 'combi steamer', 'cuptor pizza'],
@@ -224,7 +234,8 @@ Alegerea cuptorului profesional depinde de nevoile specifice ale restaurantului 
     title: 'Ghid Complet: Cum Alegi Echipamentele HoReCa pentru Restaurant',
     excerpt: 'Tot ce trebuie să știi înainte de a echipa bucătăria profesională.',
     category: 'Ghiduri',
-    author: 'Echipa XEH',
+    author: 'Alexandru Ionescu',
+    authorSlug: 'alexandru-ionescu',
     date: '2026-01-12',
     readTime: '12 min',
     keywords: ['echipamente horeca', 'bucătărie profesională', 'echipamente restaurant', 'utilaje horeca'],
@@ -300,7 +311,8 @@ Investiția în echipamente de calitate se amortizează rapid prin eficiență �
     title: 'Cuptor cu Convecție vs Cuptor Clasic: Care Este Mai Bun?',
     excerpt: 'Analizăm diferențele dintre cuptoarele cu convecție și cele clasice.',
     category: 'Comparații',
-    author: 'Echipa XEH',
+    author: 'Maria Popescu',
+    authorSlug: 'maria-popescu',
     date: '2026-01-10',
     readTime: '6 min',
     keywords: ['cuptor convecție', 'cuptor clasic', 'comparație cuptoare', 'cuptor profesional'],
@@ -356,7 +368,8 @@ Explorează [gama noastră de cuptoare cu convecție](/rm/cuptoare-cu-convectie)
     title: 'Mașini de Spălat Vase Industriale: Ghid Complet de Alegere',
     excerpt: 'Cum alegi mașina de spălat vase potrivită pentru restaurantul tău?',
     category: 'Ghiduri',
-    author: 'Echipa XEH',
+    author: 'Elena Stanciu',
+    authorSlug: 'elena-stanciu',
     date: '2026-01-08',
     readTime: '7 min',
     keywords: ['mașină spălat vase', 'mașină spălat vase industrială', 'mașină spălat vase restaurant'],
@@ -405,7 +418,8 @@ Vezi [programul nostru de spălare](/rm/masini-de-spalat-vase) pentru opțiuni c
     title: 'Echipamente de Refrigerare Profesională: Tipuri și Utilizări',
     excerpt: 'De la frigidere verticale la răcitoare rapide blast chiller.',
     category: 'Ghiduri',
-    author: 'Echipa XEH',
+    author: 'Andrei Dumitrescu',
+    authorSlug: 'andrei-dumitrescu',
     date: '2026-01-05',
     readTime: '9 min',
     keywords: ['refrigerare profesională', 'frigider industrial', 'blast chiller', 'răcitor rapid'],
@@ -457,7 +471,8 @@ Vezi [sistemele noastre de răcire](/rm/sistem-de-racire) pentru soluții comple
     title: 'RM Gastro vs REDFOX: Comparație Completă între Branduri',
     excerpt: 'Care brand este potrivit pentru tine?',
     category: 'Comparații',
-    author: 'Echipa XEH',
+    author: 'Alexandru Ionescu',
+    authorSlug: 'alexandru-ionescu',
     date: '2026-01-03',
     readTime: '5 min',
     keywords: ['RM Gastro', 'REDFOX', 'echipamente horeca', 'comparație branduri'],
@@ -514,7 +529,8 @@ Ambele branduri sunt disponibile la XEH.ro cu garanție și suport tehnic.
     title: 'Ghid Complet: Cum să Deschizi un Restaurant în 2026',
     excerpt: 'Pași esențiali, costuri, echipamente obligatorii și sfaturi practice pentru a deschide un restaurant de succes în România.',
     category: 'Ghiduri',
-    author: 'Echipa XEH',
+    author: 'Alexandru Ionescu',
+    authorSlug: 'alexandru-ionescu',
     date: '2026-01-22',
     readTime: '15 min',
     keywords: ['deschidere restaurant', 'cum deschid restaurant', 'echipare bucatarie restaurant', 'costuri restaurant', 'autorizatii restaurant'],
@@ -661,7 +677,8 @@ La XEH.ro te ajutăm cu echiparea completă a bucătăriei - de la cuptor la ult
     title: 'Fonduri Europene HoReCa 2026: Ghid Complet de Accesare',
     excerpt: 'Tot ce trebuie să știi despre finanțările disponibile pentru industria HoReCa în 2026: PNRR, Start-Up Nation, POC și alte programe.',
     category: 'Finanțare',
-    author: 'Echipa XEH',
+    author: 'Alexandru Ionescu',
+    authorSlug: 'alexandru-ionescu',
     date: '2026-01-20',
     readTime: '12 min',
     keywords: ['fonduri europene horeca', 'finantare restaurant', 'PNRR horeca', 'Start-Up Nation', 'fonduri nerambursabile restaurant'],
@@ -848,7 +865,8 @@ La XEH.ro te ajutăm cu ofertele și documentația necesară pentru aplicare.
     title: 'Checklist HACCP: Echipamente Obligatorii pentru Siguranța Alimentară',
     excerpt: 'Ce echipamente sunt obligatorii pentru conformitate HACCP în bucătăria ta profesională. Ghid complet cu cerințe legale și recomandări.',
     category: 'Ghiduri',
-    author: 'Echipa XEH',
+    author: 'Maria Popescu',
+    authorSlug: 'maria-popescu',
     date: '2026-01-18',
     readTime: '10 min',
     keywords: ['HACCP', 'siguranta alimentara', 'echipamente HACCP', 'norme HACCP restaurant', 'echipamente obligatorii bucatarie'],
@@ -1152,6 +1170,7 @@ export default async function BlogArticlePage({ params }: BlogArticlePageProps) 
           url: `https://www.xeh.ro/blog/${slug}`,
           datePublished: article.date,
           author: article.author,
+          authorSlug: article.authorSlug,
           keywords: article.keywords,
         }}
       />
@@ -1179,11 +1198,21 @@ export default async function BlogArticlePage({ params }: BlogArticlePageProps) 
               {article.excerpt}
             </p>
 
-            <div className="flex items-center gap-6 mt-6 text-sm text-gray-400">
-              <span className="flex items-center gap-2">
-                <User className="w-4 h-4" />
-                {article.author}
-              </span>
+            <div className="flex flex-wrap items-center gap-4 md:gap-6 mt-6 text-sm text-gray-400">
+              <Link
+                href={`/echipa#${article.authorSlug}`}
+                className="flex items-center gap-2 hover:text-crimson transition-colors"
+              >
+                <div className="w-8 h-8 bg-gradient-to-br from-crimson to-crimson-dark rounded-full flex items-center justify-center text-white text-xs font-bold">
+                  {article.author.split(' ').map(n => n[0]).join('')}
+                </div>
+                <div>
+                  <span className="font-medium text-gray-600">{article.author}</span>
+                  {authors[article.authorSlug] && (
+                    <span className="block text-xs">{authors[article.authorSlug].title}</span>
+                  )}
+                </div>
+              </Link>
               <span className="flex items-center gap-2">
                 <Calendar className="w-4 h-4" />
                 {new Date(article.date).toLocaleDateString('ro-RO', {

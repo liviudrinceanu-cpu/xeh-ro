@@ -2,6 +2,8 @@ import type { Metadata } from 'next'
 import Link from 'next/link'
 import { ArrowRight } from 'lucide-react'
 import Hero from '@/components/home/Hero'
+import StatsSection from '@/components/home/StatsSection'
+import TestimonialsSection from '@/components/home/TestimonialsSection'
 import BrandCard from '@/components/brand/BrandCard'
 import CategoryCard from '@/components/category/CategoryCard'
 import ProductCard from '@/components/product/ProductCard'
@@ -118,6 +120,9 @@ export default async function HomePage() {
         </div>
       </section>
 
+      {/* Stats Section - E-E-A-T Trust Signals */}
+      <StatsSection />
+
       {/* Categories Section */}
       <section className="py-16 md:py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -173,6 +178,9 @@ export default async function HomePage() {
           ))}
         </div>
       </section>
+
+      {/* Testimonials Section - E-E-A-T Social Proof */}
+      <TestimonialsSection />
 
       {/* FAQ Section */}
       <section className="py-16 md:py-20 bg-white">

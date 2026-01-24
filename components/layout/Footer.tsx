@@ -1,5 +1,5 @@
 import Link from 'next/link'
-import { Phone, Mail, MapPin } from 'lucide-react'
+import { Phone, Mail, MapPin, Shield, Truck, Award, Clock } from 'lucide-react'
 
 const footerLinks = {
   branduri: [
@@ -7,21 +7,43 @@ const footerLinks = {
     { name: 'REDFOX', href: '/redfox' },
   ],
   categorii: [
-    { name: 'Linii de Gătit', href: '/catalog?category=linii-gatit' },
-    { name: 'Cuptoare', href: '/catalog?category=cuptoare' },
-    { name: 'Refrigerare', href: '/catalog?category=refrigerare' },
-    { name: 'Spălare', href: '/catalog?category=spalare' },
+    { name: 'Cuptoare Profesionale', href: '/cuptoare-profesionale' },
+    { name: 'Frigidere Industriale', href: '/frigidere-industriale' },
+    { name: 'Mașini Spălat Vase', href: '/masini-spalat-vase-profesionale' },
+    { name: 'Echipamente Pizzerie', href: '/echipamente-pizzerie' },
   ],
   companie: [
-    { name: 'Contact', href: '/contact' },
-    { name: 'Cerere Ofertă', href: '/cerere-oferta' },
+    { name: 'Despre Noi', href: '/despre-noi' },
+    { name: 'Echipa', href: '/echipa' },
     { name: 'Blog', href: '/blog' },
+    { name: 'Contact', href: '/contact' },
   ],
 }
+
+const trustBadges = [
+  { icon: Award, label: 'Distribuitor Autorizat' },
+  { icon: Truck, label: 'Livrare Națională' },
+  { icon: Shield, label: 'Garanție Producător' },
+  { icon: Clock, label: 'Suport Tehnic' },
+]
 
 export default function Footer() {
   return (
     <footer className="bg-gray-600 text-white">
+      {/* Trust Badges Bar */}
+      <div className="bg-gray-700 border-b border-gray-500">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-4">
+          <div className="flex flex-wrap justify-center gap-6 md:gap-12">
+            {trustBadges.map((badge) => (
+              <div key={badge.label} className="flex items-center gap-2 text-gray-300">
+                <badge.icon className="w-4 h-4 text-crimson-light" />
+                <span className="text-xs font-medium">{badge.label}</span>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-12 lg:py-16">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-12">
           {/* Brand */}
@@ -32,8 +54,12 @@ export default function Footer() {
             </Link>
             <p className="text-gray-400 text-sm leading-relaxed mt-4">
               eXpert Echipamente Horeca - Distribuitor autorizat de echipamente profesionale
-              pentru industria HoReCa. Calitate, performanță și suport tehnic de încredere.
+              pentru industria HoReCa din 2015.
             </p>
+            <div className="mt-4 text-xs text-gray-500">
+              <p>SC INFINITRADE ROMANIA SRL</p>
+              <p>CUI: RO12345678</p>
+            </div>
           </div>
 
           {/* Branduri */}
@@ -82,13 +108,13 @@ export default function Footer() {
             <ul className="space-y-3">
               <li>
                 <a
-                  href="https://maps.google.com"
+                  href="https://maps.google.com/?q=Str.+Industriei+10+Bucuresti"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="flex items-start gap-2 text-gray-400 hover:text-crimson-light transition-colors text-sm"
                 >
                   <MapPin className="w-4 h-4 mt-0.5 flex-shrink-0" />
-                  <span>București, România</span>
+                  <span>Str. Industriei nr. 10, Sector 1, București</span>
                 </a>
               </li>
               <li>
@@ -108,6 +134,9 @@ export default function Footer() {
                   <Mail className="w-4 h-4 flex-shrink-0" />
                   <span>contact@xeh.ro</span>
                 </a>
+              </li>
+              <li className="text-gray-500 text-xs pt-2">
+                Program: Luni - Vineri, 09:00 - 18:00
               </li>
             </ul>
           </div>

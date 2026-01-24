@@ -264,11 +264,28 @@ interface ArticleJsonLdProps {
     datePublished: string
     dateModified?: string
     author: string
+    authorSlug?: string
+    authorTitle?: string
     keywords?: string[]
   }
 }
 
 export function ArticleJsonLd({ article }: ArticleJsonLdProps) {
+  const authorSchema = article.authorSlug ? {
+    '@type': 'Person',
+    '@id': `https://www.xeh.ro/echipa/${article.authorSlug}#person`,
+    name: article.author,
+    url: `https://www.xeh.ro/echipa/${article.authorSlug}`,
+    jobTitle: article.authorTitle || 'Expert Echipamente HoReCa',
+    worksFor: {
+      '@id': 'https://www.xeh.ro/#organization',
+    },
+  } : {
+    '@type': 'Organization',
+    name: article.author,
+    url: 'https://www.xeh.ro',
+  }
+
   const jsonLd = {
     '@context': 'https://schema.org',
     '@type': 'Article',
@@ -278,11 +295,7 @@ export function ArticleJsonLd({ article }: ArticleJsonLdProps) {
     image: article.image || 'https://www.xeh.ro/og-image.jpg',
     datePublished: article.datePublished,
     dateModified: article.dateModified || article.datePublished,
-    author: {
-      '@type': 'Organization',
-      name: article.author,
-      url: 'https://www.xeh.ro',
-    },
+    author: authorSchema,
     publisher: {
       '@id': 'https://www.xeh.ro/#organization',
     },
@@ -294,6 +307,140 @@ export function ArticleJsonLd({ article }: ArticleJsonLdProps) {
       '@id': article.url,
     },
     ...(article.keywords && { keywords: article.keywords.join(', ') }),
+  }
+
+  return (
+    <script
+      type="application/ld+json"
+      dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+    />
+  )
+}
+
+// Person schema for team members and authors - E-E-A-T critical
+interface PersonJsonLdProps {
+  person: {
+    name: string
+    slug: string
+    jobTitle: string
+    description: string
+    image?: string
+    email?: string
+    telephone?: string
+    knowsAbout: string[]
+    sameAs?: string[]
+    alumniOf?: string
+  }
+}
+
+export function PersonJsonLd({ person }: PersonJsonLdProps) {
+  const jsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'Person',
+    '@id': `https://www.xeh.ro/echipa/${person.slug}#person`,
+    name: person.name,
+    jobTitle: person.jobTitle,
+    description: person.description,
+    url: `https://www.xeh.ro/echipa/${person.slug}`,
+    ...(person.image && { image: person.image }),
+    ...(person.email && { email: person.email }),
+    ...(person.telephone && { telephone: person.telephone }),
+    worksFor: {
+      '@type': 'Organization',
+      '@id': 'https://www.xeh.ro/#organization',
+      name: 'XEH.ro',
+    },
+    knowsAbout: person.knowsAbout,
+    ...(person.sameAs && person.sameAs.length > 0 && { sameAs: person.sameAs }),
+    ...(person.alumniOf && {
+      alumniOf: {
+        '@type': 'EducationalOrganization',
+        name: person.alumniOf,
+      },
+    }),
+  }
+
+  return (
+    <script
+      type="application/ld+json"
+      dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+    />
+  )
+}
+
+// Reviews/Testimonials schema for trust signals
+interface ReviewJsonLdProps {
+  reviews: Array<{
+    author: string
+    company?: string
+    rating: number
+    reviewBody: string
+    datePublished: string
+  }>
+  aggregateRating?: {
+    ratingValue: number
+    reviewCount: number
+  }
+}
+
+export function ReviewJsonLd({ reviews, aggregateRating }: ReviewJsonLdProps) {
+  const jsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'Organization',
+    '@id': 'https://www.xeh.ro/#organization',
+    review: reviews.map((review) => ({
+      '@type': 'Review',
+      author: {
+        '@type': 'Person',
+        name: review.author,
+      },
+      reviewRating: {
+        '@type': 'Rating',
+        ratingValue: review.rating,
+        bestRating: 5,
+      },
+      reviewBody: review.reviewBody,
+      datePublished: review.datePublished,
+      ...(review.company && {
+        publisher: {
+          '@type': 'Organization',
+          name: review.company,
+        },
+      }),
+    })),
+    ...(aggregateRating && {
+      aggregateRating: {
+        '@type': 'AggregateRating',
+        ratingValue: aggregateRating.ratingValue,
+        reviewCount: aggregateRating.reviewCount,
+        bestRating: 5,
+      },
+    }),
+  }
+
+  return (
+    <script
+      type="application/ld+json"
+      dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+    />
+  )
+}
+
+// AboutPage schema
+export function AboutPageJsonLd() {
+  const jsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'AboutPage',
+    '@id': 'https://www.xeh.ro/despre-noi#aboutpage',
+    name: 'Despre XEH.ro - eXpert Echipamente Horeca',
+    description: 'Aflați povestea XEH.ro, distribuitor autorizat de echipamente profesionale HoReCa în România din 2015.',
+    url: 'https://www.xeh.ro/despre-noi',
+    mainEntity: {
+      '@id': 'https://www.xeh.ro/#organization',
+    },
+    isPartOf: {
+      '@id': 'https://www.xeh.ro/#website',
+    },
   }
 
   return (

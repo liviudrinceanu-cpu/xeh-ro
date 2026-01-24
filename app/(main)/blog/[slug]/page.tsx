@@ -510,6 +510,581 @@ Ambele branduri sunt disponibile la XEH.ro cu garanție și suport tehnic.
       },
     ],
   },
+  'ghid-deschidere-restaurant-2026': {
+    title: 'Ghid Complet: Cum să Deschizi un Restaurant în 2026',
+    excerpt: 'Pași esențiali, costuri, echipamente obligatorii și sfaturi practice pentru a deschide un restaurant de succes în România.',
+    category: 'Ghiduri',
+    author: 'Echipa XEH',
+    date: '2026-01-22',
+    readTime: '15 min',
+    keywords: ['deschidere restaurant', 'cum deschid restaurant', 'echipare bucatarie restaurant', 'costuri restaurant', 'autorizatii restaurant'],
+    content: `
+## De ce 2026 este anul potrivit să deschizi un restaurant?
+
+Industria HoReCa din România este în plină expansiune. Cu fonduri europene disponibile și o cerere crescândă pentru experiențe culinare de calitate, acesta poate fi momentul perfect pentru visul tău antreprenorial.
+
+## Pașii Esențiali pentru Deschiderea unui Restaurant
+
+### 1. Planificarea și Conceptul
+Înainte de orice, definește:
+- **Conceptul** - Fine dining, casual, fast-food, etnic?
+- **Target-ul** - Cine sunt clienții tăi ideali?
+- **Locația** - Zona cu trafic potrivit pentru concept
+- **Meniul** - Ce vei servi și la ce prețuri?
+
+### 2. Plan de Afaceri
+Un plan solid include:
+- Analiză de piață și concurență
+- Proiecții financiare pe 3-5 ani
+- Strategia de marketing
+- Structura echipei
+
+### 3. Aspecte Legale și Autorizații
+**Autorizații obligatorii:**
+- Certificat de înregistrare fiscală (CUI)
+- Autorizație ISU (pompieri)
+- Autorizație sanitară (DSP)
+- Autorizație de mediu (dacă e cazul)
+- Aviz sanitar-veterinar (DSVSA)
+- Autorizație de funcționare
+
+### 4. Spațiul și Amenajarea
+**Reguli de bază:**
+- Minim 1.4 mp/loc pentru zona de servire
+- Bucătăria = 30-40% din suprafața totală
+- Depozit separat pentru alimente
+- Grupuri sanitare separate personal/clienți
+
+## Echipamente Obligatorii pentru Bucătărie
+
+### Echipamente de Gătit
+- [Cuptoare profesionale](/cuptoare-profesionale) - convecție sau combi steamer
+- Plite și aragazuri industriale
+- Friteuze profesionale
+- Grătare și plăci grill
+
+### Echipamente de Refrigerare
+- [Frigidere profesionale](/rm/sistem-de-racire) - verticale și mese refrigerate
+- Congelatoare
+- Blast chiller (recomandat pentru HACCP)
+
+### Echipamente de Spălare
+- [Mașină spălat vase](/masini-spalat-vase-profesionale) - obligatorie
+- Chiuvete inox (minim 2)
+
+### Mobilier Inox
+- Mese de lucru
+- Rafturi depozitare
+- Hota de evacuare
+
+## Costurile Estimate pentru Deschiderea unui Restaurant
+
+### Restaurant Mic (30-50 locuri)
+
+| Categorie | Cost Estimat |
+|-----------|-------------|
+| Amenajare spațiu | 15.000-30.000 EUR |
+| Echipamente bucătărie | 20.000-40.000 EUR |
+| Mobilier sală | 10.000-20.000 EUR |
+| Autorizații | 2.000-5.000 EUR |
+| Stoc inițial | 3.000-5.000 EUR |
+| Marketing lansare | 2.000-5.000 EUR |
+| **TOTAL** | **50.000-100.000 EUR** |
+
+### Restaurant Mediu (50-100 locuri)
+
+| Categorie | Cost Estimat |
+|-----------|-------------|
+| Amenajare spațiu | 30.000-60.000 EUR |
+| Echipamente bucătărie | 40.000-80.000 EUR |
+| Mobilier sală | 20.000-40.000 EUR |
+| Autorizații | 3.000-7.000 EUR |
+| Stoc inițial | 5.000-10.000 EUR |
+| Marketing lansare | 5.000-10.000 EUR |
+| **TOTAL** | **100.000-200.000 EUR** |
+
+## Cum să Economisești la Echipamente
+
+### Strategii inteligente:
+- **Leasing echipamente** - plătești în rate, nu blochezi capitalul
+- **Echipamente REDFOX** - alternativă economică la brandurile premium
+- **Cere ofertă pachet** - discounturi pentru comenzi complete
+- **Prioritizează esențialul** - începe cu minimul necesar
+
+[Cere ofertă personalizată](/cerere-oferta) pentru echiparea restaurantului tău.
+
+## Greșeli Comune de Evitat
+
+1. **Subdimensionarea bucătăriei** - vei avea blocaje în orele de vârf
+2. **Economisirea la echipamente critice** - cuptorul și frigiderul trebuie să fie fiabile
+3. **Lipsa planului HACCP** - risc de amendă și închidere
+4. **Ignorarea ventilației** - hota subdimensionată = probleme
+5. **Neglijarea ergonomiei** - personalul obosit = serviciu slab
+
+## Checklist Final Pre-Deschidere
+
+- Toate autorizațiile obținute
+- Echipamentele instalate și testate
+- Planul HACCP implementat
+- Personal instruit
+- Stocul inițial aprovizionat
+- Marketing și prezență online gata
+- Soft facturare și POS funcțional
+- Asigurări încheiate
+
+## Concluzie
+
+Deschiderea unui restaurant este o provocare, dar cu planificare atentă și echipamente de calitate, poate fi una dintre cele mai satisfăcătoare afaceri.
+
+La XEH.ro te ajutăm cu echiparea completă a bucătăriei - de la cuptor la ultima lingură.
+    `,
+    faqs: [
+      {
+        question: 'Cât costă să deschid un restaurant mic în România?',
+        answer: 'Un restaurant mic (30-50 locuri) necesită o investiție de 50.000-100.000 EUR, incluzând amenajare, echipamente, mobilier, autorizații și stoc inițial. Costurile variază în funcție de locație și concept.',
+      },
+      {
+        question: 'Ce autorizații îmi trebuie pentru un restaurant?',
+        answer: 'Autorizații obligatorii: CUI (înregistrare fiscală), autorizație ISU (pompieri), autorizație sanitară DSP, aviz DSVSA (sanitar-veterinar), și autorizație de funcționare de la primărie.',
+      },
+      {
+        question: 'Cât durează să obțin toate autorizațiile pentru restaurant?',
+        answer: 'În medie, 2-4 luni dacă documentația este completă. Recomandăm să începi procesul de autorizare cu minim 3 luni înainte de data planificată de deschidere.',
+      },
+      {
+        question: 'Pot accesa fonduri europene pentru deschiderea unui restaurant?',
+        answer: 'Da, prin programele PNRR și Start-Up Nation. Finanțările pot acoperi 50-90% din investiție. Verifică eligibilitatea pe fonduri-structurale.ro sau consultă un specialist în accesare fonduri.',
+      },
+    ],
+  },
+  'fonduri-europene-horeca-2026': {
+    title: 'Fonduri Europene HoReCa 2026: Ghid Complet de Accesare',
+    excerpt: 'Tot ce trebuie să știi despre finanțările disponibile pentru industria HoReCa în 2026: PNRR, Start-Up Nation, POC și alte programe.',
+    category: 'Finanțare',
+    author: 'Echipa XEH',
+    date: '2026-01-20',
+    readTime: '12 min',
+    keywords: ['fonduri europene horeca', 'finantare restaurant', 'PNRR horeca', 'Start-Up Nation', 'fonduri nerambursabile restaurant'],
+    content: `
+## Ce Fonduri Europene Sunt Disponibile pentru HoReCa în 2026?
+
+Anul 2026 aduce oportunități semnificative de finanțare pentru industria HoReCa. Programele active oferă finanțări de la 10.000 EUR până la 500.000 EUR pentru echipamente, digitalizare și dezvoltare.
+
+## Programe Active în 2026
+
+### 1. PNRR - Componenta C10 (Turism și Cultură)
+
+**Buget total:** 500 milioane EUR
+**Finanțare maximă:** Până la 200.000 EUR/proiect
+**Intensitate ajutor:** 50-90% (în funcție de regiune)
+
+**Cheltuieli eligibile:**
+- Echipamente profesionale pentru bucătării
+- Sisteme de refrigerare
+- Echipamente pentru eficiență energetică
+- Digitalizare (POS, software management)
+- Renovări și modernizări
+
+**Criterii de eligibilitate:**
+- Minim 1 an vechime (sau proiect nou cu garanții)
+- Sediu în România
+- Nu ai datorii la stat
+- Plan de afaceri viabil
+
+### 2. Start-Up Nation 2026
+
+**Finanțare:** Până la 50.000 EUR (200.000 RON)
+**Tip:** 100% grant nerambursabil
+**Termen:** Sesiuni în martie și septembrie 2026
+
+**Potrivit pentru:**
+- Restaurante noi
+- Cafenele și baruri
+- Dark kitchens
+- Food trucks
+
+**Cheltuieli eligibile pentru HoReCa:**
+- Echipamente bucătărie (cuptoare, frigidere, mașini spălat vase)
+- Mobilier și amenajări
+- Software și licențe
+- Consultanță și marketing
+
+### 3. POC - Digitalizare IMM
+
+**Finanțare:** 15.000-50.000 EUR
+**Intensitate:** 90% grant
+**Focus:** Digitalizare și automatizare
+
+**Aplicabil pentru:**
+- Sisteme POS și management restaurant
+- Software rezervări online
+- Automatizare bucătărie
+- E-commerce și delivery
+
+### 4. Schema de Minimis Regională
+
+**Finanțare:** Până la 200.000 EUR pe 3 ani
+**Disponibilitate:** Prin ADR-uri regionale
+
+**Cheltuieli acceptate:**
+- Echipamente HoReCa
+- Construcții și renovări
+- Training personal
+
+## Cum să Aplici pentru Fonduri Europene
+
+### Pasul 1: Pregătirea Documentelor
+
+**Documente necesare:**
+- Certificat de înregistrare (CUI)
+- Situații financiare (ultimii 2-3 ani)
+- Plan de afaceri detaliat
+- Proiecții financiare
+- Oferte de preț pentru echipamente
+- Documente proprietate/închiriere spațiu
+
+### Pasul 2: Elaborarea Planului de Afaceri
+
+Un plan câștigător include:
+- Rezumat executiv
+- Analiza pieței și competiției
+- Strategia de marketing
+- Planul operațional
+- Echipa de management
+- Proiecții financiare pe 5 ani
+- Analiza riscurilor
+
+### Pasul 3: Depunerea și Evaluarea
+
+- Depunere online pe platforma MySMIS sau portaluri dedicate
+- Evaluare tehnică și financiară (30-60 zile)
+- Clarificări (dacă e cazul)
+- Decizie de finanțare
+- Contractare
+
+## Cum XEH.ro Te Poate Ajuta
+
+### Oferte pentru Fonduri Europene
+
+Pregătim documentația de achiziție echipamente:
+- Oferte detaliate cu specificații tehnice
+- Conformitate cu cerințele de eligibilitate
+- 3 oferte comparative (dacă e necesar)
+- Livrare și instalare incluse
+
+[Solicită ofertă pentru fonduri europene](/cerere-oferta)
+
+### Pachete Echipare Restaurant
+
+**Pachet Restaurant Mic (50.000 EUR):**
+- Cuptor convecție 10 tăvi
+- Frigider vertical 700L
+- Congelator 500L
+- Mașină spălat vase cu capotă
+- Masă frigorifică preparare
+- Mobilier inox complet
+
+**Pachet Restaurant Mediu (100.000 EUR):**
+- Combi steamer 10 GN
+- 2x Frigidere verticale
+- Blast chiller 5 tăvi
+- Mașină spălat vase tunel
+- Linie preparare completă
+- Mobilier și rafturi inox
+
+## Timeline Aplicare 2026
+
+| Lună | Program | Deadline |
+|------|---------|----------|
+| Februarie | Start-Up Nation | Înregistrare |
+| Martie | Start-Up Nation | Depunere proiecte |
+| Aprilie | PNRR Turism | Sesiune nouă |
+| Mai-Iunie | Evaluări | - |
+| Iulie-August | Contractări | - |
+| Septembrie | Start-Up Nation | Sesiunea 2 |
+| Octombrie | POC Digital | Sesiune nouă |
+
+## Greșeli de Evitat la Aplicare
+
+1. **Plan de afaceri slab** - fii specific și realist
+2. **Buget necorelat** - verifică eligibilitatea fiecărei cheltuieli
+3. **Lipsa cofinanțării** - asigură-te că ai banii pentru partea ta
+4. **Documentație incompletă** - verifică de 3 ori înainte de depunere
+5. **Deadline ratat** - monitorizează constant portalurile
+
+## Resurse Utile
+
+- fonduri-structurale.ro - Portalul oficial
+- adrcentru.ro, adrnordest.ro, etc. - ADR-uri regionale
+- imm.gov.ro - Start-Up Nation
+- mfinante.gov.ro - Informații fiscale
+
+## Concluzie
+
+2026 oferă oportunități excelente de finanțare pentru HoReCa. Cu pregătire atentă și documentație corectă, poți obține până la 90% din investiția în echipamente.
+
+La XEH.ro te ajutăm cu ofertele și documentația necesară pentru aplicare.
+    `,
+    faqs: [
+      {
+        question: 'Pot aplica pentru fonduri europene dacă nu am încă firma?',
+        answer: 'Pentru Start-Up Nation, da - poți înființa firma după ce ești selectat. Pentru celelalte programe, de obicei ai nevoie de minim 1 an vechime. Verifică cerințele specifice ale fiecărui program.',
+      },
+      {
+        question: 'Ce procent din investiție primesc ca grant?',
+        answer: 'Depinde de program și regiune: Start-Up Nation oferă 100%, PNRR oferă 50-90%, POC Digital oferă 90%. Regiunile mai puțin dezvoltate primesc intensități mai mari.',
+      },
+      {
+        question: 'Cât durează să primesc banii efectiv?',
+        answer: 'De la aplicare până la primirea fondurilor: 6-12 luni. După contractare, rambursările vin în 30-60 zile de la depunerea cererii de plată. Unele programe oferă avans 30-40%.',
+      },
+      {
+        question: 'Pot cumpăra echipamente second-hand cu fonduri europene?',
+        answer: 'Nu, echipamentele trebuie să fie noi și nefolosite. Furnizorii trebuie să emită facturi cu TVA și să ofere garanție standard.',
+      },
+    ],
+  },
+  'checklist-haccp-echipamente-obligatorii': {
+    title: 'Checklist HACCP: Echipamente Obligatorii pentru Siguranța Alimentară',
+    excerpt: 'Ce echipamente sunt obligatorii pentru conformitate HACCP în bucătăria ta profesională. Ghid complet cu cerințe legale și recomandări.',
+    category: 'Ghiduri',
+    author: 'Echipa XEH',
+    date: '2026-01-18',
+    readTime: '10 min',
+    keywords: ['HACCP', 'siguranta alimentara', 'echipamente HACCP', 'norme HACCP restaurant', 'echipamente obligatorii bucatarie'],
+    content: `
+## Ce Este HACCP și De Ce Este Obligatoriu?
+
+**HACCP** (Hazard Analysis and Critical Control Points) este un sistem de management al siguranței alimentare obligatoriu pentru toate unitățile care manipulează alimente.
+
+**Cine trebuie să respecte HACCP:**
+- Restaurante și fast-food-uri
+- Hoteluri cu servicii de alimentație
+- Cafenele și cofetării
+- Catering
+- Producători de alimente
+- Magazine alimentare cu preparare
+
+**Sancțiuni pentru neconformitate:** Amenzi între 2.000-20.000 RON și posibilă suspendare a activității.
+
+## Principiile HACCP
+
+1. **Analiza pericolelor** - identifică riscurile
+2. **Puncte critice de control (CCP)** - stabilește unde monitorizezi
+3. **Limite critice** - definește parametrii acceptabili
+4. **Monitorizare** - măsoară și înregistrează
+5. **Acțiuni corective** - ce faci când e ceva greșit
+6. **Verificare** - confirmi că sistemul funcționează
+7. **Documentare** - păstrezi evidențe
+
+## Echipamente Obligatorii pentru Conformitate HACCP
+
+### 1. Echipamente de Monitorizare Temperatură
+
+**Termometre profesionale:**
+- Termometre sondă pentru alimente (obligatoriu)
+- Termometre infraroșu pentru verificări rapide
+- Înregistratoare de temperatură (data loggers) pentru depozite
+
+**Cerințe:**
+- Precizie ±1°C
+- Calibrare anuală documentată
+- Fișe de înregistrare zilnică
+
+### 2. Echipamente de Refrigerare cu Monitorizare
+
+**[Frigidere profesionale](/rm/sistem-de-racire) trebuie să:**
+- Mențină 0-4°C pentru produse refrigerate
+- Aibă termometru vizibil
+- Permită înregistrarea temperaturii
+- Aibă alarme pentru variații
+
+**[Congelatoare](/rm/sistem-de-racire) trebuie să:**
+- Mențină minim -18°C
+- Aibă indicator temperatură
+- Funcționeze constant
+
+### 3. Blast Chiller (Răcitor Rapid)
+
+**De ce este recomandat:**
+- Răcire rapidă de la +90°C la +3°C în sub 90 minute
+- Previne zona de pericol (5-60°C) pentru bacterii
+- Obligatoriu pentru cook & chill
+- Extinde termenul de valabilitate
+
+**Specificații minime:**
+- Capacitate potrivită volumului
+- Mod răcire + congelare rapidă
+- Sondă internă pentru alimente
+
+[Vezi răcitoare rapide](/rm/racitoare-rapide)
+
+### 4. Echipamente de Gătit cu Control Temperatură
+
+**[Cuptoare profesionale](/cuptoare-profesionale):**
+- Afișaj digital temperatură
+- Sonde interne pentru miezul alimentelor
+- Timer și alerte
+
+**Combi steamere:**
+- Control precis temperatură și umiditate
+- Programe HACCP predefinite
+- Înregistrare automată parametri
+
+### 5. Echipamente de Spălare și Igienizare
+
+**[Mașini de spălat vase](/masini-spalat-vase-profesionale) profesionale:**
+- Temperatură clătire minim 82°C (igienizare termică)
+- Sau sistem de igienizare chimică
+- Dozatoare automate detergent
+
+**Chiuvete igienizare:**
+- Chiuvetă separată pentru spălarea mâinilor
+- Apă caldă disponibilă constant
+- Săpun și dezinfectant
+
+### 6. Mobilier HACCP Conform
+
+**Mese de lucru inox:**
+- Suprafață netedă, neporoasă
+- Marginile rotunjite (ușor de curățat)
+- Înălțime ergonomică
+- Separare: crud vs. gătit
+
+**Rafturi depozitare:**
+- Minim 15 cm de la sol
+- Permite circulația aerului
+- Material rezistent la coroziune
+
+## Checklist Echipamente HACCP
+
+### Zona Recepție
+- Termometru verificare marfă
+- Cântar calibrat
+- Zonă de inspecție
+
+### Zona Depozitare
+- Frigidere cu termometru
+- Congelatoare cu termometru
+- Rafturi corespunzătoare
+- Etichetare și FIFO
+
+### Zona Preparare
+- Mese inox separate (crud/gătit)
+- Tocătoare codificate color
+- Cuțite separate pe categorii
+- Chiuvetă mâini apropiată
+
+### Zona Gătit
+- Cuptoare cu sonde
+- Termometre pentru verificare
+- Blast chiller (recomandat)
+
+### Zona Spălare
+- Mașină spălat vase 82°C
+- Chiuvete separate (vase/mâini)
+- Dozatoare detergent/dezinfectant
+
+### Zona Servire
+- Bain marie cu control temperatură (>65°C)
+- Vitrine refrigerate (<5°C)
+- Termometre verificare
+
+## Documentație HACCP Necesară
+
+**Înregistrări obligatorii:**
+- Fișe temperatură refrigerare (zilnic)
+- Fișe temperatură la recepție marfă
+- Înregistrări temperatură gătit
+- Evidență igienizare echipamente
+- Plan de curățenie și dezinfecție
+- Instruire personal
+
+## Echipamente Recomandate de la XEH.ro
+
+### Pachet HACCP Esențial
+
+| Echipament | Funcție HACCP |
+|------------|---------------|
+| Frigider cu display digital | Monitorizare temperatură |
+| Termometru sondă profesional | Verificare alimente |
+| Mașină spălat vase 82°C | Igienizare termică |
+| Mese inox | Suprafețe conforme |
+
+### Pachet HACCP Avansat
+
+| Echipament | Funcție HACCP |
+|------------|---------------|
+| Blast chiller | Răcire rapidă |
+| Data logger temperatură | Înregistrare automată |
+| Combi steamer cu sondă | Gătit controlat |
+| Sistem monitorizare WiFi | Alerte în timp real |
+
+## Concluzie
+
+Conformitatea HACCP nu este opțională - este obligatorie și esențială pentru siguranța clienților. Investiția în echipamente corespunzătoare previne:
+- Amenzi și sancțiuni
+- Incidente de siguranță alimentară
+- Pierderea reputației
+- Închiderea afacerii
+
+La XEH.ro găsești toate echipamentele necesare pentru conformitate HACCP completă.
+
+[Solicită consultanță HACCP echipamente](/contact)
+    `,
+    faqs: [
+      {
+        question: 'Este blast chiller-ul obligatoriu pentru HACCP?',
+        answer: 'Nu este obligatoriu pentru toate unitățile, dar este recomandat și adesea necesar pentru restaurante care fac cook & chill sau pregătesc alimente în avans. Verifică cu inspectorul DSP local cerințele specifice.',
+      },
+      {
+        question: 'La ce temperatură trebuie să funcționeze mașina de spălat vase?',
+        answer: 'Temperatura de clătire trebuie să fie minim 82°C pentru igienizare termică. Alternativ, se poate folosi igienizare chimică cu produse avizate, dar igienizarea termică este preferată.',
+      },
+      {
+        question: 'Cât de des trebuie să înregistrez temperaturile?',
+        answer: 'Minim de 2 ori pe zi (dimineața și seara) pentru frigidere și congelatoare. La recepția mărfii - fiecare livrare. La gătit - pentru fiecare lot de produse.',
+      },
+      {
+        question: 'Ce fac dacă temperatura din frigider depășește 5°C?',
+        answer: 'Este o abatere HACCP. Acțiunea corectivă: verifică cauza, ajustează termostatul, și dacă alimentele au stat peste 2 ore la temperatură neconformă, evaluează siguranța lor sau elimină-le. Documentează incidentul.',
+      },
+    ],
+  },
+}
+
+// Function to get related articles based on category and keywords
+function getRelatedArticles(currentSlug: string, currentArticle: typeof articlesContent[string]) {
+  const allSlugs = Object.keys(articlesContent).filter(slug => slug !== currentSlug)
+
+  // Score articles by relevance
+  const scoredArticles = allSlugs.map(slug => {
+    const article = articlesContent[slug]
+    let score = 0
+
+    // Same category = high score
+    if (article.category === currentArticle.category) score += 3
+
+    // Matching keywords
+    const matchingKeywords = article.keywords.filter(kw =>
+      currentArticle.keywords.some(ckw =>
+        kw.toLowerCase().includes(ckw.toLowerCase()) ||
+        ckw.toLowerCase().includes(kw.toLowerCase())
+      )
+    )
+    score += matchingKeywords.length
+
+    return { slug, score }
+  })
+
+  // Sort by score and take top 3
+  return scoredArticles
+    .sort((a, b) => b.score - a.score)
+    .slice(0, 3)
+    .map(item => ({
+      slug: item.slug,
+      ...articlesContent[item.slug]
+    }))
 }
 
 interface BlogArticlePageProps {
@@ -684,6 +1259,45 @@ export default async function BlogArticlePage({ params }: BlogArticlePageProps) 
             </Link>
           </div>
         </div>
+
+        {/* Related Articles Section */}
+        {(() => {
+          const relatedArticles = getRelatedArticles(slug, article)
+          if (relatedArticles.length === 0) return null
+
+          return (
+            <div className="mt-12 bg-white rounded-3xl p-8 md:p-12 shadow-sm">
+              <h2 className="text-2xl font-bold text-gray-600 mb-6">
+                Articole Similare
+              </h2>
+              <div className="grid md:grid-cols-3 gap-6">
+                {relatedArticles.map((related) => (
+                  <Link
+                    key={related.slug}
+                    href={`/blog/${related.slug}`}
+                    className="group block"
+                  >
+                    <div className="bg-gray-50 rounded-2xl p-6 hover:bg-gray-100 transition-colors h-full">
+                      <span className="text-xs font-semibold text-crimson uppercase tracking-wide">
+                        {related.category}
+                      </span>
+                      <h3 className="font-bold text-gray-600 mt-2 group-hover:text-crimson transition-colors line-clamp-2">
+                        {related.title}
+                      </h3>
+                      <p className="text-gray-500 text-sm mt-2 line-clamp-2">
+                        {related.excerpt}
+                      </p>
+                      <div className="flex items-center gap-2 mt-4 text-xs text-gray-400">
+                        <Clock className="w-3 h-3" />
+                        {related.readTime} citire
+                      </div>
+                    </div>
+                  </Link>
+                ))}
+              </div>
+            </div>
+          )
+        })()}
 
         {/* Back Link */}
         <div className="mt-8 text-center">

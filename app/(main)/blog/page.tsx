@@ -46,8 +46,38 @@ const blogFaqs = [
   },
 ]
 
-// Blog articles data
+// Blog articles data - sorted by date descending (newest first)
 const articles = [
+  {
+    slug: 'ghid-deschidere-restaurant-2026',
+    title: 'Ghid Complet: Cum să Deschizi un Restaurant în 2026',
+    excerpt: 'Pași esențiali, costuri, echipamente obligatorii și sfaturi practice pentru a deschide un restaurant de succes în România.',
+    image: 'https://res.cloudinary.com/dnigtxeaz/image/upload/v1768501997/xeh-products/categories/restaurant.jpg',
+    category: 'Ghiduri',
+    author: 'Echipa XEH',
+    date: '2026-01-22',
+    readTime: '15 min',
+  },
+  {
+    slug: 'fonduri-europene-horeca-2026',
+    title: 'Fonduri Europene HoReCa 2026: Ghid Complet de Accesare',
+    excerpt: 'Tot ce trebuie să știi despre finanțările disponibile pentru industria HoReCa în 2026: PNRR, Start-Up Nation, POC și alte programe.',
+    image: 'https://res.cloudinary.com/dnigtxeaz/image/upload/v1768501997/xeh-products/categories/funding.jpg',
+    category: 'Finanțare',
+    author: 'Echipa XEH',
+    date: '2026-01-20',
+    readTime: '12 min',
+  },
+  {
+    slug: 'checklist-haccp-echipamente-obligatorii',
+    title: 'Checklist HACCP: Echipamente Obligatorii pentru Siguranța Alimentară',
+    excerpt: 'Ce echipamente sunt obligatorii pentru conformitate HACCP în bucătăria ta profesională. Ghid complet cu cerințe legale și recomandări.',
+    image: 'https://res.cloudinary.com/dnigtxeaz/image/upload/v1768501997/xeh-products/categories/haccp.jpg',
+    category: 'Ghiduri',
+    author: 'Echipa XEH',
+    date: '2026-01-18',
+    readTime: '10 min',
+  },
   {
     slug: 'top-10-cuptoare-profesionale-restaurante-2026',
     title: 'Top 10 Cuptoare Profesionale pentru Restaurante în 2026',

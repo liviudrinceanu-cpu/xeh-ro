@@ -12,9 +12,10 @@ interface ProductCardProps {
   product: Product
   className?: string
   initialFavorite?: boolean
+  isPriority?: boolean // Set to true for above-fold products (first 4-8 products)
 }
 
-export default function ProductCard({ product, className, initialFavorite = false }: ProductCardProps) {
+export default function ProductCard({ product, className, initialFavorite = false, isPriority = false }: ProductCardProps) {
   const brandSlug = product.brand?.slug || 'rm'
   // Use SEO-friendly slug_ro if available, otherwise fallback to SAP code
   const productUrl = `/${brandSlug}/produs/${product.slug_ro || product.sap_code}`
@@ -43,6 +44,8 @@ export default function ProductCard({ product, className, initialFavorite = fals
             fill
             className="object-contain p-4 group-hover:scale-105 transition-transform duration-300"
             sizes="(max-width: 640px) 50vw, (max-width: 1024px) 33vw, 25vw"
+            priority={isPriority}
+            loading={isPriority ? undefined : 'lazy'}
           />
         ) : (
           <div className="w-full h-full flex items-center justify-center text-gray-300">

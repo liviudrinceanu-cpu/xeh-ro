@@ -2,6 +2,9 @@ import { notFound } from 'next/navigation'
 import Link from 'next/link'
 import { ArrowRight, ExternalLink } from 'lucide-react'
 import type { Metadata } from 'next'
+
+// ISR: Revalidate every hour for optimal performance
+export const revalidate = 3600
 import Breadcrumb from '@/components/ui/Breadcrumb'
 import Badge from '@/components/ui/Badge'
 import Button from '@/components/ui/Button'

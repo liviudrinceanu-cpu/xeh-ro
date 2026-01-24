@@ -327,7 +327,12 @@ function SearchModal({ onClose }: { onClose: () => void }) {
   const hasResults = results && (results.products.length > 0 || results.categories.length > 0)
 
   return (
-    <div className="fixed inset-0 z-50 bg-black/50 backdrop-blur-sm animate-fade-in">
+    <div
+      className="fixed inset-0 z-50 bg-black/50 backdrop-blur-sm animate-fade-in"
+      role="dialog"
+      aria-modal="true"
+      aria-labelledby="search-dialog-title"
+    >
       <div className="min-h-screen px-4 pt-20">
         <div className="mx-auto max-w-2xl bg-white rounded-2xl shadow-lg animate-slide-down overflow-hidden">
           {/* Search Input */}
@@ -337,13 +342,18 @@ function SearchModal({ onClose }: { onClose: () => void }) {
             ) : (
               <Search className="w-5 h-5 text-gray-400" />
             )}
+            <label htmlFor="search-input" id="search-dialog-title" className="sr-only">
+              Caută produse
+            </label>
             <input
+              id="search-input"
               type="text"
               value={query}
               onChange={(e) => setQuery(e.target.value)}
               placeholder="Caută produse, categorii, modele..."
               className="flex-1 text-lg outline-none placeholder:text-gray-400"
               autoFocus
+              aria-label="Caută produse, categorii, modele"
             />
             <button
               onClick={onClose}

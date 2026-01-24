@@ -4,6 +4,132 @@ import { ArrowLeft, Calendar, Clock, User, Share2 } from 'lucide-react'
 import Breadcrumb from '@/components/ui/Breadcrumb'
 import type { Metadata } from 'next'
 import { FAQJsonLd, BreadcrumbJsonLd, ArticleJsonLd } from '@/components/seo/JsonLd'
+import { Fragment } from 'react'
+
+// Safe markdown parser - converts content to React elements instead of using dangerouslySetInnerHTML
+function SafeMarkdown({ content }: { content: string }) {
+  const lines = content.trim().split('\n')
+  const elements: React.ReactNode[] = []
+  let key = 0
+  let currentList: string[] = []
+
+  const flushList = () => {
+    if (currentList.length > 0) {
+      elements.push(
+        <ul key={key++} className="list-disc mb-4 ml-4 space-y-1">
+          {currentList.map((item, i) => (
+            <li key={i} className="text-gray-600">{parseInlineElements(item)}</li>
+          ))}
+        </ul>
+      )
+      currentList = []
+    }
+  }
+
+  const parseInlineElements = (text: string): React.ReactNode => {
+    // Parse bold, links
+    const parts: React.ReactNode[] = []
+    let remaining = text
+    let partKey = 0
+
+    while (remaining.length > 0) {
+      // Check for links [text](url)
+      const linkMatch = remaining.match(/\[([^\]]+)\]\(([^)]+)\)/)
+      // Check for bold **text**
+      const boldMatch = remaining.match(/\*\*([^*]+)\*\*/)
+
+      // Find the first match by comparing indices
+      const linkIndex = linkMatch?.index ?? Infinity
+      const boldIndex = boldMatch?.index ?? Infinity
+
+      if (linkIndex === Infinity && boldIndex === Infinity) {
+        // No more matches
+        parts.push(<Fragment key={partKey++}>{remaining}</Fragment>)
+        remaining = ''
+        continue
+      }
+
+      if (linkIndex <= boldIndex && linkMatch) {
+        // Link comes first
+        if (linkIndex > 0) {
+          parts.push(<Fragment key={partKey++}>{remaining.slice(0, linkIndex)}</Fragment>)
+        }
+        const [fullMatch, linkText, href] = linkMatch
+        // Only allow internal links or safe external links
+        const safeHref = href.startsWith('/') ? href : '#'
+        parts.push(
+          <Link key={partKey++} href={safeHref} className="text-crimson hover:underline">
+            {linkText}
+          </Link>
+        )
+        remaining = remaining.slice(linkIndex + fullMatch.length)
+      } else if (boldMatch) {
+        // Bold comes first
+        if (boldIndex > 0) {
+          parts.push(<Fragment key={partKey++}>{remaining.slice(0, boldIndex)}</Fragment>)
+        }
+        const [fullMatch, boldText] = boldMatch
+        parts.push(<strong key={partKey++}>{boldText}</strong>)
+        remaining = remaining.slice(boldIndex + fullMatch.length)
+      }
+    }
+
+    return parts.length === 1 ? parts[0] : <>{parts}</>
+  }
+
+  for (const line of lines) {
+    const trimmedLine = line.trim()
+
+    if (trimmedLine === '') {
+      flushList()
+      continue
+    }
+
+    // Headers
+    if (trimmedLine.startsWith('## ')) {
+      flushList()
+      elements.push(
+        <h2 key={key++} className="text-2xl font-bold mt-8 mb-4 text-gray-600">
+          {trimmedLine.slice(3)}
+        </h2>
+      )
+    } else if (trimmedLine.startsWith('### ')) {
+      flushList()
+      elements.push(
+        <h3 key={key++} className="text-xl font-semibold mt-6 mb-3 text-gray-600">
+          {trimmedLine.slice(4)}
+        </h3>
+      )
+    }
+    // List items
+    else if (trimmedLine.startsWith('- ')) {
+      currentList.push(trimmedLine.slice(2))
+    }
+    // Table (basic support)
+    else if (trimmedLine.startsWith('|')) {
+      flushList()
+      // Skip tables for now - they're complex
+      elements.push(
+        <p key={key++} className="text-gray-600 mb-4 font-mono text-sm bg-gray-50 p-2 rounded">
+          {trimmedLine}
+        </p>
+      )
+    }
+    // Regular paragraph
+    else {
+      flushList()
+      elements.push(
+        <p key={key++} className="text-gray-600 mb-4">
+          {parseInlineElements(trimmedLine)}
+        </p>
+      )
+    }
+  }
+
+  flushList()
+
+  return <>{elements}</>
+}
 
 // Article content database
 const articlesContent: Record<string, {
@@ -410,7 +536,7 @@ export async function generateMetadata({ params }: BlogArticlePageProps): Promis
       publishedTime: article.date,
       authors: [article.author],
       images: [{
-        url: `https://xeh.ro/api/og?title=${encodeURIComponent(article.title)}&subtitle=${encodeURIComponent(article.excerpt.slice(0, 100))}&type=blog`,
+        url: `https://www.xeh.ro/api/og?title=${encodeURIComponent(article.title)}&subtitle=${encodeURIComponent(article.excerpt.slice(0, 100))}&type=blog`,
         width: 1200,
         height: 630,
         alt: article.title,
@@ -420,10 +546,10 @@ export async function generateMetadata({ params }: BlogArticlePageProps): Promis
       card: 'summary_large_image',
       title: article.title,
       description: article.excerpt,
-      images: [`https://xeh.ro/api/og?title=${encodeURIComponent(article.title)}&type=blog`],
+      images: [`https://www.xeh.ro/api/og?title=${encodeURIComponent(article.title)}&type=blog`],
     },
     alternates: {
-      canonical: `https://xeh.ro/blog/${slug}`,
+      canonical: `https://www.xeh.ro/blog/${slug}`,
     },
   }
 }
@@ -448,7 +574,7 @@ export default async function BlogArticlePage({ params }: BlogArticlePageProps) 
         article={{
           title: article.title,
           description: article.excerpt,
-          url: `https://xeh.ro/blog/${slug}`,
+          url: `https://www.xeh.ro/blog/${slug}`,
           datePublished: article.date,
           author: article.author,
           keywords: article.keywords,
@@ -458,7 +584,7 @@ export default async function BlogArticlePage({ params }: BlogArticlePageProps) 
       <BreadcrumbJsonLd
         items={breadcrumbItems.map((item) => ({
           name: item.label,
-          url: item.href ? `https://xeh.ro${item.href}` : undefined,
+          url: item.href ? `https://www.xeh.ro${item.href}` : undefined,
         }))}
       />
 
@@ -503,20 +629,9 @@ export default async function BlogArticlePage({ params }: BlogArticlePageProps) 
       {/* Content */}
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         <article className="bg-white rounded-3xl p-8 md:p-12 shadow-sm">
-          <div
-            className="prose prose-lg max-w-none prose-headings:text-gray-600 prose-a:text-crimson prose-a:no-underline hover:prose-a:underline"
-            dangerouslySetInnerHTML={{
-              __html: article.content
-                .replace(/^## /gm, '<h2 class="text-2xl font-bold mt-8 mb-4">')
-                .replace(/^### /gm, '<h3 class="text-xl font-semibold mt-6 mb-3">')
-                .replace(/\n\n/g, '</p><p class="mb-4">')
-                .replace(/\*\*([^*]+)\*\*/g, '<strong>$1</strong>')
-                .replace(/\[([^\]]+)\]\(([^)]+)\)/g, '<a href="$2" class="text-crimson hover:underline">$1</a>')
-                .replace(/^- /gm, '<li class="ml-4">')
-                .replace(/<li/g, '</ul><ul class="list-disc mb-4"><li')
-                .replace(/<\/li>\n(?!<li)/g, '</li></ul>')
-            }}
-          />
+          <div className="prose prose-lg max-w-none">
+            <SafeMarkdown content={article.content} />
+          </div>
         </article>
 
         {/* FAQ Section */}

@@ -1,5 +1,15 @@
 import Link from 'next/link'
 import Button from '@/components/ui/Button'
+import type { Metadata } from 'next'
+
+export const metadata: Metadata = {
+  title: 'Pagina nu a fost găsită | XEH.ro',
+  description: 'Pagina căutată nu există. Vizitați catalogul nostru de echipamente HoReCa profesionale.',
+  robots: {
+    index: false,
+    follow: true,
+  },
+}
 
 export default function NotFound() {
   return (

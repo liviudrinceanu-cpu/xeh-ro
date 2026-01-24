@@ -13,9 +13,9 @@ const footerLinks = {
     { name: 'Spălare', href: '/catalog?category=spalare' },
   ],
   companie: [
-    { name: 'Despre Noi', href: '/despre' },
     { name: 'Contact', href: '/contact' },
     { name: 'Cerere Ofertă', href: '/cerere-oferta' },
+    { name: 'Blog', href: '/blog' },
   ],
 }
 

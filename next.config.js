@@ -1,5 +1,7 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+  // Consistent URL handling - no trailing slashes
+  trailingSlash: false,
   images: {
     remotePatterns: [
       {

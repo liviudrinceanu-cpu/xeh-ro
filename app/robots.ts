@@ -9,7 +9,24 @@ export default function robots(): MetadataRoute.Robots {
       {
         userAgent: '*',
         allow: '/',
-        disallow: ['/api/', '/admin/', '/portal/', '/login', '/register', '/forgot-password', '/reset-password'],
+        disallow: [
+          // Private sections
+          '/api/',
+          '/admin/',
+          '/portal/',
+          '/login',
+          '/register',
+          '/forgot-password',
+          '/reset-password',
+          // Block URL parameters to prevent duplicate content
+          '/*?page=*',
+          '/*?sort=*',
+          '/*?stock=*',
+          '/*?priceMin=*',
+          '/*?priceMax=*',
+          '/*?search=*',
+          '/*?category=*',
+        ],
       },
     ],
     sitemap: `${baseUrl}/sitemap.xml`,

@@ -6,6 +6,7 @@ import { ChevronDown, SlidersHorizontal, X } from 'lucide-react'
 import type { SortOption, StockFilter } from '@/lib/queries/products'
 
 const SORT_OPTIONS: { value: SortOption; label: string }[] = [
+  { value: 'popular', label: 'Cele mai populare' },
   { value: 'newest', label: 'Cele mai noi' },
   { value: 'price_asc', label: 'Preț: mic → mare' },
   { value: 'price_desc', label: 'Preț: mare → mic' },
@@ -47,14 +48,14 @@ export default function CatalogFilters({
     // Preserve existing params
     if (currentBrand) params.set('brand', currentBrand)
     if (currentSearch) params.set('search', currentSearch)
-    if (currentSort !== 'newest') params.set('sort', currentSort)
+    if (currentSort !== 'popular') params.set('sort', currentSort)
     if (currentStock !== 'all') params.set('stock', currentStock)
     if (currentPriceMin) params.set('priceMin', String(currentPriceMin))
     if (currentPriceMax) params.set('priceMax', String(currentPriceMax))
 
     // Apply updates
     Object.entries(updates).forEach(([key, value]) => {
-      if (value && value !== 'all' && value !== 'newest') {
+      if (value && value !== 'all' && value !== 'popular') {
         params.set(key, value)
       } else {
         params.delete(key)
@@ -92,7 +93,7 @@ export default function CatalogFilters({
     router.push(`/catalog?${params.toString()}`)
   }
 
-  const hasActiveFilters = currentSort !== 'newest' || currentStock !== 'all' || currentPriceMin || currentPriceMax
+  const hasActiveFilters = currentSort !== 'popular' || currentStock !== 'all' || currentPriceMin || currentPriceMax
 
   return (
     <div className="flex flex-wrap items-center gap-3">

@@ -1,7 +1,7 @@
 import { createClient } from '@/lib/supabase/server'
 import type { Product, ProductWithDetails, PaginatedResponse } from '@/types/database'
 
-export type SortOption = 'newest' | 'price_asc' | 'price_desc' | 'name_asc' | 'name_desc'
+export type SortOption = 'popular' | 'newest' | 'price_asc' | 'price_desc' | 'name_asc' | 'name_desc'
 export type StockFilter = 'all' | 'in_stock' | 'on_request'
 
 export async function getProducts(options?: {
@@ -99,9 +99,13 @@ export async function getProducts(options?: {
     query = query.lte('price_amount', options.priceMax)
   }
 
-  // Sorting (default: price high to low)
-  const sort = options?.sort || 'price_desc'
+  // Sorting (default: popular/newest for better UX)
+  const sort = options?.sort || 'popular'
   switch (sort) {
+    case 'popular':
+      // Popular = newest products first (can be enhanced with views/favorites later)
+      query = query.order('created_at', { ascending: false })
+      break
     case 'price_asc':
       query = query.order('price_amount', { ascending: true, nullsFirst: false })
       break

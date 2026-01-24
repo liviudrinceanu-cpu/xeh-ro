@@ -1,12 +1,12 @@
 import { Star, Quote } from 'lucide-react'
 import { ReviewJsonLd } from '@/components/seo/JsonLd'
 
-// Testimonials data - for E-E-A-T trust signals
+// Testimonials data - for E-E-A-T trust signals (anonymous format: Role + Business Type + City)
 const testimonials = [
   {
-    author: 'Mihai Georgescu',
-    role: 'Manager Restaurant',
-    company: 'Trattoria Milano',
+    author: 'Manager',
+    role: 'Restaurant italienesc',
+    company: '',
     location: 'București',
     rating: 5,
     reviewBody: 'Am echipat întreaga bucătărie cu ajutorul echipei XEH.ro. Consultanța lor a fost esențială în alegerea cuptoarelor potrivite pentru volumul nostru. Livrare rapidă și instalare impecabilă.',
@@ -14,9 +14,9 @@ const testimonials = [
     product: 'Combi Steamer RM Gastro',
   },
   {
-    author: 'Ana Munteanu',
-    role: 'Proprietar',
-    company: 'Cofetăria Dulce Vis',
+    author: 'Proprietar',
+    role: 'Cofetărie-Patiserie',
+    company: '',
     location: 'Cluj-Napoca',
     rating: 5,
     reviewBody: 'Pentru cofetărie aveam nevoie de echipamente de refrigerare specifice. Echipa XEH mi-a recomandat exact ce îmi trebuia și la un preț excelent. Colaborăm de 3 ani.',
@@ -24,9 +24,9 @@ const testimonials = [
     product: 'Vitrine frigorifice REDFOX',
   },
   {
-    author: 'Radu Constantinescu',
-    role: 'Șef Bucătar',
-    company: 'Hotel Grand Plaza',
+    author: 'Șef Bucătar',
+    role: 'Hotel 4 stele',
+    company: '',
     location: 'Timișoara',
     rating: 5,
     reviewBody: 'Calitatea echipamentelor RM Gastro este superioară. Am testat multe branduri în 20 de ani de carieră și acestea sunt printre cele mai fiabile. Suportul tehnic de la XEH este excelent.',
@@ -34,9 +34,9 @@ const testimonials = [
     product: 'Linie completă de gătit RM Gastro',
   },
   {
-    author: 'Elena Preda',
-    role: 'Administrator',
-    company: 'Cantina Universității',
+    author: 'Administrator',
+    role: 'Cantină universitară',
+    company: '',
     location: 'Iași',
     rating: 5,
     reviewBody: 'Pentru volumul mare de mese pe care le servim zilnic, aveam nevoie de echipamente industriale fiabile. XEH ne-a oferit soluții complete la prețuri competitive. Mulțumiți!',
@@ -125,17 +125,14 @@ export default function TestimonialsSection() {
               {/* Author */}
               <div className="flex items-center gap-3 pt-4 border-t border-gray-100">
                 <div className="w-10 h-10 bg-gradient-to-br from-crimson to-crimson-dark rounded-full flex items-center justify-center text-white text-sm font-bold">
-                  {testimonial.author.split(' ').map(n => n[0]).join('')}
+                  {testimonial.author[0]}
                 </div>
                 <div>
                   <div className="font-semibold text-gray-600 text-sm">
                     {testimonial.author}
                   </div>
                   <div className="text-gray-400 text-xs">
-                    {testimonial.role}, {testimonial.company}
-                  </div>
-                  <div className="text-gray-400 text-xs">
-                    {testimonial.location}
+                    {testimonial.role}, {testimonial.location}
                   </div>
                 </div>
               </div>
@@ -146,7 +143,7 @@ export default function TestimonialsSection() {
         {/* Trust indicators */}
         <div className="mt-12 text-center">
           <p className="text-gray-400 text-sm">
-            Testimoniale verificate de la clienți reali • Actualizat ianuarie 2026
+            Feedback de la clienți din industria HoReCa • Actualizat ianuarie 2026
           </p>
         </div>
       </div>

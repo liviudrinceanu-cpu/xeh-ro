@@ -14,6 +14,7 @@ import ProductGallery from '@/components/product/ProductGallery'
 import ProductSpecs from '@/components/product/ProductSpecs'
 import ProductDocs from '@/components/product/ProductDocs'
 import CategoryCard from '@/components/category/CategoryCard'
+import CategorySortDropdown from '@/components/category/CategorySortDropdown'
 import FavoriteButton from '@/components/product/FavoriteButton'
 import AddToCartButton from '@/components/product/AddToCartButton'
 import ShareButton from '@/components/product/ShareButton'
@@ -30,6 +31,7 @@ interface DynamicPageProps {
   }>
   searchParams: Promise<{
     page?: string
+    sort?: string
   }>
 }
 
@@ -149,7 +151,8 @@ export default async function DynamicPage({ params, searchParams }: DynamicPageP
   // Otherwise, treat as category page
   const categoryPath = `/Group/${brandSlug}/${slug.join('/')}`
   const page = parseInt(queryParams.page || '1')
-  return <CategoryPage brandSlug={brandSlug} categoryPath={categoryPath} page={page} />
+  const sort = queryParams.sort || 'popular'
+  return <CategoryPage brandSlug={brandSlug} categoryPath={categoryPath} page={page} sort={sort} />
 }
 
 // ============================================================
@@ -369,7 +372,7 @@ async function ProductPage({ brandSlug, productSlug }: { brandSlug: string; prod
 // CATEGORY PAGE
 // ============================================================
 
-async function CategoryPage({ brandSlug, categoryPath, page }: { brandSlug: string; categoryPath: string; page: number }) {
+async function CategoryPage({ brandSlug, categoryPath, page, sort }: { brandSlug: string; categoryPath: string; page: number; sort: string }) {
   const [category, children, breadcrumb, productCounts, brand] = await Promise.all([
     getCategoryByPath(categoryPath),
     getCategoryChildren('').then(() => []), // We'll get children differently
@@ -379,7 +382,7 @@ async function CategoryPage({ brandSlug, categoryPath, page }: { brandSlug: stri
   ])
 
   // If no category found, try to find products in this path
-  const productsData = await getProducts({ categoryPath, page, pageSize: 24 })
+  const productsData = await getProducts({ categoryPath, page, pageSize: 24, sort: sort as import('@/lib/queries/products').SortOption })
   const { data: products, count, totalPages } = productsData
 
   // Get subcategories for this path
@@ -463,7 +466,11 @@ async function CategoryPage({ brandSlug, categoryPath, page }: { brandSlug: stri
           </div>
         )}
 
-        {/* Products */}
+        {/* Sort & Products */}
+        <div className="flex justify-between items-center mb-6">
+          <p className="text-gray-500 text-sm">{count} produse</p>
+          <CategorySortDropdown currentSort={sort} />
+        </div>
         <ProductGrid products={products} />
 
         {/* Pagination */}

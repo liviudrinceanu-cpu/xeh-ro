@@ -44,6 +44,19 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       changeFrequency: 'monthly',
       priority: 0.6,
     },
+    // E-E-A-T Pages (About, Team)
+    {
+      url: `${baseUrl}/despre-noi`,
+      lastModified: new Date(),
+      changeFrequency: 'monthly',
+      priority: 0.8,
+    },
+    {
+      url: `${baseUrl}/echipa`,
+      lastModified: new Date(),
+      changeFrequency: 'monthly',
+      priority: 0.7,
+    },
     // SEO Landing Pages
     {
       url: `${baseUrl}/cuptoare-profesionale`,

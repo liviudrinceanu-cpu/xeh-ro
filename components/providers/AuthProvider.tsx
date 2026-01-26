@@ -1,6 +1,6 @@
 'use client'
 
-import { createContext, useContext, useEffect, useState, useCallback } from 'react'
+import { createContext, useContext, useEffect, useState, useCallback, useMemo } from 'react'
 import { createClient } from '@/lib/supabase/client'
 import type { User, Session } from '@supabase/supabase-js'
 import type { UserProfile, Partner } from '@/types/database'
@@ -46,12 +46,13 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
   const [partner, setPartner] = useState<Partner | null>(null)
   const [isLoading, setIsLoading] = useState(true)
 
-  const supabase = createClient()
+  // Memoize the Supabase client to ensure stable reference
+  const supabase = useMemo(() => createClient(), [])
 
-  const fetchProfile = useCallback(async (userId: string) => {
+  const fetchProfile = useCallback(async (userId: string, client: ReturnType<typeof createClient>) => {
     try {
       // Fetch user profile
-      const { data: profileData, error: profileError } = await supabase
+      const { data: profileData, error: profileError } = await client
         .from('user_profiles')
         .select('*')
         .eq('id', userId)
@@ -66,7 +67,7 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
 
       // Fetch partner data if user is a partner
       if (profileData?.role === 'partner') {
-        const { data: partnerData, error: partnerError } = await supabase
+        const { data: partnerData, error: partnerError } = await client
           .from('partners')
           .select('*')
           .eq('user_id', userId)
@@ -79,30 +80,36 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
     } catch (error) {
       console.error('Error in fetchProfile:', error)
     }
-  }, [supabase])
+  }, [])
 
   const refreshProfile = useCallback(async () => {
     if (user?.id) {
-      await fetchProfile(user.id)
+      await fetchProfile(user.id, supabase)
     }
-  }, [user?.id, fetchProfile])
+  }, [user?.id, fetchProfile, supabase])
 
   useEffect(() => {
+    let isMounted = true
+
     // Get initial session
     const initializeAuth = async () => {
       try {
         const { data: { session: initialSession } } = await supabase.auth.getSession()
 
+        if (!isMounted) return
+
         setSession(initialSession)
         setUser(initialSession?.user ?? null)
 
         if (initialSession?.user) {
-          await fetchProfile(initialSession.user.id)
+          await fetchProfile(initialSession.user.id, supabase)
         }
       } catch (error) {
         console.error('Error initializing auth:', error)
       } finally {
-        setIsLoading(false)
+        if (isMounted) {
+          setIsLoading(false)
+        }
       }
     }
 
@@ -111,11 +118,13 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
     // Listen for auth changes
     const { data: { subscription } } = supabase.auth.onAuthStateChange(
       async (event, newSession) => {
+        if (!isMounted) return
+
         setSession(newSession)
         setUser(newSession?.user ?? null)
 
         if (event === 'SIGNED_IN' && newSession?.user) {
-          await fetchProfile(newSession.user.id)
+          await fetchProfile(newSession.user.id, supabase)
         }
 
         if (event === 'SIGNED_OUT') {
@@ -126,6 +135,7 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
     )
 
     return () => {
+      isMounted = false
       subscription.unsubscribe()
     }
   }, [supabase, fetchProfile])

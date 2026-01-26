@@ -30,14 +30,19 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
   const [sidebarOpen, setSidebarOpen] = useState(false)
 
   useEffect(() => {
-    if (!isLoading && !user) {
-      router.push('/login')
-    } else if (!isLoading && user && !isAdmin) {
-      router.push('/portal/dashboard')
+    // Only redirect after auth is fully initialized
+    if (!isLoading) {
+      if (!user) {
+        router.push('/login')
+      } else if (!isAdmin) {
+        router.push('/portal/dashboard')
+      }
     }
   }, [user, isLoading, isAdmin, router])
 
-  if (isLoading) {
+  // Show loading spinner only briefly while auth initializes
+  // Middleware already protects this route, so we can render content once we have user data
+  if (isLoading || !user) {
     return (
       <div className="min-h-screen bg-gray-100 flex items-center justify-center">
         <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-crimson" />
@@ -45,8 +50,13 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
     )
   }
 
-  if (!user || !isAdmin) {
-    return null
+  // After loading completes, if not admin, show nothing (redirect will happen)
+  if (!isAdmin) {
+    return (
+      <div className="min-h-screen bg-gray-100 flex items-center justify-center">
+        <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-crimson" />
+      </div>
+    )
   }
 
   const handleSignOut = async () => {

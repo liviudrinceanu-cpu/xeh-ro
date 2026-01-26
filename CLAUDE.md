@@ -1,7 +1,7 @@
 # XEH.ro - Context Proiect
 
 > **IMPORTANT:** Acest fișier este citit automat de Claude Code. Actualizează-l după fiecare decizie majoră.
-> **Ultima actualizare:** 2026-01-22 - AHREFS AUDIT FIX WAVE 3
+> **Ultima actualizare:** 2026-01-26 - TESTIMONIALE ANONIME + SORTARE CATEGORII
 
 ---
 
@@ -28,6 +28,26 @@
 **SUPABASE RLS: ✅ INFINITE RECURSION FIX + USER_FAVORITES TABLE**
 **PAGINI LEGALE: ✅ /termeni, /confidentialitate, /cookies**
 **SHARE BUTTON: ✅ WEB SHARE API + CLIPBOARD FALLBACK**
+**TESTIMONIALE: ✅ FORMAT ANONIM (Rol + Business + Oraș)**
+**SORTARE CATEGORII: ✅ DROPDOWN PE TOATE PAGINILE**
+
+---
+
+### 🆕 TESTIMONIALE ANONIME + SORTARE (2026-01-26)
+
+| Modificare | Detalii |
+|------------|---------|
+| Testimoniale anonime | Format: "Manager, Restaurant italienesc, București" (fără nume false) |
+| Default sort "popular" | Schimbat de la `price_desc` la `popular` pentru UX mai bun |
+| CategorySortDropdown | Dropdown sortare pe toate paginile de categorii |
+| CatalogFilters | Adăugat opțiunea "Cele mai populare" |
+
+**Fișiere modificate:**
+- `components/home/TestimonialsSection.tsx` - testimoniale anonime
+- `components/category/CategorySortDropdown.tsx` - **NOU**
+- `app/(main)/[brand]/[...slug]/page.tsx` - integrare sort
+- `lib/queries/products.ts` - sort type + default
+- `components/catalog/CatalogFilters.tsx` - opțiune populare
 
 ---
 

@@ -1,6 +1,6 @@
 'use client'
 
-import { useEffect, useState } from 'react'
+import { useState } from 'react'
 import { useRouter, usePathname } from 'next/navigation'
 import Link from 'next/link'
 import { useAuth } from '@/components/providers/AuthProvider'
@@ -9,7 +9,6 @@ import {
   Users,
   Tag,
   FileText,
-  Settings,
   LogOut,
   Menu,
   X,
@@ -26,44 +25,16 @@ const navItems = [
 export default function AdminLayout({ children }: { children: React.ReactNode }) {
   const router = useRouter()
   const pathname = usePathname()
-  const { user, profile, isLoading, signOut, isAdmin } = useAuth()
+  const { profile, signOut } = useAuth()
   const [sidebarOpen, setSidebarOpen] = useState(false)
-
-  useEffect(() => {
-    // Only redirect after auth is fully initialized
-    if (!isLoading) {
-      if (!user) {
-        router.push('/login')
-      } else if (!isAdmin) {
-        router.push('/portal/dashboard')
-      }
-    }
-  }, [user, isLoading, isAdmin, router])
-
-  // Show loading spinner only briefly while auth initializes
-  // Middleware already protects this route, so we can render content once we have user data
-  if (isLoading || !user) {
-    return (
-      <div className="min-h-screen bg-gray-100 flex items-center justify-center">
-        <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-crimson" />
-      </div>
-    )
-  }
-
-  // After loading completes, if not admin, show nothing (redirect will happen)
-  if (!isAdmin) {
-    return (
-      <div className="min-h-screen bg-gray-100 flex items-center justify-center">
-        <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-crimson" />
-      </div>
-    )
-  }
 
   const handleSignOut = async () => {
     await signOut()
     router.push('/')
   }
 
+  // Middleware handles auth protection - just render the layout
+  // Profile may be null initially, that's OK
   return (
     <div className="min-h-screen bg-gray-100">
       {/* Mobile sidebar backdrop */}
@@ -125,7 +96,7 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
               </div>
               <div className="flex-1 min-w-0">
                 <p className="text-white font-medium truncate">
-                  {profile?.first_name} {profile?.last_name}
+                  {profile?.first_name || 'Admin'} {profile?.last_name || ''}
                 </p>
                 <p className="text-gray-400 text-sm truncate">Administrator</p>
               </div>

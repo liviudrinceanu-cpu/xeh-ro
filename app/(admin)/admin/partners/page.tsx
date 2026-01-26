@@ -1,6 +1,6 @@
 'use client'
 
-import { useEffect, useState } from 'react'
+import { useEffect, useState, Suspense } from 'react'
 import Link from 'next/link'
 import { useSearchParams } from 'next/navigation'
 import { createClient } from '@/lib/supabase/client'
@@ -21,7 +21,7 @@ type Partner = {
   } | null
 }
 
-export default function AdminPartnersPage() {
+function PartnersContent() {
   const searchParams = useSearchParams()
   const [partners, setPartners] = useState<Partner[]>([])
   const [isLoading, setIsLoading] = useState(true)
@@ -255,5 +255,18 @@ export default function AdminPartnersPage() {
         )}
       </div>
     </div>
+  )
+}
+
+export default function AdminPartnersPage() {
+  return (
+    <Suspense fallback={
+      <div className="space-y-6">
+        <div className="h-8 w-48 bg-gray-200 rounded-lg animate-pulse" />
+        <div className="bg-white rounded-2xl h-96 animate-pulse" />
+      </div>
+    }>
+      <PartnersContent />
+    </Suspense>
   )
 }

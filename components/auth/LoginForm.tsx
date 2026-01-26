@@ -52,9 +52,8 @@ export default function LoginForm() {
         return
       }
 
-      // Redirect to intended page or dashboard
-      router.push(redirect)
-      router.refresh()
+      // Redirect to intended page or dashboard (full page reload for clean session)
+      window.location.href = redirect
     } catch (err) {
       console.error('Login error:', err)
       setError('A apărut o eroare. Încearcă din nou.')

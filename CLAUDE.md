@@ -1,7 +1,7 @@
 # XEH.ro - Context Proiect
 
 > **IMPORTANT:** Acest fișier este citit automat de Claude Code. Actualizează-l după fiecare decizie majoră.
-> **Ultima actualizare:** 2026-01-26 - EMAIL CONTACT SCHIMBAT
+> **Ultima actualizare:** 2026-01-26 - ADMIN PANEL FIX + AUTH PROVIDER FIX
 
 ---
 
@@ -32,6 +32,83 @@
 **SORTARE CATEGORII: ✅ DROPDOWN PE TOATE PAGINILE**
 **EMAIL CONTACT: ✅ SCHIMBAT LA secretariat@infinitrade-romania.ro**
 **ADMIN USER: ✅ CREAT (liviu.drinceanu@infinitrade-romania.ro)**
+**ADMIN PANEL FIX: ✅ AuthProvider useMemo + AdminLayout simplificat**
+
+---
+
+### 🆕 ADMIN PANEL FIX (2026-01-26)
+
+**Problema:** Pagina `/admin` nu se încărca (spinner infinit) + butonul "Cont Partener" lipsea din homepage.
+
+**Cauză root:** `createClient()` din Supabase era apelat pe fiecare render, creând noi instanțe și declanșând re-execuția useEffect-ului infinit. Starea `isLoading` nu devenea niciodată `false`.
+
+#### Fix-uri Aplicate
+
+| Fișier | Modificare |
+|--------|------------|
+| `components/providers/AuthProvider.tsx` | `useMemo` pentru Supabase client + `isMounted` flag |
+| `app/(admin)/layout.tsx` | Eliminat verificările `isLoading` - middleware protejează rutele |
+| `app/(admin)/admin/partners/page.tsx` | Adăugat `<Suspense>` pentru `useSearchParams()` |
+| `components/layout/Header.tsx` | Afișează "Cont Partener" și în timp ce `isLoading` e true |
+
+#### Detalii Tehnice
+
+**AuthProvider.tsx - Fix useMemo:**
+```typescript
+// Memoize the Supabase client to ensure stable reference
+const supabase = useMemo(() => createClient(), [])
+
+// isMounted flag to prevent state updates on unmounted component
+useEffect(() => {
+  let isMounted = true
+  const initializeAuth = async () => {
+    if (!isMounted) return
+    // ...
+    if (isMounted) {
+      setIsLoading(false)
+    }
+  }
+  return () => {
+    isMounted = false
+    subscription.unsubscribe()
+  }
+}, [supabase, fetchProfile])
+```
+
+**AdminLayout.tsx - Simplificat:**
+```typescript
+// Middleware handles auth protection - just render the layout
+// Profile may be null initially, that's OK
+return (
+  <div className="min-h-screen bg-gray-100">
+    {/* Full layout renders immediately */}
+  </div>
+)
+```
+
+**Admin Partners Page - Suspense Boundary:**
+```typescript
+export default function AdminPartnersPage() {
+  return (
+    <Suspense fallback={<LoadingSkeleton />}>
+      <PartnersContent />
+    </Suspense>
+  )
+}
+```
+
+#### Commits
+- `cf4a63a` - Fix: Show Cont Partener button during auth loading state
+- `0d1ef63` - Fix: AuthProvider and AdminLayout auth state handling
+- `9f8fd09` - Fix: AdminLayout simplified + Suspense for useSearchParams
+- `e3e9ddb` - Cleanup: Remove temporary admin reset script
+
+#### Admin Credentials (RESET 2026-01-26)
+| Câmp | Valoare |
+|------|---------|
+| Email | `liviu.drinceanu@infinitrade-romania.ro` |
+| Password | `XehAdmin2026!` |
+| Acces | https://www.xeh.ro/admin |
 
 ---
 
@@ -660,25 +737,23 @@ git push
 
 ### La Început de Sesiune Nouă (OBLIGATORIU)
 ```
-✅ CLAUDE.md încărcat | Ultima actualizare: 2026-01-21 seara
+✅ CLAUDE.md încărcat | Ultima actualizare: 2026-01-26
 
 📊 STARE PROIECT XEH.ro:
 - Status: LIVE și funcțional
 - Traduceri: ✅ Complete (~2,600 produse, ~400 categorii)
 - SEO: ✅ Complet (sitemap, meta, JSON-LD, blog, landing pages)
-- Ahrefs Audit: ✅ ~30,000 erori rezolvate (2 wave-uri)
+- Ahrefs Audit: ✅ ~31,000 erori rezolvate (3 wave-uri)
 - Quote Cart: ✅ COMPLET (coș cu multiple produse, prețuri, email)
-- Share Button: ✅ Web Share API + clipboard fallback
-- Pagini Legale: ✅ /termeni, /confidentialitate, /cookies
-- Favicon: ✅ XEH.ro icon implementat
+- Admin Panel: ✅ FIX AuthProvider useMemo + AdminLayout simplificat
+- Email Contact: ✅ secretariat@infinitrade-romania.ro
 - Site: https://www.xeh.ro (IMPORTANT: folosește www!)
 
 🔧 CONFIGURAȚII IMPORTANTE:
 - Domeniu: www.xeh.ro (cu www - pentru SEO)
 - NEXT_PUBLIC_SITE_URL: https://www.xeh.ro (OBLIGATORIU cu www!)
-- Email notificări parteneri noi: secretariat@infinitrade-romania.ro
-- Titluri max 60 chars (truncateSeoTitle în lib/utils)
-- Descrieri max 155 chars (truncateSeoDescription în lib/utils)
+- Email notificări: secretariat@infinitrade-romania.ro
+- Admin: liviu.drinceanu@infinitrade-romania.ro / XehAdmin2026!
 - Next.js: 14.2.35 (security patched)
 
 Cu ce pot să te ajut?
@@ -700,4 +775,4 @@ Cu ce pot să te ajut?
 
 ---
 
-*Ultima actualizare: 2026-01-21 seara | Site: https://www.xeh.ro | AHREFS AUDIT: ~30,000 erori rezolvate + ShareButton*
+*Ultima actualizare: 2026-01-26 | Site: https://www.xeh.ro | ADMIN PANEL FIX: AuthProvider useMemo + AdminLayout simplificat*

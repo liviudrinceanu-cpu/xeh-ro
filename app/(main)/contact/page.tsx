@@ -6,7 +6,7 @@ import type { Metadata } from 'next'
 
 export const metadata: Metadata = {
   title: 'Contact | XEH.ro - eXpert Echipamente Horeca',
-  description: 'Contactează-ne pentru informații despre echipamente HoReCa profesionale. Telefon: +40 724 256 250, Email: contact@xeh.ro. Răspundem în maxim 24 de ore.',
+  description: 'Contactează-ne pentru informații despre echipamente HoReCa profesionale. Telefon: +40 724 256 250, Email: secretariat@infinitrade-romania.ro. Răspundem în maxim 24 de ore.',
   keywords: ['contact xeh', 'echipamente horeca contact', 'telefon echipamente restaurant'],
   openGraph: {
     title: 'Contact | XEH.ro - eXpert Echipamente Horeca',
@@ -92,8 +92,8 @@ export default function ContactPage() {
                   </div>
                   <div>
                     <h3 className="font-medium text-gray-600">Email</h3>
-                    <a href="mailto:contact@xeh.ro" className="text-crimson hover:underline text-sm">
-                      contact@xeh.ro
+                    <a href="mailto:secretariat@infinitrade-romania.ro" className="text-crimson hover:underline text-sm">
+                      secretariat@infinitrade-romania.ro
                     </a>
                   </div>
                 </div>

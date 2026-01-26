@@ -128,11 +128,11 @@ export default function Footer() {
               </li>
               <li>
                 <a
-                  href="mailto:contact@xeh.ro"
+                  href="mailto:secretariat@infinitrade-romania.ro"
                   className="flex items-center gap-2 text-gray-400 hover:text-crimson-light transition-colors text-sm"
                 >
                   <Mail className="w-4 h-4 flex-shrink-0" />
-                  <span>contact@xeh.ro</span>
+                  <span>secretariat@infinitrade-romania.ro</span>
                 </a>
               </li>
               <li className="text-gray-500 text-xs pt-2">

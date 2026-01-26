@@ -107,7 +107,7 @@ export default function TermeniPage() {
           </p>
           <ul className="list-disc pl-6 mt-2">
             <li>Telefon: <a href="tel:+40724256250" className="text-crimson hover:text-crimson-dark">0724 256 250</a></li>
-            <li>Email: <a href="mailto:contact@xeh.ro" className="text-crimson hover:text-crimson-dark">contact@xeh.ro</a></li>
+            <li>Email: <a href="mailto:secretariat@infinitrade-romania.ro" className="text-crimson hover:text-crimson-dark">secretariat@infinitrade-romania.ro</a></li>
             <li>Site: <a href="https://www.xeh.ro/contact" className="text-crimson hover:text-crimson-dark">www.xeh.ro/contact</a></li>
           </ul>
         </section>

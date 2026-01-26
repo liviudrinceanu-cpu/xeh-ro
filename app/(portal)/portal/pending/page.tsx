@@ -48,11 +48,11 @@ export default function PendingPage() {
           </p>
           <div className="flex items-center justify-center gap-6">
             <a
-              href="mailto:contact@xeh.ro"
+              href="mailto:secretariat@infinitrade-romania.ro"
               className="flex items-center gap-2 text-crimson hover:underline"
             >
               <Mail className="w-4 h-4" />
-              <span className="text-sm">contact@xeh.ro</span>
+              <span className="text-sm">secretariat@infinitrade-romania.ro</span>
             </a>
             <a
               href="tel:+40724256250"

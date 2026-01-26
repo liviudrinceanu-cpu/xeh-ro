@@ -119,7 +119,7 @@ export function LocalBusinessJsonLd() {
     image: 'https://www.xeh.ro/logo.png',
     url: 'https://www.xeh.ro',
     telephone: '+40724256250',
-    email: 'contact@xeh.ro',
+    email: 'secretariat@infinitrade-romania.ro',
     description: 'Distribuitor autorizat de echipamente profesionale HoReCa în România. Cuptoare profesionale, frigidere industriale, mașini de spălat vase și echipamente complete pentru restaurante și hoteluri.',
     address: {
       '@type': 'PostalAddress',

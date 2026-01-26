@@ -26,7 +26,7 @@ function getResend(): Resend | null {
 }
 
 // Email-ul unde primești notificările
-const ADMIN_EMAIL = process.env.ADMIN_EMAIL || 'contact@xeh.ro'
+const ADMIN_EMAIL = process.env.ADMIN_EMAIL || 'secretariat@infinitrade-romania.ro'
 const FROM_EMAIL = process.env.FROM_EMAIL || 'XEH.ro <onboarding@resend.dev>'
 
 interface QuoteProduct {
@@ -244,7 +244,7 @@ export async function sendQuoteNotification(data: QuoteEmailData) {
       <div style="padding: 20px; background: #f9f9f9; text-align: center; border-top: 1px solid #e5e5e5;">
         <p style="margin: 0 0 10px 0; color: #666; font-size: 14px;">Ai întrebări? Contactează-ne:</p>
         <p style="margin: 0;">
-          <a href="mailto:contact@xeh.ro" style="color: #DC143C; text-decoration: none;">contact@xeh.ro</a>
+          <a href="mailto:secretariat@infinitrade-romania.ro" style="color: #DC143C; text-decoration: none;">secretariat@infinitrade-romania.ro</a>
         </p>
       </div>
     </div>
@@ -596,7 +596,7 @@ export async function sendPartnerApprovedNotification(data: PartnerApprovedEmail
       <div style="padding: 20px; background: #f9f9f9; text-align: center; border-top: 1px solid #e5e5e5;">
         <p style="margin: 0 0 10px 0; color: #666; font-size: 14px;">Ai întrebări? Contactează-ne:</p>
         <p style="margin: 0;">
-          <a href="mailto:contact@xeh.ro" style="color: #DC143C; text-decoration: none;">contact@xeh.ro</a>
+          <a href="mailto:secretariat@infinitrade-romania.ro" style="color: #DC143C; text-decoration: none;">secretariat@infinitrade-romania.ro</a>
           &nbsp;|&nbsp;
           <a href="tel:+40724256250" style="color: #DC143C; text-decoration: none;">+40 724 256 250</a>
         </p>

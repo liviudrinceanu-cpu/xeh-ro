@@ -331,7 +331,7 @@ export const SITE_CONFIG = {
     en: 'Professional equipment for your kitchen',
   },
   contact: {
-    email: 'contact@xeh.ro',
+    email: 'secretariat@infinitrade-romania.ro',
     phone: '+40 123 456 789',
     whatsapp: '+40 123 456 789',
   },

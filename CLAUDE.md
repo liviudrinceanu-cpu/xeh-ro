@@ -103,7 +103,15 @@ export default function AdminPartnersPage() {
 - `9f8fd09` - Fix: AdminLayout simplified + Suspense for useSearchParams
 - `e3e9ddb` - Cleanup: Remove temporary admin reset script
 
-#### Admin Credentials (RESET 2026-01-26)
+#### Login Fix (2026-01-26)
+| Fișier | Modificare |
+|--------|------------|
+| `components/auth/LoginForm.tsx:55` | `window.location.href = redirect` în loc de `router.push + router.refresh` |
+
+**Problemă:** Login-ul se bloca cu spinner infinit deși autentificarea Supabase reușea.
+**Fix:** Full page reload cu `window.location.href` pentru încărcare corectă sesiune.
+
+#### Admin Credentials
 | Câmp | Valoare |
 |------|---------|
 | Email | `liviu.drinceanu@infinitrade-romania.ro` |

@@ -1,7 +1,7 @@
 # XEH.ro - Context Proiect
 
 > **IMPORTANT:** Acest fișier este citit automat de Claude Code. Actualizează-l după fiecare decizie majoră.
-> **Ultima actualizare:** 2026-01-26 - TESTIMONIALE ANONIME + SORTARE CATEGORII
+> **Ultima actualizare:** 2026-01-26 - EMAIL CONTACT SCHIMBAT
 
 ---
 
@@ -30,6 +30,39 @@
 **SHARE BUTTON: ✅ WEB SHARE API + CLIPBOARD FALLBACK**
 **TESTIMONIALE: ✅ FORMAT ANONIM (Rol + Business + Oraș)**
 **SORTARE CATEGORII: ✅ DROPDOWN PE TOATE PAGINILE**
+**EMAIL CONTACT: ✅ SCHIMBAT LA secretariat@infinitrade-romania.ro**
+**ADMIN USER: ✅ CREAT (liviu.drinceanu@infinitrade-romania.ro)**
+
+---
+
+### 🆕 EMAIL CONTACT SCHIMBAT (2026-01-26)
+
+**Problemă:** Serverul de email pentru domeniul `xeh.ro` nu funcționează (timed out, unable to read banner).
+
+**Soluție:** Toate referințele la `contact@xeh.ro` au fost înlocuite cu `secretariat@infinitrade-romania.ro`.
+
+| Fișier | Modificare |
+|--------|------------|
+| `lib/email.ts` | Fallback ADMIN_EMAIL + link-uri în templates |
+| `components/layout/Footer.tsx` | Footer site |
+| `components/seo/JsonLd.tsx` | Schema.org Organization email |
+| `app/(main)/contact/page.tsx` | Meta description + link |
+| `app/(main)/despre-noi/page.tsx` | Link contact |
+| `app/(main)/termeni/page.tsx` | Link contact |
+| `app/(portal)/portal/pending/page.tsx` | Link contact |
+| `docs/constants.ts` | Constantă |
+
+**Commit:** `55f6944`
+
+---
+
+### 🆕 ADMIN USER CREAT (2026-01-26)
+
+| Câmp | Valoare |
+|------|---------|
+| Email | `liviu.drinceanu@infinitrade-romania.ro` |
+| Rol | `admin` |
+| Acces | https://www.xeh.ro/admin/partners |
 
 ---
 

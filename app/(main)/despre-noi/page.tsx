@@ -352,6 +352,52 @@ export default function DespreNoiPage() {
         </div>
       </section>
 
+      {/* Certifications & Awards Section - E-E-A-T Trust Signals */}
+      <section className="py-16 md:py-20">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl md:text-4xl font-bold text-gray-600 mb-4">
+              Certificări și Recunoașteri
+            </h2>
+            <p className="text-gray-500 max-w-2xl mx-auto">
+              Standarde de calitate și parteneriate care garantează profesionalismul nostru
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-3 gap-6">
+            <div className="bg-white rounded-2xl p-6 shadow-sm text-center">
+              <div className="w-16 h-16 bg-green-100 rounded-2xl flex items-center justify-center mx-auto mb-4">
+                <CheckCircle2 className="w-8 h-8 text-green-600" />
+              </div>
+              <h3 className="font-bold text-gray-600 mb-2">Distribuitor Autorizat</h3>
+              <p className="text-gray-500 text-sm">
+                Partener oficial RM Gastro și REDFOX pentru România din 2017
+              </p>
+            </div>
+
+            <div className="bg-white rounded-2xl p-6 shadow-sm text-center">
+              <div className="w-16 h-16 bg-blue-100 rounded-2xl flex items-center justify-center mx-auto mb-4">
+                <Shield className="w-8 h-8 text-blue-600" />
+              </div>
+              <h3 className="font-bold text-gray-600 mb-2">Service Autorizat</h3>
+              <p className="text-gray-500 text-sm">
+                Echipă tehnică certificată pentru instalare, punere în funcțiune și mentenanță
+              </p>
+            </div>
+
+            <div className="bg-white rounded-2xl p-6 shadow-sm text-center">
+              <div className="w-16 h-16 bg-amber-100 rounded-2xl flex items-center justify-center mx-auto mb-4">
+                <Award className="w-8 h-8 text-amber-600" />
+              </div>
+              <h3 className="font-bold text-gray-600 mb-2">Garanție Extinsă</h3>
+              <p className="text-gray-500 text-sm">
+                Oferim garanție de până la 24 luni pentru echipamentele din gama premium
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Company Info Section */}
       <section className="py-16 md:py-20 bg-gray-100">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -378,6 +424,10 @@ export default function DespreNoiPage() {
                 </ul>
               </div>
             </div>
+            {/* Last Updated - E-E-A-T signal for content freshness */}
+            <p className="text-xs text-gray-400 mt-8 pt-4 border-t border-gray-100">
+              Ultima actualizare: Ianuarie 2026
+            </p>
           </div>
         </div>
       </section>

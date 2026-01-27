@@ -242,6 +242,10 @@ export default function EchipaPage() {
               Sună: 0724 256 250
             </a>
           </div>
+          {/* Last Updated - E-E-A-T signal for content freshness */}
+          <p className="text-white/50 text-xs mt-8">
+            Ultima actualizare echipă: Ianuarie 2026
+          </p>
         </div>
       </section>
     </div>

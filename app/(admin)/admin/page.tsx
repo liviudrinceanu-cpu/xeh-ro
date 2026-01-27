@@ -33,10 +33,13 @@ export default function AdminDashboardPage() {
 
   useEffect(() => {
     async function loadStats() {
+      console.log('[Admin Dashboard] Starting loadStats...')
       const supabase = createClient()
+      console.log('[Admin Dashboard] Supabase client created')
 
       try {
         // Get partner counts
+        console.log('[Admin Dashboard] Fetching partner counts...')
         const { count: totalPartners } = await supabase
           .from('partners')
           .select('*', { count: 'exact', head: true })
@@ -96,6 +99,12 @@ export default function AdminDashboardPage() {
           user_profile: Array.isArray(p.user_profile) ? p.user_profile[0] : p.user_profile
         }))
 
+        console.log('[Admin Dashboard] All queries completed successfully', {
+          totalPartners, pendingPartners, approvedPartners, totalQuotes, pendingQuotes,
+          recentPartnersCount: transformedPartners.length,
+          recentQuotesCount: recentQuotes?.length || 0
+        })
+
         setStats({
           totalPartners: totalPartners || 0,
           pendingPartners: pendingPartners || 0,
@@ -106,8 +115,9 @@ export default function AdminDashboardPage() {
           recentQuotes: recentQuotes || [],
         })
       } catch (error) {
-        console.error('Error loading admin stats:', error)
+        console.error('[Admin Dashboard] Error loading admin stats:', error)
       } finally {
+        console.log('[Admin Dashboard] loadStats finished, setting isLoading to false')
         setIsLoading(false)
       }
     }

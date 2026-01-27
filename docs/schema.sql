@@ -285,16 +285,22 @@ CREATE INDEX idx_user_profiles_email ON user_profiles(email);
 CREATE TABLE partners (
     id UUID PRIMARY KEY DEFAULT uuid_generate_v4(),
     user_id UUID NOT NULL UNIQUE REFERENCES user_profiles(id) ON DELETE CASCADE,
-    
+
+    -- Company Info (duplicated from user_profiles for quick access)
+    company_name VARCHAR(255),
+    cui VARCHAR(50),
+    reg_com VARCHAR(100),
+    address TEXT,
+
     is_approved BOOLEAN NOT NULL DEFAULT false,
     approved_at TIMESTAMPTZ,
     approved_by UUID REFERENCES user_profiles(id),
-    
+
     credit_limit DECIMAL(10,2),
     payment_terms INTEGER, -- days
-    
+
     notes TEXT,
-    
+
     created_at TIMESTAMPTZ NOT NULL DEFAULT NOW(),
     updated_at TIMESTAMPTZ NOT NULL DEFAULT NOW()
 );

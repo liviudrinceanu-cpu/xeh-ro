@@ -61,37 +61,21 @@ export default function AdminDashboardPage() {
           .select('*', { count: 'exact', head: true })
           .eq('status', 'pending')
 
-        // Get recent partners (without join to avoid RLS issues)
+        // Get recent partners with user profile join (same pattern as /admin/partners page)
         const { data: recentPartners, error: partnersError } = await supabase
           .from('partners')
-          .select('id, company_name, created_at, is_approved, user_id')
+          .select(`
+            id,
+            company_name,
+            created_at,
+            is_approved,
+            user_profile:user_profiles (first_name, last_name, email)
+          `)
           .order('created_at', { ascending: false })
           .limit(5)
 
         if (partnersError) {
           console.error('Error fetching partners:', partnersError)
-        }
-
-        // Fetch user profiles separately if we have partners
-        let userProfilesMap: Record<string, { first_name: string; last_name: string; email: string }> = {}
-        if (recentPartners && recentPartners.length > 0) {
-          const userIds = recentPartners.map(p => p.user_id).filter(Boolean)
-          if (userIds.length > 0) {
-            const { data: profiles, error: profilesError } = await supabase
-              .from('user_profiles')
-              .select('id, first_name, last_name, email')
-              .in('id', userIds)
-
-            if (profilesError) {
-              console.error('Error fetching profiles:', profilesError)
-            }
-
-            if (profiles) {
-              profiles.forEach(p => {
-                userProfilesMap[p.id] = { first_name: p.first_name, last_name: p.last_name, email: p.email }
-              })
-            }
-          }
         }
 
         // Get recent quotes
@@ -105,13 +89,10 @@ export default function AdminDashboardPage() {
           console.error('Error fetching quotes:', quotesError)
         }
 
-        // Transform partners with their profiles
+        // Transform data to handle array relations from Supabase join
         const transformedPartners = (recentPartners || []).map(p => ({
-          id: p.id,
-          company_name: p.company_name,
-          created_at: p.created_at,
-          is_approved: p.is_approved,
-          user_profile: p.user_id ? userProfilesMap[p.user_id] || null : null
+          ...p,
+          user_profile: Array.isArray(p.user_profile) ? p.user_profile[0] : p.user_profile
         }))
 
         setStats({

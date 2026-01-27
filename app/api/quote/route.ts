@@ -1,6 +1,7 @@
 import { NextRequest, NextResponse } from 'next/server'
 import { createClient, SupabaseClient } from '@supabase/supabase-js'
 import { sendQuoteNotification } from '@/lib/email'
+import { quoteRequestSchema, formatZodErrors } from '@/lib/validation'
 
 // Lazy initialization of Supabase client
 let supabase: SupabaseClient | null = null
@@ -42,6 +43,15 @@ export async function POST(request: NextRequest) {
       )
     }
 
+    // Validate with Zod schema
+    const validationResult = quoteRequestSchema.safeParse(body)
+    if (!validationResult.success) {
+      return NextResponse.json(
+        { error: formatZodErrors(validationResult.error) },
+        { status: 400 }
+      )
+    }
+
     const {
       contact_name,
       contact_email,
@@ -50,15 +60,7 @@ export async function POST(request: NextRequest) {
       contact_message,
       product_id,  // Legacy: single product
       products     // New: array of products from cart
-    } = body
-
-    // Validate required fields
-    if (!contact_name || !contact_email || !contact_phone) {
-      return NextResponse.json(
-        { error: 'Câmpurile obligatorii lipsesc.' },
-        { status: 400 }
-      )
-    }
+    } = validationResult.data
 
     // Get Supabase client
     const supabaseClientOrNull = getSupabase()
@@ -81,13 +83,14 @@ export async function POST(request: NextRequest) {
         .from('quote_requests')
         .select('*', { count: 'exact', head: true })
         .gte('created_at', yearStart)
-    } catch {
+    } catch (err) {
+      console.error('Quote count error:', err)
       countResult = { count: 0, error: null }
     }
 
     const { count, error: countError } = countResult
     if (countError) {
-      // Silent fail - use 0 as fallback
+      console.error('Quote count DB error:', countError)
     }
 
     const quoteNumber = `XEH-${year}-${String((count || 0) + 1).padStart(5, '0')}`
@@ -137,7 +140,8 @@ export async function POST(request: NextRequest) {
 
       try {
         await supabaseClient.from('quote_items').insert(quoteItems)
-      } catch {
+      } catch (err) {
+        console.error('Quote items insert error:', err)
         // Don't fail the whole request if items insert fails
       }
 
@@ -161,7 +165,8 @@ export async function POST(request: NextRequest) {
             priceCurrency: p.priceCurrency,
           })),
         })
-      } catch {
+      } catch (err) {
+        console.error('Quote email notification error:', err)
         // Continue even if email fails - the quote is still saved
       }
 
@@ -216,7 +221,8 @@ export async function POST(request: NextRequest) {
               priceCurrency: product.price_currency || 'EUR',
             }],
           })
-        } catch {
+        } catch (err) {
+          console.error('Quote email notification error:', err)
           // Continue even if email fails
         }
       }
@@ -231,7 +237,8 @@ export async function POST(request: NextRequest) {
           contactCompany: contact_company,
           contactMessage: contact_message,
         })
-      } catch {
+      } catch (err) {
+        console.error('Quote email notification error:', err)
         // Continue even if email fails
       }
     }
@@ -240,7 +247,8 @@ export async function POST(request: NextRequest) {
       success: true,
       quoteNumber: quoteNumber,
     })
-  } catch {
+  } catch (err) {
+    console.error('Quote API error:', err)
     return NextResponse.json(
       { error: 'A apărut o eroare.' },
       { status: 500 }

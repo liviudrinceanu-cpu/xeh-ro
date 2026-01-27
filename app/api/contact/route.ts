@@ -1,19 +1,29 @@
 import { NextRequest, NextResponse } from 'next/server'
 import { sendContactNotification } from '@/lib/email'
+import { contactFormSchema, formatZodErrors } from '@/lib/validation'
 
 export async function POST(request: NextRequest) {
   try {
-    const body = await request.json()
-
-    const { name, email, phone, company, subject, message } = body
-
-    // Validate required fields
-    if (!name || !email || !subject || !message) {
+    let body
+    try {
+      body = await request.json()
+    } catch {
       return NextResponse.json(
-        { error: 'Câmpurile obligatorii lipsesc.' },
+        { error: 'Date invalide.' },
         { status: 400 }
       )
     }
+
+    // Validate with Zod schema
+    const validationResult = contactFormSchema.safeParse(body)
+    if (!validationResult.success) {
+      return NextResponse.json(
+        { error: formatZodErrors(validationResult.error) },
+        { status: 400 }
+      )
+    }
+
+    const { name, email, phone, company, subject, message } = validationResult.data
 
     // Send email notification
     const emailResult = await sendContactNotification({

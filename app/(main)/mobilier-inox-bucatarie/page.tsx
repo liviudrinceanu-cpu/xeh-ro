@@ -345,6 +345,67 @@ export default async function MobilierInoxBucatariePage() {
         </div>
       </section>
 
+      {/* Related Content Section */}
+      <section className="py-16 md:py-20 bg-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <h2 className="text-2xl md:text-3xl font-bold text-gray-700 mb-8 text-center">
+            Articole și Resurse Utile
+          </h2>
+          <div className="grid md:grid-cols-2 gap-8">
+            <div>
+              <h3 className="font-bold text-gray-700 mb-4">📚 Ghiduri din Blog</h3>
+              <ul className="space-y-3">
+                <li>
+                  <Link href="/blog/mobilier-inox-ghid-complet" className="text-slate-600 hover:underline">
+                    Mobilier Inox - Ghid Complet pentru Bucătării Profesionale
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/blog/checklist-haccp-echipamente-obligatorii" className="text-slate-600 hover:underline">
+                    Checklist HACCP: Echipamente Obligatorii pentru Restaurant
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/blog/ghid-complet-echipamente-horeca-restaurant" className="text-slate-600 hover:underline">
+                    Ghid Complet: Echipamente HoReCa pentru Restaurant
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/blog/cost-echipare-restaurant-complet-2026" className="text-slate-600 hover:underline">
+                    Cât Costă Echiparea Completă a unui Restaurant
+                  </Link>
+                </li>
+              </ul>
+            </div>
+            <div>
+              <h3 className="font-bold text-gray-700 mb-4">🔗 Echipamente Conexe</h3>
+              <ul className="space-y-3">
+                <li>
+                  <Link href="/cuptoare-profesionale" className="text-slate-600 hover:underline">
+                    Cuptoare Profesionale pentru Restaurante
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/frigidere-industriale" className="text-slate-600 hover:underline">
+                    Frigidere Industriale și Refrigerare
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/masini-spalat-vase-profesionale" className="text-slate-600 hover:underline">
+                    Mașini de Spălat Vase Profesionale
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/echipamente-catering" className="text-slate-600 hover:underline">
+                    Echipamente Catering - Cărucioare Transport
+                  </Link>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* CTA Section */}
       <section className="py-16 md:py-20 bg-slate-800">
         <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">

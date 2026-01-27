@@ -357,6 +357,67 @@ export default async function EchipamentePatiseriePage() {
         </div>
       </section>
 
+      {/* Related Content Section */}
+      <section className="py-16 md:py-20 bg-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <h2 className="text-2xl md:text-3xl font-bold text-gray-600 mb-8 text-center">
+            Articole si Resurse Utile
+          </h2>
+          <div className="grid md:grid-cols-2 gap-8">
+            <div>
+              <h3 className="font-bold text-gray-600 mb-4">📚 Ghiduri din Blog</h3>
+              <ul className="space-y-3">
+                <li>
+                  <Link href="/blog/cum-alegi-cuptor-profesional-perfect" className="text-amber-700 hover:underline">
+                    Cum Alegi Cuptorul Profesional Perfect pentru Patiserie
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/blog/cuptor-convectie-vs-cuptor-clasic-diferente" className="text-amber-700 hover:underline">
+                    Cuptor cu Convectie vs Cuptor Clasic - Diferente
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/blog/ghid-deschidere-restaurant-2026" className="text-amber-700 hover:underline">
+                    Ghid Complet Deschidere Afacere HoReCa 2026
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/blog/cost-echipare-restaurant-complet-2026" className="text-amber-700 hover:underline">
+                    Costul Echiparii Complete - 2026
+                  </Link>
+                </li>
+              </ul>
+            </div>
+            <div>
+              <h3 className="font-bold text-gray-600 mb-4">🔗 Echipamente Conexe</h3>
+              <ul className="space-y-3">
+                <li>
+                  <Link href="/cuptoare-profesionale" className="text-amber-700 hover:underline">
+                    Cuptoare Profesionale - Convectie si Combi
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/frigidere-industriale" className="text-amber-700 hover:underline">
+                    Frigidere si Vitrine pentru Prajituri
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/mobilier-inox-bucatarie" className="text-amber-700 hover:underline">
+                    Mobilier Inox - Mese de Lucru
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/echipamente-bar-cafenea" className="text-amber-700 hover:underline">
+                    Echipamente Cafenea
+                  </Link>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* CTA Section */}
       <section className="py-16 md:py-20 bg-gray-600">
         <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">

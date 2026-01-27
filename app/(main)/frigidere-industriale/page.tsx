@@ -278,6 +278,67 @@ export default async function FrigidereIndustrialePage() {
         </div>
       </section>
 
+      {/* Related Content Section */}
+      <section className="py-16 md:py-20">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <h2 className="text-2xl md:text-3xl font-bold text-gray-600 mb-8 text-center">
+            Articole și Resurse Utile
+          </h2>
+          <div className="grid md:grid-cols-2 gap-8">
+            <div>
+              <h3 className="font-bold text-gray-600 mb-4">📚 Ghiduri din Blog</h3>
+              <ul className="space-y-3">
+                <li>
+                  <Link href="/blog/top-15-frigidere-industriale-2026" className="text-blue-600 hover:underline">
+                    Top 15 Frigidere Industriale pentru Restaurante în 2026
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/blog/blast-chiller-vs-congelator-diferente" className="text-blue-600 hover:underline">
+                    Blast Chiller vs Congelator - Diferențe și Când Să Le Folosești
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/blog/echipamente-refrigerare-profesionala-tipuri" className="text-blue-600 hover:underline">
+                    Echipamente de Refrigerare Profesională - Tipuri și Utilizări
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/blog/checklist-haccp-echipamente-obligatorii" className="text-blue-600 hover:underline">
+                    Checklist HACCP: Echipamente Obligatorii pentru Restaurant
+                  </Link>
+                </li>
+              </ul>
+            </div>
+            <div>
+              <h3 className="font-bold text-gray-600 mb-4">🔗 Echipamente Conexe</h3>
+              <ul className="space-y-3">
+                <li>
+                  <Link href="/cuptoare-profesionale" className="text-blue-600 hover:underline">
+                    Cuptoare Profesionale - Combi Steamer și Convecție
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/masini-spalat-vase-profesionale" className="text-blue-600 hover:underline">
+                    Mașini de Spălat Vase Profesionale
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/echipamente-catering" className="text-blue-600 hover:underline">
+                    Echipamente Catering - Termo Containere
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/mobilier-inox-bucatarie" className="text-blue-600 hover:underline">
+                    Mobilier Inox pentru Bucătărie Profesională
+                  </Link>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* CTA Section */}
       <section className="py-16 md:py-20 bg-blue-900">
         <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">

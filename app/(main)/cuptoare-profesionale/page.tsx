@@ -279,6 +279,67 @@ export default async function CuptoareProfesionalePage() {
         </div>
       </section>
 
+      {/* Related Content Section */}
+      <section className="py-16 md:py-20">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <h2 className="text-2xl md:text-3xl font-bold text-gray-600 mb-8 text-center">
+            Articole și Resurse Utile
+          </h2>
+          <div className="grid md:grid-cols-2 gap-8">
+            <div>
+              <h3 className="font-bold text-gray-600 mb-4">📚 Ghiduri din Blog</h3>
+              <ul className="space-y-3">
+                <li>
+                  <Link href="/blog/cum-alegi-cuptor-profesional-perfect" className="text-crimson hover:underline">
+                    Cum Alegi Cuptorul Profesional Perfect pentru Restaurantul Tău
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/blog/cuptor-convectie-vs-cuptor-clasic-diferente" className="text-crimson hover:underline">
+                    Cuptor cu Convecție vs Cuptor Clasic - Diferențe și Avantaje
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/blog/top-10-cuptoare-profesionale-restaurante-2026" className="text-crimson hover:underline">
+                    Top 10 Cuptoare Profesionale pentru Restaurante în 2026
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/blog/ghid-complet-echipamente-horeca-restaurant" className="text-crimson hover:underline">
+                    Ghid Complet: Echipamente HoReCa pentru Restaurant
+                  </Link>
+                </li>
+              </ul>
+            </div>
+            <div>
+              <h3 className="font-bold text-gray-600 mb-4">🔗 Echipamente Conexe</h3>
+              <ul className="space-y-3">
+                <li>
+                  <Link href="/echipamente-pizzerie" className="text-crimson hover:underline">
+                    Echipamente Pizzerie - Cuptoare Pizza Profesionale
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/echipamente-patiserie" className="text-crimson hover:underline">
+                    Echipamente Patiserie - Cuptoare cu Convecție
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/frigidere-industriale" className="text-crimson hover:underline">
+                    Frigidere Industriale și Blast Chiller
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/mobilier-inox-bucatarie" className="text-crimson hover:underline">
+                    Mobilier Inox pentru Bucătărie Profesională
+                  </Link>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* CTA Section */}
       <section className="py-16 md:py-20 bg-gray-600">
         <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">

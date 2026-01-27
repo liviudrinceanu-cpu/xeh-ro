@@ -1069,6 +1069,1023 @@ La XEH.ro găsești toate echipamentele necesare pentru conformitate HACCP compl
       },
     ],
   },
+  'top-15-frigidere-industriale-2026': {
+    title: 'Top 15 Frigidere Industriale pentru Restaurante în 2026',
+    excerpt: 'Ghid complet pentru alegerea frigiderului industrial potrivit. Comparăm cele mai bune modele pentru HoReCa după capacitate, eficiență și preț.',
+    category: 'Ghiduri',
+    author: 'Maria Popescu',
+    authorSlug: 'maria-popescu',
+    date: '2026-01-27',
+    readTime: '12 min',
+    keywords: ['frigidere industriale', 'frigider profesional', 'frigider restaurant', 'refrigerare horeca', 'frigider vertical'],
+    content: `
+## De Ce Este Important Frigiderul Industrial?
+
+Frigiderul profesional este coloana vertebrală a oricărei bucătării comerciale. O alegere greșită poate duce la risipă alimentară, facturi mari la energie și chiar probleme de siguranță alimentară.
+
+## Criterii de Alegere a Frigiderului Industrial
+
+### 1. Capacitate (Litri)
+- **Restaurant mic (30-50 locuri):** 400-700L
+- **Restaurant mediu (50-100 locuri):** 700-1200L
+- **Restaurant mare (100+ locuri):** 1200L+ sau multiple unități
+
+### 2. Tipuri de Frigidere Industriale
+
+#### Frigidere Verticale
+Cele mai populare pentru bucătării profesionale:
+- Acces ușor la produse
+- Organizare pe rafturi
+- Vizibilitate bună
+- Capacitate: 350-1400L
+
+#### Mese Frigorifice (Refrigerate)
+Combină depozitarea cu zona de lucru:
+- Suprafață de lucru inox
+- Sertare sau uși de acces
+- Ideale pentru linia de preparare
+
+#### Frigidere cu Uși de Sticlă
+Pentru expunere sau acces rapid:
+- Vizibilitate produse
+- Ideal pentru baruri și bufete
+- Consum energetic mai mare
+
+### 3. Clasa Energetică
+- **Clasa A+++/A++** - recomandată pentru operațiuni continue
+- Economie de 30-50% la factura de curent vs clase inferioare
+- Investiția se amortizează în 2-3 ani
+
+## Top 15 Frigidere Industriale Recomandate
+
+### Segment Premium (RM Gastro)
+1. **RM Gastro CR 700** - Frigider vertical 700L, ideal pentru restaurante medii
+2. **RM Gastro CR 1400** - Capacitate mare, 2 uși, pentru hoteluri
+3. **RM Gastro CRX 400** - Compact dar performant, pentru spații mici
+4. **RM Gastro CRFN 500** - Frigider-congelator combinat
+5. **RM Gastro TS 700** - Masă frigorifică premium
+
+### Segment Economic (REDFOX)
+6. **REDFOX RCN 400** - Raport excelent calitate-preț
+7. **REDFOX RCN 700** - Popular în industrie pentru fiabilitate
+8. **REDFOX RCN 350** - Compact, perfect pentru bar
+9. **REDFOX TZ 400** - Masă frigorifică accesibilă
+10. **REDFOX RGS 500** - Cu uși de sticlă pentru expunere
+
+### Soluții Specializate
+11. **Frigider pass-through** - Acces din ambele părți
+12. **Frigider cu rotire** - Pentru panificație
+13. **Frigider pentru pește** - Temperatură aproape de 0°C
+14. **Frigider pentru carne** - Control umiditate
+15. **Frigider pentru legume** - Umiditate crescută
+
+## Cum Să Calculezi Capacitatea Necesară
+
+### Formula Simplă:
+**Litri necesari = Număr porții/zi × 0.5L + 30% rezervă**
+
+### Exemplu:
+- Restaurant cu 100 porții/zi
+- 100 × 0.5 = 50L minimum
+- +30% rezervă = 65L produse proaspete
+- Adaugă spațiu pentru băuturi, deserturi = ~300-400L total
+
+## Întreținerea Frigiderului Industrial
+
+### Zilnic:
+- Verifică temperatura (ar trebui să fie 0-4°C)
+- Curăță scurgeri
+- Organizează produse (FIFO)
+
+### Săptămânal:
+- Curăță interior cu soluție dezinfectantă
+- Verifică garniturile ușii
+- Curăță grila condensatorului
+
+### Lunar:
+- Verifică funcționarea termostatului
+- Curăță serpentina
+- Verifică nivelul de refrigerant (dacă e cazul)
+
+## Concluzie
+
+Alegerea frigiderului industrial potrivit este o investiție pe termen lung. Recomandăm să alegi în funcție de:
+1. Capacitatea reală necesară (nu supradimensiona)
+2. Clasa energetică (economie pe termen lung)
+3. Brandul (RM Gastro pentru premium, REDFOX pentru buget)
+
+[Vezi gama completă de frigidere profesionale](/frigidere-industriale)
+    `,
+    faqs: [
+      {
+        question: 'Cât consumă un frigider industrial pe lună?',
+        answer: 'Un frigider industrial de 700L consumă între 2-4 kWh/zi (60-120 kWh/lună). La un preț mediu de 1 RON/kWh, costul este de 60-120 RON/lună. Modelele din clasa A++ pot reduce acest consum cu 30-40%.',
+      },
+      {
+        question: 'Care este temperatura optimă pentru frigiderul de restaurant?',
+        answer: 'Temperatura optimă este între 0°C și 4°C pentru produse refrigerate. Pentru peșter se recomandă 0-2°C, pentru carne 0-3°C, pentru legume și fructe 4-8°C.',
+      },
+      {
+        question: 'Frigider cu o ușă sau cu două uși?',
+        answer: 'Depinde de volum și acces. O ușă (400-700L) e suficientă pentru restaurante mici-medii. Două uși (1000-1400L) permit acces simultan pentru mai mulți bucătari și organizare separată a produselor.',
+      },
+    ],
+  },
+  'cum-alegi-cuptor-profesional-perfect': {
+    title: 'Cum Alegi Cuptorul Profesional Perfect pentru Restaurantul Tău',
+    excerpt: 'Ghid pas cu pas pentru alegerea cuptorului potrivit. Convecție, combi steamer sau pizza - află care este alegerea corectă pentru bucătăria ta.',
+    category: 'Ghiduri',
+    author: 'Alexandru Ionescu',
+    authorSlug: 'alexandru-ionescu',
+    date: '2026-01-26',
+    readTime: '10 min',
+    keywords: ['cuptor profesional', 'cum aleg cuptor restaurant', 'cuptor convectie', 'combi steamer', 'cuptor pizza profesional'],
+    content: `
+## Introducere: Cuptorul - Inima Bucătăriei
+
+Știi ce au în comun cele mai bune restaurante din România? Un cuptor profesional potrivit pentru meniul lor. Nu cel mai scump, nu cel mai mare - ci cel potrivit.
+
+Am ajutat peste 200 de restaurante să aleagă cuptorul perfect. În acest ghid îți împărtășesc exact ce trebuie să știi.
+
+## Pasul 1: Definește Ce Vei Găti
+
+### Întrebările Cheie:
+- **Ce reprezintă 70% din meniu?** Dacă e pizza, ai nevoie de cuptor pizza. Dacă e patiserie, cuptor convecție. Dacă totul - combi steamer.
+- **Câte porții pe zi?** 50 porții = cuptor mic. 200+ = capacitate mare sau multiple cuptoare.
+- **Ai nevoie de versatilitate?** Combi steamerul face totul, dar costă mai mult.
+
+## Pasul 2: Înțelege Tipurile de Cuptoare
+
+### Cuptor cu Convecție
+**Ideal pentru:** Patiserie, panificație, gratinare, coacere
+**Preț:** 2.000 - 8.000 EUR
+**Avantaje:**
+- Rezultate uniforme datorită circulației aerului
+- Mai rapid decât cuptorul clasic
+- Consumă mai puțină energie
+
+**Dezavantaje:**
+- Nu gătește la abur
+- Nu e ideal pentru preparate umede
+
+### Combi Steamer
+**Ideal pentru:** Restaurante versatile, hoteluri, catering
+**Preț:** 8.000 - 35.000 EUR
+**Avantaje:**
+- Combină convecție + abur + combinat
+- Un echipament înlocuiește 3-4
+- Programe automate
+- Self-cleaning
+
+**Dezavantaje:**
+- Investiție mare
+- Necesită întreținere
+- Consum de apă
+
+### Cuptor Pizza
+**Ideal pentru:** Pizzerii, restaurante italiene
+**Preț:** 2.500 - 15.000 EUR
+**Avantaje:**
+- Temperaturi înalte (450-500°C)
+- Pizza autentică în 2-3 minute
+- Vatră din piatră/ceramică
+
+**Dezavantaje:**
+- Utilizare limitată (doar pizza)
+- Consum mare de energie
+
+### Cuptor Salamandru
+**Ideal pentru:** Finishing, gratinare rapidă
+**Preț:** 800 - 3.000 EUR
+**Avantaje:**
+- Rapid pentru finishing
+- Compact
+- Economic
+
+## Pasul 3: Calculează Capacitatea
+
+### Formula:
+**Tăvi necesare = Porții pe oră de vârf ÷ Porții per tavă**
+
+### Exemplu Restaurant 80 locuri:
+- Vârf: 40 porții/oră
+- Porții per tavă: 6
+- Tăvi necesare: 7 (alege cuptor 10 tăvi pentru rezervă)
+
+### Ghid Rapid Capacitate:
+- **4-6 tăvi:** Restaurant mic, cafenea, bistro
+- **6-10 tăvi:** Restaurant mediu, hotel mic
+- **10-20 tăvi:** Restaurant mare, hotel, catering
+
+## Pasul 4: Stabilește Bugetul Realist
+
+### Recomandarea XEH:
+**Alocă 15-25% din bugetul total de echipamente pentru cuptor.**
+
+### Opțiuni pe Bugete:
+- **Sub 3.000 EUR:** Cuptor convecție REDFOX 4-6 tăvi
+- **3.000-8.000 EUR:** Cuptor convecție RM Gastro sau REDFOX mare
+- **8.000-15.000 EUR:** Combi steamer mic-mediu
+- **15.000+ EUR:** Combi steamer mare sau cuptor pizza profesional
+
+## Pasul 5: Verifică Utilitățile
+
+### Electric vs Gaz:
+- **Electric:** Mai simplu de instalat, control mai precis
+- **Gaz:** Cost de operare mai mic, necesită hota specială
+
+### Alimentare Electrică:
+- Cuptoare mici: 230V monofazic
+- Cuptoare medii-mari: 380V trifazic
+- Verifică puterea disponibilă!
+
+### Apă (pentru Combi Steamer):
+- Dedurizator obligatoriu
+- Scurgere în podea
+- Presiune minimă 2 bar
+
+## Pasul 6: Alege Brandul Potrivit
+
+### RM Gastro (Premium)
+- Pentru: Fine dining, hoteluri, restaurante cu pretenții
+- Avantaje: Durabilitate, performanță, service excelent
+
+### REDFOX (Economic)
+- Pentru: Fast-food, bistrouri, startup-uri
+- Avantaje: Raport calitate-preț, fiabilitate
+
+## Checklist Final
+
+- [ ] Am definit ce voi găti în principal
+- [ ] Am calculat capacitatea necesară
+- [ ] Am verificat utilitățile disponibile
+- [ ] Am stabilit bugetul realist
+- [ ] Am comparat minim 3 opțiuni
+- [ ] Am verificat garanția și service-ul
+
+## Concluzie
+
+Nu există "cel mai bun cuptor" - există cuptorul potrivit pentru TINExperții XEH te pot ajuta să faci alegerea corectă.
+
+[Cere consultanță gratuită](/consultanta-echipamente-horeca)
+    `,
+    faqs: [
+      {
+        question: 'Merită să investesc într-un combi steamer pentru un restaurant mic?',
+        answer: 'Depinde de meniu. Dacă ai un meniu variat și vrei consistență, da. Un combi steamer de 6 tăvi (8.000-12.000 EUR) poate înlocui cuptor convecție + steamer + aparat sous-vide. Dacă faci doar pizza sau patiserie, un cuptor specializat e mai eficient.',
+      },
+      {
+        question: 'Cuptor electric sau pe gaz?',
+        answer: 'Electric pentru: control precis, instalare simplă, spații fără gaz. Gaz pentru: costuri operaționale mai mici (30-40%), putere mare, tradiție culinară. Recomandare: electric pentru combi steamer și convecție, gaz pentru cuptoare pizza tradiționale.',
+      },
+      {
+        question: 'Cât de des trebuie făcut service la cuptor?',
+        answer: 'Service preventiv recomandat la 6-12 luni. Combi steamerele necesită decalcifiere lunară sau la indicator. Curățarea zilnică (sau self-cleaning) extinde durata de viață semnificativ.',
+      },
+    ],
+  },
+  'cost-echipare-restaurant-complet-2026': {
+    title: 'Costul Total pentru Echiparea unui Restaurant în 2026',
+    excerpt: 'Bugetare realistă pentru echipamente HoReCa. Analiză detaliată a costurilor pentru restaurante mici, medii și mari cu exemple concrete.',
+    category: 'Finanțare',
+    author: 'Alexandru Ionescu',
+    authorSlug: 'alexandru-ionescu',
+    date: '2026-01-25',
+    readTime: '14 min',
+    keywords: ['cost echipamente restaurant', 'buget restaurant', 'pret echipamente horeca', 'cat costa sa deschid restaurant', 'investitie restaurant'],
+    content: `
+## Introducere: Realitatea Costurilor în 2026
+
+Sincer vorbind, echiparea unui restaurant nu e ieftină. Dar cu planificare inteligentă, poți obține echipamente de calitate fără să arunci banii pe fereastră.
+
+În acest ghid îți dau cifre reale, nu estimări optimiste. Datele sunt bazate pe proiectele pe care le-am echipat în ultimii 2 ani.
+
+## Factori Care Influențează Costul
+
+### 1. Mărimea Restaurantului
+- Restaurant mic: 30-50 locuri
+- Restaurant mediu: 50-100 locuri
+- Restaurant mare: 100-200 locuri
+
+### 2. Tipul de Bucătărie
+- Fast-food: echipamente specializate, volum mare
+- Casual dining: versatilitate medie
+- Fine dining: echipamente premium, varietate
+
+### 3. Nivelul de Calitate
+- Entry-level: funcțional, durabilitate medie
+- Mid-range: echilibru calitate-preț (REDFOX)
+- Premium: durabilitate maximă, funcții avansate (RM Gastro)
+
+## Costul Echipării: Restaurant Mic (30-50 locuri)
+
+### Echipamente Gătit: 8.000 - 15.000 EUR
+- Cuptor convecție 6 tăvi: 2.500 - 5.000 EUR
+- Plită/aragaz profesional: 1.500 - 3.000 EUR
+- Friteuză: 500 - 1.500 EUR
+- Grătar/grill: 800 - 2.000 EUR
+- Hotă: 1.500 - 3.000 EUR
+
+### Echipamente Refrigerare: 5.000 - 10.000 EUR
+- Frigider vertical 700L: 2.000 - 4.000 EUR
+- Congelator 500L: 1.500 - 3.000 EUR
+- Masă frigorifică preparare: 1.500 - 3.000 EUR
+
+### Spălare: 3.000 - 6.000 EUR
+- Mașină spălat vase frontală: 2.500 - 5.000 EUR
+- Chiuvetă dublă inox: 500 - 1.000 EUR
+
+### Mobilier Inox: 3.000 - 6.000 EUR
+- Mese de lucru (3-4 buc): 1.500 - 3.000 EUR
+- Rafturi: 500 - 1.000 EUR
+- Cărucior: 300 - 600 EUR
+- Accesorii: 500 - 1.000 EUR
+
+### TOTAL Restaurant Mic: 19.000 - 37.000 EUR
+
+**Recomandare:** Cu 25.000 EUR poți echipa o bucătărie funcțională cu echipamente REDFOX de calitate.
+
+## Costul Echipării: Restaurant Mediu (50-100 locuri)
+
+### Echipamente Gătit: 15.000 - 30.000 EUR
+- Combi steamer 6-10 tăvi: 8.000 - 15.000 EUR
+- Cuptor convecție: 3.000 - 6.000 EUR
+- Aragaz cu 6 ochiuri: 2.500 - 4.500 EUR
+- Friteuză dublă: 1.000 - 2.500 EUR
+- Grătar profesional: 1.500 - 3.000 EUR
+
+### Echipamente Refrigerare: 10.000 - 20.000 EUR
+- 2x Frigidere verticale: 4.000 - 8.000 EUR
+- Congelator mare: 2.000 - 4.000 EUR
+- Blast chiller 5 tăvi: 4.000 - 8.000 EUR
+
+### Spălare: 5.000 - 10.000 EUR
+- Mașină spălat vase cu capotă: 4.000 - 8.000 EUR
+- Chiuvete + robineți: 1.000 - 2.000 EUR
+
+### Mobilier Inox: 5.000 - 12.000 EUR
+- Mese de lucru cu spate: 3.000 - 6.000 EUR
+- Rafturi verticale: 1.000 - 2.500 EUR
+- Cărucior GN: 500 - 1.000 EUR
+- Accesorii diverse: 500 - 2.500 EUR
+
+### TOTAL Restaurant Mediu: 35.000 - 72.000 EUR
+
+**Recomandare:** Cu 50.000 EUR obții o bucătărie profesională completă. Combină RM Gastro pentru echipamentele critice (combi steamer, refrigerare) cu REDFOX pentru rest.
+
+## Costul Echipării: Restaurant Mare (100-200 locuri)
+
+### Echipamente Gătit: 30.000 - 60.000 EUR
+- Combi steamer 10-20 tăvi: 15.000 - 30.000 EUR
+- 2x Cuptoare convecție: 6.000 - 12.000 EUR
+- Linie gătit completă: 8.000 - 15.000 EUR
+- Echipamente specializate: 5.000 - 10.000 EUR
+
+### Echipamente Refrigerare: 20.000 - 40.000 EUR
+- Camera frigorifică sau multiple frigidere: 10.000 - 20.000 EUR
+- Congelatoare: 4.000 - 8.000 EUR
+- Blast chiller mare: 6.000 - 12.000 EUR
+
+### Spălare: 10.000 - 20.000 EUR
+- Mașină tunel sau cu capotă mare: 8.000 - 15.000 EUR
+- Mașină pahare: 2.000 - 5.000 EUR
+
+### Mobilier Inox: 10.000 - 25.000 EUR
+- Linii complete preparare: 6.000 - 15.000 EUR
+- Rafturi, cărucioare, accesorii: 4.000 - 10.000 EUR
+
+### TOTAL Restaurant Mare: 70.000 - 145.000 EUR
+
+## Strategii de Economisire
+
+### 1. Prioritizează Inteligent
+Investește mai mult în: cuptor principal, refrigerare, mașină spălat vase
+Economisește la: accesorii, mobilier simplu, echipamente secundare
+
+### 2. Mix de Branduri
+- Echipamente critice: RM Gastro (durabilitate)
+- Echipamente secundare: REDFOX (economie)
+- Economie: 15-25% din buget
+
+### 3. Cere Pachet Complet
+- Discounturi de volum: 5-15%
+- Livrare gratuită
+- Instalare inclusă
+
+### 4. Fonduri Europene
+- Start-Up Nation: până la 200.000 RON
+- PNRR: 50-90% finanțare
+- Leasing: efort financiar distribuit
+
+[Ghid complet fonduri europene HoReCa](/blog/fonduri-europene-horeca-2026)
+
+## Costuri Ascunse de Luat în Calcul
+
+### Instalare și Racorduri
+- Electric (tablou, cabluri): 500 - 2.000 EUR
+- Gaz (instalație): 1.000 - 3.000 EUR
+- Apă (pentru combi steamer): 300 - 800 EUR
+
+### Ventilație
+- Hotă + tuburi + motor: 2.000 - 8.000 EUR
+
+### Transport
+- Gratuit pentru comenzi mari
+- 200-500 EUR pentru comenzi mici
+
+## Concluzie: Cifre Realiste
+
+| Tip Restaurant | Buget Minim | Buget Recomandat | Buget Confort |
+|----------------|-------------|------------------|---------------|
+| Mic (30-50 loc) | 19.000 EUR | 25.000 EUR | 35.000 EUR |
+| Mediu (50-100 loc) | 35.000 EUR | 50.000 EUR | 70.000 EUR |
+| Mare (100+ loc) | 70.000 EUR | 100.000 EUR | 140.000 EUR |
+
+[Solicită ofertă personalizată pentru proiectul tău](/cerere-oferta)
+    `,
+    faqs: [
+      {
+        question: 'Care este bugetul minim pentru a echipa un restaurant mic?',
+        answer: 'Bugetul minim realist este de 19.000-22.000 EUR pentru echipamente entry-level funcționale. Pentru echipamente de calitate medie (REDFOX) care durează, alocă minimum 25.000 EUR. Sub această sumă vei face compromisuri care te vor costa mai mult pe termen lung.',
+      },
+      {
+        question: 'Merită să cumpăr echipamente second-hand?',
+        answer: 'Pentru echipamente simple (mese inox, rafturi) - da, poți economisi 40-60%. Pentru echipamente critice (cuptor, frigidere, mașină spălat vase) - nu recomandăm. Lipsa garanției, consumul energetic crescut și costurile de reparații anulează economia inițială.',
+      },
+      {
+        question: 'Cum pot plăti echipamentele în rate?',
+        answer: 'Opțiuni disponibile: leasing operațional (rate lunare, echipamentul rămâne al firmei de leasing), leasing financiar (rate lunare, la final devine al tău), credit bancar pentru investiții, sau fonduri europene (recuperezi 50-90% după implementare).',
+      },
+    ],
+  },
+  'blast-chiller-vs-congelator-diferente': {
+    title: 'Blast Chiller vs Congelator: Care Este Diferența și Ce Ai Nevoie?',
+    excerpt: 'Înțelege diferențele esențiale între blast chiller și congelator. Ghid complet pentru alegerea echipamentului de răcire potrivit.',
+    category: 'Comparații',
+    author: 'Maria Popescu',
+    authorSlug: 'maria-popescu',
+    date: '2026-01-24',
+    readTime: '8 min',
+    keywords: ['blast chiller', 'blast chiller vs congelator', 'racire rapida', 'blast freezer', 'echipamente racire profesionala'],
+    content: `
+## Ce Este un Blast Chiller?
+
+Blast chiller-ul (sau răcitorul rapid) este un echipament care răcește alimentele extrem de rapid - de la +90°C la +3°C în mai puțin de 90 de minute.
+
+## Ce Este un Congelator?
+
+Congelatorul este un echipament care menține alimentele la temperaturi sub -18°C pentru depozitare pe termen lung.
+
+## Diferența Fundamentală
+
+**Blast Chiller = Răcire RAPIDĂ**
+**Congelator = Depozitare la TEMPERATURĂ JOASĂ**
+
+## Tabel Comparativ
+
+| Caracteristică | Blast Chiller | Congelator |
+|----------------|---------------|------------|
+| Scop | Răcire rapidă | Depozitare |
+| Temperatură țintă | +3°C sau -18°C rapid | -18°C constant |
+| Timp răcire | 90 minute (de la +90°C) | 12-24 ore |
+| Cristale gheață | Micro (calitate păstrată) | Macro (textura afectată) |
+| Utilizare | Procesare | Stocare |
+| Preț | 4.000-15.000 EUR | 1.500-5.000 EUR |
+
+## De Ce Este Importantă Răcirea Rapidă?
+
+### Zona de Pericol: 5°C - 60°C
+Bacteriile se înmulțesc cel mai rapid între 5°C și 60°C. Cu cât alimentele stau mai mult în această zonă, cu atât riscul de contaminare crește.
+
+### Răcire Rapidă (Blast Chiller):
+- De la +90°C la +3°C în < 90 minute
+- Traversează zona de pericol în minute
+- Cristale de gheață micro = textura păstrată
+
+### Răcire Lentă (Congelator clasic):
+- De la +90°C la -18°C în 12-24 ore
+- Ore întregi în zona de pericol
+- Cristale mari = textura deteriorată
+
+## Când Ai Nevoie de Blast Chiller?
+
+### Obligatoriu pentru:
+- **Cook & Chill:** Preparare în avans pentru catering
+- **Conformitate HACCP strictă:** Hoteluri, spitale, școli
+- **Volume mari:** Restaurante care pregătesc pentru a doua zi
+- **Patiserie profesională:** Înghețată, mousse, deserturi
+
+### Recomandat pentru:
+- Restaurante cu meniu complex
+- Catering și events
+- Dark kitchens
+- Restaurante cu mai multe locații
+
+### Nu este necesar pentru:
+- Restaurante mici cu preparare fresh
+- Fast-food cu flux continuu
+- Baruri și cafenele
+
+## Când Este Suficient Congelatorul?
+
+- Depozitare pe termen lung (săptămâni-luni)
+- Produse deja congelate de la furnizor
+- Backup pentru surplus de marfă
+- Înghețată și deserturi gata făcute
+
+## Investiție și ROI
+
+### Blast Chiller:
+- **Preț:** 4.000 - 15.000 EUR
+- **Economii:** Reduce risipa cu 15-30%
+- **ROI:** 12-24 luni pentru restaurante medii-mari
+
+### Congelator:
+- **Preț:** 1.500 - 5.000 EUR
+- **Economii:** Depozitare pe termen lung
+- **ROI:** Imediat prin evitarea pierderilor
+
+## Opțiuni Combo: Blast Chiller/Freezer
+
+Multe echipamente moderne oferă ambele funcții:
+- **Mod Chill:** Răcire rapidă la +3°C
+- **Mod Freeze:** Congelare rapidă la -18°C sau mai jos
+
+Avantaje:
+- Un singur echipament
+- Flexibilitate maximă
+- Economie de spațiu
+
+Preț: 5.000 - 20.000 EUR
+
+## Ce Să Alegi?
+
+### Alege BLAST CHILLER dacă:
+- Faci cook & chill (preparare în avans)
+- Ai cerințe HACCP stricte
+- Vrei să reduci risipa alimentară
+- Pregătești volume mari
+
+### Alege CONGELATOR dacă:
+- Ai nevoie doar de depozitare
+- Buget limitat
+- Volum mic de producție
+- Cumperi produse deja congelate
+
+### Alege AMBELE dacă:
+- Restaurant mediu-mare
+- Operațiuni complexe
+- Catering + restaurant
+
+## Modele Recomandate
+
+### Blast Chillere RM Gastro:
+- **SBC 051** - 5 tăvi, ideal pentru restaurante mici
+- **SBC 101** - 10 tăvi, pentru restaurante medii-mari
+- **SBC 201** - 20 tăvi, pentru hoteluri și catering
+
+### Congelatoare RM Gastro:
+- **CF 500** - 500L, pentru restaurante mici
+- **CF 700** - 700L, standard industrie
+- **CF 1400** - 1400L, pentru volume mari
+
+[Vezi gama completă de răcitoare rapide](/rm/racitoare-rapide)
+
+## Concluzie
+
+Blast chiller-ul și congelatorul au scopuri diferite:
+- **Blast chiller** = siguranță alimentară + calitate păstrată
+- **Congelator** = depozitare economică pe termen lung
+
+Pentru majoritatea restaurantelor profesionale, recomandăm să ai ambele.
+    `,
+    faqs: [
+      {
+        question: 'Pot folosi congelatorul în loc de blast chiller?',
+        answer: 'Tehnic da, dar cu compromisuri majore: răcirea lentă (12-24 ore) înseamnă ore în zona de pericol bacterian și cristale mari de gheață care deteriorează textura. Pentru conformitate HACCP și calitate, blast chiller-ul este necesar.',
+      },
+      {
+        question: 'Cât consumă un blast chiller?',
+        answer: 'Un blast chiller de 5 tăvi consumă 1-2 kW pe ciclu de răcire (90 minute). Dacă faci 3-4 cicluri pe zi, costul zilnic este de 3-8 RON. Consumul este doar în timpul ciclurilor active, nu continuu ca la congelator.',
+      },
+      {
+        question: 'Am nevoie de dedurizator pentru blast chiller?',
+        answer: 'Nu, blast chiller-ul nu folosește apă în proces (spre deosebire de combi steamer). Funcționează prin circulație de aer rece de mare viteză. Întreținerea constă în curățarea periodică a ventilatorului și serpentinei.',
+      },
+    ],
+  },
+  'echipamente-pizzerie-completa-ghid': {
+    title: 'Echipamente pentru Pizzerie Completă: Ghid de la A la Z',
+    excerpt: 'Tot ce ai nevoie pentru a deschide o pizzerie de succes. De la cuptor pizza la preparare aluat - lista completă de echipamente.',
+    category: 'Ghiduri',
+    author: 'Andrei Dumitrescu',
+    authorSlug: 'andrei-dumitrescu',
+    date: '2026-01-23',
+    readTime: '11 min',
+    keywords: ['echipamente pizzerie', 'cuptor pizza profesional', 'cum deschid pizzerie', 'echipamente pizza', 'malaxor aluat pizza'],
+    content: `
+## Introducere: Visul unei Pizzerii
+
+Pizza este unul dintre cele mai profitabile segmente din HoReCa. Dar succesul depinde de echipamentele potrivite.
+
+În acest ghid îți prezint lista completă de echipamente pentru o pizzerie funcțională, de la cuptor până la ultima lingură.
+
+## Echipamentul #1: Cuptorul de Pizza
+
+### Tipuri de Cuptoare Pizza
+
+#### Cuptor Electric cu Vatră
+- **Temperatură:** 350-450°C
+- **Timp coacere:** 4-6 minute
+- **Capacitate:** 4-12 pizza/nivel
+- **Preț:** 2.500 - 8.000 EUR
+
+**Ideal pentru:** Pizzerii medii, restaurante cu meniu variat
+
+#### Cuptor pe Gaz cu Vatră
+- **Temperatură:** 400-500°C
+- **Timp coacere:** 3-5 minute
+- **Costuri operaționale:** Mai mici decât electric
+- **Preț:** 3.000 - 10.000 EUR
+
+**Ideal pentru:** Pizzerii cu volum mare, stil tradițional
+
+#### Cuptor cu Lemne
+- **Temperatură:** 400-480°C
+- **Gust:** Autentic, afumat
+- **Timp coacere:** 90 secunde - 3 minute
+- **Preț:** 5.000 - 25.000 EUR
+
+**Ideal pentru:** Fine dining, concept artizanal
+
+#### Cuptor Rotativ (Conveyor)
+- **Temperatură:** 250-350°C
+- **Timp coacere:** Fix, controlat
+- **Capacitate:** 20-50 pizza/oră
+- **Preț:** 8.000 - 20.000 EUR
+
+**Ideal pentru:** Fast-food, delivery, volum mare consistent
+
+### Alegerea Capacității
+
+| Pizza/oră | Cuptor Recomandat |
+|-----------|-------------------|
+| 20-40 | 1 nivel, 4-6 pizza |
+| 40-80 | 2 nivele, 4-6 pizza/nivel |
+| 80-150 | Conveyor sau multiple cuptoare |
+
+## Echipamente Preparare Aluat
+
+### Malaxor Spirală
+**Esențial pentru aluat pizza.**
+
+- **Capacitate mică:** 20-30L (15-20 kg aluat) - 1.500-2.500 EUR
+- **Capacitate medie:** 40-60L (30-40 kg aluat) - 2.500-4.000 EUR
+- **Capacitate mare:** 80-120L (60-90 kg aluat) - 4.000-7.000 EUR
+
+**Calcul:** 1 pizza = 250g aluat → 30L malaxor = ~80 pizza/șarjă
+
+### Mașină Porționat Aluat (Opțional)
+- Porții perfecte, consistente
+- Preț: 1.000-3.000 EUR
+
+### Presă Aluat / Rounder (Opțional)
+- Formează bilele de aluat uniform
+- Preț: 800-2.500 EUR
+
+## Echipamente Refrigerare
+
+### Dulap Fermentare (Fermentatoare)
+**Esențial pentru aluat de calitate.**
+- Controlează temperatura și umiditatea
+- Fermentare lentă = gust superior
+- Preț: 2.500-6.000 EUR
+
+### Masă Frigorifică Pizza (cu granit)
+**Stația de lucru perfectă:**
+- Suprafață granit sau marmură (răcită)
+- Sertare refrigerate pentru ingrediente
+- Preț: 2.000-5.000 EUR
+
+### Frigider Ingrediente
+- Vertical sau tip vitrină
+- Preț: 1.500-3.500 EUR
+
+### Vitrină Ingrediente (Prep Counter)
+- Afișează ingredientele fresh
+- Preț: 1.000-3.000 EUR
+
+## Echipamente Preparare
+
+### Feliator Profesional
+- Pentru șuncă, salam, legume
+- Lamă 300-350mm pentru volume mari
+- Preț: 800-2.500 EUR
+
+### Cutter/Blender
+- Pentru sosuri, paste
+- Preț: 500-2.000 EUR
+
+### Râșniță Brânză
+- Pentru mozzarella proaspătă
+- Preț: 300-1.000 EUR
+
+## Mobilier Inox
+
+### Masă de Lucru Central
+- Minimum 2m lungime
+- Cu spate și raft inferior
+- Preț: 600-1.500 EUR
+
+### Rafturi Ingrediente
+- Deasupra mesei de lucru
+- Preț: 300-800 EUR
+
+### Suport Cutii Pizza
+- Organizare eficientă
+- Preț: 200-500 EUR
+
+## Echipamente Auxiliare
+
+### Hotă de Evacuare
+**Obligatorie deasupra cuptorului.**
+- Dimensiune = lățime cuptor + 20cm pe fiecare parte
+- Preț: 1.500-4.000 EUR
+
+### Mașină Spălat Vase
+- Minimum tip frontală
+- Preț: 2.500-5.000 EUR
+
+### Chiuvete Inox
+- Minim 2 (preparare + spălare mâini)
+- Preț: 400-1.000 EUR
+
+## Calculul Investiției Complete
+
+### Pizzerie Mică (30-50 pizza/zi)
+
+| Echipament | Preț |
+|------------|------|
+| Cuptor electric 1 nivel | 3.000 EUR |
+| Malaxor 30L | 1.800 EUR |
+| Masă frigorifică pizza | 2.500 EUR |
+| Frigider vertical | 2.000 EUR |
+| Feliator | 1.000 EUR |
+| Mobilier inox | 1.500 EUR |
+| Hotă | 2.000 EUR |
+| Mașină spălat vase | 3.000 EUR |
+| Accesorii diverse | 1.200 EUR |
+| **TOTAL** | **~18.000 EUR** |
+
+### Pizzerie Medie (80-120 pizza/zi)
+
+| Echipament | Preț |
+|------------|------|
+| Cuptor electric 2 nivele | 5.500 EUR |
+| Malaxor 60L | 3.500 EUR |
+| Dulap fermentare | 3.500 EUR |
+| Masă frigorifică pizza | 3.000 EUR |
+| Frigidere (2) | 4.000 EUR |
+| Feliator profesional | 1.500 EUR |
+| Mobilier inox complet | 3.000 EUR |
+| Hotă profesională | 3.000 EUR |
+| Mașină spălat vase capotă | 5.000 EUR |
+| Accesorii diverse | 2.000 EUR |
+| **TOTAL** | **~34.000 EUR** |
+
+## Sfaturi Finale
+
+1. **Nu economisi la cuptor** - este inima pizzeriei
+2. **Investește în fermentare** - diferența e în gust
+3. **Alege masă cu granit** - menține aluatul rece
+4. **Calculează volumul real** - nu supradimensiona
+5. **Consultă un expert** - evită greșelile costisitoare
+
+[Solicită consultanță gratuită pentru pizzeria ta](/consultanta-echipamente-horeca)
+    `,
+    faqs: [
+      {
+        question: 'Ce cuptor de pizza este cel mai bun pentru început?',
+        answer: 'Pentru o pizzerie nouă, recomandăm cuptor electric cu vatră, 1-2 nivele. Oferă control precis al temperaturii, instalare simplă și costuri predictibile. Cuptorul pe lemne sau gaz poate veni ulterior, când ai experiență și volum.',
+      },
+      {
+        question: 'Cât spațiu am nevoie pentru o pizzerie?',
+        answer: 'Minimum 25-30 mp pentru zona de producție: 8-10 mp pentru cuptor și preparare, 6-8 mp pentru depozitare/refrigerare, 4-6 mp pentru spălare, rest pentru circulație. Pentru delivery-only (dark kitchen), 15-20 mp pot fi suficienți.',
+      },
+      {
+        question: 'Pot folosi un cuptor de convecție pentru pizza?',
+        answer: 'Tehnic da, dar rezultatul nu va fi autentic. Cuptoarele de convecție ajung la max 300°C și nu au vatră. Pizza va fi bună, dar nu va avea crusta caracteristică. Pentru pizza autentică, investește într-un cuptor dedicat.',
+      },
+    ],
+  },
+  'mobilier-inox-ghid-complet': {
+    title: 'Mobilier Inox pentru Bucătărie Profesională: Tot Ce Trebuie Să Știi',
+    excerpt: 'Ghid complet despre mesele, rafturile și echipamentele inox. Cum alegi, ce grosime, standarde HACCP și întreținere.',
+    category: 'Ghiduri',
+    author: 'Elena Stanciu',
+    authorSlug: 'elena-stanciu',
+    date: '2026-01-22',
+    readTime: '9 min',
+    keywords: ['mobilier inox', 'mese inox profesionale', 'rafturi inox bucatarie', 'mobilier bucatarie profesionala', 'inox AISI 304'],
+    content: `
+## De Ce Inox în Bucătăria Profesională?
+
+Oțelul inoxidabil este standardul în bucătăriile comerciale din motive întemeiate:
+- **Igienă:** Suprafață neporoasă, ușor de curățat
+- **Durabilitate:** Rezistent la coroziune, lovituri, temperaturi
+- **Conformitate:** Acceptat universal pentru HACCP și DSP
+
+## Tipuri de Inox: AISI 304 vs AISI 430
+
+### AISI 304 (18/10)
+**Standardul premium pentru bucătării profesionale.**
+- Conține 18% crom + 10% nichel
+- Rezistență superioară la coroziune
+- Obligatoriu pentru contact direct cu alimente
+- Preț mai mare (+20-30% față de 430)
+
+### AISI 430
+**Opțiune economică pentru zone fără contact alimentar.**
+- Conține 17% crom, fără nichel
+- Rezistență bună, dar mai slabă la acizi
+- Potrivit pentru: picioare, cadre, zone non-alimentare
+- Preț mai mic
+
+### Ce Să Alegi?
+- **AISI 304:** Suprafețe de lucru, chiuvete, cuve
+- **AISI 430:** Picioare, cadre, rafturi non-alimentare
+
+## Grosimea Tablei Inox
+
+### Pentru Suprafețe de Lucru:
+- **0.8 mm:** Entry-level, uzură rapidă (nu recomandăm)
+- **1.0 mm:** Standard economic, acceptabil
+- **1.2 mm:** Standard profesional (recomandat)
+- **1.5 mm:** Premium, durabilitate maximă
+
+### Pentru Picioare și Cadre:
+- **1.0-1.2 mm:** Standard pentru încărcări normale
+- **1.5-2.0 mm:** Pentru încărcări grele
+
+## Tipuri de Mobilier Inox
+
+### Mese de Lucru
+
+#### Masă Simplă
+- Suprafață de lucru + picioare
+- Preț: 300-600 EUR (1500x700mm)
+
+#### Masă cu Spate
+- Protecție perete, mai igienică
+- Preț: 400-800 EUR
+
+#### Masă cu Spate și Raft Inferior
+- Depozitare suplimentară
+- Cea mai populară în industrie
+- Preț: 500-1.000 EUR
+
+#### Masă cu Dulap
+- Depozitare închisă sub blat
+- Preț: 700-1.500 EUR
+
+### Mese Speciale
+
+#### Masă Frigorifică
+- Suprafață de lucru + refrigerare sub blat
+- Preț: 2.000-5.000 EUR
+
+#### Masă cu Chiuvetă Integrată
+- Tot-în-unu pentru spații mici
+- Preț: 600-1.200 EUR
+
+#### Masă cu Granit
+- Pentru patiserie și pizza
+- Preț: 1.000-2.500 EUR
+
+### Rafturi și Depozitare
+
+#### Raft Perete
+- Deasupra mesei de lucru
+- Adâncime: 30-40cm
+- Preț: 100-300 EUR/metru
+
+#### Raft Grilaj (Slatted)
+- Permite circulația aerului
+- Ideal pentru depozit
+- Preț: 150-400 EUR
+
+#### Raft cu Rafturi Ajustabile
+- Flexibilitate maximă
+- Preț: 200-500 EUR
+
+### Cărucioare și Tăvi
+
+#### Cărucior GN
+- Pentru tăvi GN standard
+- Capacitate: 10-20 tăvi
+- Preț: 300-800 EUR
+
+#### Cărucior Cuptor
+- Se integrează cu cuptoarele
+- Preț: 400-1.000 EUR
+
+## Dimensiuni Standard
+
+### Mese de Lucru:
+- **Lățime:** 600mm (compact) sau 700mm (standard)
+- **Lungime:** 1000, 1200, 1500, 1800, 2000mm
+- **Înălțime:** 850-900mm (standard ergonomic)
+
+### Rafturi:
+- **Adâncime:** 300, 400mm (perete) sau 600mm (insule)
+- **Distanță între rafturi:** Min. 30cm pentru vase mari
+
+## Standarde HACCP pentru Mobilier
+
+### Obligatoriu:
+1. **Suprafețe netede** - fără fisuri sau îmbinări vizibile
+2. **Colțuri rotunjite** - raza min. 3mm
+3. **Distanță de la sol** - min. 15cm pentru curățare
+4. **Rezistent la dezinfectanți** - AISI 304 preferabil
+
+### Recomandări:
+- Suduri TIG netede, fără asperități
+- Fără șuruburi aparente pe suprafețe de lucru
+- Drenaj pentru lichide unde e cazul
+
+## Întreținerea Mobilierului Inox
+
+### Zilnic:
+- Șterge cu apă caldă și detergent neutru
+- Clătește și usucă (evită petele de apă)
+- Dezinfectează suprafețele de contact alimentar
+
+### Săptămânal:
+- Curățare în profunzime cu produs specific inox
+- Verifică și curăță zona sub echipamente
+- Verifică integritatea sudurilor
+
+### Nu Folosi:
+- Bureți abrazivi (zgârie suprafața)
+- Clor concentrat (corodează)
+- Acizi puternici fără clătire
+
+## Calculul Necesarului
+
+### Formula Simplă:
+**Metri liniari mese = Număr bucătari × 1.5m + 30% rezervă**
+
+### Exemplu Restaurant 60 locuri:
+- 3 bucătari × 1.5m = 4.5m
+- +30% = 6m mese de lucru
+- +2m rafturi superioare
+- +1 cărucior GN
+
+## Preturi Orientative
+
+| Produs | Preț Orientativ |
+|--------|-----------------|
+| Masă simplă 1500x700 | 350-600 EUR |
+| Masă cu spate și raft 1500x700 | 500-900 EUR |
+| Raft perete (per metru) | 100-250 EUR |
+| Cărucior GN 16 tăvi | 350-700 EUR |
+| Chiuvetă dublă | 400-800 EUR |
+
+## Unde Să Cumperi?
+
+Sfatul nostru: cumpără de la furnizori specializați HoReCa, nu de la producători generaliști.
+
+Avantaje:
+- Inox certificat pentru uz alimentar
+- Dimensiuni adaptate echipamentelor standard
+- Garanție și înlocuire facilă
+
+[Vezi gama de mobilier inox](/rm/mobilier-neutru)
+
+## Concluzie
+
+Mobilierul inox este o investiție pe termen lung. Merită să alegi:
+- **AISI 304** pentru suprafețe de contact
+- **Grosime 1.2mm** minimum pentru durabilitate
+- **Producător specializat HoReCa** pentru conformitate
+
+Nu economisi la mobilier - este fundația bucătăriei tale.
+    `,
+    faqs: [
+      {
+        question: 'Cum știu dacă inoxul este AISI 304 sau 430?',
+        answer: 'Testul magnetului: AISI 430 este magnetic, AISI 304 este slab magnetic sau non-magnetic. Dar cel mai sigur este să ceri certificat de la furnizor. Evită furnizori care nu pot dovedi tipul de inox.',
+      },
+      {
+        question: 'Cât durează mobilierul inox de calitate?',
+        answer: 'Mobilierul inox AISI 304 de calitate durează 15-25 de ani cu întreținere normală. AISI 430 durează 8-15 ani. Factorul principal de degradare este coroziunea din curățare necorespunzătoare, nu uzura fizică.',
+      },
+      {
+        question: 'Pot comanda mobilier inox la dimensiuni speciale?',
+        answer: 'Da, majoritatea producătorilor fac mobilier la comandă. Prețul crește cu 20-40% față de dimensiunile standard, iar timpul de livrare e de 2-4 săptămâni. Pentru spații atipice, merită investiția în dimensiuni custom.',
+      },
+    ],
+  },
 }
 
 // Function to get related articles based on category and keywords

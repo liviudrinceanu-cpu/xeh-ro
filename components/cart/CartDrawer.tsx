@@ -1,6 +1,6 @@
 'use client'
 
-import { useEffect, useState } from 'react'
+import { useEffect, useState, useRef, useCallback } from 'react'
 import { createPortal } from 'react-dom'
 import Link from 'next/link'
 import Image from 'next/image'
@@ -22,31 +22,67 @@ export default function CartDrawer() {
 
   // Track if component is mounted (for SSR safety with createPortal)
   const [mounted, setMounted] = useState(false)
+  const drawerRef = useRef<HTMLDivElement>(null)
+  const closeButtonRef = useRef<HTMLButtonElement>(null)
+  const previousActiveElement = useRef<HTMLElement | null>(null)
 
   useEffect(() => {
     setMounted(true)
   }, [])
 
+  // Focus trap implementation
+  const handleKeyDown = useCallback((e: KeyboardEvent) => {
+    if (e.key === 'Escape') {
+      closeCart()
+      return
+    }
+
+    if (e.key !== 'Tab' || !drawerRef.current) return
+
+    const focusableElements = drawerRef.current.querySelectorAll<HTMLElement>(
+      'button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])'
+    )
+    const firstElement = focusableElements[0]
+    const lastElement = focusableElements[focusableElements.length - 1]
+
+    if (e.shiftKey) {
+      // Shift + Tab
+      if (document.activeElement === firstElement) {
+        e.preventDefault()
+        lastElement?.focus()
+      }
+    } else {
+      // Tab
+      if (document.activeElement === lastElement) {
+        e.preventDefault()
+        firstElement?.focus()
+      }
+    }
+  }, [closeCart])
+
   // Prevent body scroll when drawer is open
   useEffect(() => {
     if (isOpen) {
       document.body.style.overflow = 'hidden'
+      // Store current focus and focus close button
+      previousActiveElement.current = document.activeElement as HTMLElement
+      setTimeout(() => closeButtonRef.current?.focus(), 100)
     } else {
       document.body.style.overflow = ''
+      // Restore focus when closing
+      previousActiveElement.current?.focus()
     }
     return () => {
       document.body.style.overflow = ''
     }
   }, [isOpen])
 
-  // Close on escape key
+  // Keyboard navigation with focus trap
   useEffect(() => {
-    const handleEscape = (e: KeyboardEvent) => {
-      if (e.key === 'Escape') closeCart()
-    }
-    window.addEventListener('keydown', handleEscape)
-    return () => window.removeEventListener('keydown', handleEscape)
-  }, [closeCart])
+    if (!isOpen) return
+    window.addEventListener('keydown', handleKeyDown)
+    return () => window.removeEventListener('keydown', handleKeyDown)
+  }, [isOpen, handleKeyDown])
 
   // Don't render anything on server or if not open
   if (!mounted || !isOpen) return null
@@ -64,6 +100,7 @@ export default function CartDrawer() {
 
       {/* Drawer */}
       <div
+        ref={drawerRef}
         role="dialog"
         aria-modal="true"
         aria-labelledby="cart-drawer-title"
@@ -84,6 +121,7 @@ export default function CartDrawer() {
             </div>
           </div>
           <button
+            ref={closeButtonRef}
             onClick={closeCart}
             className="p-2 hover:bg-gray-100 rounded-lg transition-colors"
             aria-label="Închide"

@@ -1,6 +1,15 @@
 import { createClient } from '@/lib/supabase/server'
 import { NextRequest, NextResponse } from 'next/server'
 
+// Sanitize search query to prevent SQL injection via LIKE wildcards
+function sanitizeSearchQuery(query: string): string {
+  // Escape special characters used in LIKE patterns: %, _, \
+  return query
+    .replace(/\\/g, '\\\\')  // Escape backslash first
+    .replace(/%/g, '\\%')     // Escape percent
+    .replace(/_/g, '\\_')     // Escape underscore
+}
+
 export async function GET(request: NextRequest) {
   const searchParams = request.nextUrl.searchParams
   const query = searchParams.get('q')?.trim()
@@ -9,6 +18,9 @@ export async function GET(request: NextRequest) {
   if (!query || query.length < 2) {
     return NextResponse.json({ products: [], categories: [] })
   }
+
+  // Sanitize query to prevent SQL injection
+  const sanitizedQuery = sanitizeSearchQuery(query)
 
   const supabase = await createClient()
 
@@ -28,7 +40,7 @@ export async function GET(request: NextRequest) {
       brand:brands(name, slug),
       product_images(cloudinary_url, is_primary)
     `)
-    .or(`title_en.ilike.%${query}%,title_ro.ilike.%${query}%,model.ilike.%${query}%,sap_code.ilike.%${query}%`)
+    .or(`title_en.ilike.%${sanitizedQuery}%,title_ro.ilike.%${sanitizedQuery}%,model.ilike.%${sanitizedQuery}%,sap_code.ilike.%${sanitizedQuery}%`)
     .order('price_amount', { ascending: false, nullsFirst: false })
     .limit(limit)
 
@@ -44,7 +56,7 @@ export async function GET(request: NextRequest) {
       product_count,
       brand:brands(name, slug)
     `)
-    .or(`name.ilike.%${query}%,name_ro.ilike.%${query}%`)
+    .or(`name.ilike.%${sanitizedQuery}%,name_ro.ilike.%${sanitizedQuery}%`)
     .order('product_count', { ascending: false, nullsFirst: false })
     .limit(4)
 

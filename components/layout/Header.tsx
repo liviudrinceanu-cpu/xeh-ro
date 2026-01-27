@@ -166,8 +166,8 @@ export default function Header() {
               </>
             )}
 
-            {/* Cart Button */}
-            <CartButton className="hidden sm:flex" />
+            {/* Cart Button - visible on all screen sizes */}
+            <CartButton />
 
             {/* CTA Button */}
             <Link

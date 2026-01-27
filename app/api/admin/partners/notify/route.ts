@@ -55,11 +55,12 @@ export async function POST(request: NextRequest) {
 
     if (action === 'approved') {
       // Get partner details
+      // Use !user_id hint to specify which foreign key (partners has both user_id and approved_by referencing user_profiles)
       const { data: partner } = await supabaseAdmin
         .from('partners')
         .select(`
           *,
-          user_profile:user_profiles (first_name, last_name, email)
+          user_profile:user_profiles!user_id (first_name, last_name, email)
         `)
         .eq('id', partnerId)
         .single()

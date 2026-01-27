@@ -61,7 +61,8 @@ export default function AdminDashboardPage() {
           .select('*', { count: 'exact', head: true })
           .eq('status', 'pending')
 
-        // Get recent partners with user profile join (same pattern as /admin/partners page)
+        // Get recent partners with user profile join
+        // Use !user_id hint to specify which foreign key to use (partners has both user_id and approved_by referencing user_profiles)
         const { data: recentPartners, error: partnersError } = await supabase
           .from('partners')
           .select(`
@@ -69,7 +70,7 @@ export default function AdminDashboardPage() {
             company_name,
             created_at,
             is_approved,
-            user_profile:user_profiles (first_name, last_name, email)
+            user_profile:user_profiles!user_id (first_name, last_name, email)
           `)
           .order('created_at', { ascending: false })
           .limit(5)

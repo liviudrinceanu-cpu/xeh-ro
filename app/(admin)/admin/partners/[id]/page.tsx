@@ -67,11 +67,12 @@ export default function AdminPartnerDetailPage() {
 
       try {
         // Load partner details
+        // Use !user_id hint to specify which foreign key (partners has both user_id and approved_by referencing user_profiles)
         const { data: partnerData, error: partnerError } = await supabase
           .from('partners')
           .select(`
             *,
-            user_profile:user_profiles (id, first_name, last_name, email, phone)
+            user_profile:user_profiles!user_id (id, first_name, last_name, email, phone)
           `)
           .eq('id', params.id)
           .single()

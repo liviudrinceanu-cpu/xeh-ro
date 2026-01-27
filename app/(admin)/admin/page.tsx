@@ -33,13 +33,10 @@ export default function AdminDashboardPage() {
 
   useEffect(() => {
     async function loadStats() {
-      console.log('[Admin Dashboard] Starting loadStats...')
       const supabase = createClient()
-      console.log('[Admin Dashboard] Supabase client created')
 
       try {
         // Get partner counts
-        console.log('[Admin Dashboard] Fetching partner counts...')
         const { count: totalPartners } = await supabase
           .from('partners')
           .select('*', { count: 'exact', head: true })
@@ -65,7 +62,7 @@ export default function AdminDashboardPage() {
           .eq('status', 'pending')
 
         // Get recent partners with user profile join
-        // Use !user_id hint to specify which foreign key to use (partners has both user_id and approved_by referencing user_profiles)
+        // Use !partners_user_id_fkey to specify the exact foreign key constraint name
         const { data: recentPartners, error: partnersError } = await supabase
           .from('partners')
           .select(`
@@ -73,7 +70,7 @@ export default function AdminDashboardPage() {
             company_name,
             created_at,
             is_approved,
-            user_profile:user_profiles!user_id (first_name, last_name, email)
+            user_profile:user_profiles!partners_user_id_fkey (first_name, last_name, email)
           `)
           .order('created_at', { ascending: false })
           .limit(5)
@@ -99,12 +96,6 @@ export default function AdminDashboardPage() {
           user_profile: Array.isArray(p.user_profile) ? p.user_profile[0] : p.user_profile
         }))
 
-        console.log('[Admin Dashboard] All queries completed successfully', {
-          totalPartners, pendingPartners, approvedPartners, totalQuotes, pendingQuotes,
-          recentPartnersCount: transformedPartners.length,
-          recentQuotesCount: recentQuotes?.length || 0
-        })
-
         setStats({
           totalPartners: totalPartners || 0,
           pendingPartners: pendingPartners || 0,
@@ -115,9 +106,8 @@ export default function AdminDashboardPage() {
           recentQuotes: recentQuotes || [],
         })
       } catch (error) {
-        console.error('[Admin Dashboard] Error loading admin stats:', error)
+        console.error('Error loading admin stats:', error)
       } finally {
-        console.log('[Admin Dashboard] loadStats finished, setting isLoading to false')
         setIsLoading(false)
       }
     }

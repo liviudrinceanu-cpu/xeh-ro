@@ -72,7 +72,7 @@ export default function AdminPartnerDetailPage() {
           .from('partners')
           .select(`
             *,
-            user_profile:user_profiles!user_id (id, first_name, last_name, email, phone)
+            user_profile:user_profiles!partners_user_id_fkey (id, first_name, last_name, email, phone)
           `)
           .eq('id', params.id)
           .single()

@@ -42,7 +42,7 @@ function PartnersContent() {
             is_approved,
             created_at,
             approved_at,
-            user_profile:user_profiles!user_id (first_name, last_name, email, phone)
+            user_profile:user_profiles!partners_user_id_fkey (first_name, last_name, email, phone)
           `)
           .order('created_at', { ascending: false })
 

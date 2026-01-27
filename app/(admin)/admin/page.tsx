@@ -32,8 +32,11 @@ export default function AdminDashboardPage() {
   const [isLoading, setIsLoading] = useState(true)
 
   useEffect(() => {
+    console.log('[Admin] useEffect running')
     async function loadStats() {
+      console.log('[Admin] loadStats called')
       const supabase = createClient()
+      console.log('[Admin] Supabase client created, starting queries...')
 
       try {
         // Get partner counts
@@ -106,8 +109,9 @@ export default function AdminDashboardPage() {
           recentQuotes: recentQuotes || [],
         })
       } catch (error) {
-        console.error('Error loading admin stats:', error)
+        console.error('[Admin] Error loading admin stats:', error)
       } finally {
+        console.log('[Admin] Setting isLoading to false')
         setIsLoading(false)
       }
     }

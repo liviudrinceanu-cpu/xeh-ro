@@ -40,14 +40,18 @@ export default function AdminDashboardPage() {
 
       try {
         // Get partner counts
-        const { count: totalPartners } = await supabase
+        console.log('[Admin] Query 1: totalPartners...')
+        const { count: totalPartners, error: err1 } = await supabase
           .from('partners')
           .select('*', { count: 'exact', head: true })
+        console.log('[Admin] Query 1 done:', { totalPartners, error: err1?.message })
 
-        const { count: pendingPartners } = await supabase
+        console.log('[Admin] Query 2: pendingPartners...')
+        const { count: pendingPartners, error: err2 } = await supabase
           .from('partners')
           .select('*', { count: 'exact', head: true })
           .eq('is_approved', false)
+        console.log('[Admin] Query 2 done:', { pendingPartners, error: err2?.message })
 
         const { count: approvedPartners } = await supabase
           .from('partners')

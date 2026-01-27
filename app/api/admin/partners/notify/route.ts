@@ -60,7 +60,7 @@ export async function POST(request: NextRequest) {
         .from('partners')
         .select(`
           *,
-          user_profile:user_profiles!partners_user_id_fkey (first_name, last_name, email)
+          user_profile:user_profiles!user_id (first_name, last_name, email)
         `)
         .eq('id', partnerId)
         .single()

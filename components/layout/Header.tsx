@@ -76,19 +76,8 @@ export default function Header() {
               <Search className="w-5 h-5" />
             </button>
 
-            {/* Auth Section */}
-            {isLoading ? (
-              /* Show login button while loading - better UX than blank */
-              <Link
-                href="/login"
-                className="hidden sm:inline-flex items-center gap-2 px-4 py-2 border border-gray-200 rounded-lg text-sm font-medium text-gray-600 hover:bg-gray-50 transition-colors"
-              >
-                <User className="w-4 h-4" />
-                Cont Partener
-              </Link>
-            ) : (
-              <>
-                {user ? (
+            {/* Auth Section - Only show for logged in users */}
+            {!isLoading && user ? (
                   /* User Menu */
                   <div className="relative hidden sm:block">
                     <button
@@ -153,18 +142,7 @@ export default function Header() {
                       </>
                     )}
                   </div>
-                ) : (
-                  /* Login Button */
-                  <Link
-                    href="/login"
-                    className="hidden sm:inline-flex items-center gap-2 px-4 py-2 border border-gray-200 rounded-lg text-sm font-medium text-gray-600 hover:bg-gray-50 transition-colors"
-                  >
-                    <User className="w-4 h-4" />
-                    Cont Partener
-                  </Link>
-                )}
-              </>
-            )}
+            ) : null}
 
             {/* Cart Button - visible on all screen sizes */}
             <CartButton />
@@ -208,54 +186,28 @@ export default function Header() {
                   </Link>
                 </li>
               ))}
-              {/* Auth links for mobile */}
-              {isLoading ? (
-                <li className="pt-2 border-t border-gray-200">
-                  <Link
-                    href="/login"
-                    onClick={() => setMobileMenuOpen(false)}
-                    className="flex items-center justify-center gap-2 px-3 py-2 text-base font-medium text-gray-600 border border-gray-200 hover:bg-gray-50 rounded-lg transition-colors"
-                  >
-                    <User className="w-5 h-5" />
-                    Cont Partener
-                  </Link>
-                </li>
-              ) : (
+              {/* Auth links for mobile - only show if logged in */}
+              {!isLoading && user && (
                 <>
-                  {user ? (
-                    <>
-                      <li className="pt-2 border-t border-gray-200">
-                        <Link
-                          href={isAdmin ? '/admin' : '/portal/dashboard'}
-                          onClick={() => setMobileMenuOpen(false)}
-                          className="flex items-center gap-2 px-3 py-2 text-base font-medium text-crimson hover:bg-crimson-bg rounded-lg transition-colors"
-                        >
-                          <LayoutDashboard className="w-5 h-5" />
-                          {isAdmin ? 'Panou Admin' : 'Portalul Meu'}
-                        </Link>
-                      </li>
-                      <li>
-                        <button
-                          onClick={handleSignOut}
-                          className="flex items-center gap-2 w-full px-3 py-2 text-base font-medium text-gray-600 hover:bg-gray-50 rounded-lg transition-colors"
-                        >
-                          <LogOut className="w-5 h-5" />
-                          Deconectare
-                        </button>
-                      </li>
-                    </>
-                  ) : (
-                    <li className="pt-2 border-t border-gray-200">
-                      <Link
-                        href="/login"
-                        onClick={() => setMobileMenuOpen(false)}
-                        className="flex items-center justify-center gap-2 px-3 py-2 text-base font-medium text-gray-600 border border-gray-200 hover:bg-gray-50 rounded-lg transition-colors"
-                      >
-                        <User className="w-5 h-5" />
-                        Cont Partener
-                      </Link>
-                    </li>
-                  )}
+                  <li className="pt-2 border-t border-gray-200">
+                    <Link
+                      href={isAdmin ? '/admin' : '/portal/dashboard'}
+                      onClick={() => setMobileMenuOpen(false)}
+                      className="flex items-center gap-2 px-3 py-2 text-base font-medium text-crimson hover:bg-crimson-bg rounded-lg transition-colors"
+                    >
+                      <LayoutDashboard className="w-5 h-5" />
+                      {isAdmin ? 'Panou Admin' : 'Portalul Meu'}
+                    </Link>
+                  </li>
+                  <li>
+                    <button
+                      onClick={handleSignOut}
+                      className="flex items-center gap-2 w-full px-3 py-2 text-base font-medium text-gray-600 hover:bg-gray-50 rounded-lg transition-colors"
+                    >
+                      <LogOut className="w-5 h-5" />
+                      Deconectare
+                    </button>
+                  </li>
                 </>
               )}
               <li className="pt-2">

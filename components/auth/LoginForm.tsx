@@ -154,14 +154,6 @@ export default function LoginForm() {
           </button>
         </form>
 
-        <div className="mt-8 pt-6 border-t border-gray-100 text-center">
-          <p className="text-gray-500">
-            Nu ai cont?{' '}
-            <Link href="/register" className="text-crimson font-medium hover:underline">
-              Înregistrează-te ca partener
-            </Link>
-          </p>
-        </div>
       </div>
 
       <p className="text-center text-sm text-gray-500 mt-6">

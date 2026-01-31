@@ -1,10 +1,11 @@
-import RegisterForm from '@/components/auth/RegisterForm'
+import { redirect } from 'next/navigation'
 
 export const metadata = {
   title: 'Înregistrare Partener',
-  description: 'Creează un cont de partener pentru acces la prețuri speciale XEH.ro',
+  description: 'Înregistrarea partenerilor este temporar dezactivată.',
 }
 
 export default function RegisterPage() {
-  return <RegisterForm />
+  // Partner registration temporarily disabled
+  redirect('/')
 }

@@ -1,7 +1,7 @@
 # Setup Portabil - XEH.ro
 
 > **Acest fișier conține instrucțiunile pentru a continua lucrul la proiect de pe orice calculator.**
-> **Ultima actualizare:** 2026-01-31
+> **Ultima actualizare:** 2026-01-31 (adăugat workflow multi-calculator)
 
 ---
 
@@ -101,6 +101,75 @@ git status
 
 # 3. Pornește Claude Code
 claude
+```
+
+---
+
+## Continuare Proiect pe Alt Calculator
+
+### De Ce Funcționează Portabilitatea
+
+| Element | Unde e Stocat | Ce Face |
+|---------|---------------|---------|
+| `CLAUDE.md` | În proiect pe SSD | Conține tot contextul, deciziile, statusul |
+| Codul sursă | În proiect pe SSD | Portabil, identic pe orice calculator |
+| `.git/` | În proiect pe SSD | Istoricul complet al proiectului |
+| `node_modules/` | Regenerat local | `npm install` le recreează identic |
+
+### Workflow: Prima Dată pe Calculator Nou
+
+```bash
+# 1. Conectează SSD-ul extern la noul calculator
+
+# 2. Deschide Terminal și navighează la proiect:
+cd "/Volumes/SSD1TB800/SITEURI Warp/HEXro"
+
+# 3. Reinstalează dependencies (OBLIGATORIU prima dată):
+rm -rf node_modules .next
+npm install
+
+# 4. Configurează Git:
+git config core.fileMode false
+
+# 5. Pornește Claude Code:
+claude
+```
+
+> **De ce `npm install` de fiecare dată pe calculator nou?**
+> - Unele pachete au binare compilate pentru arhitectura specifică (arm64 vs x64)
+> - macOS vs Windows vs Linux au dependențe diferite
+> - **Codul tău și contextul din CLAUDE.md rămân identice!**
+
+### Workflow: Calculator Cunoscut (După Prima Configurare)
+
+```bash
+# Simplu - doar conectează SSD și:
+cd "/Volumes/SSD1TB800/SITEURI Warp/HEXro" && claude
+```
+
+### Rezumat Rapid
+
+| Situație | Comandă |
+|----------|---------|
+| Același calculator | `cd ~/HEXro && claude` |
+| Calculator nou (prima dată) | `cd /Volumes/.../HEXro && npm install && claude` |
+| Calculator cunoscut | `cd /Volumes/.../HEXro && claude` |
+
+### Cerințe Minime pe Calculator Nou
+
+```bash
+# Verifică că ai Node.js instalat:
+node --version    # trebuie v18+
+
+# Verifică că ai Git:
+git --version
+
+# Verifică că ai Claude Code:
+claude --version
+
+# Dacă lipsește ceva pe macOS:
+brew install node git
+npm install -g @anthropic-ai/claude-code
 ```
 
 ---

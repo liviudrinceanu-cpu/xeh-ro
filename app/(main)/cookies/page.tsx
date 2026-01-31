@@ -165,7 +165,7 @@ export default function CookiesPage() {
           </p>
           <ul className="list-disc pl-6 mt-2">
             <li>Email: <a href="mailto:privacy@xeh.ro" className="text-crimson hover:text-crimson-dark">privacy@xeh.ro</a></li>
-            <li>Telefon: <a href="tel:+40371232404" className="text-crimson hover:text-crimson-dark">0371 232 404</a></li>
+            <li>Telefon: <a href="tel:+40724256250" className="text-crimson hover:text-crimson-dark">0724 256 250</a></li>
           </ul>
         </section>
 

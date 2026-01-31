@@ -106,7 +106,7 @@ export default function TermeniPage() {
             Pentru orice întrebări referitoare la acești termeni și condiții, ne puteți contacta:
           </p>
           <ul className="list-disc pl-6 mt-2">
-            <li>Telefon: <a href="tel:+40371232404" className="text-crimson hover:text-crimson-dark">0371 232 404</a></li>
+            <li>Telefon: <a href="tel:+40724256250" className="text-crimson hover:text-crimson-dark">0724 256 250</a></li>
             <li>Email: <a href="mailto:secretariat@infinitrade-romania.ro" className="text-crimson hover:text-crimson-dark">secretariat@infinitrade-romania.ro</a></li>
             <li>Site: <a href="https://www.xeh.ro/contact" className="text-crimson hover:text-crimson-dark">www.xeh.ro/contact</a></li>
           </ul>

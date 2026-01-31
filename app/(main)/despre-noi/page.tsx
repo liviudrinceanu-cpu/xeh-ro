@@ -417,7 +417,7 @@ export default function DespreNoiPage() {
               <div>
                 <h3 className="font-semibold text-gray-600 mb-4">Contact</h3>
                 <ul className="space-y-3 text-gray-500">
-                  <li><strong>Telefon:</strong> <a href="tel:+40371232404" className="text-crimson hover:underline">+40 371 232 404</a></li>
+                  <li><strong>Telefon:</strong> <a href="tel:+40724256250" className="text-crimson hover:underline">+40 724 256 250</a></li>
                   <li><strong>Email:</strong> <a href="mailto:secretariat@infinitrade-romania.ro" className="text-crimson hover:underline">secretariat@infinitrade-romania.ro</a></li>
                   <li><strong>Program:</strong> Luni - Vineri, 08:00 - 16:30</li>
                   <li><strong>Website:</strong> <a href="https://www.xeh.ro" className="text-crimson hover:underline">www.xeh.ro</a></li>

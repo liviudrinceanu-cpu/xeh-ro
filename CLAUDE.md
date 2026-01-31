@@ -57,7 +57,7 @@
 | Nr. Reg. Com. | J35/2901/2009 |
 | Fondată | 2009 (15+ ani experiență) |
 | Adresa | Calea Lugojului, nr.47/B, Hala nr. 3, Ghiroda, Timiș 307200 |
-| Telefon | +40 371 232 404 |
+| Telefon | +40 724 256 250 |
 | Program | Luni - Vineri, 08:00 - 16:30 |
 | Email | secretariat@infinitrade-romania.ro |
 
@@ -724,7 +724,7 @@ docs/migration-fix-rls.sql
 - **Nr. Reg. Com.:** J35/2901/2009
 - **Fondată:** 2009 (15+ ani experiență)
 - **Adresa:** Calea Lugojului, nr.47/B, Hala nr. 3, Ghiroda, Timiș 307200
-- **Telefon:** +40 371 232 404
+- **Telefon:** +40 724 256 250
 - **Program:** Luni - Vineri, 08:00 - 16:30
 - **Email secretariat:** secretariat@infinitrade-romania.ro
 
@@ -954,7 +954,7 @@ git push
 🔧 CONFIGURAȚII IMPORTANTE:
 - Companie: Driatheli Group SRL
 - Adresa: Calea Lugojului 47/B, Ghiroda, Timiș 307200
-- Telefon: +40 371 232 404
+- Telefon: +40 724 256 250
 - Program: Luni - Vineri, 08:00 - 16:30
 - Email: secretariat@infinitrade-romania.ro
 - Admin: liviu.drinceanu@infinitrade-romania.ro / XehAdmin2026!
@@ -979,4 +979,4 @@ Cu ce pot să te ajut?
 
 ---
 
-*Ultima actualizare: 2026-01-31 | Site: https://www.xeh.ro | Companie: Driatheli Group SRL | CUI: RO26209397 | Tel: +40 371 232 404*
+*Ultima actualizare: 2026-01-31 | Site: https://www.xeh.ro | Companie: Driatheli Group SRL | CUI: RO26209397 | Tel: +40 724 256 250*

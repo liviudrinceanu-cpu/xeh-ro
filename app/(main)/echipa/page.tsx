@@ -235,11 +235,11 @@ export default function EchipaPage() {
               Contactează-ne
             </Link>
             <a
-              href="tel:+40371232404"
+              href="tel:+40724256250"
               className="inline-flex items-center justify-center gap-2 bg-white/20 hover:bg-white/30 text-white px-6 py-3 rounded-xl font-semibold transition-colors"
             >
               <Phone className="w-4 h-4" />
-              Sună: 0371 232 404
+              Sună: 0724 256 250
             </a>
           </div>
           {/* Last Updated - E-E-A-T signal for content freshness */}

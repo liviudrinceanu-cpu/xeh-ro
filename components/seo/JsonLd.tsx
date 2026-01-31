@@ -90,7 +90,7 @@ export function OrganizationJsonLd() {
     description: 'Distribuitor autorizat de echipamente profesionale HoReCa. Branduri premium RM Gastro și REDFOX pentru restaurante, hoteluri și cafenele.',
     contactPoint: {
       '@type': 'ContactPoint',
-      telephone: '+40371232404',
+      telephone: '+40724256250',
       contactType: 'sales',
       areaServed: 'RO',
       availableLanguage: ['Romanian', 'English'],
@@ -118,7 +118,7 @@ export function LocalBusinessJsonLd() {
     name: 'XEH.ro - eXpert Echipamente Horeca',
     image: 'https://www.xeh.ro/logo.png',
     url: 'https://www.xeh.ro',
-    telephone: '+40371232404',
+    telephone: '+40724256250',
     email: 'secretariat@infinitrade-romania.ro',
     description: 'Distribuitor autorizat de echipamente profesionale HoReCa în România. Cuptoare profesionale, frigidere industriale, mașini de spălat vase și echipamente complete pentru restaurante și hoteluri.',
     address: {

@@ -42,7 +42,7 @@ const blogFaqs = [
   },
   {
     question: 'Cum pot obține o ofertă pentru echipamente HoReCa?',
-    answer: 'Poți solicita o ofertă personalizată direct pe site-ul nostru la secțiunea Cerere Ofertă sau ne poți contacta telefonic la +40 371 232 404. Răspundem în maxim 24 de ore.',
+    answer: 'Poți solicita o ofertă personalizată direct pe site-ul nostru la secțiunea Cerere Ofertă sau ne poți contacta telefonic la +40 724 256 250. Răspundem în maxim 24 de ore.',
   },
 ]
 

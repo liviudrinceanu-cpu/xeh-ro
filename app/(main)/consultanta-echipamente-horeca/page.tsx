@@ -138,8 +138,8 @@ const processSteps = [
 const contactMethods = [
   {
     method: 'Telefon',
-    value: '0371 232 404',
-    href: 'tel:+40371232404',
+    value: '0724 256 250',
+    href: 'tel:+40724256250',
     icon: Phone,
     description: 'Luni-Vineri: 9:00-18:00',
     cta: 'Sună Acum',
@@ -215,11 +215,11 @@ export default function ConsultantaEchipamenteHorecaPage() {
             </p>
             <div className="flex flex-wrap gap-4">
               <a
-                href="tel:+40371232404"
+                href="tel:+40724256250"
                 className="inline-flex items-center gap-2 bg-white text-teal-800 hover:bg-teal-50 px-6 py-3 rounded-xl font-semibold transition-colors"
               >
                 <Phone className="w-5 h-5" />
-                Sună: 0371 232 404
+                Sună: 0724 256 250
               </a>
               <Link
                 href="/cerere-oferta"
@@ -435,11 +435,11 @@ export default function ConsultantaEchipamenteHorecaPage() {
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <a
-              href="tel:+40371232404"
+              href="tel:+40724256250"
               className="inline-flex items-center justify-center gap-2 bg-white text-teal-700 hover:bg-teal-50 px-8 py-4 rounded-xl font-semibold transition-all text-lg"
             >
               <Phone className="w-5 h-5" />
-              Sună Acum: 0371 232 404
+              Sună Acum: 0724 256 250
             </a>
             <Link
               href="/cerere-oferta"

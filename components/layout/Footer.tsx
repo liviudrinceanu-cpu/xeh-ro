@@ -119,11 +119,11 @@ export default function Footer() {
               </li>
               <li>
                 <a
-                  href="tel:+40371232404"
+                  href="tel:+40724256250"
                   className="flex items-center gap-2 text-gray-400 hover:text-crimson-light transition-colors text-sm"
                 >
                   <Phone className="w-4 h-4 flex-shrink-0" />
-                  <span>+40 371 232 404</span>
+                  <span>+40 724 256 250</span>
                 </a>
               </li>
               <li>

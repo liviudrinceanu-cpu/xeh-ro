@@ -430,11 +430,11 @@ export default async function DistribuitorRMGastroPage() {
               <ArrowRight className="w-5 h-5" />
             </Link>
             <a
-              href="tel:+40371232404"
+              href="tel:+40724256250"
               className="inline-flex items-center justify-center gap-2 bg-white/10 hover:bg-white/20 text-white px-8 py-4 rounded-xl font-semibold transition-colors text-lg"
             >
               <Phone className="w-5 h-5" />
-              0371 232 404
+              0724 256 250
             </a>
           </div>
         </div>

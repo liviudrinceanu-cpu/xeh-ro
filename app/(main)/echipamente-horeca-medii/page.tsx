@@ -428,10 +428,10 @@ export default async function EchipamenteHorecaMediiPage() {
               Solicită Ofertă Personalizată
             </Link>
             <a
-              href="tel:+40371232404"
+              href="tel:+40724256250"
               className="inline-flex items-center justify-center gap-2 bg-white/10 hover:bg-white/20 text-white px-8 py-4 rounded-xl font-semibold transition-colors text-lg"
             >
-              Sună: 0371 232 404
+              Sună: 0724 256 250
             </a>
           </div>
         </div>

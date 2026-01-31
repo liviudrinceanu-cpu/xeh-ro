@@ -1,7 +1,7 @@
 # XEH.ro - Context Proiect
 
 > **IMPORTANT:** Acest fișier este citit automat de Claude Code. Actualizează-l după fiecare decizie majoră.
-> **Ultima actualizare:** 2026-01-27 - ULTRA SEO DOMINATION (FAZA 1+2 COMPLETE)
+> **Ultima actualizare:** 2026-01-31 - DATE COMPANIE ACTUALIZATE (Driatheli Group SRL)
 
 ---
 
@@ -42,6 +42,41 @@
 **FOCUS TRAP: ✅ CartDrawer are focus trap pentru accessibility**
 **MOBILE CART: ✅ CartButton vizibil pe toate ecranele**
 **BREADCRUMB SCHEMA: ✅ Fix sintaxă Schema.org**
+**🆕 DATE COMPANIE: ✅ ACTUALIZATE (Driatheli Group SRL, CUI RO26209397)**
+**🆕 CONT PARTENER: ✅ DEZACTIVAT PUBLIC (doar admin prin URL direct)**
+
+---
+
+### 🆕 ACTUALIZARE DATE COMPANIE + DEZACTIVARE CONT PARTENER PUBLIC (2026-01-31)
+
+#### Date Companie Corecte (de la https://www.infinitrade.ro/despre-noi)
+| Câmp | Valoare |
+|------|---------|
+| Companie | Driatheli Group SRL |
+| CUI | RO26209397 |
+| Nr. Reg. Com. | J35/2901/2009 |
+| Fondată | 2009 (15+ ani experiență) |
+| Adresa | Calea Lugojului, nr.47/B, Hala nr. 3, Ghiroda, Timiș 307200 |
+| Telefon | +40 371 232 404 |
+| Program | Luni - Vineri, 08:00 - 16:30 |
+| Email | secretariat@infinitrade-romania.ro |
+
+#### Fișiere Actualizate (28 fișiere)
+- `components/layout/Footer.tsx` - date companie, adresă, telefon, program
+- `components/layout/FloatingCTA.tsx` - telefon WhatsApp și apel
+- `components/seo/JsonLd.tsx` - Schema.org cu adresă, telefon, coordonate GPS (45.7833, 21.2833)
+- `app/(main)/despre-noi/page.tsx` - timeline 2009, statistici 15+ ani
+- `app/(main)/contact/page.tsx` - adresă, telefon, program
+- Toate landing pages cu telefon actualizat
+
+#### Dezactivare Cont Partener Public
+| Fișier | Modificare |
+|--------|------------|
+| `components/layout/Header.tsx` | Eliminat butonul "Cont Partener" pentru utilizatori neautentificați |
+| `app/(auth)/register/page.tsx` | Redirect la homepage |
+| `components/auth/LoginForm.tsx` | Eliminat link-ul "Înregistrează-te ca partener" |
+
+**Acces Admin:** https://www.xeh.ro/login (doar pentru admin, nu public)
 
 ---
 
@@ -684,7 +719,13 @@ docs/migration-fix-rls.sql
 - **Domeniu live:** https://www.xeh.ro (IMPORTANT: folosește www!)
 - **GitHub:** github.com/liviudrinceanu-cpu/xeh-ro.git
 - **Vercel:** xeh-ro (team: xpertlivius-projects)
-- **Telefon contact:** 0724256250
+- **Companie:** Driatheli Group SRL
+- **CUI:** RO26209397
+- **Nr. Reg. Com.:** J35/2901/2009
+- **Fondată:** 2009 (15+ ani experiență)
+- **Adresa:** Calea Lugojului, nr.47/B, Hala nr. 3, Ghiroda, Timiș 307200
+- **Telefon:** +40 371 232 404
+- **Program:** Luni - Vineri, 08:00 - 16:30
 - **Email secretariat:** secretariat@infinitrade-romania.ro
 
 ---
@@ -898,22 +939,24 @@ git push
 
 ### La Început de Sesiune Nouă (OBLIGATORIU)
 ```
-✅ CLAUDE.md încărcat | Ultima actualizare: 2026-01-26
+✅ CLAUDE.md încărcat | Ultima actualizare: 2026-01-31
 
 📊 STARE PROIECT XEH.ro:
 - Status: LIVE și funcțional
+- Companie: Driatheli Group SRL (CUI: RO26209397)
 - Traduceri: ✅ Complete (~2,600 produse, ~400 categorii)
 - SEO: ✅ Complet (sitemap, meta, JSON-LD, blog, landing pages)
 - Ahrefs Audit: ✅ ~31,000 erori rezolvate (3 wave-uri)
 - Quote Cart: ✅ COMPLET (coș cu multiple produse, prețuri, email)
-- Admin Panel: ✅ FIX AuthProvider useMemo + AdminLayout simplificat
-- Email Contact: ✅ secretariat@infinitrade-romania.ro
+- Cont Partener Public: ❌ DEZACTIVAT (doar admin)
 - Site: https://www.xeh.ro (IMPORTANT: folosește www!)
 
 🔧 CONFIGURAȚII IMPORTANTE:
-- Domeniu: www.xeh.ro (cu www - pentru SEO)
-- NEXT_PUBLIC_SITE_URL: https://www.xeh.ro (OBLIGATORIU cu www!)
-- Email notificări: secretariat@infinitrade-romania.ro
+- Companie: Driatheli Group SRL
+- Adresa: Calea Lugojului 47/B, Ghiroda, Timiș 307200
+- Telefon: +40 371 232 404
+- Program: Luni - Vineri, 08:00 - 16:30
+- Email: secretariat@infinitrade-romania.ro
 - Admin: liviu.drinceanu@infinitrade-romania.ro / XehAdmin2026!
 - Next.js: 14.2.35 (security patched)
 
@@ -936,4 +979,4 @@ Cu ce pot să te ajut?
 
 ---
 
-*Ultima actualizare: 2026-01-26 | Site: https://www.xeh.ro | ADMIN PANEL FIX: AuthProvider useMemo + AdminLayout simplificat*
+*Ultima actualizare: 2026-01-31 | Site: https://www.xeh.ro | Companie: Driatheli Group SRL | CUI: RO26209397 | Tel: +40 371 232 404*

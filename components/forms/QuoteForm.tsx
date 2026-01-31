@@ -408,7 +408,7 @@ export default function QuoteForm({ preselectedProductId }: QuoteFormProps) {
                 name="phone"
                 required
                 pattern="(\+40|0)[0-9]{9}"
-                title="Introduceți un număr de telefon valid (ex: 0724256250 sau +40724256250)"
+                title="Introduceți un număr de telefon valid (ex: 0371232404 sau +40371232404)"
                 className="w-full px-4 py-3 border border-gray-200 rounded-xl focus:ring-2 focus:ring-crimson focus:border-transparent outline-none transition-all"
                 placeholder="07XX XXX XXX"
               />

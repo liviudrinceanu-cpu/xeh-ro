@@ -55,7 +55,7 @@ const homeFaqs = [
   },
   {
     question: 'Cum pot solicita o ofertă pentru echipamente profesionale?',
-    answer: 'Puteți solicita o ofertă adăugând produsele dorite în coșul de cerere ofertă și completând formularul. Veți primi o ofertă personalizată în cel mai scurt timp. Alternativ, ne puteți contacta telefonic la 0724 256 250.',
+    answer: 'Puteți solicita o ofertă adăugând produsele dorite în coșul de cerere ofertă și completând formularul. Veți primi o ofertă personalizată în cel mai scurt timp. Alternativ, ne puteți contacta telefonic la 0371 232 404.',
   },
   {
     question: 'Livrați echipamente HoReCa în toată România?',

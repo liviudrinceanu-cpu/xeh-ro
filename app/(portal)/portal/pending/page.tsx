@@ -55,11 +55,11 @@ export default function PendingPage() {
               <span className="text-sm">secretariat@infinitrade-romania.ro</span>
             </a>
             <a
-              href="tel:+40724256250"
+              href="tel:+40371232404"
               className="flex items-center gap-2 text-crimson hover:underline"
             >
               <Phone className="w-4 h-4" />
-              <span className="text-sm">+40 724 256 250</span>
+              <span className="text-sm">+40 371 232 404</span>
             </a>
           </div>
         </div>

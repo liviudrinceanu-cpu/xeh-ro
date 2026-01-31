@@ -431,10 +431,10 @@ export default async function EchipamenteCateringPage() {
               Cere Oferta pentru Eveniment
             </Link>
             <a
-              href="tel:+40724256250"
+              href="tel:+40371232404"
               className="inline-flex items-center justify-center gap-2 bg-white/10 hover:bg-white/20 text-white px-6 py-3 rounded-xl font-semibold transition-colors"
             >
-              Suna: 0724 256 250
+              Suna: 0371 232 404
             </a>
           </div>
         </div>

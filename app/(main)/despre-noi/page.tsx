@@ -38,9 +38,14 @@ export const metadata: Metadata = {
 
 const milestones = [
   {
+    year: '2009',
+    title: 'Înființare Driatheli Group',
+    description: 'Am fondat compania în Timișoara, cu viziunea de a deveni un partener de încredere pentru industria HoReCa.',
+  },
+  {
     year: '2015',
-    title: 'Începutul călătoriei',
-    description: 'Am început activitatea ca distribuitor de echipamente profesionale HoReCa în România.',
+    title: 'Expansiune Echipamente HoReCa',
+    description: 'Am extins portofoliul și am început să ne concentrăm pe echipamente profesionale pentru restaurante și hoteluri.',
   },
   {
     year: '2017',
@@ -53,24 +58,19 @@ const milestones = [
     description: 'Am adăugat gama economică REDFOX, oferind soluții pentru toate bugetele.',
   },
   {
-    year: '2022',
-    title: '1000+ Clienți',
-    description: 'Am depășit pragul de 1000 de clienți mulțumiți din industria HoReCa.',
-  },
-  {
     year: '2024',
     title: 'Lansare XEH.ro',
-    description: 'Am lansat platforma online XEH.ro pentru a oferi acces ușor la întregul nostru catalog.',
+    description: 'Am lansat platforma online XEH.ro pentru a oferi acces ușor la întregul nostru catalog de peste 2600 produse.',
   },
   {
     year: '2026',
     title: 'Lider Digital',
-    description: 'Continuăm să inovăm și să oferim cele mai bune soluții pentru industria HoReCa.',
+    description: 'Continuăm să inovăm și să oferim cele mai bune soluții pentru industria HoReCa din România.',
   },
 ]
 
 const stats = [
-  { value: '9+', label: 'Ani de experiență', icon: Calendar },
+  { value: '15+', label: 'Ani de experiență', icon: Calendar },
   { value: '2,600+', label: 'Produse în catalog', icon: Building2 },
   { value: '1,000+', label: 'Clienți mulțumiți', icon: Users },
   { value: '100%', label: 'Livrare națională', icon: Truck },
@@ -407,19 +407,19 @@ export default function DespreNoiPage() {
               <div>
                 <h3 className="font-semibold text-gray-600 mb-4">Informații Legale</h3>
                 <ul className="space-y-3 text-gray-500">
-                  <li><strong>Denumire:</strong> SC INFINITRADE ROMANIA SRL</li>
+                  <li><strong>Denumire:</strong> Driatheli Group SRL</li>
                   <li><strong>Brand comercial:</strong> XEH.ro - eXpert Echipamente Horeca</li>
-                  <li><strong>CUI:</strong> RO12345678</li>
-                  <li><strong>Nr. Reg. Com.:</strong> J40/1234/2015</li>
-                  <li><strong>Sediu social:</strong> Str. Industriei nr. 10, Sector 1, București</li>
+                  <li><strong>CUI:</strong> RO26209397</li>
+                  <li><strong>Nr. Reg. Com.:</strong> J35/2901/2009</li>
+                  <li><strong>Sediu social:</strong> Calea Lugojului, nr.47/B, Hala nr. 3, Ghiroda, Timiș 307200</li>
                 </ul>
               </div>
               <div>
                 <h3 className="font-semibold text-gray-600 mb-4">Contact</h3>
                 <ul className="space-y-3 text-gray-500">
-                  <li><strong>Telefon:</strong> <a href="tel:+40724256250" className="text-crimson hover:underline">+40 724 256 250</a></li>
+                  <li><strong>Telefon:</strong> <a href="tel:+40371232404" className="text-crimson hover:underline">+40 371 232 404</a></li>
                   <li><strong>Email:</strong> <a href="mailto:secretariat@infinitrade-romania.ro" className="text-crimson hover:underline">secretariat@infinitrade-romania.ro</a></li>
-                  <li><strong>Program:</strong> Luni - Vineri, 09:00 - 18:00</li>
+                  <li><strong>Program:</strong> Luni - Vineri, 08:00 - 16:30</li>
                   <li><strong>Website:</strong> <a href="https://www.xeh.ro" className="text-crimson hover:underline">www.xeh.ro</a></li>
                 </ul>
               </div>

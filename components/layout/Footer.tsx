@@ -57,8 +57,8 @@ export default function Footer() {
               pentru industria HoReCa din 2015.
             </p>
             <div className="mt-4 text-xs text-gray-500">
-              <p>SC INFINITRADE ROMANIA SRL</p>
-              <p>CUI: RO12345678</p>
+              <p>Driatheli Group SRL</p>
+              <p>CUI: RO26209397</p>
             </div>
           </div>
 
@@ -108,22 +108,22 @@ export default function Footer() {
             <ul className="space-y-3">
               <li>
                 <a
-                  href="https://maps.google.com/?q=Str.+Industriei+10+Bucuresti"
+                  href="https://maps.google.com/?q=Calea+Lugojului+47B+Ghiroda+Timis"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="flex items-start gap-2 text-gray-400 hover:text-crimson-light transition-colors text-sm"
                 >
                   <MapPin className="w-4 h-4 mt-0.5 flex-shrink-0" />
-                  <span>Str. Industriei nr. 10, Sector 1, București</span>
+                  <span>Calea Lugojului 47/B, Ghiroda, Timiș</span>
                 </a>
               </li>
               <li>
                 <a
-                  href="tel:+40724256250"
+                  href="tel:+40371232404"
                   className="flex items-center gap-2 text-gray-400 hover:text-crimson-light transition-colors text-sm"
                 >
                   <Phone className="w-4 h-4 flex-shrink-0" />
-                  <span>+40 724 256 250</span>
+                  <span>+40 371 232 404</span>
                 </a>
               </li>
               <li>
@@ -136,7 +136,7 @@ export default function Footer() {
                 </a>
               </li>
               <li className="text-gray-500 text-xs pt-2">
-                Program: Luni - Vineri, 09:00 - 18:00
+                Program: Luni - Vineri, 08:00 - 16:30
               </li>
             </ul>
           </div>

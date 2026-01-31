@@ -7,7 +7,7 @@
 
 ## 🚨 CONTINUARE SESIUNE - CITEȘTE ASTA ÎNTÂI!
 
-### STATUS ACTUAL (2026-01-27)
+### STATUS ACTUAL (2026-01-31)
 
 **TRADUCERI: ✅ COMPLETE ȘI DEPLOYED**
 **SEO BASIC: ✅ COMPLET IMPLEMENTAT**
@@ -44,6 +44,7 @@
 **BREADCRUMB SCHEMA: ✅ Fix sintaxă Schema.org**
 **🆕 DATE COMPANIE: ✅ ACTUALIZATE (Driatheli Group SRL, CUI RO26209397)**
 **🆕 CONT PARTENER: ✅ DEZACTIVAT PUBLIC (doar admin prin URL direct)**
+**🆕 EMAIL FIX: ✅ privacy@xeh.ro înlocuit cu secretariat@infinitrade-romania.ro**
 
 ---
 
@@ -77,6 +78,12 @@
 | `components/auth/LoginForm.tsx` | Eliminat link-ul "Înregistrează-te ca partener" |
 
 **Acces Admin:** https://www.xeh.ro/login (doar pentru admin, nu public)
+
+#### Fix Email Privacy (2026-01-31)
+| Fișier | Modificare |
+|--------|------------|
+| `app/(main)/confidentialitate/page.tsx` | privacy@xeh.ro → secretariat@infinitrade-romania.ro |
+| `app/(main)/cookies/page.tsx` | privacy@xeh.ro → secretariat@infinitrade-romania.ro |
 
 ---
 

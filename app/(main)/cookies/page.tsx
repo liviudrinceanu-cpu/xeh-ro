@@ -164,7 +164,7 @@ export default function CookiesPage() {
             Pentru întrebări despre utilizarea cookies pe XEH.ro:
           </p>
           <ul className="list-disc pl-6 mt-2">
-            <li>Email: <a href="mailto:privacy@xeh.ro" className="text-crimson hover:text-crimson-dark">privacy@xeh.ro</a></li>
+            <li>Email: <a href="mailto:secretariat@infinitrade-romania.ro" className="text-crimson hover:text-crimson-dark">secretariat@infinitrade-romania.ro</a></li>
             <li>Telefon: <a href="tel:+40724256250" className="text-crimson hover:text-crimson-dark">0724 256 250</a></li>
           </ul>
         </section>

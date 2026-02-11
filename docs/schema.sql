@@ -400,12 +400,15 @@ CREATE INDEX idx_quote_items_quote ON quote_items(quote_id);
 -- ============================================================
 
 CREATE OR REPLACE FUNCTION update_updated_at()
-RETURNS TRIGGER AS $$
+RETURNS TRIGGER
+LANGUAGE plpgsql
+SET search_path = public
+AS $$
 BEGIN
     NEW.updated_at = NOW();
     RETURN NEW;
 END;
-$$ LANGUAGE plpgsql;
+$$;
 
 -- Apply trigger to all tables with updated_at
 CREATE TRIGGER update_categories_updated_at BEFORE UPDATE ON categories FOR EACH ROW EXECUTE FUNCTION update_updated_at();
@@ -438,14 +441,19 @@ CREATE INDEX idx_user_favorites_product ON user_favorites(product_id);
 
 -- Helper function to check admin status (SECURITY DEFINER avoids recursion)
 CREATE OR REPLACE FUNCTION is_admin()
-RETURNS BOOLEAN AS $$
+RETURNS BOOLEAN
+LANGUAGE plpgsql
+SECURITY DEFINER
+STABLE
+SET search_path = public
+AS $$
 BEGIN
     RETURN EXISTS (
         SELECT 1 FROM user_profiles
         WHERE id = auth.uid() AND role = 'admin'
     );
 END;
-$$ LANGUAGE plpgsql SECURITY DEFINER STABLE;
+$$;
 
 -- Enable RLS
 ALTER TABLE categories ENABLE ROW LEVEL SECURITY;
@@ -457,7 +465,12 @@ ALTER TABLE partners ENABLE ROW LEVEL SECURITY;
 ALTER TABLE partner_discount_rules ENABLE ROW LEVEL SECURITY;
 ALTER TABLE quote_requests ENABLE ROW LEVEL SECURITY;
 ALTER TABLE quote_items ENABLE ROW LEVEL SECURITY;
+ALTER TABLE product_relations ENABLE ROW LEVEL SECURITY;
 ALTER TABLE user_favorites ENABLE ROW LEVEL SECURITY;
+
+-- Product Relations: Public read, admin write
+CREATE POLICY "Product relations are viewable by everyone" ON product_relations FOR SELECT USING (true);
+CREATE POLICY "Admins can manage product relations" ON product_relations FOR ALL USING (is_admin());
 
 -- Categories: Public read, admin write
 CREATE POLICY "Categories are viewable by everyone" ON categories FOR SELECT USING (is_active = true);
@@ -493,7 +506,7 @@ CREATE POLICY "Admins can manage discounts" ON partner_discount_rules FOR ALL US
 
 -- Quotes: Users see their own, admins see all
 CREATE POLICY "Users can view their own quotes" ON quote_requests FOR SELECT USING (user_id = auth.uid());
-CREATE POLICY "Anyone can create quotes" ON quote_requests FOR INSERT WITH CHECK (true);
+CREATE POLICY "Anyone can create quotes" ON quote_requests FOR INSERT WITH CHECK (user_id IS NULL OR user_id = auth.uid());
 CREATE POLICY "Admins can manage all quotes" ON quote_requests FOR ALL USING (is_admin());
 
 -- Quote Items: Follow quote permissions
@@ -517,30 +530,36 @@ GRANT SELECT, INSERT, DELETE ON user_favorites TO authenticated;
 
 -- Generate quote number
 CREATE OR REPLACE FUNCTION generate_quote_number()
-RETURNS TEXT AS $$
+RETURNS TEXT
+LANGUAGE plpgsql
+SET search_path = public
+AS $$
 DECLARE
     year_part TEXT;
     seq_part TEXT;
     count_today INTEGER;
 BEGIN
     year_part := TO_CHAR(NOW(), 'YYYY');
-    SELECT COUNT(*) + 1 INTO count_today FROM quote_requests 
+    SELECT COUNT(*) + 1 INTO count_today FROM quote_requests
     WHERE DATE(created_at) = CURRENT_DATE;
     seq_part := LPAD(count_today::TEXT, 5, '0');
     RETURN 'XEH-' || year_part || '-' || seq_part;
 END;
-$$ LANGUAGE plpgsql;
+$$;
 
 -- Auto-generate quote number on insert
 CREATE OR REPLACE FUNCTION set_quote_number()
-RETURNS TRIGGER AS $$
+RETURNS TRIGGER
+LANGUAGE plpgsql
+SET search_path = public
+AS $$
 BEGIN
     IF NEW.quote_number IS NULL THEN
         NEW.quote_number := generate_quote_number();
     END IF;
     RETURN NEW;
 END;
-$$ LANGUAGE plpgsql;
+$$;
 
 CREATE TRIGGER set_quote_number_trigger
     BEFORE INSERT ON quote_requests
@@ -549,7 +568,10 @@ CREATE TRIGGER set_quote_number_trigger
 
 -- Update category product count
 CREATE OR REPLACE FUNCTION update_category_product_count()
-RETURNS TRIGGER AS $$
+RETURNS TRIGGER
+LANGUAGE plpgsql
+SET search_path = public
+AS $$
 BEGIN
     IF TG_OP = 'INSERT' THEN
         UPDATE categories SET product_count = product_count + 1 WHERE id = NEW.category_id;
@@ -561,7 +583,7 @@ BEGIN
     END IF;
     RETURN NULL;
 END;
-$$ LANGUAGE plpgsql;
+$$;
 
 CREATE TRIGGER update_category_count
     AFTER INSERT OR DELETE OR UPDATE OF category_id ON products

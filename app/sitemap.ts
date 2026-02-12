@@ -321,5 +321,9 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     }
   }
 
-  return [...staticPages, ...categoryPages, ...productPages]
+  // Deduplicate URLs (static pages take priority over dynamic ones)
+  const staticUrls = new Set(staticPages.map(p => p.url))
+  const dedupedCategoryPages = categoryPages.filter(p => !staticUrls.has(p.url))
+
+  return [...staticPages, ...dedupedCategoryPages, ...productPages]
 }

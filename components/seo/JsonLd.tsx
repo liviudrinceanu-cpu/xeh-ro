@@ -32,6 +32,8 @@ export function ProductJsonLd({ product }: ProductJsonLdProps) {
       priceCurrency: product.currency || 'EUR',
       ...(product.price && { price: product.price }),
       availability: `https://schema.org/${product.availability}`,
+      priceValidUntil: '2026-12-31',
+      itemCondition: 'https://schema.org/NewCondition',
       seller: {
         '@type': 'Organization',
         name: 'XEH.ro',
@@ -80,6 +82,9 @@ export function OrganizationJsonLd() {
     '@type': 'Organization',
     '@id': 'https://www.xeh.ro/#organization',
     name: 'XEH.ro - eXpert Echipamente Horeca',
+    legalName: 'Driatheli Group SRL',
+    taxID: 'RO26209397',
+    foundingDate: '2009',
     url: 'https://www.xeh.ro',
     logo: {
       '@type': 'ImageObject',
@@ -113,8 +118,11 @@ export function OrganizationJsonLd() {
 export function LocalBusinessJsonLd() {
   const jsonLd = {
     '@context': 'https://schema.org',
-    '@type': 'LocalBusiness',
+    '@type': 'WholesaleStore',
     '@id': 'https://www.xeh.ro/#localbusiness',
+    parentOrganization: {
+      '@id': 'https://www.xeh.ro/#organization',
+    },
     name: 'XEH.ro - eXpert Echipamente Horeca',
     image: 'https://www.xeh.ro/logo.png',
     url: 'https://www.xeh.ro',
@@ -245,7 +253,6 @@ export function CategoryJsonLd({ category }: CategoryJsonLdProps) {
     mainEntity: {
       '@type': 'ItemList',
       numberOfItems: category.productCount,
-      itemListElement: [],
     },
   }
 
@@ -397,6 +404,7 @@ export function ReviewJsonLd({ reviews, aggregateRating }: ReviewJsonLdProps) {
     '@context': 'https://schema.org',
     '@type': 'Organization',
     '@id': 'https://www.xeh.ro/#organization',
+    name: 'XEH.ro - eXpert Echipamente Horeca',
     review: reviews.map((review) => ({
       '@type': 'Review',
       author: {
@@ -490,7 +498,7 @@ export function AboutPageJsonLd() {
     '@type': 'AboutPage',
     '@id': 'https://www.xeh.ro/despre-noi#aboutpage',
     name: 'Despre XEH.ro - eXpert Echipamente Horeca',
-    description: 'Aflați povestea XEH.ro, distribuitor autorizat de echipamente profesionale HoReCa în România din 2015.',
+    description: 'Aflați povestea XEH.ro, distribuitor autorizat de echipamente profesionale HoReCa în România din 2009.',
     url: 'https://www.xeh.ro/despre-noi',
     mainEntity: {
       '@id': 'https://www.xeh.ro/#organization',

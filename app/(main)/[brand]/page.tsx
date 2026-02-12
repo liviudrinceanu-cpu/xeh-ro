@@ -4,6 +4,7 @@ import { ArrowRight } from 'lucide-react'
 import Breadcrumb from '@/components/ui/Breadcrumb'
 import CategoryCard from '@/components/category/CategoryCard'
 import ProductCard from '@/components/product/ProductCard'
+import { BreadcrumbJsonLd } from '@/components/seo/JsonLd'
 import { getBrandBySlug, getTopLevelCategories, getProductCountByCategory } from '@/lib/queries/categories'
 import { getProducts } from '@/lib/queries/products'
 import { getBaseUrl } from '@/lib/utils'
@@ -78,8 +79,18 @@ export default async function BrandPage({ params }: BrandPageProps) {
     },
   }[brandSlug] || { tagline: '', description: '', color: 'gray-600' }
 
+  const baseUrl = getBaseUrl()
+
   return (
     <div className="min-h-screen">
+      {/* Schema.org JSON-LD */}
+      <BreadcrumbJsonLd
+        items={[
+          { name: 'Acasă', url: baseUrl },
+          { name: brand.name },
+        ]}
+      />
+
       {/* Hero */}
       <section className="bg-gradient-to-b from-white to-gray-100 py-16 md:py-24">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">

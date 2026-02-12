@@ -37,6 +37,9 @@ export const metadata: Metadata = {
   alternates: {
     canonical: 'https://www.xeh.ro/masini-spalat-vase-profesionale',
   },
+  other: {
+    'article:modified_time': '2026-02-12',
+  },
 }
 
 const faqs = [

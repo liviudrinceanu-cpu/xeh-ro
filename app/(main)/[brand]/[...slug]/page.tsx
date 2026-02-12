@@ -36,8 +36,10 @@ interface DynamicPageProps {
 }
 
 // Generate dynamic metadata for SEO
-export async function generateMetadata({ params }: DynamicPageProps): Promise<Metadata> {
+export async function generateMetadata({ params, searchParams }: DynamicPageProps): Promise<Metadata> {
   const { brand: brandSlug, slug } = await params
+  const queryParams = await searchParams
+  const page = parseInt(queryParams.page || '1')
   const baseUrl = getBaseUrl()
 
   // Product page
@@ -112,6 +114,12 @@ export async function generateMetadata({ params }: DynamicPageProps): Promise<Me
       title: seoTitle,
       description: seoDescription,
       keywords,
+      ...(page > 1 && {
+        robots: {
+          index: false,
+          follow: true,
+        },
+      }),
       openGraph: {
         title: seoTitle,
         description: seoDescription,

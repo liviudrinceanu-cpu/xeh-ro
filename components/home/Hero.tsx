@@ -14,7 +14,7 @@ export default function Hero() {
         {/* Title */}
         <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight mb-6">
           <span className="text-gradient-crimson">eXpert</span>{' '}
-          <span className="text-gradient-dark">Echipamente Horeca</span>
+          <span className="text-gradient-dark">Echipamente HoReCa Profesionale</span>
         </h1>
 
         {/* Subtitle */}

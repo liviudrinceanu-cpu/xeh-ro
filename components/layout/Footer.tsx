@@ -12,6 +12,12 @@ const footerLinks = {
     { name: 'Mașini Spălat Vase', href: '/masini-spalat-vase-profesionale' },
     { name: 'Echipamente Pizzerie', href: '/echipamente-pizzerie' },
   ],
+  servicii: [
+    { name: 'Distribuitor RM Gastro', href: '/distribuitor-rm-gastro-romania' },
+    { name: 'Consultanță Gratuită', href: '/consultanta-echipamente-horeca' },
+    { name: 'Echipamente Economic', href: '/echipamente-horeca-economice' },
+    { name: 'Echipamente Premium', href: '/echipamente-horeca-premium' },
+  ],
   companie: [
     { name: 'Despre Noi', href: '/despre-noi' },
     { name: 'Echipa', href: '/echipa' },
@@ -45,7 +51,7 @@ export default function Footer() {
       </div>
 
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-12 lg:py-16">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-12">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8 lg:gap-12">
           {/* Brand */}
           <div className="lg:col-span-1">
             <Link href="/" className="inline-flex items-center gap-0 font-bold text-2xl mb-4">
@@ -88,6 +94,25 @@ export default function Footer() {
             </h4>
             <ul className="space-y-3">
               {footerLinks.categorii.map((link) => (
+                <li key={link.name}>
+                  <Link
+                    href={link.href}
+                    className="text-gray-400 hover:text-crimson-light transition-colors text-sm"
+                  >
+                    {link.name}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          {/* Servicii */}
+          <div>
+            <h4 className="text-xs font-semibold uppercase tracking-wider text-gray-300 mb-4">
+              Servicii
+            </h4>
+            <ul className="space-y-3">
+              {footerLinks.servicii.map((link) => (
                 <li key={link.name}>
                   <Link
                     href={link.href}

@@ -38,6 +38,9 @@ export const metadata: Metadata = {
   alternates: {
     canonical: 'https://www.xeh.ro/cuptoare-profesionale',
   },
+  other: {
+    'article:modified_time': '2026-02-12',
+  },
 }
 
 const faqs = [

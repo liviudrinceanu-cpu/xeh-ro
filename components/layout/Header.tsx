@@ -2,13 +2,15 @@
 
 import Link from 'next/link'
 import Image from 'next/image'
+import dynamic from 'next/dynamic'
 import { useState, useEffect, useCallback } from 'react'
 import { useRouter } from 'next/navigation'
 import { Search, Menu, X, Loader2, Package, FolderOpen, User, LogOut, LayoutDashboard, ChevronDown, Shield } from 'lucide-react'
 import { cn, getCategoryName } from '@/lib/utils'
 import { useAuth } from '@/components/providers/AuthProvider'
 import CartButton from '@/components/cart/CartButton'
-import CartDrawer from '@/components/cart/CartDrawer'
+
+const CartDrawer = dynamic(() => import('@/components/cart/CartDrawer'), { ssr: false })
 
 const navigation = [
   { name: 'Branduri', href: '/#branduri' },

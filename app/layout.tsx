@@ -55,6 +55,10 @@ export const metadata: Metadata = {
   },
   alternates: {
     canonical: 'https://www.xeh.ro',
+    languages: {
+      'ro': 'https://www.xeh.ro',
+      'x-default': 'https://www.xeh.ro',
+    },
   },
   robots: {
     index: true,

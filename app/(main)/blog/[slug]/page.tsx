@@ -2188,7 +2188,9 @@ export async function generateMetadata({ params }: BlogArticlePageProps): Promis
       description: article.excerpt,
       type: 'article',
       publishedTime: article.date,
+      modifiedTime: article.dateModified || article.date,
       authors: [article.author],
+      tags: article.keywords,
       images: [{
         url: `https://www.xeh.ro/api/og?title=${encodeURIComponent(article.title)}&subtitle=${encodeURIComponent(article.excerpt.slice(0, 100))}&type=blog`,
         width: 1200,

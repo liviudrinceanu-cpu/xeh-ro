@@ -262,9 +262,9 @@ async function ProductPage({ brandSlug, productSlug }: { brandSlug: string; prod
               {/* Key Features */}
               {product.product_features && product.product_features.length > 0 && (
                 <div className="mb-6">
-                  <h3 className="text-xs font-semibold text-gray-400 uppercase tracking-wide mb-3">
+                  <h2 className="text-lg font-bold text-gray-600 mb-3">
                     Caracteristici Principale
-                  </h3>
+                  </h2>
                   <ul className="space-y-2">
                     {product.product_features.slice(0, 5).map((feature) => (
                       <li key={feature.id} className="flex items-start gap-2 text-sm text-gray-600">
@@ -278,7 +278,9 @@ async function ProductPage({ brandSlug, productSlug }: { brandSlug: string; prod
 
               {/* Price */}
               <div className="bg-gray-50 rounded-xl p-5 mb-6">
-                <div className="text-xs text-gray-500 mb-1">Preț catalog</div>
+                <h2 className="text-lg font-bold text-gray-600 mb-2">
+                  Preț și Disponibilitate
+                </h2>
                 <div className="text-3xl font-bold text-crimson">
                   {formatPrice(product.price_amount, product.price_currency)}
                 </div>
@@ -288,6 +290,9 @@ async function ProductPage({ brandSlug, productSlug }: { brandSlug: string; prod
               </div>
 
               {/* Actions */}
+              <h2 className="text-lg font-bold text-gray-600 mb-3">
+                Solicită Ofertă de Preț
+              </h2>
               <div className="flex flex-col gap-3">
                 <div className="flex gap-3">
                   <AddToCartButton
@@ -467,6 +472,9 @@ async function CategoryPage({ brandSlug, categoryPath, page, sort }: { brandSlug
         )}
 
         {/* Sort & Products */}
+        <h2 className="text-xl font-bold text-gray-600 mb-4">
+          Produse {pageTitle}
+        </h2>
         <div className="flex justify-between items-center mb-6">
           <p className="text-gray-500 text-sm">{count} produse</p>
           <CategorySortDropdown currentSort={sort} />
@@ -499,6 +507,22 @@ async function CategoryPage({ brandSlug, categoryPath, page, sort }: { brandSlug
             )}
           </div>
         )}
+
+        {/* CTA Section */}
+        <div className="mt-12 bg-white rounded-xl p-6 md:p-8 text-center border border-gray-200">
+          <h2 className="text-xl font-bold text-gray-600 mb-3">
+            Solicită Ofertă Personalizată
+          </h2>
+          <p className="text-gray-500 mb-4 max-w-2xl mx-auto">
+            Contactează-ne pentru prețuri speciale, consultanță gratuită și livrare rapidă pentru {pageTitle.toLowerCase()}.
+          </p>
+          <Link
+            href="/cerere-oferta"
+            className="inline-flex items-center gap-2 bg-crimson text-white px-6 py-3 rounded-xl font-medium hover:bg-red-700 transition-colors"
+          >
+            Cere Ofertă Gratuită
+          </Link>
+        </div>
       </div>
     </div>
   )

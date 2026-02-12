@@ -149,10 +149,10 @@ const SITE_URL = 'https://www.xeh.ro'
 
 export function getBaseUrl(): string {
   // Always return www version for consistent URLs (SEO best practice)
-  const envUrl = process.env.NEXT_PUBLIC_SITE_URL
+  const envUrl = process.env.NEXT_PUBLIC_SITE_URL?.trim()
   if (envUrl && envUrl.startsWith('https://')) {
     // Ensure www is always present
-    const url = envUrl.replace(/\/$/, '') // Remove trailing slash
+    const url = envUrl.replace(/[\s\n\r]+/g, '').replace(/\/$/, '')
     if (url === 'https://xeh.ro') {
       return 'https://www.xeh.ro'
     }

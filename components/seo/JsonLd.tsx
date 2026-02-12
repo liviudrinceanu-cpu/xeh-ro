@@ -269,15 +269,17 @@ interface ArticleJsonLdProps {
     authorSlug?: string
     authorTitle?: string
     keywords?: string[]
+    articleBody?: string
+    speakable?: string[] // CSS selectors for speakable content
   }
 }
 
 export function ArticleJsonLd({ article }: ArticleJsonLdProps) {
   const authorSchema = article.authorSlug ? {
     '@type': 'Person',
-    '@id': `https://www.xeh.ro/echipa/${article.authorSlug}#person`,
+    '@id': `https://www.xeh.ro/echipa#${article.authorSlug}`,
     name: article.author,
-    url: `https://www.xeh.ro/echipa/${article.authorSlug}`,
+    url: 'https://www.xeh.ro/echipa',
     jobTitle: article.authorTitle || 'Expert Echipamente HoReCa',
     worksFor: {
       '@id': 'https://www.xeh.ro/#organization',
@@ -309,6 +311,11 @@ export function ArticleJsonLd({ article }: ArticleJsonLdProps) {
       '@id': article.url,
     },
     ...(article.keywords && { keywords: article.keywords.join(', ') }),
+    ...(article.articleBody && { articleBody: article.articleBody }),
+    speakable: {
+      '@type': 'SpeakableSpecification',
+      cssSelector: article.speakable || ['h1', '.article-summary', 'h2'],
+    },
   }
 
   return (
@@ -339,11 +346,11 @@ export function PersonJsonLd({ person }: PersonJsonLdProps) {
   const jsonLd = {
     '@context': 'https://schema.org',
     '@type': 'Person',
-    '@id': `https://www.xeh.ro/echipa/${person.slug}#person`,
+    '@id': `https://www.xeh.ro/echipa#${person.slug}`,
     name: person.name,
     jobTitle: person.jobTitle,
     description: person.description,
-    url: `https://www.xeh.ro/echipa/${person.slug}`,
+    url: 'https://www.xeh.ro/echipa',
     ...(person.image && { image: person.image }),
     ...(person.email && { email: person.email }),
     ...(person.telephone && { telephone: person.telephone }),
@@ -418,6 +425,54 @@ export function ReviewJsonLd({ reviews, aggregateRating }: ReviewJsonLdProps) {
         bestRating: 5,
       },
     }),
+  }
+
+  return (
+    <script
+      type="application/ld+json"
+      dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+    />
+  )
+}
+
+// HowTo schema for step-by-step guides
+interface HowToJsonLdProps {
+  howTo: {
+    name: string
+    description: string
+    totalTime?: string // ISO 8601 duration, e.g., "PT30M"
+    estimatedCost?: { currency: string; value: string }
+    steps: Array<{
+      name: string
+      text: string
+      url?: string
+      image?: string
+    }>
+  }
+}
+
+export function HowToJsonLd({ howTo }: HowToJsonLdProps) {
+  const jsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'HowTo',
+    name: howTo.name,
+    description: howTo.description,
+    ...(howTo.totalTime && { totalTime: howTo.totalTime }),
+    ...(howTo.estimatedCost && {
+      estimatedCost: {
+        '@type': 'MonetaryAmount',
+        currency: howTo.estimatedCost.currency,
+        value: howTo.estimatedCost.value,
+      },
+    }),
+    step: howTo.steps.map((step, index) => ({
+      '@type': 'HowToStep',
+      position: index + 1,
+      name: step.name,
+      text: step.text,
+      ...(step.url && { url: step.url }),
+      ...(step.image && { image: step.image }),
+    })),
   }
 
   return (

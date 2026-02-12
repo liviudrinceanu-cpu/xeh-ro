@@ -6,6 +6,7 @@ import CategoryCard from '@/components/category/CategoryCard'
 import ProductCard from '@/components/product/ProductCard'
 import { getBrandBySlug, getTopLevelCategories, getProductCountByCategory } from '@/lib/queries/categories'
 import { getProducts } from '@/lib/queries/products'
+import { getBaseUrl } from '@/lib/utils'
 
 interface BrandPageProps {
   params: Promise<{
@@ -19,7 +20,7 @@ export async function generateMetadata({ params }: BrandPageProps) {
 
   if (!brand) return {}
 
-  const baseUrl = 'https://www.xeh.ro'
+  const baseUrl = getBaseUrl()
   const title = `${brand.name} - Echipamente Profesionale`
   const description = `Explorează gama completă de echipamente ${brand.name}. Produse profesionale pentru restaurante, hoteluri și bucătării comerciale. Cuptoare, frigidere, mașini spălat vase.`
   const ogImageUrl = `${baseUrl}/api/og?title=${encodeURIComponent(brand.name)}&subtitle=${encodeURIComponent('Echipamente profesionale HoReCa')}&type=category`
@@ -137,6 +138,7 @@ export default async function BrandPage({ params }: BrandPageProps) {
             </h2>
             <Link
               href={`/catalog?brand=${brandSlug}`}
+              aria-label={`Vezi toate produsele ${brand.name}`}
               className="inline-flex items-center gap-2 text-crimson hover:text-crimson-dark font-semibold text-sm transition-colors"
             >
               Vezi toate

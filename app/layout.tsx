@@ -75,6 +75,7 @@ export default function RootLayout({
         <link rel="dns-prefetch" href="https://res.cloudinary.com" />
         <link rel="preconnect" href="https://fllfgcuwjpnnrcijqzul.supabase.co" />
         <link rel="dns-prefetch" href="https://fllfgcuwjpnnrcijqzul.supabase.co" />
+        <link rel="dns-prefetch" href="https://analytics.ahrefs.com" />
       </head>
       <body className="font-sans antialiased bg-background min-h-screen">
         {/* Skip link for accessibility */}

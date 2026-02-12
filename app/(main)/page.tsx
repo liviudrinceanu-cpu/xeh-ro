@@ -148,6 +148,7 @@ export default async function HomePage() {
           <div className="text-center mt-8">
             <Link
               href="/catalog"
+              aria-label="Vezi toate categoriile de echipamente HoReCa"
               className="inline-flex items-center gap-2 text-crimson hover:text-crimson-dark font-semibold transition-colors"
             >
               Vezi toate categoriile
@@ -165,6 +166,7 @@ export default async function HomePage() {
           </h2>
           <Link
             href="/catalog"
+            aria-label="Vezi toate produsele din catalog"
             className="inline-flex items-center gap-2 text-crimson hover:text-crimson-dark font-semibold text-sm transition-colors"
           >
             Vezi toate
@@ -173,8 +175,8 @@ export default async function HomePage() {
         </div>
 
         <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 md:gap-6">
-          {featuredProducts.map((product) => (
-            <ProductCard key={product.id} product={product} />
+          {featuredProducts.map((product, index) => (
+            <ProductCard key={product.id} product={product} isPriority={index < 4} />
           ))}
         </div>
       </section>

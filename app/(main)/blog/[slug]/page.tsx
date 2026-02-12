@@ -3,7 +3,7 @@ import { notFound } from 'next/navigation'
 import { ArrowLeft, Calendar, Clock, User, Share2 } from 'lucide-react'
 import Breadcrumb from '@/components/ui/Breadcrumb'
 import type { Metadata } from 'next'
-import { FAQJsonLd, BreadcrumbJsonLd, ArticleJsonLd } from '@/components/seo/JsonLd'
+import { FAQJsonLd, BreadcrumbJsonLd, ArticleJsonLd, HowToJsonLd } from '@/components/seo/JsonLd'
 import { Fragment } from 'react'
 
 // Safe markdown parser - converts content to React elements instead of using dangerouslySetInnerHTML
@@ -131,6 +131,18 @@ function SafeMarkdown({ content }: { content: string }) {
   return <>{elements}</>
 }
 
+// Helper function to strip markdown for articleBody in Schema.org
+function stripMarkdown(text: string): string {
+  return text
+    .replace(/#{1,6}\s/g, '') // Remove headers
+    .replace(/\*\*([^*]+)\*\*/g, '$1') // Remove bold
+    .replace(/\[([^\]]+)\]\([^)]+\)/g, '$1') // Remove links but keep text
+    .replace(/- /g, '') // Remove list markers
+    .replace(/\n{2,}/g, ' ') // Replace multiple newlines with space
+    .replace(/\n/g, ' ') // Replace single newlines with space
+    .trim()
+}
+
 // Author data for E-E-A-T - linked to /echipa page
 const authors: Record<string, { name: string; slug: string; title: string }> = {
   'alexandru-ionescu': { name: 'Alexandru Ionescu', slug: 'alexandru-ionescu', title: 'Director General & Fondator' },
@@ -148,9 +160,11 @@ const articlesContent: Record<string, {
   author: string
   authorSlug: string
   date: string
+  dateModified?: string
   readTime: string
   keywords: string[]
   faqs?: Array<{ question: string; answer: string }>
+  howToSteps?: Array<{ name: string; text: string }>
 }> = {
   'top-10-cuptoare-profesionale-restaurante-2026': {
     title: 'Top 10 Cuptoare Profesionale pentru Restaurante în 2026',
@@ -159,6 +173,7 @@ const articlesContent: Record<string, {
     author: 'Maria Popescu',
     authorSlug: 'maria-popescu',
     date: '2026-01-15',
+    dateModified: '2026-01-27',
     readTime: '8 min',
     keywords: ['cuptoare profesionale', 'cuptor restaurant', 'cuptor convecție', 'combi steamer', 'cuptor pizza'],
     content: `
@@ -237,8 +252,16 @@ Alegerea cuptorului profesional depinde de nevoile specifice ale restaurantului 
     author: 'Alexandru Ionescu',
     authorSlug: 'alexandru-ionescu',
     date: '2026-01-12',
+    dateModified: '2026-01-27',
     readTime: '12 min',
     keywords: ['echipamente horeca', 'bucătărie profesională', 'echipamente restaurant', 'utilaje horeca'],
+    howToSteps: [
+      { name: 'Planifică meniul', text: 'Decide ce preparate vei servi pentru a determina echipamentele necesare.' },
+      { name: 'Măsoară spațiul', text: 'Obține dimensiunile exacte ale bucătăriei profesionale.' },
+      { name: 'Stabilește bugetul', text: 'Alocă bugetul urmând regula 40-30-20-10: gătit, refrigerare, spălare, mobilier.' },
+      { name: 'Consultă experți', text: 'Contactează specialiștii XEH.ro pentru recomandări personalizate gratuite.' },
+      { name: 'Solicită oferte', text: 'Compară prețuri și solicită ofertă personalizată pentru echipamentele alese.' },
+    ],
     content: `
 ## Introducere
 
@@ -314,6 +337,7 @@ Investiția în echipamente de calitate se amortizează rapid prin eficiență �
     author: 'Maria Popescu',
     authorSlug: 'maria-popescu',
     date: '2026-01-10',
+    dateModified: '2026-01-27',
     readTime: '6 min',
     keywords: ['cuptor convecție', 'cuptor clasic', 'comparație cuptoare', 'cuptor profesional'],
     content: `
@@ -371,6 +395,7 @@ Explorează [gama noastră de cuptoare cu convecție](/rm/cuptoare-cu-convectie)
     author: 'Elena Stanciu',
     authorSlug: 'elena-stanciu',
     date: '2026-01-08',
+    dateModified: '2026-01-27',
     readTime: '7 min',
     keywords: ['mașină spălat vase', 'mașină spălat vase industrială', 'mașină spălat vase restaurant'],
     content: `
@@ -421,6 +446,7 @@ Vezi [programul nostru de spălare](/rm/masini-de-spalat-vase) pentru opțiuni c
     author: 'Andrei Dumitrescu',
     authorSlug: 'andrei-dumitrescu',
     date: '2026-01-05',
+    dateModified: '2026-01-27',
     readTime: '9 min',
     keywords: ['refrigerare profesională', 'frigider industrial', 'blast chiller', 'răcitor rapid'],
     content: `
@@ -474,6 +500,7 @@ Vezi [sistemele noastre de răcire](/rm/sistem-de-racire) pentru soluții comple
     author: 'Alexandru Ionescu',
     authorSlug: 'alexandru-ionescu',
     date: '2026-01-03',
+    dateModified: '2026-01-27',
     readTime: '5 min',
     keywords: ['RM Gastro', 'REDFOX', 'echipamente horeca', 'comparație branduri'],
     content: `
@@ -532,8 +559,17 @@ Ambele branduri sunt disponibile la XEH.ro cu garanție și suport tehnic.
     author: 'Alexandru Ionescu',
     authorSlug: 'alexandru-ionescu',
     date: '2026-01-22',
+    dateModified: '2026-01-27',
     readTime: '15 min',
     keywords: ['deschidere restaurant', 'cum deschid restaurant', 'echipare bucatarie restaurant', 'costuri restaurant', 'autorizatii restaurant'],
+    howToSteps: [
+      { name: 'Definește conceptul și planul de afaceri', text: 'Stabilește tipul de restaurant, target-ul de clienți și creează un plan financiar pe 3-5 ani.' },
+      { name: 'Obține autorizațiile necesare', text: 'Aplică pentru CUI, autorizație ISU, DSP, DSVSA și autorizație de funcționare.' },
+      { name: 'Amenajează spațiul conform normelor', text: 'Asigură-te că bucătăria este 30-40% din suprafață și respectă normele sanitare.' },
+      { name: 'Echipează bucătăria profesională', text: 'Achiziționează cuptoare, frigidere, mașini de spălat vase și mobilier inox.' },
+      { name: 'Instruiește personalul și testează', text: 'Angajează și instruiește echipa, testează toate echipamentele înainte de deschidere.' },
+      { name: 'Lansează restaurantul', text: 'Organizează soft opening pentru testare și apoi deschidere oficială cu marketing.' },
+    ],
     content: `
 ## De ce 2026 este anul potrivit să deschizi un restaurant?
 
@@ -680,6 +716,7 @@ La XEH.ro te ajutăm cu echiparea completă a bucătăriei - de la cuptor la ult
     author: 'Alexandru Ionescu',
     authorSlug: 'alexandru-ionescu',
     date: '2026-01-20',
+    dateModified: '2026-01-27',
     readTime: '12 min',
     keywords: ['fonduri europene horeca', 'finantare restaurant', 'PNRR horeca', 'Start-Up Nation', 'fonduri nerambursabile restaurant'],
     content: `
@@ -868,6 +905,7 @@ La XEH.ro te ajutăm cu ofertele și documentația necesară pentru aplicare.
     author: 'Maria Popescu',
     authorSlug: 'maria-popescu',
     date: '2026-01-18',
+    dateModified: '2026-01-27',
     readTime: '10 min',
     keywords: ['HACCP', 'siguranta alimentara', 'echipamente HACCP', 'norme HACCP restaurant', 'echipamente obligatorii bucatarie'],
     content: `
@@ -1076,6 +1114,7 @@ La XEH.ro găsești toate echipamentele necesare pentru conformitate HACCP compl
     author: 'Maria Popescu',
     authorSlug: 'maria-popescu',
     date: '2026-01-27',
+    dateModified: '2026-01-27',
     readTime: '12 min',
     keywords: ['frigidere industriale', 'frigider profesional', 'frigider restaurant', 'refrigerare horeca', 'frigider vertical'],
     content: `
@@ -1198,6 +1237,7 @@ Alegerea frigiderului industrial potrivit este o investiție pe termen lung. Rec
     author: 'Alexandru Ionescu',
     authorSlug: 'alexandru-ionescu',
     date: '2026-01-26',
+    dateModified: '2026-01-27',
     readTime: '10 min',
     keywords: ['cuptor profesional', 'cum aleg cuptor restaurant', 'cuptor convectie', 'combi steamer', 'cuptor pizza profesional'],
     content: `
@@ -1351,6 +1391,7 @@ Nu există "cel mai bun cuptor" - există cuptorul potrivit pentru TINExperții 
     author: 'Alexandru Ionescu',
     authorSlug: 'alexandru-ionescu',
     date: '2026-01-25',
+    dateModified: '2026-01-27',
     readTime: '14 min',
     keywords: ['cost echipamente restaurant', 'buget restaurant', 'pret echipamente horeca', 'cat costa sa deschid restaurant', 'investitie restaurant'],
     content: `
@@ -1525,6 +1566,7 @@ Economisește la: accesorii, mobilier simplu, echipamente secundare
     author: 'Maria Popescu',
     authorSlug: 'maria-popescu',
     date: '2026-01-24',
+    dateModified: '2026-01-27',
     readTime: '8 min',
     keywords: ['blast chiller', 'blast chiller vs congelator', 'racire rapida', 'blast freezer', 'echipamente racire profesionala'],
     content: `
@@ -1681,6 +1723,7 @@ Pentru majoritatea restaurantelor profesionale, recomandăm să ai ambele.
     author: 'Andrei Dumitrescu',
     authorSlug: 'andrei-dumitrescu',
     date: '2026-01-23',
+    dateModified: '2026-01-27',
     readTime: '11 min',
     keywords: ['echipamente pizzerie', 'cuptor pizza profesional', 'cum deschid pizzerie', 'echipamente pizza', 'malaxor aluat pizza'],
     content: `
@@ -1885,6 +1928,7 @@ Pizza este unul dintre cele mai profitabile segmente din HoReCa. Dar succesul de
     author: 'Elena Stanciu',
     authorSlug: 'elena-stanciu',
     date: '2026-01-22',
+    dateModified: '2026-01-27',
     readTime: '9 min',
     keywords: ['mobilier inox', 'mese inox profesionale', 'rafturi inox bucatarie', 'mobilier bucatarie profesionala', 'inox AISI 304'],
     content: `
@@ -2177,6 +2221,9 @@ export default async function BlogArticlePage({ params }: BlogArticlePageProps) 
     { label: article.title },
   ]
 
+  // Prepare articleBody for Schema.org (strip markdown, truncate to 500 chars)
+  const articleBody = stripMarkdown(article.content).slice(0, 500)
+
   return (
     <div className="min-h-screen bg-gray-50">
       {/* Schema.org */}
@@ -2186,12 +2233,23 @@ export default async function BlogArticlePage({ params }: BlogArticlePageProps) 
           description: article.excerpt,
           url: `https://www.xeh.ro/blog/${slug}`,
           datePublished: article.date,
+          dateModified: article.dateModified,
           author: article.author,
           authorSlug: article.authorSlug,
           keywords: article.keywords,
+          articleBody,
         }}
       />
       {article.faqs && <FAQJsonLd faqs={article.faqs} />}
+      {article.howToSteps && (
+        <HowToJsonLd
+          howTo={{
+            name: article.title,
+            description: article.excerpt,
+            steps: article.howToSteps,
+          }}
+        />
+      )}
       <BreadcrumbJsonLd
         items={breadcrumbItems.map((item) => ({
           name: item.label,
@@ -2250,6 +2308,11 @@ export default async function BlogArticlePage({ params }: BlogArticlePageProps) 
       {/* Content */}
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         <article className="bg-white rounded-3xl p-8 md:p-12 shadow-sm">
+          {/* Answer-first summary for AI search */}
+          <div className="article-summary bg-gray-50 border-l-4 border-crimson p-4 rounded-r-lg mb-8">
+            <p className="text-gray-700 font-medium">{article.excerpt}</p>
+          </div>
+
           <div className="prose prose-lg max-w-none">
             <SafeMarkdown content={article.content} />
           </div>

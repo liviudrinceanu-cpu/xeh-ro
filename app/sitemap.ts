@@ -2,6 +2,8 @@ import { MetadataRoute } from 'next'
 import { createClient } from '@/lib/supabase/server'
 import { getBaseUrl } from '@/lib/utils'
 
+export const revalidate = 3600
+
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const baseUrl = getBaseUrl()
   const supabase = await createClient()
@@ -292,7 +294,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   while (hasMore) {
     const { data: products } = await supabase
       .from('products')
-      .select('sap_code, slug_ro, updated_at, brand:brands(slug)')
+      .select('sap_code, slug_ro, updated_at, image_url, brand:brands(slug)')
       .range(page * pageSize, (page + 1) * pageSize - 1)
       .order('created_at', { ascending: false })
 
@@ -307,6 +309,9 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
           lastModified: product.updated_at ? new Date(product.updated_at) : new Date(),
           changeFrequency: 'weekly' as const,
           priority: 0.6,
+          ...(product.image_url && {
+            images: [product.image_url],
+          }),
         })
       }
       page++

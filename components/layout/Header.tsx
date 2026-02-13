@@ -325,7 +325,7 @@ function SearchModal({ onClose }: { onClose: () => void }) {
               value={query}
               onChange={(e) => setQuery(e.target.value)}
               placeholder="Caută produse, categorii, modele..."
-              className="flex-1 text-lg outline-none placeholder:text-gray-400"
+              className="flex-1 text-lg outline-none placeholder:text-gray-500"
               autoFocus
               aria-label="Caută produse, categorii, modele"
             />
@@ -345,7 +345,7 @@ function SearchModal({ onClose }: { onClose: () => void }) {
                 {/* Categories */}
                 {results.categories.length > 0 && (
                   <div className="mb-2">
-                    <h3 className="px-3 py-2 text-xs font-semibold text-gray-400 uppercase tracking-wide">
+                    <h3 className="px-3 py-2 text-xs font-semibold text-gray-500 uppercase tracking-wide">
                       Categorii
                     </h3>
                     {results.categories.map((cat) => (
@@ -370,7 +370,7 @@ function SearchModal({ onClose }: { onClose: () => void }) {
                 {/* Products */}
                 {results.products.length > 0 && (
                   <div>
-                    <h3 className="px-3 py-2 text-xs font-semibold text-gray-400 uppercase tracking-wide">
+                    <h3 className="px-3 py-2 text-xs font-semibold text-gray-500 uppercase tracking-wide">
                       Produse
                     </h3>
                     {results.products.map((product) => (
@@ -436,7 +436,7 @@ function SearchModal({ onClose }: { onClose: () => void }) {
               /* Default state - suggestions */
               <div className="p-4 space-y-4">
                 <div>
-                  <h3 className="text-xs font-semibold text-gray-400 uppercase tracking-wide mb-2">
+                  <h3 className="text-xs font-semibold text-gray-500 uppercase tracking-wide mb-2">
                     Căutări populare
                   </h3>
                   <div className="flex flex-wrap gap-2">
@@ -453,7 +453,7 @@ function SearchModal({ onClose }: { onClose: () => void }) {
                 </div>
 
                 <div>
-                  <h3 className="text-xs font-semibold text-gray-400 uppercase tracking-wide mb-2">
+                  <h3 className="text-xs font-semibold text-gray-500 uppercase tracking-wide mb-2">
                     Branduri
                   </h3>
                   <div className="flex gap-3">

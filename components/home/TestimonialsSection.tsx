@@ -132,7 +132,7 @@ export default function TestimonialsSection() {
                   <div className="font-semibold text-gray-600 text-sm">
                     {testimonial.author}
                   </div>
-                  <div className="text-gray-400 text-xs">
+                  <div className="text-gray-500 text-xs">
                     {testimonial.role}, {testimonial.location}
                   </div>
                 </div>
@@ -143,7 +143,7 @@ export default function TestimonialsSection() {
 
         {/* Trust indicators */}
         <div className="mt-12 text-center">
-          <p className="text-gray-400 text-sm">
+          <p className="text-gray-500 text-sm">
             Feedback de la clienți din industria HoReCa • Actualizat ianuarie 2026
           </p>
         </div>

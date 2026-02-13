@@ -38,15 +38,15 @@ export default function Hero() {
         <div className="mt-16 grid grid-cols-3 gap-8 max-w-xl mx-auto">
           <div>
             <div className="text-3xl sm:text-4xl font-bold text-gray-600">2600+</div>
-            <div className="text-sm text-gray-400 mt-1">Produse</div>
+            <div className="text-sm text-gray-500 mt-1">Produse</div>
           </div>
           <div>
             <div className="text-3xl sm:text-4xl font-bold text-gray-600">2</div>
-            <div className="text-sm text-gray-400 mt-1">Branduri</div>
+            <div className="text-sm text-gray-500 mt-1">Branduri</div>
           </div>
           <div>
             <div className="text-3xl sm:text-4xl font-bold text-gray-600">400+</div>
-            <div className="text-sm text-gray-400 mt-1">Categorii</div>
+            <div className="text-sm text-gray-500 mt-1">Categorii</div>
           </div>
         </div>
       </div>

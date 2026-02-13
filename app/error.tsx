@@ -40,7 +40,7 @@ export default function Error({
           </Link>
         </div>
         {error.digest && (
-          <p className="mt-6 text-xs text-gray-400">
+          <p className="mt-6 text-xs text-gray-500">
             Cod eroare: {error.digest}
           </p>
         )}

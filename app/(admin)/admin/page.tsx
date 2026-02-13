@@ -166,7 +166,7 @@ export default function AdminDashboardPage() {
             <span className="text-2xl font-bold text-gray-900">{stats?.totalPartners || 0}</span>
           </div>
           <p className="mt-4 text-gray-600 font-medium">Total Parteneri</p>
-          <p className="text-sm text-gray-400">
+          <p className="text-sm text-gray-500">
             {stats?.approvedPartners || 0} aprobați
           </p>
         </div>
@@ -179,7 +179,7 @@ export default function AdminDashboardPage() {
             <span className="text-2xl font-bold text-gray-900">{stats?.pendingPartners || 0}</span>
           </div>
           <p className="mt-4 text-gray-600 font-medium">În Așteptare</p>
-          <p className="text-sm text-gray-400">parteneri de aprobat</p>
+          <p className="text-sm text-gray-500">parteneri de aprobat</p>
         </div>
 
         <div className="bg-white rounded-2xl p-6 shadow-sm">
@@ -190,7 +190,7 @@ export default function AdminDashboardPage() {
             <span className="text-2xl font-bold text-gray-900">{stats?.totalQuotes || 0}</span>
           </div>
           <p className="mt-4 text-gray-600 font-medium">Total Cotații</p>
-          <p className="text-sm text-gray-400">cereri de ofertă</p>
+          <p className="text-sm text-gray-500">cereri de ofertă</p>
         </div>
 
         <div className="bg-white rounded-2xl p-6 shadow-sm">
@@ -201,7 +201,7 @@ export default function AdminDashboardPage() {
             <span className="text-2xl font-bold text-gray-900">{stats?.pendingQuotes || 0}</span>
           </div>
           <p className="mt-4 text-gray-600 font-medium">Cotații Noi</p>
-          <p className="text-sm text-gray-400">de procesat</p>
+          <p className="text-sm text-gray-500">de procesat</p>
         </div>
       </div>
 

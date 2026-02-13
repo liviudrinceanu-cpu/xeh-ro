@@ -171,9 +171,11 @@ export default async function DistribuitorRMGastroPage() {
             <h1 className="text-4xl md:text-5xl font-bold mb-6">
               Distribuitor RM Gastro și REDFOX în România
             </h1>
-            <p className="text-xl text-gray-300 mb-8">
-              XEH.ro este partenerul oficial pentru echipamentele profesionale RM Gastro și REDFOX.
-              Oferim gama completă de peste 2,600 de produse cu garanție, service autorizat și livrare în toată România.
+            <p className="text-xl text-gray-300 mb-6 article-summary">
+              XEH.ro este distribuitor autorizat RM Gastro și REDFOX în România. Peste 2.600 produse profesionale HoReCa: cuptoare convecție, combi steamere, frigidere industriale, mașini spălat vase. Garanție producător, service autorizat, piese originale, livrare națională 2-7 zile.
+            </p>
+            <p className="text-lg text-gray-400 mb-8">
+              Partener oficial cu experiență de 30+ ani. Produse 100% originale cu certificat de autenticitate.
             </p>
             <div className="flex flex-wrap gap-4">
               <Link
@@ -437,6 +439,7 @@ export default async function DistribuitorRMGastroPage() {
               0724 256 250
             </a>
           </div>
+          <p className="text-xs text-gray-400 text-center mt-12">Ultima actualizare: Februarie 2026</p>
         </div>
       </section>
     </div>

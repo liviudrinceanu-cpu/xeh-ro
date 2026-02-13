@@ -135,9 +135,11 @@ export default async function CuptoareProfesionalePage() {
             <h1 className="text-4xl md:text-5xl font-bold mb-6">
               Cuptoare Profesionale pentru Restaurante
             </h1>
-            <p className="text-xl text-gray-300 mb-8">
-              Gamă completă de cuptoare profesionale HoReCa: convecție, combi steamer, pizza și salamandru.
-              Branduri premium RM Gastro și REDFOX pentru bucătării comerciale de orice dimensiune.
+            <p className="text-xl text-gray-300 mb-6 article-summary">
+              Cuptoarele profesionale pentru restaurante costă între 2.500-25.000 EUR. XEH.ro oferă cuptoare cu convecție, combi steamer, cuptoare pizza și patiserie de la RM Gastro și REDFOX. Livrare în toată România, garanție producător.
+            </p>
+            <p className="text-lg text-gray-400 mb-8">
+              Gamă completă de cuptoare profesionale HoReCa: convecție, combi steamer, pizza și salamandru pentru bucătării comerciale de orice dimensiune.
             </p>
             <div className="flex flex-wrap gap-4">
               <Link
@@ -366,6 +368,7 @@ export default async function CuptoareProfesionalePage() {
               Sună: 0724 256 250
             </a>
           </div>
+          <p className="text-xs text-gray-400 text-center mt-12">Ultima actualizare: Februarie 2026</p>
         </div>
       </section>
     </div>

@@ -169,9 +169,11 @@ export default async function EchipamenteHorecaMediiPage() {
             <h1 className="text-4xl md:text-5xl font-bold mb-6">
               Echipamente pentru Restaurante Medii
             </h1>
-            <p className="text-xl text-blue-100 mb-8">
-              Echipamente profesionale pentru restaurante cu 50-150 locuri. Combi steamere, blast chillere,
-              mașini de spălat cu capotă și frigidere de mare capacitate pentru bucătării eficiente.
+            <p className="text-xl text-blue-100 mb-6 article-summary">
+              Echipamente HoReCa restaurante medii (50-150 locuri) între 5.000-15.000 EUR. Combi steamere 6-10 tăvi (8.000-15.000 EUR), blast chillere (5.000-12.000 EUR), mașini spălat hood-type 60-80 coșuri/oră (5.000-10.000 EUR), frigidere 700-1400L. RM Gastro și REDFOX, livrare România.
+            </p>
+            <p className="text-lg text-blue-200 mb-8">
+              Echipamente profesionale premium pentru bucătării eficiente și productive.
             </p>
             <div className="flex flex-wrap gap-4">
               <Link
@@ -434,6 +436,7 @@ export default async function EchipamenteHorecaMediiPage() {
               Sună: 0724 256 250
             </a>
           </div>
+          <p className="text-xs text-blue-400 text-center mt-12">Ultima actualizare: Februarie 2026</p>
         </div>
       </section>
     </div>

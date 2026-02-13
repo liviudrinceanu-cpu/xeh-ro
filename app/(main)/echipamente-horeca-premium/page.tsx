@@ -183,8 +183,10 @@ export default async function EchipamenteHorecaPremiumPage() {
             <h1 className="text-4xl md:text-5xl font-bold mb-6">
               Echipamente HoReCa Premium
             </h1>
-            <p className="text-xl text-gray-300 mb-8">
-              Echipamente de top pentru restaurante fine dining, hoteluri de lux și operațiuni HoReCa de volum.
+            <p className="text-xl text-gray-300 mb-6 article-summary">
+              Echipamente HoReCa premium peste 15.000 EUR pentru fine dining și hoteluri. RM Gastro oferă combi steamere mari 10-20 tăvi (15.000-35.000 EUR), linii gătit complete (20.000-50.000 EUR), frigidere industriale 1000-2000L+ (15.000-40.000 EUR). Durabilitate 15-20 ani, economie energie 30%, livrare România.
+            </p>
+            <p className="text-lg text-gray-400 mb-8">
               Investiție în excelență cu RM Gastro - brandul ales de bucătarii profesioniști din întreaga lume.
             </p>
             <div className="flex flex-wrap gap-4">
@@ -441,6 +443,7 @@ export default async function EchipamenteHorecaPremiumPage() {
               Sună: 0724 256 250
             </a>
           </div>
+          <p className="text-xs text-gray-400 text-center mt-12">Ultima actualizare: Februarie 2026</p>
         </div>
       </section>
     </div>

@@ -135,9 +135,11 @@ export default async function FrigidereIndustrialePage() {
             <h1 className="text-4xl md:text-5xl font-bold mb-6">
               Frigidere Industriale și Echipamente de Refrigerare
             </h1>
-            <p className="text-xl text-blue-100 mb-8">
+            <p className="text-xl text-blue-100 mb-6 article-summary">
+              Frigiderele industriale pentru restaurante costă între 1.500-15.000 EUR. XEH.ro oferă frigidere verticale (400-1400L), congelatoare (-18°C/-22°C), blast chillere și vitrine frigorifice de la RM Gastro și REDFOX. Livrare în toată România cu garanție.
+            </p>
+            <p className="text-lg text-blue-200 mb-8">
               Gamă completă de echipamente de refrigerare profesionale pentru restaurante și bucătării comerciale.
-              Frigidere verticale, congelatoare, blast chiller și vitrine frigorifice de la RM Gastro și REDFOX.
             </p>
             <div className="flex flex-wrap gap-4">
               <Link
@@ -365,6 +367,7 @@ export default async function FrigidereIndustrialePage() {
               Sună: 0724 256 250
             </a>
           </div>
+          <p className="text-xs text-blue-400 text-center mt-12">Ultima actualizare: Februarie 2026</p>
         </div>
       </section>
     </div>

@@ -209,9 +209,11 @@ export default function ConsultantaEchipamenteHorecaPage() {
             <h1 className="text-4xl md:text-5xl font-bold mb-6">
               Consultanță Gratuită pentru Echipamente HoReCa
             </h1>
-            <p className="text-xl text-teal-100 mb-8">
-              Experții noștri te ajută să alegi echipamentele potrivite pentru bucătăria ta profesională.
-              Planificare, bugetare și suport pentru fonduri europene - totul gratuit.
+            <p className="text-xl text-teal-100 mb-6 article-summary">
+              Consultanță gratuită echipamente HoReCa - XEH.ro oferă planificare bucătărie profesională, bugetare inteligentă, alegere echipamente potrivite (cuptoare, frigidere, mașini spălat) și suport fonduri europene (Start-Up Nation, PNRR). Răspuns în 24-48 ore, fără obligații.
+            </p>
+            <p className="text-lg text-teal-200 mb-8">
+              Experții noștri cu peste 10 ani experiență te ghidează în echiparea completă a bucătăriei tale profesionale.
             </p>
             <div className="flex flex-wrap gap-4">
               <a
@@ -449,6 +451,7 @@ export default function ConsultantaEchipamenteHorecaPage() {
               <ArrowRight className="w-5 h-5" />
             </Link>
           </div>
+          <p className="text-xs text-teal-400 text-center mt-12">Ultima actualizare: Februarie 2026</p>
         </div>
       </section>
     </div>

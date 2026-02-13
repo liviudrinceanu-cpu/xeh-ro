@@ -134,9 +134,11 @@ export default async function MasiniSpalatVasePage() {
             <h1 className="text-4xl md:text-5xl font-bold mb-6">
               Mașini de Spălat Vase Profesionale pentru Restaurante
             </h1>
-            <p className="text-xl text-teal-100 mb-8">
-              Echipamente profesionale de spălare pentru bucătării comerciale.
-              Mașini front-loading, hood-type, glasswashers și sisteme tunnel de la RM Gastro și REDFOX.
+            <p className="text-xl text-teal-100 mb-6 article-summary">
+              Mașinile de spălat vase profesionale costă între 2.500-15.000 EUR. XEH.ro oferă mașini front-loading (20-40 coșuri/oră), hood-type (60-80 coșuri/oră), glasswashers și tunnel de la RM Gastro și REDFOX. Cicluri 2-3 minute, igienizare 82°C, livrare în toată România.
+            </p>
+            <p className="text-lg text-teal-200 mb-8">
+              Echipamente profesionale de spălare pentru bucătării comerciale - de la bistrouri mici la hoteluri mari.
             </p>
             <div className="flex flex-wrap gap-4">
               <Link
@@ -411,6 +413,7 @@ export default async function MasiniSpalatVasePage() {
               Sună: 0724 256 250
             </a>
           </div>
+          <p className="text-xs text-teal-400 text-center mt-12">Ultima actualizare: Februarie 2026</p>
         </div>
       </section>
     </div>

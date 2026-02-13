@@ -170,9 +170,11 @@ export default async function EchipamenteHorecaEconomicePage() {
             <h1 className="text-4xl md:text-5xl font-bold mb-6">
               Echipamente HoReCa Economice
             </h1>
-            <p className="text-xl text-emerald-100 mb-8">
-              Echipamente profesionale la prețuri accesibile pentru startup-uri, bistrouri și afaceri cu buget optimizat.
-              Calitate profesională fără a compromite fiabilitatea.
+            <p className="text-xl text-emerald-100 mb-6 article-summary">
+              Echipamente HoReCa economice între 2.000-5.000 EUR. REDFOX oferă cuptoare convecție (2.000-4.500 EUR), frigidere verticale (1.500-3.500 EUR), mașini spălat vase (2.500-5.000 EUR). Raport calitate-preț excelent, garanție producător, livrare România.
+            </p>
+            <p className="text-lg text-emerald-200 mb-8">
+              Perfect pentru startup-uri, bistrouri și afaceri cu buget optimizat. Calitate profesională fără compromisuri.
             </p>
             <div className="flex flex-wrap gap-4">
               <Link
@@ -393,6 +395,7 @@ export default async function EchipamenteHorecaEconomicePage() {
               Sună: 0724 256 250
             </a>
           </div>
+          <p className="text-xs text-emerald-400 text-center mt-12">Ultima actualizare: Februarie 2026</p>
         </div>
       </section>
     </div>

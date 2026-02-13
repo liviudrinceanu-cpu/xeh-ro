@@ -1,3 +1,8 @@
+// Safe JSON-LD serialization - prevents XSS via script injection
+function safeJsonLd(data: Record<string, unknown>): string {
+  return JSON.stringify(data).replace(/</g, '\\u003c').replace(/>/g, '\\u003e').replace(/&/g, '\\u0026')
+}
+
 interface ProductJsonLdProps {
   product: {
     name: string
@@ -44,7 +49,7 @@ export function ProductJsonLd({ product }: ProductJsonLdProps) {
   return (
     <script
       type="application/ld+json"
-      dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      dangerouslySetInnerHTML={{ __html: safeJsonLd(jsonLd) }}
     />
   )
 }
@@ -71,7 +76,7 @@ export function BreadcrumbJsonLd({ items }: BreadcrumbJsonLdProps) {
   return (
     <script
       type="application/ld+json"
-      dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      dangerouslySetInnerHTML={{ __html: safeJsonLd(jsonLd) }}
     />
   )
 }
@@ -118,7 +123,7 @@ export function OrganizationJsonLd() {
   return (
     <script
       type="application/ld+json"
-      dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      dangerouslySetInnerHTML={{ __html: safeJsonLd(jsonLd) }}
     />
   )
 }
@@ -159,16 +164,27 @@ export function LocalBusinessJsonLd() {
       },
     ],
     priceRange: '€€€',
-    areaServed: {
-      '@type': 'Country',
-      name: 'România',
-    },
+    areaServed: [
+      { '@type': 'Country', name: 'România' },
+      { '@type': 'City', name: 'București' },
+      { '@type': 'City', name: 'Cluj-Napoca' },
+      { '@type': 'City', name: 'Timișoara' },
+      { '@type': 'City', name: 'Iași' },
+      { '@type': 'City', name: 'Constanța' },
+      { '@type': 'City', name: 'Craiova' },
+      { '@type': 'City', name: 'Brașov' },
+      { '@type': 'City', name: 'Galați' },
+      { '@type': 'City', name: 'Ploiești' },
+      { '@type': 'City', name: 'Oradea' },
+      { '@type': 'City', name: 'Arad' },
+      { '@type': 'City', name: 'Sibiu' },
+    ],
   }
 
   return (
     <script
       type="application/ld+json"
-      dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      dangerouslySetInnerHTML={{ __html: safeJsonLd(jsonLd) }}
     />
   )
 }
@@ -197,7 +213,7 @@ export function FAQJsonLd({ faqs }: FAQJsonLdProps) {
   return (
     <script
       type="application/ld+json"
-      dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      dangerouslySetInnerHTML={{ __html: safeJsonLd(jsonLd) }}
     />
   )
 }
@@ -230,7 +246,7 @@ export function WebSiteJsonLd({ searchUrl = 'https://www.xeh.ro/catalog?search={
   return (
     <script
       type="application/ld+json"
-      dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      dangerouslySetInnerHTML={{ __html: safeJsonLd(jsonLd) }}
     />
   )
 }
@@ -267,7 +283,7 @@ export function CategoryJsonLd({ category }: CategoryJsonLdProps) {
   return (
     <script
       type="application/ld+json"
-      dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      dangerouslySetInnerHTML={{ __html: safeJsonLd(jsonLd) }}
     />
   )
 }
@@ -336,7 +352,7 @@ export function ArticleJsonLd({ article }: ArticleJsonLdProps) {
   return (
     <script
       type="application/ld+json"
-      dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      dangerouslySetInnerHTML={{ __html: safeJsonLd(jsonLd) }}
     />
   )
 }
@@ -387,7 +403,7 @@ export function PersonJsonLd({ person }: PersonJsonLdProps) {
   return (
     <script
       type="application/ld+json"
-      dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      dangerouslySetInnerHTML={{ __html: safeJsonLd(jsonLd) }}
     />
   )
 }
@@ -446,7 +462,7 @@ export function ReviewJsonLd({ reviews, aggregateRating }: ReviewJsonLdProps) {
   return (
     <script
       type="application/ld+json"
-      dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      dangerouslySetInnerHTML={{ __html: safeJsonLd(jsonLd) }}
     />
   )
 }
@@ -494,7 +510,7 @@ export function HowToJsonLd({ howTo }: HowToJsonLdProps) {
   return (
     <script
       type="application/ld+json"
-      dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      dangerouslySetInnerHTML={{ __html: safeJsonLd(jsonLd) }}
     />
   )
 }
@@ -519,7 +535,82 @@ export function AboutPageJsonLd() {
   return (
     <script
       type="application/ld+json"
-      dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      dangerouslySetInnerHTML={{ __html: safeJsonLd(jsonLd) }}
+    />
+  )
+}
+
+// ContactPage schema (SCHEMA-03)
+export function ContactPageJsonLd() {
+  const jsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'ContactPage',
+    '@id': 'https://www.xeh.ro/contact#webpage',
+    name: 'Contact XEH.ro - eXpert Echipamente Horeca',
+    description: 'Contactează-ne pentru informații despre echipamente HoReCa profesionale. Consultanță gratuită, răspuns în 24h.',
+    url: 'https://www.xeh.ro/contact',
+    isPartOf: {
+      '@id': 'https://www.xeh.ro/#website',
+    },
+    mainEntity: {
+      '@id': 'https://www.xeh.ro/#organization',
+    },
+  }
+
+  return (
+    <script
+      type="application/ld+json"
+      dangerouslySetInnerHTML={{ __html: safeJsonLd(jsonLd) }}
+    />
+  )
+}
+
+// Service schema for XEH.ro services (SCHEMA-01)
+export function ServiceJsonLd() {
+  const services = [
+    {
+      '@type': 'Service',
+      '@id': 'https://www.xeh.ro/#service-consultanta',
+      name: 'Consultanță Echipamente HoReCa',
+      description: 'Consultanță gratuită pentru alegerea echipamentelor profesionale HoReCa potrivite afacerii tale. Analiză nevoi, recomandări personalizate, bugetare.',
+      serviceType: 'Consultanță',
+      provider: { '@id': 'https://www.xeh.ro/#organization' },
+      areaServed: { '@type': 'Country', name: 'România' },
+      availableChannel: {
+        '@type': 'ServiceChannel',
+        serviceUrl: 'https://www.xeh.ro/consultanta-echipamente-horeca',
+        servicePhone: '+40724256250',
+      },
+    },
+    {
+      '@type': 'Service',
+      '@id': 'https://www.xeh.ro/#service-instalare',
+      name: 'Instalare Echipamente Profesionale',
+      description: 'Servicii profesionale de instalare echipamente HoReCa: cuptoare, frigidere industriale, mașini de spălat vase, mobilier inox. Instalare la nivel național.',
+      serviceType: 'Instalare',
+      provider: { '@id': 'https://www.xeh.ro/#organization' },
+      areaServed: { '@type': 'Country', name: 'România' },
+    },
+    {
+      '@type': 'Service',
+      '@id': 'https://www.xeh.ro/#service-mentenanta',
+      name: 'Service și Mentenanță Echipamente',
+      description: 'Service autorizat RM Gastro și REDFOX. Mentenanță preventivă, reparații, piese de schimb originale pentru echipamente HoReCa profesionale.',
+      serviceType: 'Service și Mentenanță',
+      provider: { '@id': 'https://www.xeh.ro/#organization' },
+      areaServed: { '@type': 'Country', name: 'România' },
+    },
+  ]
+
+  const jsonLd = {
+    '@context': 'https://schema.org',
+    '@graph': services,
+  }
+
+  return (
+    <script
+      type="application/ld+json"
+      dangerouslySetInnerHTML={{ __html: safeJsonLd(jsonLd) }}
     />
   )
 }

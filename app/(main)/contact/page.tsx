@@ -1,7 +1,7 @@
 import { Phone, Mail, MapPin, Clock } from 'lucide-react'
 import Breadcrumb from '@/components/ui/Breadcrumb'
 import ContactForm from '@/components/forms/ContactForm'
-import { BreadcrumbJsonLd } from '@/components/seo/JsonLd'
+import { BreadcrumbJsonLd, ContactPageJsonLd, ServiceJsonLd } from '@/components/seo/JsonLd'
 import type { Metadata } from 'next'
 
 export const metadata: Metadata = {
@@ -40,6 +40,8 @@ export default function ContactPage() {
           { name: 'Contact' },
         ]}
       />
+      <ContactPageJsonLd />
+      <ServiceJsonLd />
 
       {/* Header */}
       <div className="bg-white border-b border-gray-200">

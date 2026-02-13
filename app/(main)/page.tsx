@@ -7,7 +7,7 @@ import TestimonialsSection from '@/components/home/TestimonialsSection'
 import BrandCard from '@/components/brand/BrandCard'
 import CategoryCard from '@/components/category/CategoryCard'
 import ProductCard from '@/components/product/ProductCard'
-import { FAQJsonLd } from '@/components/seo/JsonLd'
+import { FAQJsonLd, ServiceJsonLd } from '@/components/seo/JsonLd'
 import { getBrands, getTopLevelCategories, getProductCountByCategory } from '@/lib/queries/categories'
 import { getFeaturedProducts } from '@/lib/queries/products'
 
@@ -91,6 +91,7 @@ export default async function HomePage() {
     <>
       {/* FAQ Schema for SEO */}
       <FAQJsonLd faqs={homeFaqs} />
+      <ServiceJsonLd />
 
       {/* Hero */}
       <Hero />

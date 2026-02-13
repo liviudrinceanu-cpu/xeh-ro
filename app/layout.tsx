@@ -83,6 +83,7 @@ export default function RootLayout({
         <link rel="preconnect" href="https://fllfgcuwjpnnrcijqzul.supabase.co" />
         <link rel="dns-prefetch" href="https://fllfgcuwjpnnrcijqzul.supabase.co" />
         <link rel="dns-prefetch" href="https://analytics.ahrefs.com" />
+        <meta name="p:domain_verify" content="625b8d95664e42f3035aadf5188814f7" />
       </head>
       <body className="font-sans antialiased bg-background min-h-screen">
         {/* Skip link for accessibility */}

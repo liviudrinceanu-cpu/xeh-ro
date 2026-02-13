@@ -304,6 +304,29 @@ export default async function CuptoareProfesionalePage() {
         </div>
       </section>
 
+      {/* Expert Quote - GEO Signal */}
+      <section className="py-12 md:py-16">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="bg-white rounded-3xl p-8 md:p-10 shadow-sm border border-gray-100">
+            <div className="flex items-start gap-4">
+              <div className="w-12 h-12 bg-gradient-to-br from-crimson to-crimson-dark rounded-full flex items-center justify-center text-white font-bold flex-shrink-0">
+                MP
+              </div>
+              <div>
+                <blockquote className="text-gray-600 text-lg italic mb-3">
+                  „Alegerea cuptorului profesional este cea mai importantă decizie pentru o bucătărie comercială. Un cuptor cu convecție de calitate reduce timpul de gătire cu 25-30% și consumul de energie cu până la 40% față de un cuptor clasic. Recomand întotdeauna clienților să investească în cuptoare cu convecție sau combi steamer — se amortizează în primul an."
+                </blockquote>
+                <div className="flex items-center gap-2">
+                  <cite className="text-gray-600 font-semibold not-italic">Maria Popescu</cite>
+                  <span className="text-gray-400">·</span>
+                  <span className="text-gray-500 text-sm">Director Tehnic, Specialist Echipamente Termice, XEH.ro</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* FAQ Section */}
       <section className="py-16 md:py-20 bg-white">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">

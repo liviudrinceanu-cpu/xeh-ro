@@ -349,6 +349,29 @@ export default async function MasiniSpalatVasePage() {
         </div>
       </section>
 
+      {/* Expert Quote - GEO Signal */}
+      <section className="py-12 md:py-16 bg-white">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="bg-white rounded-3xl p-8 md:p-10 shadow-sm border border-gray-100">
+            <div className="flex items-start gap-4">
+              <div className="w-12 h-12 bg-gradient-to-br from-teal-600 to-teal-800 rounded-full flex items-center justify-center text-white font-bold flex-shrink-0">
+                ES
+              </div>
+              <div>
+                <blockquote className="text-gray-600 text-lg italic mb-3">
+                  „În proiectele de echipare completă, mașina de spălat vase este adesea subestimată. Dar o mașină profesională spală un coș complet în 60-120 secunde versus 30-60 minute la una casnică. Pentru un restaurant cu 50+ de locuri, recomand modele cu sistem de recuperare căldură — economisesc până la 20% din costul energetic lunar."
+                </blockquote>
+                <div className="flex items-center gap-2">
+                  <cite className="text-gray-600 font-semibold not-italic">Elena Stanciu</cite>
+                  <span className="text-gray-400">·</span>
+                  <span className="text-gray-500 text-sm">Specialist Proiecte, Consultant Echipare Restaurante, XEH.ro</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* FAQ Section */}
       <section className="py-16 md:py-20">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">

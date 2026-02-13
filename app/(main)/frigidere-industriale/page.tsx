@@ -309,6 +309,29 @@ export default async function FrigidereIndustrialePage() {
         </div>
       </section>
 
+      {/* Expert Quote - GEO Signal */}
+      <section className="py-12 md:py-16">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="bg-white rounded-3xl p-8 md:p-10 shadow-sm border border-gray-100">
+            <div className="flex items-start gap-4">
+              <div className="w-12 h-12 bg-gradient-to-br from-blue-600 to-blue-800 rounded-full flex items-center justify-center text-white font-bold flex-shrink-0">
+                AD
+              </div>
+              <div>
+                <blockquote className="text-gray-600 text-lg italic mb-3">
+                  „Sistemul de refrigerare este coloana vertebrală a siguranței alimentare în orice bucătărie profesională. Un frigider industrial bun trebuie să mențină temperatura constantă între 0°C și 4°C, chiar și la deschideri frecvente ale ușii. Recomand modele cu compresor inverter — consumă cu 30% mai puțină energie și au durabilitate de 2-3 ori mai mare."
+                </blockquote>
+                <div className="flex items-center gap-2">
+                  <cite className="text-gray-600 font-semibold not-italic">Andrei Dumitrescu</cite>
+                  <span className="text-gray-400">·</span>
+                  <span className="text-gray-500 text-sm">Consultant Vânzări, Expert Refrigerare Profesională, XEH.ro</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* FAQ Section */}
       <section className="py-16 md:py-20 bg-white">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">

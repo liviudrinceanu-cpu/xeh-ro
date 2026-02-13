@@ -250,6 +250,218 @@ export default async function FrigidereIndustrialePage() {
         </div>
       </section>
 
+      {/* Avantaje și Dezavantaje Section */}
+      <section className="py-16 md:py-20">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl md:text-4xl font-bold text-gray-600 mb-4">
+              Avantaje și Dezavantaje pe Tipuri de Echipamente
+            </h2>
+            <p className="text-gray-500 max-w-2xl mx-auto">
+              Compară caracteristicile fiecărui tip de echipament de refrigerare pentru decizia potrivită
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-2 gap-8">
+            {/* Frigider Vertical Profesional */}
+            <div className="bg-white rounded-2xl p-8 shadow-sm border border-gray-100">
+              <h3 className="text-xl font-bold text-gray-600 mb-6">Frigider Vertical Profesional</h3>
+
+              <div className="mb-6">
+                <h4 className="font-semibold text-green-600 mb-3 flex items-center gap-2">
+                  <span className="text-xl">✅</span> Avantaje
+                </h4>
+                <ul className="space-y-2">
+                  <li className="flex items-start gap-2 text-gray-600">
+                    <span className="text-green-500 mt-1">•</span>
+                    <span>Acces ușor la produse - organizare pe rafturi</span>
+                  </li>
+                  <li className="flex items-start gap-2 text-gray-600">
+                    <span className="text-green-500 mt-1">•</span>
+                    <span>Vizibilitate excelentă a conținutului</span>
+                  </li>
+                  <li className="flex items-start gap-2 text-gray-600">
+                    <span className="text-green-500 mt-1">•</span>
+                    <span>Disponibil în diverse capacități (400L-1400L)</span>
+                  </li>
+                  <li className="flex items-start gap-2 text-gray-600">
+                    <span className="text-green-500 mt-1">•</span>
+                    <span>Economisește spațiu pe podea - ocupă în înălțime</span>
+                  </li>
+                </ul>
+              </div>
+
+              <div>
+                <h4 className="font-semibold text-red-600 mb-3 flex items-center gap-2">
+                  <span className="text-xl">❌</span> Dezavantaje
+                </h4>
+                <ul className="space-y-2">
+                  <li className="flex items-start gap-2 text-gray-600">
+                    <span className="text-red-500 mt-1">•</span>
+                    <span>Pierdere de frig la deschidere frecventă a ușii</span>
+                  </li>
+                  <li className="flex items-start gap-2 text-gray-600">
+                    <span className="text-red-500 mt-1">•</span>
+                    <span>Capacitate totală mai mică decât modelele orizontale</span>
+                  </li>
+                  <li className="flex items-start gap-2 text-gray-600">
+                    <span className="text-red-500 mt-1">•</span>
+                    <span>Necesită spațiu vertical suficient</span>
+                  </li>
+                </ul>
+              </div>
+            </div>
+
+            {/* Congelator Industrial */}
+            <div className="bg-white rounded-2xl p-8 shadow-sm border border-gray-100">
+              <h3 className="text-xl font-bold text-gray-600 mb-6">Congelator Industrial</h3>
+
+              <div className="mb-6">
+                <h4 className="font-semibold text-green-600 mb-3 flex items-center gap-2">
+                  <span className="text-xl">✅</span> Avantaje
+                </h4>
+                <ul className="space-y-2">
+                  <li className="flex items-start gap-2 text-gray-600">
+                    <span className="text-green-500 mt-1">•</span>
+                    <span>Temperaturi foarte joase (-18°C până la -22°C)</span>
+                  </li>
+                  <li className="flex items-start gap-2 text-gray-600">
+                    <span className="text-green-500 mt-1">•</span>
+                    <span>Conservare pe termen lung (luni de zile)</span>
+                  </li>
+                  <li className="flex items-start gap-2 text-gray-600">
+                    <span className="text-green-500 mt-1">•</span>
+                    <span>Eficient energetic pe unitate de stocare</span>
+                  </li>
+                  <li className="flex items-start gap-2 text-gray-600">
+                    <span className="text-green-500 mt-1">•</span>
+                    <span>Ideal pentru aprovizionare în cantități mari</span>
+                  </li>
+                </ul>
+              </div>
+
+              <div>
+                <h4 className="font-semibold text-red-600 mb-3 flex items-center gap-2">
+                  <span className="text-xl">❌</span> Dezavantaje
+                </h4>
+                <ul className="space-y-2">
+                  <li className="flex items-start gap-2 text-gray-600">
+                    <span className="text-red-500 mt-1">•</span>
+                    <span>Timp de recuperare temperatură după deschidere</span>
+                  </li>
+                  <li className="flex items-start gap-2 text-gray-600">
+                    <span className="text-red-500 mt-1">•</span>
+                    <span>Consum energetic constant 24/7</span>
+                  </li>
+                  <li className="flex items-start gap-2 text-gray-600">
+                    <span className="text-red-500 mt-1">•</span>
+                    <span>Necesită defrostare periodică pentru mentenanță</span>
+                  </li>
+                </ul>
+              </div>
+            </div>
+
+            {/* Blast Chiller */}
+            <div className="bg-white rounded-2xl p-8 shadow-sm border border-gray-100">
+              <h3 className="text-xl font-bold text-gray-600 mb-6">Blast Chiller</h3>
+
+              <div className="mb-6">
+                <h4 className="font-semibold text-green-600 mb-3 flex items-center gap-2">
+                  <span className="text-xl">✅</span> Avantaje
+                </h4>
+                <ul className="space-y-2">
+                  <li className="flex items-start gap-2 text-gray-600">
+                    <span className="text-green-500 mt-1">•</span>
+                    <span>Răcire rapidă (de la 90°C la 3°C în 90 minute)</span>
+                  </li>
+                  <li className="flex items-start gap-2 text-gray-600">
+                    <span className="text-green-500 mt-1">•</span>
+                    <span>Conformitate HACCP - siguranță alimentară maximă</span>
+                  </li>
+                  <li className="flex items-start gap-2 text-gray-600">
+                    <span className="text-green-500 mt-1">•</span>
+                    <span>Prelungește durata de viață a alimentelor cu 50-70%</span>
+                  </li>
+                  <li className="flex items-start gap-2 text-gray-600">
+                    <span className="text-green-500 mt-1">•</span>
+                    <span>Păstrează textura, culoarea și aromele originale</span>
+                  </li>
+                </ul>
+              </div>
+
+              <div>
+                <h4 className="font-semibold text-red-600 mb-3 flex items-center gap-2">
+                  <span className="text-xl">❌</span> Dezavantaje
+                </h4>
+                <ul className="space-y-2">
+                  <li className="flex items-start gap-2 text-gray-600">
+                    <span className="text-red-500 mt-1">•</span>
+                    <span>Investiție semnificativă (3.000-15.000 EUR)</span>
+                  </li>
+                  <li className="flex items-start gap-2 text-gray-600">
+                    <span className="text-red-500 mt-1">•</span>
+                    <span>Necesită spațiu dedicat în bucătărie</span>
+                  </li>
+                  <li className="flex items-start gap-2 text-gray-600">
+                    <span className="text-red-500 mt-1">•</span>
+                    <span>Consum energetic ridicat în timpul ciclului de răcire</span>
+                  </li>
+                </ul>
+              </div>
+            </div>
+
+            {/* Vitrină Frigorifică */}
+            <div className="bg-white rounded-2xl p-8 shadow-sm border border-gray-100">
+              <h3 className="text-xl font-bold text-gray-600 mb-6">Vitrină Frigorifică</h3>
+
+              <div className="mb-6">
+                <h4 className="font-semibold text-green-600 mb-3 flex items-center gap-2">
+                  <span className="text-xl">✅</span> Avantaje
+                </h4>
+                <ul className="space-y-2">
+                  <li className="flex items-start gap-2 text-gray-600">
+                    <span className="text-green-500 mt-1">•</span>
+                    <span>Prezentare atractivă a produselor pentru clienți</span>
+                  </li>
+                  <li className="flex items-start gap-2 text-gray-600">
+                    <span className="text-green-500 mt-1">•</span>
+                    <span>Iluminare LED care evidențiază alimentele</span>
+                  </li>
+                  <li className="flex items-start gap-2 text-gray-600">
+                    <span className="text-green-500 mt-1">•</span>
+                    <span>Acces direct pentru clienți - self-service</span>
+                  </li>
+                  <li className="flex items-start gap-2 text-gray-600">
+                    <span className="text-green-500 mt-1">•</span>
+                    <span>Crește vânzările prin expunere vizuală</span>
+                  </li>
+                </ul>
+              </div>
+
+              <div>
+                <h4 className="font-semibold text-red-600 mb-3 flex items-center gap-2">
+                  <span className="text-xl">❌</span> Dezavantaje
+                </h4>
+                <ul className="space-y-2">
+                  <li className="flex items-start gap-2 text-gray-600">
+                    <span className="text-red-500 mt-1">•</span>
+                    <span>Eficiență energetică mai scăzută (deschidere frecventă)</span>
+                  </li>
+                  <li className="flex items-start gap-2 text-gray-600">
+                    <span className="text-red-500 mt-1">•</span>
+                    <span>Temperatură mai puțin stabilă decât frigiderele închise</span>
+                  </li>
+                  <li className="flex items-start gap-2 text-gray-600">
+                    <span className="text-red-500 mt-1">•</span>
+                    <span>Necesită curățare zilnică a geamurilor pentru aspect</span>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Products Section */}
       {products.length > 0 && (
         <section className="py-16 md:py-20 bg-white">

@@ -244,6 +244,218 @@ export default async function CuptoareProfesionalePage() {
         </div>
       </section>
 
+      {/* Avantaje și Dezavantaje Section */}
+      <section className="py-16 md:py-20">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl md:text-4xl font-bold text-gray-600 mb-4">
+              Avantaje și Dezavantaje pe Tipuri de Cuptoare
+            </h2>
+            <p className="text-gray-500 max-w-2xl mx-auto">
+              Compară punctele forte și limitările fiecărui tip de cuptor pentru a face cea mai bună alegere
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-2 gap-8">
+            {/* Cuptor cu Convecție */}
+            <div className="bg-white rounded-2xl p-8 shadow-sm border border-gray-100">
+              <h3 className="text-xl font-bold text-gray-600 mb-6">Cuptor cu Convecție</h3>
+
+              <div className="mb-6">
+                <h4 className="font-semibold text-green-600 mb-3 flex items-center gap-2">
+                  <span className="text-xl">✅</span> Avantaje
+                </h4>
+                <ul className="space-y-2">
+                  <li className="flex items-start gap-2 text-gray-600">
+                    <span className="text-green-500 mt-1">•</span>
+                    <span>Distribuție uniformă a căldurii pe toate nivelurile</span>
+                  </li>
+                  <li className="flex items-start gap-2 text-gray-600">
+                    <span className="text-green-500 mt-1">•</span>
+                    <span>Ideal pentru patiserie și produse de panificație</span>
+                  </li>
+                  <li className="flex items-start gap-2 text-gray-600">
+                    <span className="text-green-500 mt-1">•</span>
+                    <span>Coacere simultană pe multiple niveluri</span>
+                  </li>
+                  <li className="flex items-start gap-2 text-gray-600">
+                    <span className="text-green-500 mt-1">•</span>
+                    <span>Control digital precis al temperaturii</span>
+                  </li>
+                </ul>
+              </div>
+
+              <div>
+                <h4 className="font-semibold text-red-600 mb-3 flex items-center gap-2">
+                  <span className="text-xl">❌</span> Dezavantaje
+                </h4>
+                <ul className="space-y-2">
+                  <li className="flex items-start gap-2 text-gray-600">
+                    <span className="text-red-500 mt-1">•</span>
+                    <span>Consum energetic ridicat (6-18 kW)</span>
+                  </li>
+                  <li className="flex items-start gap-2 text-gray-600">
+                    <span className="text-red-500 mt-1">•</span>
+                    <span>Necesită spațiu dedicat în bucătărie</span>
+                  </li>
+                  <li className="flex items-start gap-2 text-gray-600">
+                    <span className="text-red-500 mt-1">•</span>
+                    <span>Timp de preîncălzire 30-45 minute</span>
+                  </li>
+                </ul>
+              </div>
+            </div>
+
+            {/* Cuptor Combi Steamer */}
+            <div className="bg-white rounded-2xl p-8 shadow-sm border border-gray-100">
+              <h3 className="text-xl font-bold text-gray-600 mb-6">Cuptor Combi Steamer</h3>
+
+              <div className="mb-6">
+                <h4 className="font-semibold text-green-600 mb-3 flex items-center gap-2">
+                  <span className="text-xl">✅</span> Avantaje
+                </h4>
+                <ul className="space-y-2">
+                  <li className="flex items-start gap-2 text-gray-600">
+                    <span className="text-green-500 mt-1">•</span>
+                    <span>Versatilitate maximă (abur + aer cald)</span>
+                  </li>
+                  <li className="flex items-start gap-2 text-gray-600">
+                    <span className="text-green-500 mt-1">•</span>
+                    <span>Programe automate pentru preparate complexe</span>
+                  </li>
+                  <li className="flex items-start gap-2 text-gray-600">
+                    <span className="text-green-500 mt-1">•</span>
+                    <span>Reduce pierderile de greutate cu 20-30%</span>
+                  </li>
+                  <li className="flex items-start gap-2 text-gray-600">
+                    <span className="text-green-500 mt-1">•</span>
+                    <span>Menține textura și nutrienții alimentelor</span>
+                  </li>
+                </ul>
+              </div>
+
+              <div>
+                <h4 className="font-semibold text-red-600 mb-3 flex items-center gap-2">
+                  <span className="text-xl">❌</span> Dezavantaje
+                </h4>
+                <ul className="space-y-2">
+                  <li className="flex items-start gap-2 text-gray-600">
+                    <span className="text-red-500 mt-1">•</span>
+                    <span>Investiție inițială mare (8.000-25.000 EUR)</span>
+                  </li>
+                  <li className="flex items-start gap-2 text-gray-600">
+                    <span className="text-red-500 mt-1">•</span>
+                    <span>Complexitate în operare - necesită training</span>
+                  </li>
+                  <li className="flex items-start gap-2 text-gray-600">
+                    <span className="text-red-500 mt-1">•</span>
+                    <span>Curățare mai dificilă decât cuptorul clasic</span>
+                  </li>
+                </ul>
+              </div>
+            </div>
+
+            {/* Cuptor Pizza */}
+            <div className="bg-white rounded-2xl p-8 shadow-sm border border-gray-100">
+              <h3 className="text-xl font-bold text-gray-600 mb-6">Cuptor Pizza</h3>
+
+              <div className="mb-6">
+                <h4 className="font-semibold text-green-600 mb-3 flex items-center gap-2">
+                  <span className="text-xl">✅</span> Avantaje
+                </h4>
+                <ul className="space-y-2">
+                  <li className="flex items-start gap-2 text-gray-600">
+                    <span className="text-green-500 mt-1">•</span>
+                    <span>Temperaturi foarte înalte (până la 500°C)</span>
+                  </li>
+                  <li className="flex items-start gap-2 text-gray-600">
+                    <span className="text-green-500 mt-1">•</span>
+                    <span>Coacere rapidă (60-90 secunde pentru pizza)</span>
+                  </li>
+                  <li className="flex items-start gap-2 text-gray-600">
+                    <span className="text-green-500 mt-1">•</span>
+                    <span>Design compact - economisește spațiu</span>
+                  </li>
+                  <li className="flex items-start gap-2 text-gray-600">
+                    <span className="text-green-500 mt-1">•</span>
+                    <span>Rezultate autentice pentru pizza și focaccia</span>
+                  </li>
+                </ul>
+              </div>
+
+              <div>
+                <h4 className="font-semibold text-red-600 mb-3 flex items-center gap-2">
+                  <span className="text-xl">❌</span> Dezavantaje
+                </h4>
+                <ul className="space-y-2">
+                  <li className="flex items-start gap-2 text-gray-600">
+                    <span className="text-red-500 mt-1">•</span>
+                    <span>Utilizare limitată la pizza și focaccia</span>
+                  </li>
+                  <li className="flex items-start gap-2 text-gray-600">
+                    <span className="text-red-500 mt-1">•</span>
+                    <span>Consum ridicat de gaz sau curent electric</span>
+                  </li>
+                  <li className="flex items-start gap-2 text-gray-600">
+                    <span className="text-red-500 mt-1">•</span>
+                    <span>Necesită experiență în operare pentru rezultate optime</span>
+                  </li>
+                </ul>
+              </div>
+            </div>
+
+            {/* Salamandru/Grill */}
+            <div className="bg-white rounded-2xl p-8 shadow-sm border border-gray-100">
+              <h3 className="text-xl font-bold text-gray-600 mb-6">Salamandru/Grill</h3>
+
+              <div className="mb-6">
+                <h4 className="font-semibold text-green-600 mb-3 flex items-center gap-2">
+                  <span className="text-xl">✅</span> Avantaje
+                </h4>
+                <ul className="space-y-2">
+                  <li className="flex items-start gap-2 text-gray-600">
+                    <span className="text-green-500 mt-1">•</span>
+                    <span>Încălzire rapidă - gata în 5-10 minute</span>
+                  </li>
+                  <li className="flex items-start gap-2 text-gray-600">
+                    <span className="text-green-500 mt-1">•</span>
+                    <span>Gratinare perfectă și finishing profesional</span>
+                  </li>
+                  <li className="flex items-start gap-2 text-gray-600">
+                    <span className="text-green-500 mt-1">•</span>
+                    <span>Dimensiuni compacte - montare pe perete</span>
+                  </li>
+                  <li className="flex items-start gap-2 text-gray-600">
+                    <span className="text-green-500 mt-1">•</span>
+                    <span>Foarte ușor de utilizat și întreținut</span>
+                  </li>
+                </ul>
+              </div>
+
+              <div>
+                <h4 className="font-semibold text-red-600 mb-3 flex items-center gap-2">
+                  <span className="text-xl">❌</span> Dezavantaje
+                </h4>
+                <ul className="space-y-2">
+                  <li className="flex items-start gap-2 text-gray-600">
+                    <span className="text-red-500 mt-1">•</span>
+                    <span>Capacitate limitată - suprafață mică de lucru</span>
+                  </li>
+                  <li className="flex items-start gap-2 text-gray-600">
+                    <span className="text-red-500 mt-1">•</span>
+                    <span>Nu este versatil - doar gratinare și finishing</span>
+                  </li>
+                  <li className="flex items-start gap-2 text-gray-600">
+                    <span className="text-red-500 mt-1">•</span>
+                    <span>Utilizat doar pentru ultimele faze de preparare</span>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Products Section */}
       {products.length > 0 && (
         <section className="py-16 md:py-20 bg-white">

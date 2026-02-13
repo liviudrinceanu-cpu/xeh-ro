@@ -195,9 +195,172 @@ export default async function EchipamentePizzeriePage() {
         </div>
       </section>
 
+      {/* Avantaje și Dezavantaje Section */}
+      <section className="py-16 md:py-20 bg-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl md:text-4xl font-bold text-gray-600 mb-4">
+              Avantaje și Dezavantaje pe Tipuri de Echipamente
+            </h2>
+            <p className="text-gray-500 max-w-2xl mx-auto">
+              Analizează avantajele și limitările fiecărui tip de echipament pentru pizzerie
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-2 gap-8">
+            {/* Cuptor Pizza Electric */}
+            <div className="bg-white rounded-2xl p-8 shadow-sm border border-gray-100">
+              <h3 className="text-xl font-bold text-gray-600 mb-6">Cuptor Pizza Electric</h3>
+
+              <div className="mb-6">
+                <h4 className="font-semibold text-green-600 mb-3 flex items-center gap-2">
+                  <span className="text-xl">✅</span> Avantaje
+                </h4>
+                <ul className="space-y-2">
+                  <li className="flex items-start gap-2 text-gray-600">
+                    <span className="text-green-500 mt-1">•</span>
+                    <span>Control precis al temperaturii - rezultate consistente</span>
+                  </li>
+                  <li className="flex items-start gap-2 text-gray-600">
+                    <span className="text-green-500 mt-1">•</span>
+                    <span>Ușor de instalat - necesită doar priză electrică</span>
+                  </li>
+                  <li className="flex items-start gap-2 text-gray-600">
+                    <span className="text-green-500 mt-1">•</span>
+                    <span>Curățare simplă - suprafețe netede</span>
+                  </li>
+                  <li className="flex items-start gap-2 text-gray-600">
+                    <span className="text-green-500 mt-1">•</span>
+                    <span>Disponibil în mai multe dimensiuni și capacități</span>
+                  </li>
+                </ul>
+              </div>
+
+              <div>
+                <h4 className="font-semibold text-red-600 mb-3 flex items-center gap-2">
+                  <span className="text-xl">❌</span> Dezavantaje
+                </h4>
+                <ul className="space-y-2">
+                  <li className="flex items-start gap-2 text-gray-600">
+                    <span className="text-red-500 mt-1">•</span>
+                    <span>Consum electric mare (necesită priză trifazată)</span>
+                  </li>
+                  <li className="flex items-start gap-2 text-gray-600">
+                    <span className="text-red-500 mt-1">•</span>
+                    <span>Timp de încălzire mai lung decât pe gaz</span>
+                  </li>
+                  <li className="flex items-start gap-2 text-gray-600">
+                    <span className="text-red-500 mt-1">•</span>
+                    <span>Cost mai mare pe pizza la tarife ridicate energie</span>
+                  </li>
+                </ul>
+              </div>
+            </div>
+
+            {/* Cuptor Pizza pe Gaz */}
+            <div className="bg-white rounded-2xl p-8 shadow-sm border border-gray-100">
+              <h3 className="text-xl font-bold text-gray-600 mb-6">Cuptor Pizza pe Gaz</h3>
+
+              <div className="mb-6">
+                <h4 className="font-semibold text-green-600 mb-3 flex items-center gap-2">
+                  <span className="text-xl">✅</span> Avantaje
+                </h4>
+                <ul className="space-y-2">
+                  <li className="flex items-start gap-2 text-gray-600">
+                    <span className="text-green-500 mt-1">•</span>
+                    <span>Încălzire rapidă - gata în 15-20 minute</span>
+                  </li>
+                  <li className="flex items-start gap-2 text-gray-600">
+                    <span className="text-green-500 mt-1">•</span>
+                    <span>Aromă autentică - gust tradițional pizza napolitană</span>
+                  </li>
+                  <li className="flex items-start gap-2 text-gray-600">
+                    <span className="text-green-500 mt-1">•</span>
+                    <span>Cost mai mic pe pizza - gaz mai ieftin decât energia</span>
+                  </li>
+                  <li className="flex items-start gap-2 text-gray-600">
+                    <span className="text-green-500 mt-1">•</span>
+                    <span>Funcționează și fără curent electric</span>
+                  </li>
+                </ul>
+              </div>
+
+              <div>
+                <h4 className="font-semibold text-red-600 mb-3 flex items-center gap-2">
+                  <span className="text-xl">❌</span> Dezavantaje
+                </h4>
+                <ul className="space-y-2">
+                  <li className="flex items-start gap-2 text-gray-600">
+                    <span className="text-red-500 mt-1">•</span>
+                    <span>Necesită instalație de gaz certificată</span>
+                  </li>
+                  <li className="flex items-start gap-2 text-gray-600">
+                    <span className="text-red-500 mt-1">•</span>
+                    <span>Curățare mai dificilă decât la modelele electrice</span>
+                  </li>
+                  <li className="flex items-start gap-2 text-gray-600">
+                    <span className="text-red-500 mt-1">•</span>
+                    <span>Control mai puțin precis al temperaturii</span>
+                  </li>
+                </ul>
+              </div>
+            </div>
+
+            {/* Masă Refrigerată Pizza */}
+            <div className="bg-white rounded-2xl p-8 shadow-sm border border-gray-100">
+              <h3 className="text-xl font-bold text-gray-600 mb-6">Masă Refrigerată Pizza</h3>
+
+              <div className="mb-6">
+                <h4 className="font-semibold text-green-600 mb-3 flex items-center gap-2">
+                  <span className="text-xl">✅</span> Avantaje
+                </h4>
+                <ul className="space-y-2">
+                  <li className="flex items-start gap-2 text-gray-600">
+                    <span className="text-green-500 mt-1">•</span>
+                    <span>Preparare și refrigerare în același loc</span>
+                  </li>
+                  <li className="flex items-start gap-2 text-gray-600">
+                    <span className="text-green-500 mt-1">•</span>
+                    <span>Economie de spațiu - funcții multiple într-un echipament</span>
+                  </li>
+                  <li className="flex items-start gap-2 text-gray-600">
+                    <span className="text-green-500 mt-1">•</span>
+                    <span>Conformitate HACCP - ingrediente la temperatura corectă</span>
+                  </li>
+                  <li className="flex items-start gap-2 text-gray-600">
+                    <span className="text-green-500 mt-1">•</span>
+                    <span>Topping station integrat pentru eficiență maximă</span>
+                  </li>
+                </ul>
+              </div>
+
+              <div>
+                <h4 className="font-semibold text-red-600 mb-3 flex items-center gap-2">
+                  <span className="text-xl">❌</span> Dezavantaje
+                </h4>
+                <ul className="space-y-2">
+                  <li className="flex items-start gap-2 text-gray-600">
+                    <span className="text-red-500 mt-1">•</span>
+                    <span>Investiție inițială mare (2.000-4.000 EUR)</span>
+                  </li>
+                  <li className="flex items-start gap-2 text-gray-600">
+                    <span className="text-red-500 mt-1">•</span>
+                    <span>Necesită mentenanță periodică a compresorului</span>
+                  </li>
+                  <li className="flex items-start gap-2 text-gray-600">
+                    <span className="text-red-500 mt-1">•</span>
+                    <span>Greutate considerabilă - necesită pardoseală rezistentă</span>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Products Section */}
       {products.length > 0 && (
-        <section className="py-16 md:py-20 bg-white">
+        <section className="py-16 md:py-20">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="flex justify-between items-center mb-8">
               <h2 className="text-2xl md:text-3xl font-bold text-gray-600">

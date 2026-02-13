@@ -96,6 +96,7 @@ const nextConfig = {
               "img-src 'self' data: blob: https://res.cloudinary.com https://rm.rmgastro.com https://redfox.rmgastro.com https://b2b.rmgastro.com https://www.xeh.ro",
               "font-src 'self' https://fonts.gstatic.com",
               "connect-src 'self' https://*.supabase.co https://analytics.ahrefs.com wss://*.supabase.co https://vercel.live",
+              "frame-src 'self' https://www.google.com https://maps.google.com",
               "frame-ancestors 'none'",
               "base-uri 'self'",
               "form-action 'self'",

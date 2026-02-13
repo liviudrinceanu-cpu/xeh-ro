@@ -309,9 +309,8 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
           lastModified: product.updated_at ? new Date(product.updated_at) : new Date(),
           changeFrequency: 'weekly' as const,
           priority: 0.6,
-          ...(product.image_url && {
-            images: [product.image_url],
-          }),
+          // Note: Next.js MetadataRoute.Sitemap doesn't support images field
+          // Google will discover images by crawling the pages
         })
       }
       page++

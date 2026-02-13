@@ -13,7 +13,7 @@ This roadmap delivers critical and high-priority SEO optimizations across two B2
 Decimal phases appear between their surrounding integers in numeric order.
 
 - [x] **Phase 1: Schema Extensions** - Service, areaServed, ContactPage schema on both sites
-- [ ] **Phase 2: E-E-A-T Content** - Author bylines, expert signals, phone consistency
+- [x] **Phase 2: E-E-A-T Content** - Author bylines, expert signals, phone consistency
 - [ ] **Phase 3: Content Clustering** - Related articles, internal linking, GEO content
 - [ ] **Phase 4: Local SEO** - Google Maps embeds, location optimization
 - [ ] **Phase 5: Performance & Monitoring** - Web Vitals tracking, optimization
@@ -43,10 +43,10 @@ Plans:
   2. XEH.ro blog articles include "Articole Similare" section with 3 related articles at bottom
   3. Phone number format is consistent across all InfiniTrade.ro pages (+40 371 232 404)
   4. Landing pages on both sites include expert quotes or testimonial snippets (3+ pages per site)
-**Plans**: TBD
+**Plans**: Direct execution (YOLO mode)
 
 Plans:
-- [ ] 02-01: [To be planned]
+- [x] 02-01: E-E-A-T content on both sites (XEH.ro: bb0c1e5, InfiniTrade.ro: 9158855)
 
 ### Phase 3: Content Clustering
 **Goal**: Build internal linking structure and add GEO-optimized content for AI search visibility
@@ -105,7 +105,7 @@ Phases execute in numeric order: 1 → 2 → 3 → 4 → 5
 | Phase | Plans Complete | Status | Completed |
 |-------|----------------|--------|-----------|
 | 1. Schema Extensions | 1/1 | ✓ Complete | 2026-02-13 |
-| 2. E-E-A-T Content | 0/TBD | Not started | - |
+| 2. E-E-A-T Content | 1/1 | ✓ Complete | 2026-02-13 |
 | 3. Content Clustering | 0/TBD | Not started | - |
 | 4. Local SEO | 0/TBD | Not started | - |
 | 5. Performance & Monitoring | 0/TBD | Not started | - |

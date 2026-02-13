@@ -17,15 +17,15 @@ Requirements for this wave. Each maps to roadmap phases.
 
 ### Content & E-E-A-T
 
-- [ ] **EEAT-01**: XEH.ro blog articles show visible author byline with name, role, photo, and link to /echipa
-- [ ] **EEAT-02**: XEH.ro blog articles include "Articole Similare" section with 3 related articles at bottom
+- [x] **EEAT-01**: XEH.ro blog articles show visible author byline with name, role, photo, and link to /echipa
+- [x] **EEAT-02**: XEH.ro blog articles include "Articole Similare" section with 3 related articles at bottom
 - [ ] **EEAT-03**: InfiniTrade.ro blog articles include internal links to relevant category/brand pages within article content
-- [ ] **EEAT-04**: InfiniTrade.ro phone number format is consistent (+40 371 232 404) across all pages
+- [x] **EEAT-04**: InfiniTrade.ro phone number format is consistent (+40 371 232 404) across all pages
 
 ### GEO (AI Search)
 
 - [ ] **GEO-01**: Both sites have pros/cons lists on at least 3 landing pages each (structured with Avantaje/Dezavantaje headings)
-- [ ] **GEO-02**: Both sites have expert quotes or testimonial snippets on landing pages (from team or clients)
+- [x] **GEO-02**: Both sites have expert quotes or testimonial snippets on landing pages (from team or clients)
 
 ### Local SEO
 
@@ -74,12 +74,12 @@ Which phases cover which requirements. Updated during roadmap creation.
 | SCHEMA-03 | Phase 1 | ✅ Done |
 | SCHEMA-04 | Phase 5 | Pending |
 | SCHEMA-05 | Phase 5 | Pending |
-| EEAT-01 | Phase 2 | Pending |
-| EEAT-02 | Phase 2 | Pending |
+| EEAT-01 | Phase 2 | ✅ Done (pre-existing) |
+| EEAT-02 | Phase 2 | ✅ Done (pre-existing) |
 | EEAT-03 | Phase 3 | Pending |
-| EEAT-04 | Phase 2 | Pending |
+| EEAT-04 | Phase 2 | ✅ Done |
 | GEO-01 | Phase 3 | Pending |
-| GEO-02 | Phase 2 | Pending |
+| GEO-02 | Phase 2 | ✅ Done |
 | LOCAL-01 | Phase 4 | Pending |
 | PERF-01 | Phase 5 | Pending |
 

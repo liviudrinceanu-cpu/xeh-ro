@@ -362,7 +362,7 @@ export default async function MasiniSpalatVasePage() {
                   &bdquo;În proiectele de echipare completă, mașina de spălat vase este adesea subestimată. Dar o mașină profesională spală un coș complet în 60-120 secunde versus 30-60 minute la una casnică. Pentru un restaurant cu 50+ de locuri, recomand modele cu sistem de recuperare căldură &mdash; economisesc până la 20% din costul energetic lunar.&rdquo;
                 </blockquote>
                 <div className="flex items-center gap-2">
-                  <cite className="text-gray-600 font-semibold not-italic">Elena Stanciu</cite>
+                  <cite className="text-gray-600 font-semibold not-italic">E.S.</cite>
                   <span className="text-gray-400">·</span>
                   <span className="text-gray-500 text-sm">Specialist Proiecte, Consultant Echipare Restaurante, XEH.ro</span>
                 </div>

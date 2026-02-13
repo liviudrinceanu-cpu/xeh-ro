@@ -534,7 +534,7 @@ export default async function FrigidereIndustrialePage() {
                   &bdquo;Sistemul de refrigerare este coloana vertebrală a siguranței alimentare în orice bucătărie profesională. Un frigider industrial bun trebuie să mențină temperatura constantă între 0°C și 4°C, chiar și la deschideri frecvente ale ușii. Recomand modele cu compresor inverter &mdash; consumă cu 30% mai puțină energie și au durabilitate de 2-3 ori mai mare.&rdquo;
                 </blockquote>
                 <div className="flex items-center gap-2">
-                  <cite className="text-gray-600 font-semibold not-italic">Andrei Dumitrescu</cite>
+                  <cite className="text-gray-600 font-semibold not-italic">A.D.</cite>
                   <span className="text-gray-400">·</span>
                   <span className="text-gray-500 text-sm">Consultant Vânzări, Expert Refrigerare Profesională, XEH.ro</span>
                 </div>

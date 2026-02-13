@@ -529,7 +529,7 @@ export default async function CuptoareProfesionalePage() {
                   &bdquo;Alegerea cuptorului profesional este cea mai importantă decizie pentru o bucătărie comercială. Un cuptor cu convecție de calitate reduce timpul de gătire cu 25-30% și consumul de energie cu până la 40% față de un cuptor clasic. Recomand întotdeauna clienților să investească în cuptoare cu convecție sau combi steamer &mdash; se amortizează în primul an.&rdquo;
                 </blockquote>
                 <div className="flex items-center gap-2">
-                  <cite className="text-gray-600 font-semibold not-italic">Maria Popescu</cite>
+                  <cite className="text-gray-600 font-semibold not-italic">M.P.</cite>
                   <span className="text-gray-400">·</span>
                   <span className="text-gray-500 text-sm">Director Tehnic, Specialist Echipamente Termice, XEH.ro</span>
                 </div>

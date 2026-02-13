@@ -193,6 +193,56 @@ export default async function MasiniSpalatVasePage() {
         </div>
       </section>
 
+      {/* Comparison Table Section */}
+      <section className="py-16 md:py-20 bg-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <h2 className="text-2xl md:text-3xl font-bold text-gray-600 mb-8 text-center">
+            Comparație Prețuri și Specificații
+          </h2>
+          <div className="overflow-x-auto">
+            <table className="min-w-full text-sm border border-gray-200 rounded-lg overflow-hidden">
+              <thead className="bg-gray-100">
+                <tr>
+                  <th className="px-4 py-3 text-left font-semibold text-gray-700">Tip Mașină</th>
+                  <th className="px-4 py-3 text-left font-semibold text-gray-700">Preț Orientativ</th>
+                  <th className="px-4 py-3 text-left font-semibold text-gray-700">Capacitate</th>
+                  <th className="px-4 py-3 text-left font-semibold text-gray-700">Ciclu</th>
+                </tr>
+              </thead>
+              <tbody className="divide-y divide-gray-200 bg-white">
+                <tr className="hover:bg-gray-50 transition-colors">
+                  <td className="px-4 py-3 font-medium text-gray-600">Front-loading</td>
+                  <td className="px-4 py-3 text-gray-600">2.500 - 5.000 EUR</td>
+                  <td className="px-4 py-3 text-gray-600">20-40 coșuri/oră</td>
+                  <td className="px-4 py-3 text-gray-600">2-3 min</td>
+                </tr>
+                <tr className="hover:bg-gray-50 transition-colors">
+                  <td className="px-4 py-3 font-medium text-gray-600">Hood-type</td>
+                  <td className="px-4 py-3 text-gray-600">5.000 - 10.000 EUR</td>
+                  <td className="px-4 py-3 text-gray-600">60-80 coșuri/oră</td>
+                  <td className="px-4 py-3 text-gray-600">1-2 min</td>
+                </tr>
+                <tr className="hover:bg-gray-50 transition-colors">
+                  <td className="px-4 py-3 font-medium text-gray-600">Glasswasher</td>
+                  <td className="px-4 py-3 text-gray-600">2.000 - 4.000 EUR</td>
+                  <td className="px-4 py-3 text-gray-600">15-25 coșuri/oră</td>
+                  <td className="px-4 py-3 text-gray-600">2 min</td>
+                </tr>
+                <tr className="hover:bg-gray-50 transition-colors">
+                  <td className="px-4 py-3 font-medium text-gray-600">Tunnel</td>
+                  <td className="px-4 py-3 text-gray-600">10.000 - 25.000 EUR</td>
+                  <td className="px-4 py-3 text-gray-600">100-200 coșuri/oră</td>
+                  <td className="px-4 py-3 text-gray-600">Continuu</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <p className="text-center text-gray-500 mt-4 text-sm">
+            * Prețurile sunt orientative și pot varia în funcție de model și specificații
+          </p>
+        </div>
+      </section>
+
       {/* Products Section */}
       {products.length > 0 && (
         <section className="py-16 md:py-20 bg-white">

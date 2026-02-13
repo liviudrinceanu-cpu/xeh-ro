@@ -194,6 +194,62 @@ export default async function FrigidereIndustrialePage() {
         </div>
       </section>
 
+      {/* Comparison Table Section */}
+      <section className="py-16 md:py-20 bg-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <h2 className="text-2xl md:text-3xl font-bold text-gray-600 mb-8 text-center">
+            Comparație Prețuri și Specificații
+          </h2>
+          <div className="overflow-x-auto">
+            <table className="min-w-full text-sm border border-gray-200 rounded-lg overflow-hidden">
+              <thead className="bg-gray-100">
+                <tr>
+                  <th className="px-4 py-3 text-left font-semibold text-gray-700">Tip Echipament</th>
+                  <th className="px-4 py-3 text-left font-semibold text-gray-700">Preț Orientativ</th>
+                  <th className="px-4 py-3 text-left font-semibold text-gray-700">Capacitate</th>
+                  <th className="px-4 py-3 text-left font-semibold text-gray-700">Temperatură</th>
+                </tr>
+              </thead>
+              <tbody className="divide-y divide-gray-200 bg-white">
+                <tr className="hover:bg-gray-50 transition-colors">
+                  <td className="px-4 py-3 font-medium text-gray-600">Frigider Vertical 400L</td>
+                  <td className="px-4 py-3 text-gray-600">1.500 - 3.000 EUR</td>
+                  <td className="px-4 py-3 text-gray-600">400L</td>
+                  <td className="px-4 py-3 text-gray-600">+2°C / +8°C</td>
+                </tr>
+                <tr className="hover:bg-gray-50 transition-colors">
+                  <td className="px-4 py-3 font-medium text-gray-600">Frigider Vertical 700L</td>
+                  <td className="px-4 py-3 text-gray-600">2.500 - 5.000 EUR</td>
+                  <td className="px-4 py-3 text-gray-600">700L</td>
+                  <td className="px-4 py-3 text-gray-600">+2°C / +8°C</td>
+                </tr>
+                <tr className="hover:bg-gray-50 transition-colors">
+                  <td className="px-4 py-3 font-medium text-gray-600">Congelator Industrial</td>
+                  <td className="px-4 py-3 text-gray-600">2.000 - 6.000 EUR</td>
+                  <td className="px-4 py-3 text-gray-600">400-700L</td>
+                  <td className="px-4 py-3 text-gray-600">-18°C / -22°C</td>
+                </tr>
+                <tr className="hover:bg-gray-50 transition-colors">
+                  <td className="px-4 py-3 font-medium text-gray-600">Blast Chiller</td>
+                  <td className="px-4 py-3 text-gray-600">5.000 - 15.000 EUR</td>
+                  <td className="px-4 py-3 text-gray-600">5-20 tăvi</td>
+                  <td className="px-4 py-3 text-gray-600">+70°C → +3°C</td>
+                </tr>
+                <tr className="hover:bg-gray-50 transition-colors">
+                  <td className="px-4 py-3 font-medium text-gray-600">Vitrină Frigorifică</td>
+                  <td className="px-4 py-3 text-gray-600">2.000 - 8.000 EUR</td>
+                  <td className="px-4 py-3 text-gray-600">200-500L</td>
+                  <td className="px-4 py-3 text-gray-600">+2°C / +10°C</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <p className="text-center text-gray-500 mt-4 text-sm">
+            * Prețurile sunt orientative și pot varia în funcție de model și specificații
+          </p>
+        </div>
+      </section>
+
       {/* Products Section */}
       {products.length > 0 && (
         <section className="py-16 md:py-20 bg-white">

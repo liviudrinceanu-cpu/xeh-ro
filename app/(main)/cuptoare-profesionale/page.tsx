@@ -194,6 +194,56 @@ export default async function CuptoareProfesionalePage() {
         </div>
       </section>
 
+      {/* Comparison Table Section */}
+      <section className="py-16 md:py-20 bg-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <h2 className="text-2xl md:text-3xl font-bold text-gray-600 mb-8 text-center">
+            Comparație Prețuri și Specificații
+          </h2>
+          <div className="overflow-x-auto">
+            <table className="min-w-full text-sm border border-gray-200 rounded-lg overflow-hidden">
+              <thead className="bg-gray-100">
+                <tr>
+                  <th className="px-4 py-3 text-left font-semibold text-gray-700">Tip Cuptor</th>
+                  <th className="px-4 py-3 text-left font-semibold text-gray-700">Preț Orientativ</th>
+                  <th className="px-4 py-3 text-left font-semibold text-gray-700">Capacitate</th>
+                  <th className="px-4 py-3 text-left font-semibold text-gray-700">Putere</th>
+                </tr>
+              </thead>
+              <tbody className="divide-y divide-gray-200 bg-white">
+                <tr className="hover:bg-gray-50 transition-colors">
+                  <td className="px-4 py-3 font-medium text-gray-600">Cuptor Convecție 4 tăvi</td>
+                  <td className="px-4 py-3 text-gray-600">2.500 - 4.500 EUR</td>
+                  <td className="px-4 py-3 text-gray-600">4 GN 1/1</td>
+                  <td className="px-4 py-3 text-gray-600">3,5 - 6 kW</td>
+                </tr>
+                <tr className="hover:bg-gray-50 transition-colors">
+                  <td className="px-4 py-3 font-medium text-gray-600">Cuptor Convecție 6-10 tăvi</td>
+                  <td className="px-4 py-3 text-gray-600">4.500 - 12.000 EUR</td>
+                  <td className="px-4 py-3 text-gray-600">6-10 GN 1/1</td>
+                  <td className="px-4 py-3 text-gray-600">6 - 18 kW</td>
+                </tr>
+                <tr className="hover:bg-gray-50 transition-colors">
+                  <td className="px-4 py-3 font-medium text-gray-600">Combi Steamer</td>
+                  <td className="px-4 py-3 text-gray-600">8.000 - 25.000 EUR</td>
+                  <td className="px-4 py-3 text-gray-600">6-20 GN 1/1</td>
+                  <td className="px-4 py-3 text-gray-600">10 - 40 kW</td>
+                </tr>
+                <tr className="hover:bg-gray-50 transition-colors">
+                  <td className="px-4 py-3 font-medium text-gray-600">Cuptor Pizza</td>
+                  <td className="px-4 py-3 text-gray-600">3.000 - 15.000 EUR</td>
+                  <td className="px-4 py-3 text-gray-600">4-12 pizza</td>
+                  <td className="px-4 py-3 text-gray-600">6 - 18 kW</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <p className="text-center text-gray-500 mt-4 text-sm">
+            * Prețurile sunt orientative și pot varia în funcție de model și specificații
+          </p>
+        </div>
+      </section>
+
       {/* Products Section */}
       {products.length > 0 && (
         <section className="py-16 md:py-20 bg-white">

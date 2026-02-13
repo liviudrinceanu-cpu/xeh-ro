@@ -81,14 +81,14 @@ export default function ProductGallery({ images, productTitle }: ProductGalleryP
           <>
             <button
               onClick={goToPrev}
-              aria-label="Imagine anterioară"
+              aria-label="Imaginea anterioară"
               className="absolute left-4 top-1/2 -translate-y-1/2 w-10 h-10 bg-white/80 hover:bg-white rounded-full flex items-center justify-center shadow-md opacity-0 group-hover:opacity-100 transition-opacity"
             >
               <ChevronLeft className="w-6 h-6" />
             </button>
             <button
               onClick={goToNext}
-              aria-label="Imagine următoare"
+              aria-label="Imaginea următoare"
               className="absolute right-4 top-1/2 -translate-y-1/2 w-10 h-10 bg-white/80 hover:bg-white rounded-full flex items-center justify-center shadow-md opacity-0 group-hover:opacity-100 transition-opacity"
             >
               <ChevronRight className="w-6 h-6" />

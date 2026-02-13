@@ -93,6 +93,14 @@ export function OrganizationJsonLd() {
       height: 60,
     },
     description: 'Distribuitor autorizat de echipamente profesionale HoReCa. Branduri premium RM Gastro și REDFOX pentru restaurante, hoteluri și cafenele.',
+    knowsAbout: [
+      'Professional HoReCa Equipment',
+      'Commercial Kitchen Equipment',
+      'Industrial Refrigeration',
+      'Professional Ovens',
+      'Restaurant Equipment',
+      'Food Service Equipment',
+    ],
     contactPoint: {
       '@type': 'ContactPoint',
       telephone: '+40724256250',
@@ -276,7 +284,7 @@ interface ArticleJsonLdProps {
     authorSlug?: string
     authorTitle?: string
     keywords?: string[]
-    articleBody?: string
+    articleBody?: string // First ~500 chars of article content for better SEO
     speakable?: string[] // CSS selectors for speakable content
   }
 }

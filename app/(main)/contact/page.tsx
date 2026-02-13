@@ -144,6 +144,26 @@ export default function ContactPage() {
             </div>
           </div>
         </div>
+
+        {/* Google Maps */}
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-12">
+          <div className="bg-white rounded-2xl shadow-sm overflow-hidden">
+            <div className="p-6 border-b border-gray-100">
+              <h2 className="text-lg font-bold text-gray-600">Locația Noastră</h2>
+              <p className="text-gray-500 text-sm mt-1">Calea Lugojului 47/B, Hala 3, Ghiroda, Timiș 307200</p>
+            </div>
+            <div className="relative w-full" style={{ aspectRatio: '16/9', maxHeight: '450px' }}>
+              <iframe
+                src="https://www.google.com/maps?q=Calea+Lugojului+47B,+Ghiroda,+Timis,+Romania&output=embed"
+                className="absolute inset-0 w-full h-full border-0"
+                allowFullScreen
+                loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
+                title="Locația Driatheli Group SRL - Calea Lugojului 47/B, Ghiroda, Timiș"
+              />
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   )

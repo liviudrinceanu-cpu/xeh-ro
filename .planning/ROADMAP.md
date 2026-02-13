@@ -15,8 +15,8 @@ Decimal phases appear between their surrounding integers in numeric order.
 - [x] **Phase 1: Schema Extensions** - Service, areaServed, ContactPage schema on both sites
 - [x] **Phase 2: E-E-A-T Content** - Author bylines, expert signals, phone consistency
 - [x] **Phase 3: Content Clustering** - Related articles, internal linking, GEO content
-- [ ] **Phase 4: Local SEO** - Google Maps embeds, location optimization
-- [ ] **Phase 5: Performance & Monitoring** - Web Vitals tracking, optimization
+- [x] **Phase 4: Local SEO** - Google Maps embeds, location optimization
+- [x] **Phase 5: Performance & Monitoring** - Web Vitals tracking, optimization
 
 ## Phase Details
 
@@ -70,10 +70,10 @@ Plans:
   1. Both sites have Google Maps embed on contact page showing business location
   2. Maps implementation passes CLS threshold (<0.1) via lazy loading or static fallback
   3. Google Maps API key configured with domain restrictions and quota monitoring
-**Plans**: TBD
+**Plans**: Direct execution (YOLO mode)
 
 Plans:
-- [ ] 04-01: [To be planned]
+- [x] 04-01: Google Maps on both sites (XEH.ro: 8272ee7, InfiniTrade.ro: 054e14c)
 
 ### Phase 5: Performance & Monitoring
 **Goal**: Implement Web Vitals tracking and optimize site performance holistically
@@ -85,10 +85,10 @@ Plans:
   3. XEH.ro category pages include ItemList schema with top products (position ordinals correct)
   4. Lighthouse audit scores improve or maintain on 10 key pages (homepage, contact, landing pages, blog articles)
   5. Web Vitals monitoring dashboard configured with alert thresholds
-**Plans**: TBD
+**Plans**: Direct execution (YOLO mode)
 
 Plans:
-- [ ] 05-01: [To be planned]
+- [x] 05-01: Performance + schema on both sites (XEH.ro: 7a02a47, InfiniTrade.ro: cb533d9)
 
 ## Progress
 
@@ -107,8 +107,8 @@ Phases execute in numeric order: 1 → 2 → 3 → 4 → 5
 | 1. Schema Extensions | 1/1 | ✓ Complete | 2026-02-13 |
 | 2. E-E-A-T Content | 1/1 | ✓ Complete | 2026-02-13 |
 | 3. Content Clustering | 1/1 | ✓ Complete | 2026-02-13 |
-| 4. Local SEO | 0/TBD | Not started | - |
-| 5. Performance & Monitoring | 0/TBD | Not started | - |
+| 4. Local SEO | 1/1 | ✓ Complete | 2026-02-13 |
+| 5. Performance & Monitoring | 1/1 | ✓ Complete | 2026-02-13 |
 
 ---
 *Roadmap created: 2026-02-13*

@@ -12,8 +12,8 @@ Requirements for this wave. Each maps to roadmap phases.
 - [x] **SCHEMA-01**: Both sites render ServiceJsonLd with consultanță, instalare, service offerings linked to Organization @id
 - [x] **SCHEMA-02**: LocalBusiness schema on both sites includes areaServed with 10+ Romanian cities (Timișoara, București, Cluj, Brașov, Iași, Constanța, etc.)
 - [x] **SCHEMA-03**: Contact pages on both sites render ContactPageJsonLd linked to Organization @id
-- [ ] **SCHEMA-04**: XEH.ro products with price ranges use AggregateOffer instead of single Offer
-- [ ] **SCHEMA-05**: XEH.ro CategoryJsonLd includes ItemList with top 10 actual products per category
+- [x] **SCHEMA-04**: XEH.ro products with price ranges use AggregateOffer instead of single Offer
+- [x] **SCHEMA-05**: XEH.ro CategoryJsonLd includes ItemList with top 10 actual products per category
 
 ### Content & E-E-A-T
 
@@ -29,11 +29,11 @@ Requirements for this wave. Each maps to roadmap phases.
 
 ### Local SEO
 
-- [ ] **LOCAL-01**: Both sites have Google Maps embed on contact page showing business location (lazy-loaded to prevent CLS)
+- [x] **LOCAL-01**: Both sites have Google Maps embed on contact page showing business location (lazy-loaded to prevent CLS)
 
 ### Performance
 
-- [ ] **PERF-01**: Both sites report Core Web Vitals (INP, LCP, CLS) via useReportWebVitals to analytics
+- [x] **PERF-01**: Both sites report Core Web Vitals (INP, LCP, CLS) via useReportWebVitals to analytics
 
 ## v2 Requirements
 
@@ -72,16 +72,16 @@ Which phases cover which requirements. Updated during roadmap creation.
 | SCHEMA-01 | Phase 1 | ✅ Done |
 | SCHEMA-02 | Phase 1 | ✅ Done |
 | SCHEMA-03 | Phase 1 | ✅ Done |
-| SCHEMA-04 | Phase 5 | Pending |
-| SCHEMA-05 | Phase 5 | Pending |
+| SCHEMA-04 | Phase 5 | ✅ Done |
+| SCHEMA-05 | Phase 5 | ✅ Done |
 | EEAT-01 | Phase 2 | ✅ Done (pre-existing) |
 | EEAT-02 | Phase 2 | ✅ Done (pre-existing) |
 | EEAT-03 | Phase 3 | ✅ Done |
 | EEAT-04 | Phase 2 | ✅ Done |
 | GEO-01 | Phase 3 | ✅ Done |
 | GEO-02 | Phase 2 | ✅ Done |
-| LOCAL-01 | Phase 4 | Pending |
-| PERF-01 | Phase 5 | Pending |
+| LOCAL-01 | Phase 4 | ✅ Done |
+| PERF-01 | Phase 5 | ✅ Done |
 
 **Coverage:**
 - v1 requirements: 13 total

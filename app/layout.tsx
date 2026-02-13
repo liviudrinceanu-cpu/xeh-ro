@@ -3,6 +3,7 @@ import { Inter } from 'next/font/google'
 import Script from 'next/script'
 import { AuthProvider } from '@/components/providers/AuthProvider'
 import { QuoteCartProvider } from '@/components/providers/QuoteCartProvider'
+import { WebVitalsReporter } from '@/components/WebVitalsReporter'
 import { OrganizationJsonLd, LocalBusinessJsonLd, WebSiteJsonLd } from '@/components/seo/JsonLd'
 import './globals.css'
 
@@ -89,6 +90,7 @@ export default function RootLayout({
         >
           Salt la conținut
         </a>
+        <WebVitalsReporter />
         <OrganizationJsonLd />
         <LocalBusinessJsonLd />
         <WebSiteJsonLd />

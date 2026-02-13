@@ -359,7 +359,7 @@ export default async function MasiniSpalatVasePage() {
               </div>
               <div>
                 <blockquote className="text-gray-600 text-lg italic mb-3">
-                  „În proiectele de echipare completă, mașina de spălat vase este adesea subestimată. Dar o mașină profesională spală un coș complet în 60-120 secunde versus 30-60 minute la una casnică. Pentru un restaurant cu 50+ de locuri, recomand modele cu sistem de recuperare căldură — economisesc până la 20% din costul energetic lunar."
+                  &bdquo;În proiectele de echipare completă, mașina de spălat vase este adesea subestimată. Dar o mașină profesională spală un coș complet în 60-120 secunde versus 30-60 minute la una casnică. Pentru un restaurant cu 50+ de locuri, recomand modele cu sistem de recuperare căldură &mdash; economisesc până la 20% din costul energetic lunar.&rdquo;
                 </blockquote>
                 <div className="flex items-center gap-2">
                   <cite className="text-gray-600 font-semibold not-italic">Elena Stanciu</cite>

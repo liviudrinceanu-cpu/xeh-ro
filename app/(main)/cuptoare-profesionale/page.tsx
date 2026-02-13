@@ -526,7 +526,7 @@ export default async function CuptoareProfesionalePage() {
               </div>
               <div>
                 <blockquote className="text-gray-600 text-lg italic mb-3">
-                  „Alegerea cuptorului profesional este cea mai importantă decizie pentru o bucătărie comercială. Un cuptor cu convecție de calitate reduce timpul de gătire cu 25-30% și consumul de energie cu până la 40% față de un cuptor clasic. Recomand întotdeauna clienților să investească în cuptoare cu convecție sau combi steamer — se amortizează în primul an."
+                  &bdquo;Alegerea cuptorului profesional este cea mai importantă decizie pentru o bucătărie comercială. Un cuptor cu convecție de calitate reduce timpul de gătire cu 25-30% și consumul de energie cu până la 40% față de un cuptor clasic. Recomand întotdeauna clienților să investească în cuptoare cu convecție sau combi steamer &mdash; se amortizează în primul an.&rdquo;
                 </blockquote>
                 <div className="flex items-center gap-2">
                   <cite className="text-gray-600 font-semibold not-italic">Maria Popescu</cite>

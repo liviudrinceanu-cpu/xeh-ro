@@ -16,9 +16,43 @@ interface ProductJsonLdProps {
     url: string
     availability: 'InStock' | 'OutOfStock' | 'PreOrder'
   }
+  // Optional price range for AggregateOffer schema
+  priceRange?: {
+    low: number
+    high: number
+  }
 }
 
-export function ProductJsonLd({ product }: ProductJsonLdProps) {
+export function ProductJsonLd({ product, priceRange }: ProductJsonLdProps) {
+  // Use AggregateOffer when price range is provided, otherwise use single Offer
+  const offerData = priceRange ? {
+    '@type': 'AggregateOffer',
+    url: product.url,
+    priceCurrency: product.currency || 'EUR',
+    lowPrice: priceRange.low,
+    highPrice: priceRange.high,
+    offerCount: 1,
+    availability: `https://schema.org/${product.availability}`,
+    priceValidUntil: '2026-12-31',
+    itemCondition: 'https://schema.org/NewCondition',
+    seller: {
+      '@type': 'Organization',
+      name: 'XEH.ro',
+    },
+  } : {
+    '@type': 'Offer',
+    url: product.url,
+    priceCurrency: product.currency || 'EUR',
+    ...(product.price && { price: product.price }),
+    availability: `https://schema.org/${product.availability}`,
+    priceValidUntil: '2026-12-31',
+    itemCondition: 'https://schema.org/NewCondition',
+    seller: {
+      '@type': 'Organization',
+      name: 'XEH.ro',
+    },
+  }
+
   const jsonLd = {
     '@context': 'https://schema.org',
     '@type': 'Product',
@@ -31,19 +65,7 @@ export function ProductJsonLd({ product }: ProductJsonLdProps) {
       name: product.brand,
     },
     ...(product.image && { image: product.image }),
-    offers: {
-      '@type': 'Offer',
-      url: product.url,
-      priceCurrency: product.currency || 'EUR',
-      ...(product.price && { price: product.price }),
-      availability: `https://schema.org/${product.availability}`,
-      priceValidUntil: '2026-12-31',
-      itemCondition: 'https://schema.org/NewCondition',
-      seller: {
-        '@type': 'Organization',
-        name: 'XEH.ro',
-      },
-    },
+    offers: offerData,
   }
 
   return (
@@ -258,9 +280,17 @@ interface CategoryJsonLdProps {
     url: string
     productCount: number
   }
+  // Optional products array for ItemList schema (top 10 products)
+  products?: Array<{
+    name: string
+    url: string
+    image?: string
+    price?: number
+    currency?: string
+  }>
 }
 
-export function CategoryJsonLd({ category }: CategoryJsonLdProps) {
+export function CategoryJsonLd({ category, products }: CategoryJsonLdProps) {
   const jsonLd = {
     '@context': 'https://schema.org',
     '@type': 'CollectionPage',
@@ -277,6 +307,15 @@ export function CategoryJsonLd({ category }: CategoryJsonLdProps) {
     mainEntity: {
       '@type': 'ItemList',
       numberOfItems: category.productCount,
+      ...(products && products.length > 0 && {
+        itemListElement: products.slice(0, 10).map((product, index) => ({
+          '@type': 'ListItem',
+          position: index + 1,
+          url: product.url,
+          name: product.name,
+          ...(product.image && { image: product.image }),
+        })),
+      }),
     },
   }
 

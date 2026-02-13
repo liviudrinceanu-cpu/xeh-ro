@@ -424,6 +424,22 @@ async function CategoryPage({ brandSlug, categoryPath, page, sort }: { brandSlug
   const baseUrl = getBaseUrl()
   const categoryUrl = `${baseUrl}/${brandSlug}${categoryPath.replace(`/Group/${brandSlug}`, '')}`
 
+  // Prepare products for ItemList schema (top 10)
+  const productsForSchema = products.slice(0, 10).map((product) => {
+    const title = extractProductTitle(product.title_en, product.title_ro, product.model)
+    const productSlugForUrl = product.slug_ro || product.sap_code
+    const productUrl = `${baseUrl}/${brandSlug}/produs/${productSlugForUrl}`
+    const productImage = product.product_images?.find(img => img.is_primary)?.cloudinary_url || product.product_images?.[0]?.cloudinary_url
+
+    return {
+      name: title,
+      url: productUrl,
+      ...(productImage && { image: productImage }),
+      ...(product.price_amount && { price: product.price_amount }),
+      currency: product.price_currency || 'EUR',
+    }
+  })
+
   return (
     <div className="min-h-screen bg-gray-50">
       {/* Schema.org JSON-LD */}
@@ -433,6 +449,7 @@ async function CategoryPage({ brandSlug, categoryPath, page, sort }: { brandSlug
           url: categoryUrl,
           productCount: count,
         }}
+        products={productsForSchema}
       />
       <BreadcrumbJsonLd
         items={breadcrumbItems.map((item) => ({

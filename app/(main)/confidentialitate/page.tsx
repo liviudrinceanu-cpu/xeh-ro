@@ -37,7 +37,7 @@ export default function ConfidentialitatePage() {
         <section className="mb-8">
           <h2 className="text-2xl font-semibold text-gray-600 mb-4">1. Introducere</h2>
           <p>
-            Expert Livius S.R.L., operatorul site-ului XEH.ro, se angajează să protejeze
+            Driatheli Group S.R.L., operatorul site-ului XEH.ro, se angajează să protejeze
             confidențialitatea datelor dumneavoastră personale. Această politică explică
             cum colectăm, utilizăm, stocăm și protejăm informațiile dumneavoastră în
             conformitate cu Regulamentul General privind Protecția Datelor (GDPR).

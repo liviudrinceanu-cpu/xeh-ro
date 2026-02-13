@@ -38,7 +38,7 @@ export default function TermeniPage() {
           <h2 className="text-2xl font-semibold text-gray-600 mb-4">1. Informații Generale</h2>
           <p>
             Prezentul document stabilește termenii și condițiile de utilizare a site-ului XEH.ro,
-            operat de Expert Livius S.R.L. Prin accesarea și utilizarea acestui site,
+            operat de Driatheli Group S.R.L. Prin accesarea și utilizarea acestui site,
             sunteți de acord cu respectarea acestor termeni și condiții.
           </p>
         </section>

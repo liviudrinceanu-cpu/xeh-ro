@@ -3,9 +3,9 @@ import { Users, Package, Clock, Award } from 'lucide-react'
 const stats = [
   {
     icon: Clock,
-    value: '9+',
+    value: '15+',
     label: 'Ani Experiență',
-    description: 'Din 2015 în industria HoReCa',
+    description: 'Din 2009 în industria HoReCa',
   },
   {
     icon: Package,

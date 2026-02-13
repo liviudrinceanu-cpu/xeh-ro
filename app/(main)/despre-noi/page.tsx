@@ -6,7 +6,7 @@ import type { Metadata } from 'next'
 
 export const metadata: Metadata = {
   title: 'Despre Noi | XEH.ro - Distribuitor Autorizat Echipamente HoReCa',
-  description: 'XEH.ro - eXpert Echipamente Horeca. Distribuitor autorizat RM Gastro și REDFOX din 2015. Peste 9 ani experiență, 2600+ produse, livrare în toată România.',
+  description: 'XEH.ro - eXpert Echipamente Horeca. Distribuitor autorizat RM Gastro și REDFOX din 2009. Peste 15 ani experiență, 2600+ produse, livrare în toată România.',
   keywords: [
     'despre xeh.ro',
     'distribuitor horeca romania',
@@ -16,10 +16,10 @@ export const metadata: Metadata = {
   ],
   openGraph: {
     title: 'Despre Noi | XEH.ro - Distribuitor Autorizat HoReCa',
-    description: 'Distribuitor autorizat RM Gastro și REDFOX din 2015. Peste 9 ani experiență în echipamente profesionale HoReCa.',
+    description: 'Distribuitor autorizat RM Gastro și REDFOX din 2009. Peste 15 ani experiență în echipamente profesionale HoReCa.',
     url: 'https://www.xeh.ro/despre-noi',
     images: [{
-      url: 'https://www.xeh.ro/api/og?title=Despre XEH.ro&subtitle=Distribuitor autorizat echipamente HoReCa din 2015&type=page',
+      url: 'https://www.xeh.ro/api/og?title=Despre XEH.ro&subtitle=Distribuitor autorizat echipamente HoReCa din 2009&type=page',
       width: 1200,
       height: 630,
       alt: 'Despre XEH.ro - Distribuitor Autorizat HoReCa',
@@ -28,7 +28,7 @@ export const metadata: Metadata = {
   twitter: {
     card: 'summary_large_image',
     title: 'Despre Noi | XEH.ro - Distribuitor Autorizat HoReCa',
-    description: 'Distribuitor autorizat RM Gastro și REDFOX din 2015.',
+    description: 'Distribuitor autorizat RM Gastro și REDFOX din 2009.',
     images: ['https://www.xeh.ro/api/og?title=Despre XEH.ro&type=page'],
   },
   alternates: {
@@ -137,7 +137,7 @@ export default function DespreNoiPage() {
               Povestea XEH.ro
             </h1>
             <p className="text-xl text-gray-300 mb-8">
-              Din 2015, suntem partenerul de încredere al industriei HoReCa din România.
+              Din 2009, suntem partenerul de încredere al industriei HoReCa din România.
               Oferim echipamente profesionale de calitate superioară, consultanță specializată
               și suport tehnic dedicat pentru restaurante, hoteluri și cafenele.
             </p>

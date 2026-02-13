@@ -60,7 +60,7 @@ export default function Footer() {
             </Link>
             <p className="text-gray-400 text-sm leading-relaxed mt-4">
               eXpert Echipamente Horeca - Distribuitor autorizat de echipamente profesionale
-              pentru industria HoReCa din 2015.
+              pentru industria HoReCa din 2009.
             </p>
             <div className="mt-4 text-xs text-gray-500">
               <p>Driatheli Group SRL</p>

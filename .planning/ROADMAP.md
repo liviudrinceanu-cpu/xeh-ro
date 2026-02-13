@@ -12,7 +12,7 @@ This roadmap delivers critical and high-priority SEO optimizations across two B2
 
 Decimal phases appear between their surrounding integers in numeric order.
 
-- [ ] **Phase 1: Schema Extensions** - Service, areaServed, ContactPage schema on both sites
+- [x] **Phase 1: Schema Extensions** - Service, areaServed, ContactPage schema on both sites
 - [ ] **Phase 2: E-E-A-T Content** - Author bylines, expert signals, phone consistency
 - [ ] **Phase 3: Content Clustering** - Related articles, internal linking, GEO content
 - [ ] **Phase 4: Local SEO** - Google Maps embeds, location optimization
@@ -29,10 +29,10 @@ Decimal phases appear between their surrounding integers in numeric order.
   2. LocalBusiness schema on both sites shows areaServed with 10+ Romanian cities (București, Cluj, Timișoara, Iași, Constanța, Craiova, Brașov, Galați, Ploiești, Oradea)
   3. Contact pages on both sites render ContactPageJsonLd linked to Organization schema
   4. XSS vulnerability testing passes for all dynamic JSON-LD content
-**Plans**: TBD
+**Plans**: Direct execution (YOLO mode)
 
 Plans:
-- [ ] 01-01: [To be planned]
+- [x] 01-01: Schema extensions on both sites (XEH.ro: 1a002ee, InfiniTrade.ro: 984ba27)
 
 ### Phase 2: E-E-A-T Content
 **Goal**: Implement author bylines, expert quotes, and phone consistency for E-E-A-T signals
@@ -104,7 +104,7 @@ Phases execute in numeric order: 1 → 2 → 3 → 4 → 5
 
 | Phase | Plans Complete | Status | Completed |
 |-------|----------------|--------|-----------|
-| 1. Schema Extensions | 0/TBD | Not started | - |
+| 1. Schema Extensions | 1/1 | ✓ Complete | 2026-02-13 |
 | 2. E-E-A-T Content | 0/TBD | Not started | - |
 | 3. Content Clustering | 0/TBD | Not started | - |
 | 4. Local SEO | 0/TBD | Not started | - |

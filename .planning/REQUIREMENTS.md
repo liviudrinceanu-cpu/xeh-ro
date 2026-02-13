@@ -9,9 +9,9 @@ Requirements for this wave. Each maps to roadmap phases.
 
 ### Schema Enhancements
 
-- [ ] **SCHEMA-01**: Both sites render ServiceJsonLd with consultanță, instalare, service offerings linked to Organization @id
-- [ ] **SCHEMA-02**: LocalBusiness schema on both sites includes areaServed with 10+ Romanian cities (Timișoara, București, Cluj, Brașov, Iași, Constanța, etc.)
-- [ ] **SCHEMA-03**: Contact pages on both sites render ContactPageJsonLd linked to Organization @id
+- [x] **SCHEMA-01**: Both sites render ServiceJsonLd with consultanță, instalare, service offerings linked to Organization @id
+- [x] **SCHEMA-02**: LocalBusiness schema on both sites includes areaServed with 10+ Romanian cities (Timișoara, București, Cluj, Brașov, Iași, Constanța, etc.)
+- [x] **SCHEMA-03**: Contact pages on both sites render ContactPageJsonLd linked to Organization @id
 - [ ] **SCHEMA-04**: XEH.ro products with price ranges use AggregateOffer instead of single Offer
 - [ ] **SCHEMA-05**: XEH.ro CategoryJsonLd includes ItemList with top 10 actual products per category
 
@@ -69,9 +69,9 @@ Which phases cover which requirements. Updated during roadmap creation.
 
 | Requirement | Phase | Status |
 |-------------|-------|--------|
-| SCHEMA-01 | Phase 1 | Pending |
-| SCHEMA-02 | Phase 1 | Pending |
-| SCHEMA-03 | Phase 1 | Pending |
+| SCHEMA-01 | Phase 1 | ✅ Done |
+| SCHEMA-02 | Phase 1 | ✅ Done |
+| SCHEMA-03 | Phase 1 | ✅ Done |
 | SCHEMA-04 | Phase 5 | Pending |
 | SCHEMA-05 | Phase 5 | Pending |
 | EEAT-01 | Phase 2 | Pending |
